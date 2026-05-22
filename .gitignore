@@ -1,0 +1,36 @@
+# Build artifacts
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime
+received_messages/
+*.log
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.db
+
+# CAN captures
+captures/
+*.log
+
+# Hardware
+*.stl
+*.obj
