@@ -30,18 +30,24 @@
 | 5 | Reserve | €200-400 | 🔵 Puffer |
 | **Total** | | **€3.500-5.000 MAX** | |
 
-### 📊 Budget-Stand (Chef-Update 2026-05-27)
+### 📊 Budget-Stand (Preis-Jäger + TÜV-Experte Update 2026-05-27)
 
-| | Optimistisch | Realistisch | Budget-Spot | Status |
-|---|---|---|---|---|
-| Phase 1 | €390 | €580 | €500-800 | ✅ Drin |
-| Phase 2 | €690 | €1.000 | €800-1.200 | ⚠️ Oben |
-| Phase 3 | €350 | €680 | €800-1.200 | ✅ Drin |
-| Phase 4 | €580 | €860 | €400-600 | 🔴 ÜBER |
-| Phase 5 | €75 | €145 | €200-400 | ✅ Drin |
-| **GESAMT** | **€2.085** | **€3.265** | **€3.500-5.000** | **✅ DRIN** |
+| | Minimum | STEALTH-Balance | Vollausstattung |
+|---|---|---|---|
+| Bremsen komplett | €300 | €350 | €400 |
+| Zahnriemen-Kit | €125 | €140 | €160 |
+| Service-Teile | €80 | €90 | €110 |
+| Fahrwerk | €490 | €625 | €880 |
+| Optik/Politur | €200 | €300 | €470 |
+| Auspuff | — | €520 | €950 |
+| Interior | €50 | €130 | €200 |
+| TÜV | €150 | €200 | €350 |
+| **TOTAL** | **€1.395** | **€2.355** | **€3.520** |
+| **+ Reserve** | **€2.105-3.605** | **€1.145-2.645** | **€0-1.480** |
 
-> ⚠️ Phase 4 überschreitet Budget wegen Ferrita Auspuff (€450-650). Empfehlung: Auspuff als Phase 6 wenn Reserve reicht.
+> ✅ **Alle 3 Szenarien INNERHALB Budget (€3.500-5.000)!** Siehe BUDGET_TUV_REPORT.md für Details.
+
+> 💡 **Empfehlung**: Szenario B (STEALTH-Balance) = ~€2.355, lässt €1.145-2.645 Reserve!
 
 > Siehe CHIEF_STATUS.md für vollständige Analyse.
 
@@ -71,14 +77,15 @@
 - ✅ Kotflügel-Rost reparieren VOR Polierung
 - ✅ Innenraum: Schaltknauf R-Design, Pedalerie, Lederpflege
 
-## DB-Inventur (2026-05-27)
-63 V50-Teileingänge in der Datenbank (43 eindeutige Teile)
-- ✅ Bremsen: Vollständig (7 Teile)
-- ✅ Fahrwerk: Vollständig (11 Teile inkl. Eibach+Vogtland+KONI+Bilstein)
-- ✅ Motor: Vollständig (19 Teile)
-- ✅ Auspuff: 5 Teile (Ferrita, Eisenmann, Heico)
-- ⚠️ Optik: Fehlen Facelift-Scheinwerfer-Teilenummern, Spiegelkappen, Kotflügel
-- ⚠️ Innenraum: Nur 2 Teile (Knauf+Pedale)
+## DB-Inventur (2026-05-27 aktualisiert)
+77 V50-Teileingänge in der Datenbank (57 eindeutige Teile nach Dedup)
+- ✅ Bremsen: Vollständig (7 Teile) + 3+ Quellen pro Teil
+- ✅ Fahrwerk: Vollständig (8 Teile inkl. Eibach+Vogtland+KONI+Bilstein)
+- ✅ Motor: Vollständig (19 Teile inkl. Timing Belt, VVT, CEM)
+- ✅ Auspuff: 3 Optionen (Ferrita, Eisenmann, Heico) mit TÜV-Status
+- ✅ Optik: 5 Teile (Grill, LED, Lippe, Rücklichter, Polierung)
+- ✅ Interior: 3 Teile (Knauf, Pedale, Lederpflege)
+- ✅ TÜV: Jedes Teil geprüft auf E-Nummer/ABE/Eintragungspflicht
 
 ## Team (Cron-Agenten)
 Siehe TEAM_REQUESTS.md
