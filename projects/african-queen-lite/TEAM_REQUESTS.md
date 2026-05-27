@@ -14,6 +14,10 @@
 
 + 3 generische Forschungs-Agenten (vehicle-research, -community, -specs)
 
+## Skill
+Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar für jedes Fahrzeug-Projekt.
+`skill_view(name='mechanic-tuning-team')`
+
 ## Offene Team-Anfragen
 
 Agenten schreiben hier rein wen sie noch brauchen:
