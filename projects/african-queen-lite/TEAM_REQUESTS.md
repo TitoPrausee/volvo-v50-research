@@ -118,10 +118,23 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Übersetzung**: 15/44 OEM ist OK für Touring. 15/45 für mehr Beschleunigung (±€0 im Set enthalten)
 - **Gewichtsverteilung**: ✅ ERLEDIGT — vorne: ~54%, hinten: ~46% (modifiziert durch LED und Auspuff)
 
-### 🔄 Fahrwerksspezialist benötigt:
-- **Fork-Setup**: RT Emulatoren + 0.55kg/mm Federn als Bundle (~€210). Budget: Wirth Federn + frisches Öl (~€90).
-- **YSS Mono Bracket**: Schweißen erforderlich (~€50-80 beim lokalen Schweißer)
-- **Bremsen**: FA185HH Halbsinter reichen für Adventure. SS-Leitung ist Pflicht. 256mm OEM Scheibe reicht ✅ BESTÄTIGT
+### ✅ Fahrwerksspezialist ERLEDIGT (2026-05-27):
+- **Fork-Setup**: RT FEGV S4101 Emulator (210€) + Wirth 0.55kg/mm Federn (80€) + Motul 5W Öl (17€) = **307€**. Budget-Alternative: Wirth Federn allein (~97€, nur ~40% der Wirkung).
+  - Race Tech Bundle (Emulator+RT Federn) = 268€ bei LM.de → Wirth separat (290€) = kein Bundle-Vorteil
+  - ❌ FEGV S4101D Dual-Rate (244€) = OVERKILL für NX650, standard S4101 reicht
+- **Heck**: YSS Z-366 Mono (279€) + Bracket (45€) + Schweißen (50-80€) = **~374€** ✅ BESTE Wahl
+  - Budget-Alt: YSS Z367 Twin (169€, Direkt-Bolt-on, +0.3kg schwerer, weniger Leistung)
+  - Hagon Nitrostar Twin (175€) = Alternative zu YSS Twin
+  - ❌ Öhlins = NICHT verfügbar für NX650! Custom only, 800€+
+  - ❌ Wilbers = Custom Bestellung, 500-700€, über Budget
+- **Bremsen**: EBC FA185HH (25€) + Venhill SS Leitung (47€) + ATE TYP200 DOT4 (10€) = **82€** ⭐ BESTES Preis/Leistung
+  - 260mm Disc Kit = ❌ SCHLECHTES Preis/Leistung (350€ für +1.5% Bremsmoment)
+  - OEM 256mm Scheibe reicht für 161kg Bike!
+  - Hintere Trommelbremse: EBC 396 Schuhe (16€), kein Upgrade nötig
+- **Reifen**: Mitas E-07 Set (177€) + HD-Schläuche (40€) = **~217€** ⭐ BEST VALUE
+  - Alternativ: Shinko 804/805 (146€, kürzere Haltbarkeit), Heidenau K60 (262€, beste Haltbarkeit aber schlechte Nässe)
+  - ⚠️ NX650 hat Speichenfelgen = SCHLAUCH-PFLICHT!
+- **Phase 2 Total**: ~980€ (Option A Optimal) → **220€ Reserve** ✅
 
 ### 🔄 Elektrik-Spezialist benötigt:
 - **LED-Last**: 7" H4 LED zieht ~15W (nicht 40W wie ursprünglich geschätzt). OEM Stator liefert 180W → mit FH020AA und RM Stator 200W: ausreichend Reserve. ✅
