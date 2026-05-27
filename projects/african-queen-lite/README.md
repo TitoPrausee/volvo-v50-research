@@ -15,34 +15,79 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 ## Budget: 5.000€ HARD CAP — So viel erreichen wie möglich, kein Cent verschwenden!
 
-| Phase | Fokus | Budget | Priorität |
-|-------|-------|--------|-----------|
-| 1 | Motorlauf & Sicherheit (MUSS) | €400-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung |
-| 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch | Das wichtigste für Kurven+Schotter |
-| 3 | Africa Twin Look + Sound | €500-600 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, Auspuff (nur Optik+Gewicht) |
-| 4 | Touring-Komfort | €200-500 | 🟢 Nice-to-have | Heizgriffe, USB, Träger |
-| 5 | Reserve | €500+ | 🔵 Puffer | Unvorhergesehenes |
-| **Total** | | **€5.000 MAX** | |
+|| Phase | Fokus | Budget | Priorität ||
+||-------|-------|--------|----------- ||
+|| 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung ||
+|| 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch | Das wichtigste für Kurven+Schotter ||
+|| 3 | Africa Twin Look + Sound | €800-1.200 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, **Auspuff + Luftfilter** ||
+|| 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have | Heizgriffe, USB, Träger ||
+|| 5 | Reserve | €200-500 | 🔵 Puffer | Unvorhergesehenes ||
+|| **Total** | | **€5.000 MAX** | ||
 
 **Prinzip**: Jeder Euro muss Leistung bringen. Lieber weniger Teile von guter Qualität als mehr Teile von schlechter.
 
-**Budget-Report**: Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md) — 3 Build-Optionen von €1.600 bis €4.200
-
 ## Gewichtsbilanz
-Siehe [WEIGHT_BALANCE.md](./WEIGHT_BALANCE.md)
+|| Position | OEM (kg) | Nach Bau (kg) | Δ ||
+||----------|----------|---------------|---||
+|| Basis NX650 | 161 | 161 | 0 ||
+|| Batterie LiFePO4 | -3.2 | -1.2 | -2.0 ||
+|| Auspuff Collector-Box | +8 | +5 (SS) | -3.0 ||
+|| LED Scheinwerfer | -2.5 | -1.5 | -1.0 ||
+|| LED Blinker+Rücklicht | -1.0 | -0.3 | -0.7 ||
+|| Gabel+Emulatoren | +0.5 | +0.5 | 0 ||
+|| YSS Federbein | +5.5 | +4.2 | -1.3 ||
+|| Heckträger Alu | 0 | +1.5 | +1.5 ||
+|| **Ziel gesamt** | **~175** | | ||
+
+## Projektstruktur
+
+```
+african-queen-lite/
+├── README.md              ← This file
+├── TEAM_REQUESTS.md       ← Team communication hub
+├── WEIGHT_BALANCE.md      ← Weight tracking
+├── dashboard/             ← ESP32 Ride-Mode Controller (PlatformIO)
+│   ├── platformio.ini     ← Board config, libraries
+│   ├── src/
+│   │   ├── main.cpp       ← Main program, mode switching, display loop
+│   │   ├── modes.h        ← 6 ride modes with parameter sets
+│   │   ├── cdi_controller.h   ← Ignition timing control (Map A/B select)
+│   │   ├── exhaust_valve.h    ← Servo PWM for exhaust valve
+│   │   ├── airbox.h           ← Servo PWM for airbox resonance flap
+│   │   ├── sensors.h          ← RPM, temp, voltage, oil pressure sensing
+│   │   ├── display.h          ← SSD1306 OLED 128x64 rendering
+│   │   ├── bluetooth.h        ← NimBLE service for smartphone logging
+│   │   └── led_indicator.h    ← WS2812 RGB LED mode indicator
+│   ├── hardware/
+│   │   └── WIRING.md       ← Pin mappings, circuits, enclosure notes
+│   └── RESEARCH.md          ← Research findings (MCU, servo, CDI, StVZO)
+└── tracker/                ← Build tracker web app (Python/Flask)
+    ├── app.py              ← Dashboard server (port 5050)
+    └── requirements.txt
+```
+
+## Ride-Mode Controller — 6 Modi
+
+| Mode | Zündung | Valve | Airbox | LED | Charakter |
+|------|---------|-------|--------|-----|-----------|
+| STRASSE | 0° | 50% | 50% | 🟢 Grün | Ausgewogen, moderater Sound |
+| STADT | -2° | 20% | 30% | 🔵 Blau | Leise, spritsparend |
+| GELÄNDE | +2° | 100% | 100% | 🔴 Rot | Aggressiv, volle Leistung |
+| SPORT | +3° | 100% | 100% | 🟠 Orange | Scharf, sportlich |
+| COMFORT | -1° | 40% | 40% | 🟣 Lila | Sanft, cruisen |
+| SOUND | +1° | 100% | 80% | 🔵 Türkis | Best Sound, nicht max Leistung |
+
+## Hardware
+
+- **MCU:** ESP32 DevKit (WiFi + BLE, 34 GPIO, 240MHz dual-core)
+- **Display:** SSD1306 1.3" OLED (128×64, I²C) — sonnenlichtlesbar
+- **LED:** WS2812 RGB (1 LED, Modus-Farbe)
+- **Servos:** MG996R (Prototyp) → später Pololu 37D Gearmotor + AS5600
+- **CDI:** Ignitech DC-CDI-P2 (Map A/B via GPIO)
+- **Switches:** 2× Cyclops Adventure Switch (Mode+/Mode-), IP68
+- **Gehäuse:** 3D-gedruckt PETG, IP67 mit Dichtung, Lenker-Halterung
 
 ## DB
 Alle Daten in: `research/vehicle_database.db`
 - Variant ID: 5 (NX650 Dominator RFVC)
 - Build Guide: "African Queen Lite"
-- 55 Teile im System (nach Bereinigung)
-
-## GESTRICHENE Teile (KEINE Leistungssteigerung!)
-- ❌ Aftermarket CDI Unit — 44PS reichen
-- ❌ FMF PowerCore 4 — Leistungs-Auspuff, nicht nötig
-- ❌ Big Bore Kits — KEINE Leistungssteigerung
-- ❌ Polestar/Volvo Tuning — falsches Fahrzeug (V50)
-
-## Empfohlene Build-Option
-**Option A (Optimal): ~€2.500** — YSS Mono, RT Emulatoren, Mitas E-07, DIY-Optik
-→ Unter Budget mit €2.500 Reserve für Unvorhergesehenes!
