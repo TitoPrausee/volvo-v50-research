@@ -26,6 +26,7 @@ __pycache__/
 *.pyc
 .venv/
 *.db
+!vehicle_database.db
 
 # CAN captures
 captures/
