@@ -53,10 +53,20 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Sitzbank**: Flach umpolstern lassen → lokaler Sattler (~€80-150)
 - **Auspuff-Look**: SS Header (edel) + Carbon/Alu Slip-on → Adventure-Racing-Look
 
-### 🔄 Entwickler benötigt:
-- **UI/UX-Feedback**: Build-Tracker als Web-Dashboard → Zukünftig
-- **ESP32-Dashboard**: Siehe oben, nicht Phase 1-4
-- **Gebrauchtteile-Scout**: eBay.de/Kleinanzeigen für Engine Guard, Auspuff, Sitzbank → Budget-Hunter hat recherchiert ✅
+### ✅ Entwickler ERLEDIGT (dieser Run):
+- **ESP32 Ride-Mode Controller**: Komplett implementiert! 6 Modi, Sensor-Support, BLE, OLED Display ✅
+  - `dashboard/src/` — 8 Module, 1360 Zeilen Code, PlatformIO Projekt
+  - `dashboard/hardware/WIRING.md` — Pin-Mapping, Schaltpläne, Stromversorgung
+  - `dashboard/RESEARCH.md` — ESP32 vs Arduino vs Teensy, EXUP, CDI, StVZO, Switches, Displays
+- **Build Tracker**: Flask Web-Dashboard (Port 5050) ✅
+  - `tracker/app.py` — Budget, Gewicht, Modi, Sensor-Übersicht
+- **StVZO Recherche**: Programmierbare Zündung (Grauzone), Exhaust Valve (Track-only), Display (OK)
+- **Hardware Empfehlungen**: Cyclops Switches, Ignitech DC-CDI-P2, Pololu 37D Gearmotor + AS5600 (statt RC-Servo)
+
+### 🔄 Entwickler benötigt (noch offen):
+- **3D-Druck Gehäuse**: CAD-Modell für IP67 ESP32-Gehäuse am Lenker
+- **PCB Layout**: Custom ESP32 Shield (Stromversorgung, Servo-Treiber, Sensor-Inputs)
+- **Smartphone App**: BLE-Client für Android/iOS (Logging + Mode-Switch)
 
 ### 🔄 Motor/Antrieb benötigt:
 - **Vergaser VE82M**: All Balls Kit (€28-35) reicht für Rebuild. Nebel und Unterdruckschläuche prüfen!
