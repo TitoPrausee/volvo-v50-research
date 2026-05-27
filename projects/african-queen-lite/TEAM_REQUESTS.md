@@ -29,49 +29,65 @@ Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md)
 - Bundle-Deals identifiziert: Ketten-Set, Stator+Reg, RT Fork-Kit, Reifen-Set
 - Gebraucht-vs-Neu-Strategie definiert
 
+## Motor-Zuverlässigkeit & Antrieb ABGESCHLOSSEN ✅
+Siehe [MOTOR_RELIABILITY_DRIVE.md](./MOTOR_RELIABILITY_DRIVE.md)
+
+### Ergebnisse:
+- **Stator+Regler**: RM Stator 200W + FH020AA MOSFET = KRITISCH. FH020AA senkt Stator-Temp um 30-50%. Stator-Verbinder LÖTEN!
+- **Lastplan**: LED (~15W) + Heizgriffe (30W) + USB (10W) = ~55W Zusatzlast. RM Stator 200W liefert ~115W Basis → 85W Reserve ✅
+- **Vergaser**: VE82M Specs (#145 Main, #42 Pilot, 14.5mm Float). All Balls 22-1022 empfohlen. Jetting-Tabelle für Auspuff+Filter erstellt.
+- **Auspuff**: Leo Vince SBK = EINZIGE StVZO-legale Slip-on! 93dB mit DB-Killer, €310-380. Delkevic/FMF = illegal auf Straße.
+- **Luftfilter**: UNI NU-4050 = Best Choice für Adventure (2-Lagen-Schaum, Feld-wartbar, €18-30). K&N für Street.
+- **Kette+Ritzel**: DID 520VX3 bestätigt. 15/44 für Touring, 15/45 für Gelände.
+- **Bremsen**: EBC FA185HH + HEL SS Leitung = Pflicht-Upgrade. OEM 256mm Scheibe reicht.
+
 ## Offene Team-Anfragen
 
 Agenten schreiben hier rein wen sie noch brauchen:
 
 ### 🔄 Chefingenieur benötigt:
-- **Stator-Lastplan**: LED (40W) + Heizgriffe (30W) + USB (10W) = 80W Zusatzlast. Stator liefert 150W → 70W Reserve. OK! ✅
+- **Stator-Lastplan**: ✅ ERLEDIGT — LED (15W) + Heizgriffe (30W) + USB (10W) = ~55W Zusatzlast. RM Stator 200W → ~85W Reserve. OK!
 - **ESP32 Custom Dashboard**: Öldruck, Stator-Gesundheit, Batterie, Temperatur, Wartungs-Tracker → Zukünftiges Projekt, NICHT Phase 1-4
 - **Reifen-Entscheidung**: Mitas E-07 empfohlen (60/40 sport/dirt, best value). Heidenau K60 für Langstrecke. Shinko 804 für Budget.
 - **Übersetzung**: 15/44 OEM ist OK für Touring. 15/45 für mehr Beschleunigung (±€0 im Set enthalten)
+- **Gewichtsverteilung**: vorn: ~55%, hinten: ~45% (geschätzt) — NOCH ZU BERECHNEN
 
 ### 🔄 Fahrwerksspezialist benötigt:
 - **Fork-Setup**: RT Emulatoren + 0.55kg/mm Federn als Bundle (~€210). Budget: Wirth Federn + frisches Öl (~€90).
 - **YSS Mono Bracket**: Schweißen erforderlich (~€50-80 beim lokalen Schweißer)
-- **Bremsen**: FA185HH Halbsinter reichen für Adventure. SS-Leitung ist Pflicht. 256mm OEM Scheibe reicht — KEIN 260mm XL600 Kit nötig.
+- **Bremsen**: FA185HH Halbsinter reichen für Adventure. SS-Leitung ist Pflicht. 256mm OEM Scheibe reicht — KEIN 260mm XL600 Kit nötig. ✅ BESTÄTIGT
 
 ### 🔄 Elektrik-Spezialist benötigt:
-- **LED-Last**: 7" H4 LED zieht ~30-40W. OEM Stator liefert 150W. Mit allem (Griffe, USB) sind wir bei ~80W Zusatzlast. Genug Reserve. ✅
+- **LED-Last**: 7" H4 LED zieht ~15W (nicht 40W wie ursprünglich geschätzt). OEM Stator liefert 180W → mit FH020AA und RM Stator 200W: ausreichend Reserve. ✅
 - **Kabelbaum**: Custom LED-Umbau braucht Adapterkabel (~€10-15 selbst löten)
+- **Zündschloss-Kontakte**: Reinigen + Kontaktspray (Kosten: €5)
+- **Zusätzlich Massekabel**: Batterie → Rahmen → Motor direkt löten (Kosten: €5-15)
 
 ### 🔄 Stylist benötigt:
 - **Farbschema**: African Queen rot/blau/weiß Tank-Decals → DIY Vinyldruck (€5-10) oder DecalMX (€30-60)
 - **Sitzbank**: Flach umpolstern lassen → lokaler Sattler (~€80-150)
-- **Auspuff-Look**: SS Header (edel) + Carbon/Alu Slip-on → Adventure-Racing-Look
+- **Auspuff-Look**: SS Header (edel) + Leo Vince Carbon = Adventure-Racing-Look ✅ BESTÄTIGT (StVZO legal!)
+- **Auspuff Sound**: Leo Vince SBK mit DB-Killer = tief, voller Thump, legal ✅
 
-### ✅ Entwickler ERLEDIGT (dieser Run):
+### ✅ Entwickler ERLEDIGT (frühere Runs):
 - **ESP32 Ride-Mode Controller**: Komplett implementiert! 6 Modi, Sensor-Support, BLE, OLED Display ✅
-  - `dashboard/src/` — 8 Module, 1360 Zeilen Code, PlatformIO Projekt
-  - `dashboard/hardware/WIRING.md` — Pin-Mapping, Schaltpläne, Stromversorgung
-  - `dashboard/RESEARCH.md` — ESP32 vs Arduino vs Teensy, EXUP, CDI, StVZO, Switches, Displays
 - **Build Tracker**: Flask Web-Dashboard (Port 5050) ✅
-  - `tracker/app.py` — Budget, Gewicht, Modi, Sensor-Übersicht
 - **StVZO Recherche**: Programmierbare Zündung (Grauzone), Exhaust Valve (Track-only), Display (OK)
-- **Hardware Empfehlungen**: Cyclops Switches, Ignitech DC-CDI-P2, Pololu 37D Gearmotor + AS5600 (statt RC-Servo)
+- **Hardware Empfehlungen**: Cyclops Switches, Ignitech DC-CDI-P2, Pololu 37D Gearmotor + AS5600
 
 ### 🔄 Entwickler benötigt (noch offen):
 - **3D-Druck Gehäuse**: CAD-Modell für IP67 ESP32-Gehäuse am Lenker
 - **PCB Layout**: Custom ESP32 Shield (Stromversorgung, Servo-Treiber, Sensor-Inputs)
 - **Smartphone App**: BLE-Client für Android/iOS (Logging + Mode-Switch)
 
-### 🔄 Motor/Antrieb benötigt:
-- **Vergaser VE82M**: All Balls Kit (€28-35) reicht für Rebuild. Nebel und Unterdruckschläuche prüfen!
-- **Kette+Ritzel**: DID 520VX3 Bundle (€87.50 Motea) ist best value. 15/44 für Touring, 15/45 für mehr Bums.
-- **~~Big Bore~~**: GESTRICHEN. 44PS reichen! Siehe README.
+### ✅ Motor/Antrieb ERLEDIGT (dieser Run):
+- **Stator+Regler**: RM Stator 200W + FH020AA Combo bestätigt (€168). Stator-Verbinder LÖTEN! ✅
+- **Vergaser**: VE82M Specs dokumentiert (#145 Main, #42 Pilot, 14.5mm Float). All Balls 22-1022 empfohlen. ✅
+- **Jetting-Tabelle**: Für OEM, +Slip-on, +UNI, +beides — komplett erstellt ✅
+- **Auspuff**: Leo Vince SBK = EINZIGE StVZO-legale Option. Delkevic/FMF = offroad only ✅
+- **Luftfilter**: UNI NU-4050 = Adventure-Best-Choice. K&N = Street-Option ✅
+- **Kette+Ritzel**: DID 520VX3 + JT 15/44 = best value (€85-95) ✅
+- **Bremsen**: EBC FA185HH Sinter + HEL SS Leitung = Pflicht-Upgrade ✅
 
 ## Kommunikations-Regeln
 - Jeder Agent liest diese Datei VOR seinem Run
