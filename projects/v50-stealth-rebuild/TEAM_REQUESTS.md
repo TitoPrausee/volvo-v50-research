@@ -36,3 +36,10 @@
 
 ### 🔄 Motor braucht:
 - **Polestar-Experte**: Welches Chiptuning ist TÜV-eintragbar für B5244S?
+
+### 🔄 Developer braucht:
+- **V50-Baujahr-Identifikation**: Pre-Facelift (2004-2007) oder Facelift (2008-2012)? CAN-IDs unterscheiden sich!
+- **Bremsdruck CAN-ID**: 0x0E8 (UNVERIFIED) — braucht physikalische Verifikation im V50
+- **ABS Radgeschwindigkeiten**: 0x0D4-0x0D7 (UNVERIFIED) — braucht Sniffer-Logging
+- **Lenkwinkel CAN-ID**: 0x128 (UNVERIFIED) — braucht Verifikation
+- **PiCAN2 Hardware**: Besorgen und Erst-Test mit candump can0

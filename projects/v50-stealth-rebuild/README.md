@@ -96,9 +96,26 @@ Siehe TEAM_REQUESTS.md
 - Fahrwerk: -30mm, sportlicher aber comfortabel
 - Bremsen: OEM-Größe aber HH-Beläge + SS-Leitungen = deutlich besserer Pedaldruck
 
+## 🔧 CAN-Bus & Digital (NEU 2026-05-27)
+- ✅ Pi4 + PiCAN2 Duo HAT (~€90) — 2-Kanal CAN-Bus
+- ✅ 34+12 CAN-Messages dekodiert (46 total, 67 Signale)
+- ✅ High-Speed CAN (500kbps): Motor, ABS, TCM, OBD2
+- ✅ Low-Speed CAN (125kbps): CEM, DIM, Türen, Klima
+- ✅ Custom Dashboard (PyQt5): RPM, km/h, Temp, Tank, Warnungen
+- ✅ DTC-Reader: Ersetzt teures VIDA für Basis-Diagnose
+- ✅ Wartungs-Tracker: km-basierte Intervalle (Öl, Zahnriemen, etc.)
+- ✅ Stealth-Modus: Spacebar → OEM-Anzeige, Custom verborgen
+- ✅ Day/Night Auto-Dimming (LDR-Option)
+- ⚠️ Bremsdruck, ABS, Lenkwinkel CAN-IDs noch UNVERIFIED
+- ⚠️ V50-Baujahr muss identifiziert werden (Pre-FL vs FL → andere CAN-IDs!)
+- Siehe `CANBUS_DEV_REPORT.md` — vollständiger Entwickler-Status
+- Siehe `hardware/HARDWARE_SETUP.md` — PiCAN2 Installationsanleitung
+
 ## Berichte
 - `BUDGET_TUV_REPORT.md` — Preise + TÜV-Analyse (vollständig)
 - `ENGINE_REPORT.md` — Motor-Analyse (vollständig)
 - `EXTERIOR_OPTICS_REPORT.md` — Optik & Detail (vollständig)
 - `FRONT_LIP_SEARCH.md` — Frontstoßfänger-Lippe Suche
 - `CHIEF_STATUS.md` — Chef-Update mit Kompatibilität + Budget-Status (NEU 2026-05-27)
+- `CANBUS_DEV_REPORT.md` — CAN-Bus & Software Entwickler-Status (NEU 2026-05-27)
+- `hardware/HARDWARE_SETUP.md` — Pi4+PiCAN2 Hardware-Installation (NEU 2026-05-27)
