@@ -25,6 +25,7 @@ Agenten schreiben hier rein wen sie noch brauchen:
 ### 🔄 Chefingenieur benötigt:
 - **Langlebigkeit per Software**: ESP32 Custom Dashboard → Öldruck, Stator-Gesundheit, Batterie, Temperatur, Wartungs-Tracker, Bluetooth-Logging, Early-Warning-System
 - **Sound per Software**: Programmierbare CDI für sanfteren Lauf, Exhaust Valve Control (Arduino/PWM), Ansaug-Tuning
+- **Ride-Mode Controller**: Arduino/ESP32 Controller mit Display — während der Fahrt zwischen Maps wechseln: Straße, Stadt, Gelände, Sport, Comfort, Sound
 - **Reifen-Experte**: Mitas E-07 vs Heidenau K60 vs Shinko 804 — für Sport+Gelände+Tour
 
 ### 🔄 Fahrwerksspezialist benötigt:
