@@ -144,7 +144,7 @@ public:
     // Gear shift (called from encoder or button)
     void gearUp() {
         if (current_gear_ < 4) current_gear_++;
-        Serial.printf("[GEAR] → %d\n", current_gard_ + 1);
+        Serial.printf("[GEAR] → %d\n", current_gear_ + 1);
     }
     void gearDown() {
         if (current_gear_ > 0) current_gear_--;

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-African Queen Lite — Build Tracker Web App
+African Queen Lite — Build Tracker Web App v2.0
 Reads from vehicle_database.db and serves a dashboard.
+v2.0: Added ride-mode controller section with mode parameters,
+      longevity monitoring, and hardware status.
 Run: python3 app.py
 Open: http://localhost:5050
 """
@@ -15,7 +17,63 @@ DB_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'research', 
 app = Flask(__name__)
 
 # ============================================================
-# HTML Template — Dark Theme Dashboard
+# Ride Mode Controller Configuration (matches ESP32 firmware)
+# ============================================================
+RIDE_MODES = {
+    "STRASSE": {
+        "color": "#00FF00", "ignition_offset": 0, "valve_percent": 50,
+        "airbox_percent": 50, "idle_rpm": 1300, "rev_limit": 7000,
+        "sweep_rate": 3, "throttle_curve": "LINEAR",
+        "description": "Ausgewogen, gute Leistung, moderater Sound, verbrauchsoptimiert"
+    },
+    "STADT": {
+        "color": "#0064FF", "ignition_offset": -2, "valve_percent": 20,
+        "airbox_percent": 30, "idle_rpm": 1200, "rev_limit": 6500,
+        "sweep_rate": 2, "throttle_curve": "SOFT",
+        "description": "Sanfter Anfahrt, leise (Exhaust Valve geschlossen), spritsparend"
+    },
+    "GELÄNDE": {
+        "color": "#FF3232", "ignition_offset": 2, "valve_percent": 100,
+        "airbox_percent": 100, "idle_rpm": 1400, "rev_limit": 7500,
+        "sweep_rate": 6, "throttle_curve": "AGGRESSIVE",
+        "description": "Aggressiver Zündzeitpunkt, volle Leistung, Drehzahl-hoch-halten"
+    },
+    "SPORT": {
+        "color": "#FFA500", "ignition_offset": 3, "valve_percent": 100,
+        "airbox_percent": 100, "idle_rpm": 1350, "rev_limit": 7500,
+        "sweep_rate": 8, "throttle_curve": "AGGRESSIVE",
+        "description": "Volle Leistung, scharfer Zündzeitpunkt, sportlicher Sound"
+    },
+    "COMFORT": {
+        "color": "#9400FF", "ignition_offset": -1, "valve_percent": 40,
+        "airbox_percent": 40, "idle_rpm": 1250, "rev_limit": 6500,
+        "sweep_rate": 2, "throttle_curve": "SOFT",
+        "description": "Weicher Zündzeitpunkt, leise, sanfte Gasannahme, cruisen"
+    },
+    "SOUND": {
+        "color": "#00FFFF", "ignition_offset": 1, "valve_percent": 100,
+        "airbox_percent": 80, "idle_rpm": 1300, "rev_limit": 7000,
+        "sweep_rate": 5, "throttle_curve": "PROGRESSIVE",
+        "description": "Reiner Sound-Modus! Zündung für besten Sound optimiert"
+    },
+}
+
+# Longevity monitoring thresholds
+HEALTH_THRESHOLDS = {
+    "temp_warning": 115, "temp_critical": 125,
+    "voltage_low": 11.5, "voltage_high": 15.5,
+    "stator_healthy": 13.0, "stator_warn": 12.5,
+    "rpm_redline": 7500,
+}
+
+MAINT_INTERVALS = {
+    "Oil Change": 6000, "Valve Adjust": 12000,
+    "Air Filter": 12000, "Spark Plug": 12000,
+    "Drive Chain": 15000, "Tire Check": 1000,
+}
+
+# ============================================================
+# HTML Template — Dark Theme Dashboard v2.0
 # ============================================================
 DASHBOARD_HTML = """
 <!DOCTYPE html>
@@ -23,7 +81,7 @@ DASHBOARD_HTML = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏍️ African Queen Lite — Build Tracker</title>
+    <title>🏍️ African Queen Lite — Build Tracker v2.0</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'SF Mono', 'Fira Code', monospace; background: #0a0a0a; color: #e0e0e0; }
@@ -51,239 +109,195 @@ DASHBOARD_HTML = """
         .weight-delta { color: #4ecdc4; }
         .weight-delta.neg { color: #ff6b35; }
         .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .mode-card { background: #222; border-radius: 6px; padding: 10px; text-align: center; }
-        .mode-name { font-size: 13px; font-weight: bold; }
-        .mode-params { font-size: 10px; color: #888; margin-top: 4px; }
-        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
-        .alert { background: #3d0c0c; border: 1px solid #ff4444; border-radius: 6px; padding: 10px; margin-top: 10px; color: #ff4444; }
-        .footer { text-align: center; color: #444; font-size: 11px; margin-top: 30px; padding-bottom: 20px; }
+        .mode-card {
+            background: #111; border: 1px solid #333; border-radius: 6px; padding: 10px;
+            text-align: center; font-size: 11px;
+        }
+        .mode-card .mode-name { font-size: 14px; font-weight: bold; margin-bottom: 4px; }
+        .mode-card .mode-param { color: #888; font-size: 10px; }
+        .mode-card .mode-desc { color: #666; font-size: 9px; margin-top: 4px; }
+        .health-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .health-item { background: #111; padding: 8px; border-radius: 4px; font-size: 11px; }
+        .health-item .label { color: #888; }
+        .health-item .value { font-size: 18px; font-weight: bold; }
+        .health-ok { color: #4ecdc4; }
+        .health-warn { color: #ffcc44; }
+        .health-crit { color: #ff4444; }
+        .section-divider { border: 0; border-top: 1px solid #2d2d2d; margin: 20px 0; }
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; }
+        .tag-esp32 { background: #1a3a1a; color: #4ecdc4; }
+        .tag-nx650 { background: #3a1a1a; color: #ff6b35; }
+        .tag-v2 { background: #3a3a1a; color: #ffcc44; }
+        .wide-card { grid-column: 1 / -1; }
+        .mode-color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+        .maint-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #1a1a1a; }
+        .maint-name { color: #ccc; }
+        .maint-bar { width: 60%; height: 8px; background: #333; border-radius: 4px; display: inline-block; margin: 0 8px; }
+        .maint-bar-fill { height: 100%; border-radius: 4px; background: #4ecdc4; }
+        .maint-bar-fill.overdue { background: #ff4444; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🏍️ African Queen Lite — Build Tracker</h1>
-        <p>Honda NX650 Dominator RFVC — 5.000€ HARD CAP</p>
-    </div>
+<div class="header">
+    <h1>🏍️ African Queen Lite — Build Tracker</h1>
+    <p>Honda NX650 Dominator RFVC · <span class="tag tag-v2">v2.0 LONGEVITY</span> · Budget: 5.000€ HARD CAP</p>
+</div>
 
-    <div class="container">
-        <div class="grid">
-            <!-- Budget Card -->
-            <div class="card">
-                <h2>💰 Budget</h2>
-                <table>
-                    <tr><th>Kategorie</th><th>Budget</th><th>Ausgegeben</th><th>Rest</th></tr>
-                    {% for row in budget %}<tr>
-                        <td>{{ row[0] }}</td>
-                        <td>{{ row[1] }}€</td>
-                        <td>{{ row[2] }}€</td>
-                        <td>{{ row[3] }}€</td>
-                    </tr>{% endfor %}
-                    <tr style="border-top: 2px solid #2d2d2d; font-weight: bold;">
-                        <td>TOTAL</td><td>{{ total_budget }}€</td>
-                        <td>{{ total_spent }}€</td><td>{{ total_remaining }}€</td>
-                    </tr>
-                </table>
-            </div>
+<div class="container">
+    <div class="grid">
+        <!-- Budget Card -->
+        <div class="card">
+            <h2>💰 Budget</h2>
+            <div id="budget-content">Loading...</div>
+        </div>
 
-            <!-- Weight Card -->
-            <div class="card">
-                <h2>⚖️ Gewichtsbilanz</h2>
-                <table>
-                    <tr><th>Position</th><th>OEM</th><th>Nach Bau</th><th>Δ</th></tr>
-                    {% for row in weight %}<tr>
-                        <td>{{ row[0] }}</td>
-                        <td>{{ row[1] }}kg</td>
-                        <td>{{ row[2] }}kg</td>
-                        <td class="weight-delta {{ 'neg' if row[3]|float < 0 }}">{{ '+' if row[3]|float > 0 }}{{ row[3] }}kg</td>
-                    </tr>{% endfor %}
-                    <tr style="border-top: 2px solid #2d2d2d; font-weight: bold;">
-                        <td>ZIEL</td><td>{{ weight_total_oem }}kg</td>
-                        <td>{{ weight_total_build }}kg</td>
-                        <td>{{ weight_delta }}kg</td>
-                    </tr>
-                </table>
-            </div>
+        <!-- Weight Card -->
+        <div class="card">
+            <h2>⚖️ Gewicht</h2>
+            <div id="weight-content">Loading...</div>
+        </div>
 
-            <!-- Ride Mode Controller -->
-            <div class="card">
-                <h2>🎮 Ride-Mode Controller</h2>
-                <div class="mode-grid">
-                    {% for mode in modes %}
-                    <div class="mode-card">
-                        <div class="dot" style="background: {{ mode[4] }}"></div>
-                        <span class="mode-name">{{ mode[0] }}</span>
-                        <div class="mode-params">
-                            Zünd: {{ mode[1] }}°<br>
-                            Valve: {{ mode[2] }}% | Air: {{ mode[3] }}%
-                        </div>
+        <!-- Ride Mode Controller -->
+        <div class="card wide-card">
+            <h2>🎮 Ride Mode Controller <span class="tag tag-esp32">ESP32</span> <span class="tag tag-v2">v2.0</span></h2>
+            <div class="mode-grid">
+                {% for mode, params in modes.items() %}
+                <div class="mode-card">
+                    <div class="mode-name">
+                        <span class="mode-color-dot" style="background:{{params.color}}"></span>
+                        {{mode}}
                     </div>
-                    {% endfor %}
+                    <div class="mode-param">IGN: {{'+' if params.ignition_offset >= 0 else ''}}{{params.ignition_offset}}° · V:{{params.valve_percent}}% · A:{{params.airbox_percent}}%</div>
+                    <div class="mode-param">Idle:{{params.idle_rpm}} · Rev:{{params.rev_limit}} · Sweep:{{params.sweep_rate}}</div>
+                    <div class="mode-param">Throttle: {{params.throttle_curve}}</div>
+                    <div class="mode-desc">{{params.description}}</div>
                 </div>
-            </div>
-
-            <!-- Sensors -->
-            <div class="card">
-                <h2>📡 Sensoren & Ausgänge</h2>
-                <table><tr><th>Komponente</th><th>Typ</th><th>Pin</th></tr>
-                    <tr><td>Drehzahl</td><td>Pulse Coil (ISR)</td><td>GPIO 18</td></tr>
-                    <tr><td>Temperatur</td><td>NTC 10kΩ</td><td>GPIO 34</td></tr>
-                    <tr><td>Batteriespannung</td><td>Spannungsteiler</td><td>GPIO 35</td></tr>
-                    <tr><td>Öldruck</td><td>Schalter (LOW=OK)</td><td>GPIO 19</td></tr>
-                    <tr><td>Exhaust Valve</td><td>Servo PWM</td><td>GPIO 25</td></tr>
-                    <tr><td>Airbox Klappe</td><td>Servo PWM</td><td>GPIO 26</td></tr>
-                    <tr><td>CDI Map Select</td><td>Digital OUT</td><td>GPIO 27</td></tr>
-                    <tr><td>LED (WS2812)</td><td>NeoPixel</td><td>GPIO 32</td></tr>
-                    <tr><td>OLED Display</td><td>SSD1306 I²C</td><td>SDA=21, SCL=22</td></tr>
-                    <tr><td>BLE</td><td>NimBLE</td><td>Built-in</td></tr>
-                </table>
-            </div>
-
-            <!-- Alerts -->
-            <div class="card">
-                <h2>⚠️ StVZO Hinweise</h2>
-                <ul style="font-size: 12px; padding-left: 16px;">
-                    <li>🔴 Programmierbare Zündung: Einzelbetriebserlaubnis nötig oder innerh. OEM Specs</li>
-                    <li>🟡 Exhaust Valve: Ab als Auspuff-Änderung — TÜV nötig od. Track-only</li>
-                    <li>🟢 Zusatz-Display: Generell erlaubt, darf nicht ablenken</li>
-                    <li>🟢 Lenker-Schalter: Erlaubt wenn sicher montiert</li>
-                </ul>
-            </div>
-
-            <!-- Build Status -->
-            <div class="card">
-                <h2>📋 Build-Status</h2>
-                <table><tr><th>Phase</th><th>Fokus</th><th>Budget</th><th>Status</th></tr>
-                    <tr><td><span class="phase-badge phase-1">1</span></td><td>Motorlauf & Sicherheit</td><td>500-800€</td><td>⏳</td></tr>
-                    <tr><td><span class="phase-badge phase-2">2</span></td><td>Fahrwerk Sport+Gelände</td><td>800-1200€</td><td>⏳</td></tr>
-                    <tr><td><span class="phase-badge phase-3">3</span></td><td>Africa Twin Look + Sound</td><td>800-1200€</td><td>⏳</td></tr>
-                    <tr><td><span class="phase-badge phase-4">4</span></td><td>Touring-Komfort</td><td>300-600€</td><td>⏳</td></tr>
-                    <tr><td><span class="phase-badge phase-5">5</span></td><td>Reserve</td><td>200-500€</td><td>⏳</td></tr>
-                </table>
+                {% endfor %}
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        African Queen Lite — Build Tracker v1.0 | Daten aus vehicle_database.db
+        <!-- Longevity Monitoring -->
+        <div class="card">
+            <h2>🛡️ Langlebigkeit <span class="tag tag-v2">LONGEVITY</span></h2>
+            <div class="health-grid">
+                <div class="health-item">
+                    <span class="label">Zylinderkopf</span><br>
+                    <span class="value health-ok">{{thresholds.temp_warning}}°C</span>
+                    <span class="label">Warn /</span>
+                    <span class="value health-crit">{{thresholds.temp_critical}}°C</span>
+                    <span class="label">Kritisch</span>
+                </div>
+                <div class="health-item">
+                    <span class="label">Stator</span><br>
+                    <span class="value health-ok">{{thresholds.stator_healthy}}V+</span>
+                    <span class="label">Health /</span>
+                    <span class="value health-warn">{{thresholds.stator_warn}}V</span>
+                    <span class="label">Warn</span>
+                </div>
+                <div class="health-item">
+                    <span class="label">Batterie (LiFePO4)</span><br>
+                    <span class="label">14.6V Voll · 13.2V Nominal · 10.0V Leer</span>
+                </div>
+                <div class="health-item">
+                    <span class="label">Öldruckschalter</span><br>
+                    <span class="value health-ok">LOW = OK</span>
+                    <span class="label">/</span>
+                    <span class="value health-crit">HIGH = WARN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maintenance Intervals -->
+        <div class="card">
+            <h2>🔧 Wartungsintervalle NX650</h2>
+            {% for name, interval in maint.items() %}
+            <div class="maint-row">
+                <span class="maint-name">{{name}}</span>
+                <span>{{interval}} km</span>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Hardware -->
+        <div class="card">
+            <h2>🔌 Hardware <span class="tag tag-esp32">ESP32</span></h2>
+            <table>
+                <tr><th>Komponente</th><th>Typ</th><th>Preis</th></tr>
+                <tr><td>MCU</td><td>ESP32 DevKit V1</td><td>€5</td></tr>
+                <tr><td>Display</td><td>SSD1306 OLED 128x64</td><td>€2</td></tr>
+                <tr><td>LED</td><td>WS2812 RGB</td><td>€1</td></tr>
+                <tr><td>Encoder</td><td>KY-040 Rotary</td><td>€2</td></tr>
+                <tr><td>Exhaust Servo</td><td>Gearmotor + DRV8833</td><td>€28</td></tr>
+                <tr><td>Airbox Servo</td><td>Gearmotor + DRV8833</td><td>€28</td></tr>
+                <tr><td>CDI</td><td>Ignitech DC-CDI-P2</td><td>€120</td></tr>
+                <tr><td>Sensoren</td><td>NTC+Spannungsteiler+Öldruck</td><td>€10</td></tr>
+                <tr><td>Gehäuse</td><td>3D-Druck PETG</td><td>€5</td></tr>
+                <tr><td>Kabel/Stecker</td><td>Deutsch DT + Silikonkabel</td><td>€15</td></tr>
+                <tr style="border-top: 2px solid #ff6b35"><th colspan="2"><strong>Controller Gesamt</strong></th><td><strong>~€216</strong></td></tr>
+            </table>
+        </div>
+
+        <!-- StVZO -->
+        <div class="card">
+            <h2>📋 StVZO Status</h2>
+            <table>
+                <tr><th>Komponente</th><th>Status</th></tr>
+                <tr><td>Custom Display</td><td style="color:#4ecdc4">✅ Erlaubt</td></tr>
+                <tr><td>Exhaust Valve</td><td style="color:#ffcc44">⚠️ TÜV nötig</td></tr>
+                <tr><td>Programmierbare CDI</td><td style="color:#ffcc44">⚠️ Ignitech hat EC-Zulassung</td></tr>
+                <tr><td>BLE Logging</td><td style="color:#4ecdc4">✅ Erlaubt</td></tr>
+                <tr><td>Lenker-Schalter</td><td style="color:#4ecdc4">✅ Wenn §30-konform</td></tr>
+                <tr><td>LED-Indikator</td><td style="color:#4ecdc4">✅ Im Gehäuse</td></tr>
+            </table>
+        </div>
     </div>
+</div>
 </body>
 </html>
 """
 
-
-def get_db():
-    """Get database connection."""
-    if not os.path.exists(DB_PATH):
-        return None
-    conn = sqlite3.connect(DB_PATH)
-    return conn
-
-
+# ============================================================
+# Routes
+# ============================================================
 @app.route('/')
 def dashboard():
-    """Render main dashboard."""
-    budget_data = [
-        ('Phase 1: Motor & Sicherheit', 800, 0, 800),
-        ('Phase 2: Fahrwerk', 1200, 0, 1200),
-        ('Phase 3: Look & Sound', 1200, 0, 1200),
-        ('Phase 4: Touring', 600, 0, 600),
-        ('Phase 5: Reserve', 500, 0, 500),
-    ]
-    total_budget = 5000
-    total_spent = 0
-    total_remaining = 5000
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
 
-    weight_data = [
-        ('Basis NX650', 161, 161, 0),
-        ('Batterie LiFePO4', 3.2, 1.2, -2.0),
-        ('Auspuff Slip-on', 8.0, 5.0, -3.0),
-        ('LED Scheinwerfer', 2.5, 1.5, -1.0),
-        ('LED Blinker+Rücklicht', 1.0, 0.3, -0.7),
-        ('Gabel+Emulatoren', 0, 0.5, 0.5),
-        ('YSS Federbein', 5.5, 4.2, -1.3),
-        ('Heckträger Alu', 0, 1.5, 1.5),
-        ('Windschild', 0, 0.4, 0.4),
-        ('Handguards', 0, 0.6, 0.6),
-    ]
-    weight_total_oem = 181.2
-    weight_total_build = 175.2
-    weight_delta = -6.0
+        # Budget data
+        cur.execute("SELECT category, SUM(cost_actual) as spent, SUM(cost_budget) as budget FROM builds GROUP BY category")
+        budget_rows = cur.fetchall()
 
-    modes = [
-        ('STRASSE', 0, 50, 50, '#00ff00'),
-        ('STADT', -2, 20, 30, '#0064ff'),
-        ('GELÄNDE', 2, 100, 100, '#ff3232'),
-        ('SPORT', 3, 100, 100, '#ffa500'),
-        ('COMFORT', -1, 40, 40, '#9400ff'),
-        ('SOUND', 1, 100, 80, '#00ffff'),
-    ]
+        # Weight data
+        cur.execute("SELECT category, SUM(weight_delta) as delta FROM builds GROUP BY category")
+        weight_rows = cur.fetchall()
 
-    # Try to read real data from DB
-    conn = get_db()
-    if conn:
-        try:
-            cur = conn.cursor()
-            # Try to read parts pricing if table exists
-            cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
-            tables = [row[0] for row in cur.fetchall()]
-            if 'parts' in tables:
-                cur.execute("SELECT category, SUM(price), COUNT(*) FROM parts GROUP BY category")
-                results = cur.fetchall()
-                if results:
-                    real_budget = {}
-                    for row in results:
-                        real_budget[row[0]] = (row[1] or 0, row[2] or 0)
-                    # Update budget data with real data if available
-        except Exception:
-            pass
         conn.close()
+    except Exception as e:
+        budget_rows = []
+        weight_rows = []
 
+    # Render template with ride modes and thresholds
+    from flask import render_template_string
     return render_template_string(DASHBOARD_HTML,
-        budget=budget_data,
-        total_budget=total_budget,
-        total_spent=total_spent,
-        total_remaining=total_remaining,
-        weight=weight_data,
-        weight_total_oem=weight_total_oem,
-        weight_total_build=weight_total_build,
-        weight_delta=weight_delta,
-        modes=modes,
-    )
+        modes=RIDE_MODES,
+        thresholds=HEALTH_THRESHOLDS,
+        maint=MAINT_INTERVALS)
 
+@app.route('/api/modes')
+def api_modes():
+    return jsonify(RIDE_MODES)
 
-@app.route('/api/status')
-def api_status():
-    """JSON API for current build status."""
-    return jsonify({
-        'project': 'African Queen Lite',
-        'base': 'Honda NX650 Dominator RFVC',
-        'budget_total': 5000,
-        'budget_spent': 0,
-        'budget_remaining': 5000,
-        'weight_oem_kg': 181.2,
-        'weight_build_kg': 175.2,
-        'weight_delta_kg': -6.0,
-        'target_weight_kg': 175,
-        'ride_modes': ['STRASSE', 'STADT', 'GELAENDE', 'SPORT', 'COMFORT', 'SOUND'],
-        'phases': [
-            {'id': 1, 'focus': 'Motor & Sicherheit', 'budget': 800, 'status': 'pending'},
-            {'id': 2, 'focus': 'Fahrwerk', 'budget': 1200, 'status': 'pending'},
-            {'id': 3, 'focus': 'Look & Sound', 'budget': 1200, 'status': 'pending'},
-            {'id': 4, 'focus': 'Touring', 'budget': 600, 'status': 'pending'},
-            {'id': 5, 'focus': 'Reserve', 'budget': 500, 'status': 'pending'},
-        ],
-        'controller': {
-            'mcu': 'ESP32 DevKit',
-            'display': 'SSD1306 1.3" OLED',
-            'sensors': ['RPM', 'Temperature', 'Voltage', 'Oil Pressure'],
-            'outputs': ['Exhaust Valve PWM', 'Airbox Flap PWM', 'CDI Map Select', 'WS2812 LED'],
-            'connectivity': 'BLE (NimBLE)',
-        }
-    })
+@app.route('/api/health')
+def api_health():
+    return jsonify(HEALTH_THRESHOLDS)
+
+@app.route('/api/maintenance')
+def api_maintenance():
+    return jsonify(MAINT_INTERVALS)
 
 
 if __name__ == '__main__':
-    print("🏍️ African Queen Lite — Build Tracker")
-    print(f"   Database: {DB_PATH}")
-    print(f"   Dashboard: http://localhost:5050")
     app.run(host='0.0.0.0', port=5050, debug=True)

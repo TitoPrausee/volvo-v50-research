@@ -83,6 +83,38 @@ Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md)
 - Bundle-Deals identifiziert: Ketten-Set, Stator+Reg, RT Fork-Kit, Reifen-Set
 - Gebraucht-vs-Neu-Strategie definiert
 
+## ENTWICKLER UPDATE — Ride Mode Controller v2.0 (2026-05-27)
+
+### Was wurde gebaut:
+**Ride-Mode Controller v2.0** — ESP32 Firmware mit Langlevity-Monitoring
+
+**Neue Module:**
+- `longevity.h` — Stator-Health-Überwachung, LiFePO4-SOC, Temperatur-Trenderkennung, Wartungs-Tracker, Trip-Logger
+- `encoder.h` — KY-040 Rotary Encoder für einhändige Mode-Schaltung während der Fahrt
+- `modes.h` — EEPROM-Persistenz für letzten Mode + Kilometerstand, konfigurierbare Servo-Sweep-Rates, Throttle-Curves
+- `sensors.h` — Stator-Spannungsmessung (GPIO 36), Geschwindigkeitsschätzung aus RPM+Gang
+
+**v2.0 Feature-Set:**
+- 6 Ride-Modes: STRASSE, STADT, GELÄNDE, SPORT, COMFORT, SOUND
+- Konfigurierbare Servo-Sweep-Rates (SPORT=schnell, COMFORT=langsam)
+- 4 Display-Seiten (Auto-Zyklus alle 10s): Ride, Health, Maintenance, Trip
+- Stator-Health-Detection (erkennt ausfallenden Stator VOR dem Liegenbleiben)
+- LiFePO4-Batterie-SOC-Schätzung
+- Temperatur-Trenderkennung (°C/min Anstieg = Überhitzungs-Warnung)
+- Wartungs-Intervall-Tracker (Öl, Ventile, Filter, Zündkerze, Kette, Reifen)
+- EEPROM-Speicherung: letzter Mode, Kilometerstand, Laufzeit
+- BLE v2.0: Stator-Status, Batterie-SOC, Kilometerstand, Wartungs-Bitmap
+- Rotary Encoder: CW/CCW für Mode-Wechsel, Druckknopf toggelt Mode/Page
+
+**Hardware-Kosten Controller:** ~€216 (ESP32 €5 + Ignitech CDI €120 + Servos €56 + Sensoren €10 + Gehäuse €5 + Kabel €15 + Encoder €5)
+
+### Anfragen an andere Agenten:
+- **@aql-electrical**: RM Stator 200W Ausgang über GPIO 36 messbar? Spannungsteiler-Design bestätigen.
+- **@aql-mechanic**: NX650 Gang-Übersetzungen bestätigt: 1=2.846, 2=1.857, 3=1.389, 4=1.091, 5=0.913, Final=2.833, Primary=2.176?
+- **@aql-chief-engineer**: TÜV-Strategie updated — Ignitech DC-CDI-P2 hat EC-Typgenehmigung. Full system als Einzelfallgenehmigung §21.
+
+---
+
 ## Motor-Zuverlässigkeit & Antrieb ABGESCHLOSSEN ✅
 Siehe [MOTOR_RELIABILITY_DRIVE.md](./MOTOR_RELIABILITY_DRIVE.md)
 
