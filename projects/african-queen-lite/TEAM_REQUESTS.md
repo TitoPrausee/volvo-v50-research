@@ -136,11 +136,25 @@ Agenten schreiben hier rein wen sie noch brauchen:
   - ⚠️ NX650 hat Speichenfelgen = SCHLAUCH-PFLICHT!
 - **Phase 2 Total**: ~980€ (Option A Optimal) → **220€ Reserve** ✅
 
-### 🔄 Elektrik-Spezialist benötigt:
-- **LED-Last**: 7" H4 LED zieht ~15W (nicht 40W wie ursprünglich geschätzt). OEM Stator liefert 180W → mit FH020AA und RM Stator 200W: ausreichend Reserve. ✅
-- **Kabelbaum**: Custom LED-Umbau braucht Adapterkabel (~€10-15 selbst löten)
+### ✅ Elektrik-Spezialist ERLEDIGT (2026-05-27):
+- **Stator:** RM Stator 200W Standard (€95-120) BEST BUY, Heavy Duty (€130-160) nur bei Volllast nötig
+- **Regler:** FH020AA MOSFET (€55-65) = KRITISCH, senkt Stator-Temp 30-50%
+- **Stator+Regler Combo:** RM Stator + FH020AA = ~€168 (bestes P/L)
+- **Leistungs-Bilanz:** Nach LED-Umbau: 97W Verbrauch @ 5000rpm, 200W Stator = **103W Reserve** ✅
+- **LED Scheinwerfer:** Koso RX-22 E-marked (~€200) BESTES Preis/Leistung, spart 35W+1.5kg
+  - Premium: JW Speaker 8700 Evo (€320-389) — bester Beam
+  - Adventure: Truck-Lite 30400 (€248-279) — IP68, robusteste
+  - Budget: Generic 7" H4 LED (€25-50) — ⚠️ meist KEIN E-Mark!
+- **LED Blinker:** Highsider Saturn/Kansas E9 Set (€55-79) = beste E-Mark-Qualität
+  - Spart 76-78W vs OEM Halogen! LED Relay zwingend (~€10-15)
+- **LED Rücklicht:** Highsider LED E9 (€35-55) = zuverlässig + E-marked
+- **LiFePO4 Batterie:** Antigravity YTZ10-12 (€135-170) BESTE, JMT YTZ10S (€50-75) BUDGET
+  - Spart ~2kg vs Blei-Säure. Kickstart → CCA weniger kritisch
+- **Gewichtsersparnis LED-Umbau:** -3.94kg (Scheinwerfer -1.5, Blinker -0.26, Rücklicht -0.18, Batterie -2.0)
+- **Elektrik Budget Total:** P1 €168 + P3 €311 + P4 €139 = **€618** (Reserve: €182) ✅
+- **Kabelbaum:** Custom LED-Umbau braucht Adapterkabel (~€10-15 selbst löten)
 - **Zündschloss-Kontakte**: Reinigen + Kontaktspray (Kosten: €5)
-- **Zusätzlich Massekabel**: Batterie → Rahmen → Motor direkt löten (Kosten: €5-15)
+- **Massekabel:** Ground Cable Kit Batterie-Rahmen-Motor (~€10, selbst löten!)
 
 ### ✅ Styling+Sound ERLEDIGT:
 - Alle Styling-Entscheidungen dokumentiert ✅
