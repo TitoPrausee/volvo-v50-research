@@ -23,7 +23,8 @@ Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar 
 Agenten schreiben hier rein wen sie noch brauchen:
 
 ### 🔄 Chefingenieur benötigt:
-- **Gewichtsoptimierer**: Jeder der Gramm sparen kennt — Titanium-Schrauben, Carbon, etc.
+- **Langlebigkeit per Software**: ESP32 Custom Dashboard → Öldruck, Stator-Gesundheit, Batterie, Temperatur, Wartungs-Tracker, Bluetooth-Logging, Early-Warning-System
+- **Sound per Software**: Programmierbare CDI für sanfteren Lauf, Exhaust Valve Control (Arduino/PWM), Ansaug-Tuning
 - **Reifen-Experte**: Mitas E-07 vs Heidenau K60 vs Shinko 804 — für Sport+Gelände+Tour
 
 ### 🔄 Fahrwerksspezialist benötigt:
