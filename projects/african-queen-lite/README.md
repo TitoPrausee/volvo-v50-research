@@ -15,7 +15,7 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 ## Budget: 5.000€ HARD CAP — So viel erreichen wie möglich, kein Cent verschwenden!
 
-| Phase | Fokus | Budget | Priorität |
+|| Phase | Fokus | Budget | Priorität |
 |-------|-------|--------|----------|
 | 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch |
 | 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch |
@@ -24,27 +24,27 @@ Siehe Cron-Jobs: `aql-*` Präfix
 | 5 | Reserve | €200-500 | 🔵 Puffer |
 | **Total** | | **€5.000 MAX** | |
 
-## Budget-Stand (Chefingenieur 2026-05-27)
+## Budget-Stand (Budget-Jäger 2026-05-27 — PREIS-CHECK AKTUALISIERT)
 
-| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
+|| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
 |-------|------------|-----------|------------|--------|
-| 1: Zuverlässigkeit | 480 | 800 | +320 | ✅ Gut |
-| 2: Fahrwerk | 865 | 1.200 | +335 | ✅ Gut |
-| 3: Africa Twin Look | 882 | 1.000 | +118 | ✅ OK, knapp |
-| 4: Touring-Komfort | 214 | 800 | +586 | ✅ Viel Reserve |
+| 1: Zuverlässigkeit | 409 | 800 | +391 (49%) | ✅ Stark |
+| 2: Fahrwerk | 944 | 1.200 | +256 (21%) | ✅ OK |
+| 3: Africa Twin Look | 688 | 1.000 | +312 (31%) | ✅ Gut |
+| 4: Touring-Komfort | 187 | 800 | +613 (77%) | ✅ Sehr gut |
 | 5: Reserve | — | 500 | +500 | 🔵 Puffer |
-| **Total** | **2.441** | **4.300** | **+1.859** | ✅ |
+| **Total** | **2.228** | **4.300** | **+2.072** | ✅ |
 
-> **Ergebnis:** Option A (Optimal) kostet €2.441 + €500 Reserve = €2.941. Unter dem €5.000 Hard Cap mit €2.059 Reserve für unvorhergesehene Reparaturen, Wartung, oder upgrades.
+> **Ergebnis:** Option A (Optimal) kostet €2.228 + €500 Reserve = €2.728. Unter dem €5.000 Hard Cap mit **€2.272 Reserve** (45%) — €277 gespart vs. vorherige Schätzung!
 
 ### Budget-Guard: KEINE Phase überschritten ✅
-- Phase 1: €480 / €800 → **€320 Reserve** (40%)
-- Phase 2: €865 / €1.200 → **€335 Reserve** (28%)
-- Phase 3: €882 / €1.000 → **€118 Reserve** (12%) ← knapp!
-- Phase 4: €214 / €800 → **€586 Reserve** (73%)
+- Phase 1: €409 / €800 → **€391 Reserve** (49%) ← verbessert von €320
+- Phase 2: €944 / €1.200 → **€256 Reserve** (21%) ← Mitas E-07+ Dakar teurer
+- Phase 3: €688 / €1.000 → **€312 Reserve** (31%) ← stark verbessert von €118!
+- Phase 4: €187 / €800 → **€613 Reserve** (77%) ← verbessert
 
-### Budget-Warnung: Phase 3 knapp
-Phase 3 (Africa Twin Look) hat nur €118 Reserve. Wenn Leo Vince Slip-on €380 statt €345 kostet, oder Koso RX-22 teurer ausfällt, rückt die Phase ans Limit. **Empfehlung:** Koso RX-22 durch generischen 7" H4 LED ersetzen (€40 statt €90) → +€50 Reserve in Phase 3.
+### Budget-Update: Phase 3 entschärft ✅
+Phase 3 (Africa Twin Look) hat jetzt **€312 Reserve** (31%) — verbessert von €118! Koso RX-22 bei €99.90 (nicht €200+ wie ursprünglich geschätzt), Leo Vince gebraucht ab €215. Generischer 7" H4 LED als Budget-Alternative für nur €25 verfügbar.
 
 ## Gewichtsbilanz
 

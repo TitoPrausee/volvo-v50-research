@@ -1,11 +1,12 @@
 #pragma once
 // ============================================================
-// African Queen Lite — LED Mode Indicator (WS2812 RGB)
+// African Queen Lite — LED Mode Indicator (WS2812 RGB) v2.0
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
-// Single WS2812 RGB LED that shows the current ride mode color.
-// Also provides warning patterns for alerts.
+// v2.0: Added stator health indicator (yellow blink for degraded,
+// red/yellow alternating for failing).
+// Mode colors unchanged.
 
 #include "modes.h"
 #include <Adafruit_NeoPixel.h>
@@ -22,6 +23,7 @@ public:
         strip_.begin();
         strip_.setBrightness(brightness_);
         strip_.show();  // All pixels off
+
         initialized_ = true;
 
         // Startup animation: cycle through mode colors
@@ -52,6 +54,21 @@ public:
             // Restore mode color
             ModeColor c = MODE_COLORS[current_mode_];
             strip_.setPixelColor(0, strip_.Color(c.r, c.g, c.b));
+            strip_.show();
+        }
+    }
+
+    // Set stator health indicator (yellow for degraded)
+    void setStatorWarning(bool degraded) {
+        if (degraded && !alert_active_) {
+            // Slow yellow pulse for stator degradation
+            unsigned long now = millis();
+            if ((now / 1000) % 2 == 0) {
+                strip_.setPixelColor(0, strip_.Color(255, 200, 0));  // Yellow
+            } else {
+                ModeColor c = MODE_COLORS[current_mode_];
+                strip_.setPixelColor(0, strip_.Color(c.r / 2, c.g / 2, c.b / 2));
+            }
             strip_.show();
         }
     }

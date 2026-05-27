@@ -1,21 +1,16 @@
 #pragma once
 // ============================================================
-// African Queen Lite — BLE Bluetooth Service
+// African Queen Lite — BLE Bluetooth Service v2.0
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
-// BLE GATT service for smartphone logging and monitoring.
-// Exposes ride data as BLE characteristics:
-//   - Current mode
-//   - RPM
-//   - Temperature
-//   - Battery voltage
-//   - Valve/Airbox positions
-//   - Oil pressure status
-//   - CDI map
+// v2.0: Added longevity characteristics:
+//   - Stator health status
+//   - Battery SOC
+//   - Odometer
+//   - Maintenance status bitmap
 //
-// Uses NimBLE for lower memory footprint than classic BLE.
-// Phone app can read/subscribe to these characteristics.
+// BLE GATT service for smartphone logging and monitoring.
 
 #include "modes.h"
 #include <NimBLEDevice.h>
@@ -30,6 +25,11 @@
 #define AQL_CHAR_AIRBOX_UUID      "426f5441-0006-4e52-4541-4c5445414d31"
 #define AQL_CHAR_OIL_UUID         "426f5441-0007-4e52-4541-4c5445414d31"
 #define AQL_CHAR_CDI_UUID         "426f5441-0008-4e52-4541-4c5445414d31"
+// v2.0 characteristics
+#define AQL_CHAR_STATOR_UUID      "426f5441-0009-4e52-4541-4c5445414d31"
+#define AQL_CHAR_BATTERY_UUID     "426f5441-000a-4e52-4541-4c5445414d31"
+#define AQL_CHAR_ODOMETER_UUID    "426f5441-000b-4e52-4541-4c5445414d31"
+#define AQL_CHAR_MAINT_UUID      "426f5441-000c-4e52-4541-4c5445414d31"
 
 class Bluetooth {
 public:
@@ -46,7 +46,7 @@ public:
         // Create BLE Service
         NimBLEService* pService = pServer_->createService(AQL_BLE_SERVICE_UUID);
 
-        // Create Characteristics
+        // Create Characteristics (v1)
         pMode_ = pService->createCharacteristic(
             AQL_CHAR_MODE_UUID,
             NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
@@ -80,6 +80,24 @@ public:
             NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
         );
 
+        // Create Characteristics (v2.0 — longevity)
+        pStator_ = pService->createCharacteristic(
+            AQL_CHAR_STATOR_UUID,
+            NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
+        );
+        pBattery_ = pService->createCharacteristic(
+            AQL_CHAR_BATTERY_UUID,
+            NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
+        );
+        pOdometer_ = pService->createCharacteristic(
+            AQL_CHAR_ODOMETER_UUID,
+            NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
+        );
+        pMaint_ = pService->createCharacteristic(
+            AQL_CHAR_MAINT_UUID,
+            NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
+        );
+
         // Start the service
         pService->start();
 
@@ -91,7 +109,7 @@ public:
         NimBLEDevice::startAdvertising();
 
         initialized_ = true;
-        Serial.println("[BLE] NimBLE initialized — advertising as 'AQL-RideCtrl'");
+        Serial.println("[BLE] NimBLE v2.0 initialized — advertising as 'AQL-RideCtrl'");
     }
 
     // Update BLE characteristics — call at regular interval
@@ -148,6 +166,37 @@ public:
         pCDI_->notify();
     }
 
+    // v2.0: Extended update with longevity data
+    void updateLongevity(uint8_t stator_status, uint8_t battery_soc,
+                         uint32_t odometer_km, uint8_t maint_bitmap) {
+        if (!initialized_ || !ble_connected_) return;
+
+        uint8_t buf[4];
+
+        // Stator status (1 byte: 0=unknown, 1=healthy, 2=degraded, 3=failing, 4=overcharge)
+        buf[0] = stator_status;
+        pStator_->setValue(buf, 1);
+        pStator_->notify();
+
+        // Battery SOC (1 byte: percentage 0-100)
+        buf[0] = battery_soc;
+        pBattery_->setValue(buf, 1);
+        pBattery_->notify();
+
+        // Odometer (4 bytes, big-endian, in km)
+        buf[0] = (odometer_km >> 24) & 0xFF;
+        buf[1] = (odometer_km >> 16) & 0xFF;
+        buf[2] = (odometer_km >> 8) & 0xFF;
+        buf[3] = odometer_km & 0xFF;
+        pOdometer_->setValue(buf, 4);
+        pOdometer_->notify();
+
+        // Maintenance bitmap (1 byte: bit 0=oil, 1=valve, 2=filter, 3=plug, 4=chain, 5=tire)
+        buf[0] = maint_bitmap;
+        pMaint_->setValue(buf, 1);
+        pMaint_->notify();
+    }
+
     bool isConnected() const { return ble_connected_; }
 
 private:
@@ -160,6 +209,10 @@ private:
     NimBLECharacteristic* pAirbox_;
     NimBLECharacteristic* pOil_;
     NimBLECharacteristic* pCDI_;
+    NimBLECharacteristic* pStator_;
+    NimBLECharacteristic* pBattery_;
+    NimBLECharacteristic* pOdometer_;
+    NimBLECharacteristic* pMaint_;
 
     bool initialized_;
     bool ble_connected_;

@@ -1,6 +1,6 @@
 #pragma once
 // ============================================================
-// African Queen Lite — CDI Ignition Timing Controller
+// African Queen Lite — CDI Ignition Timing Controller v2.0
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
@@ -10,9 +10,10 @@
 // via a digital output that selects between two pre-programmed
 // timing maps (Map A = base, Map B = advanced/retarded).
 //
-// SAFETY: The NX650 has no ECU — just a CDI box. We switch between
-// two CDI maps using a single GPIO. If the CDI is not programmable,
-// we can only indicate the recommended timing; no actual control.
+// v2.0: Added 3-position mode control for better map granularity.
+//   GPIO 27 → CDI_MAP_A (active low = Map A / base)
+//   GPIO 33 → CDI_MAP_B (active low = Map B / sport)
+//   Both HIGH = Map C / fallback (standard timing)
 //
 // For future DIY CDI: Teensy 4.0 + Quadspark expansion module
 // would be needed for real-time ignition control.
@@ -68,31 +69,12 @@ public:
 
     uint8_t getCurrentMap() const { return current_map_; }
 
-    // Calculate RPM-dependent timing advance (for future DIY CDI)
-    // Returns ignition angle in degrees BTDC
-    float calculateAdvance(uint16_t rpm, RideMode mode) const {
-        int8_t base_offset = MODE_PARAMS[mode].ignition_offset;
-
-        // NX650 RFVC base timing: ~10° BTDC at idle, advancing to ~32° BTDC at peak
-        // This is a simplified linear advance curve
-        float base_advance = 10.0f;
-
-        if (rpm > 1500) {
-            // Linear advance from 1500 to 6000 RPM
-            float rpm_factor = min((float)(rpm - 1500) / 4500.0f, 1.0f);
-            base_advance += rpm_factor * 22.0f;  // Up to 32° at 6000 RPM
-        }
-
-        // Apply mode-specific offset
-        float advance = base_advance + (float)base_offset;
-
-        // Clamp to safe range
-        advance = constrain(advance, 5.0f, 40.0f);
-
-        return advance;
+    // Get ignition offset for current mode
+    int8_t getIgnitionOffset(RideMode mode) const {
+        return MODE_PARAMS[mode].ignition_offset;
     }
 
 private:
-    uint8_t current_map_;  // 0 = Map A, 1 = Map B
+    uint8_t current_map_;  // 0=Map A (base), 1=Map B (advanced)
     bool initialized_;
 };

@@ -1,20 +1,17 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Airbox Resonance Flap Control
+// African Queen Lite — Airbox Resonance Flap Control v2.0
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
 // Controls the airbox intake resonance flap via servo.
-// Position is set as a percentage: 0% = snorkel closed (quiet),
-// 100% = fully open (maximum airflow, louder intake roar).
+// Position: 0% = snorkel closed (quiet), 100% = fully open (max flow).
 //
-// The intake resonance flap changes the effective intake runner length,
-// shifting the torque curve and also the intake sound character:
-//   - Closed/low: Quieter, reduced airflow, torque at low RPM
-//   - Open/high: Maximum airflow, louder intake, torque at high RPM
+// v2.0: Configurable sweep rate per mode (same as exhaust valve).
+// Smooth transitions in COMFORT/STADT, fast in SPORT/GELÄNDE.
 //
-// Hardware: standard RC servo (50Hz PWM) controlled via ESP32Servo.
-// Future: could use AS5600 + gearmotor for higher reliability.
+// Hardware: standard RC servo (50Hz PWM) via ESP32Servo.
+// Production: gearmotor + AS5600 (same as exhaust valve).
 
 #include "modes.h"
 #include <ESP32Servo.h>
@@ -22,7 +19,7 @@
 class AirboxFlap {
 public:
     AirboxFlap() : position_percent_(0), target_percent_(0),
-                   servo_(), attached_(false), smooth_step_(true) {}
+                   sweep_step_(3), attached_(false) {}
 
     void begin() {
         servo_.setPeriodHertz(SERVO_FREQ_HZ);
@@ -38,9 +35,10 @@ public:
 
     void setMode(RideMode mode) {
         uint8_t target = MODE_PARAMS[mode].airbox_percent;
+        sweep_step_ = MODE_PARAMS[mode].sweep_rate;
         setTarget(target);
-        Serial.printf("[AIRBOX] Mode %s → Airbox %d%%\n",
-            MODE_NAMES[mode], target);
+        Serial.printf("[AIRBOX] Mode %s → Airbox %d%% (sweep=%d)\n",
+            MODE_NAMES[mode], target, sweep_step_);
     }
 
     void setTarget(uint8_t percent) {
@@ -56,15 +54,12 @@ public:
     void update() {
         if (!attached_) return;
 
-        if (smooth_step_ && position_percent_ != target_percent_) {
+        if (position_percent_ != target_percent_) {
             if (position_percent_ < target_percent_) {
-                position_percent_++;
+                position_percent_ = position_percent_ + min(sweep_step_, (uint8_t)(target_percent_ - position_percent_));
             } else {
-                position_percent_--;
+                position_percent_ = position_percent_ - min(sweep_step_, (uint8_t)(position_percent_ - target_percent_));
             }
-            applyPosition();
-        } else if (!smooth_step_ && position_percent_ != target_percent_) {
-            position_percent_ = target_percent_;
             applyPosition();
         }
     }
@@ -74,11 +69,13 @@ public:
     bool isAttached()      const { return attached_; }
 
     void emergencyOpen() {
+        sweep_step_ = 10;
         setImmediate(100);
         Serial.println("[AIRBOX] EMERGENCY — Flap forced fully open");
     }
 
     void emergencyClose() {
+        sweep_step_ = 10;
         setImmediate(0);
         Serial.println("[AIRBOX] EMERGENCY — Flap forced fully closed");
     }
@@ -86,9 +83,9 @@ public:
 private:
     uint8_t position_percent_;
     uint8_t target_percent_;
+    uint8_t sweep_step_;
     Servo servo_;
     bool attached_;
-    bool smooth_step_;
 
     void applyPosition() {
         if (!attached_) return;

@@ -22,17 +22,17 @@ Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar 
 
 ## CHEFINGENIEUR UPDATE — 2026-05-27
 
-### Budget-Guard Status
+### Budget-Guard Status (UPDATED 2026-05-27 — Preis-Check)
 ✅ **KEINE Phase überschritten!**
 
-| Phase | Geplant | Budget | Reserve | Status |
+|| Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
-| 1: Zuverlässigkeit | €480 | €800 | +€320 | ✅ 40% Reserve |
-| 2: Fahrwerk | €865 | €1.200 | +€335 | ✅ 28% Reserve |
-| 3: Africa Twin Look | €882 | €1.000 | +€118 | ⚠️ 12% Reserve — knapp! |
-| 4: Touring-Komfort | €214 | €800 | +€586 | ✅ 73% Reserve |
+| 1: Zuverlässigkeit | €409 | €800 | +€391 (49%) | ✅ Verbessert von +€320 |
+| 2: Fahrwerk | €944 | €1.200 | +€256 (21%) | ⚠️ Mitas E-07+ Dakar teurer |
+| 3: Africa Twin Look | €688 | €1.000 | +€312 (31%) | ✅ Stark verbessert von +€118! |
+| 4: Touring-Komfort | €187 | €800 | +€613 (77%) | ✅ Verbessert |
 | 5: Reserve | — | €500 | +€500 | 🔵 Puffer |
-| **Total** | **€2.441** | **€4.300** | **+€1.859** | ✅ |
+| **Total** | **€2.228** | **€4.300** | **+€2.072** | ✅ |
 
 ### Gewicht-Bilanz
 - **Trockengewicht nach Bau:** ~155.4 kg (OEM: 161 kg) → **-5.6 kg**
@@ -48,24 +48,26 @@ Kein Big Bore, kein CDI-Upgrade, kein Leistungs-Auspuff im Build-Plan.
 
 ### Kürzungs-Vorschläge (falls Budget überschritten)
 
-**Phase 3 knapp (€118 Reserve):**
-1. Koso RX-22 (€90) → generischer 7" H4 LED (€40) = **€50 gespart**
-2. Sitzbank Sattler (€115) → DIY Umpolstern (€50) = **€65 gespart**
-3. Leo Vince SBK (€345) → OEM Muffler behalten (€0) = **€345 gespart** → Budget-Option
-4. Heckträger (€40) → DIY Alu-Profil (€25) = **€15 gespart**
+**Phase 3 (jetzt 31% Reserve — nicht mehr knapp!):**
+1. Koso RX-22 (€100) → generischer 7" H4 LED (€25) = **€75 gespart**
+2. Sitzbank Sattler (€150) → DIY Umpolstern (€40) = **€110 gespart**
+3. Leo Vince SBK Slip-on (€215 gebraucht) → OEM Muffler behalten (€0) = **€215 gespart** → Budget-Option
+4. Highsider Blinker (€55) → E9 generisch (€19) = **€36 gespart**
+5. Heckträger (€30) → DIY Alu-Profil (€25) = **€5 gespart**
 
-**Phase 2 knapp (€335 Reserve):**
-1. YSS Mono (€375) → Hagon Twins (€175) = **€200 gespart**, aber -0.6kg Leistung
-2. Mitas E-07 (€160 Set) → Shinko 804/805 (€135 Set) = **€25 gespart**
-3. Race Tech Bundle (€210) → Wirth Federn + Öl (€90) = **€120 gespart**, weniger Performance
+**Phase 2 (21% Reserve — etwas weniger Puffer):**
+1. YSS Mono (€339) → Hagon Twins (€175) = **€164 gespart**, aber weniger Einstellbarkeit
+2. Mitas E-07+ Dakar (€189) → Shinko 804/805 (€156) = **€33 gespart**, kürzere Haltbarkeit
+3. Race Tech Emulator + Wirth (€260) → Wirth Federn allein (€83) = **€177 gespart**, nur ~40% der Wirkung
+4. Acerbis Handguards (€35) → BBB MX-1 (€22) = **€13 gespart**
 
-**Phase 4 (€586 Reserve — hier ist Spielraum für Upgrades):**
+**Phase 4 (77% Reserve — hier ist maximaler Spielraum):**
 - Mögliche Upgrades aus Reserve:
-  - Seat Concepts Kit statt Sattler (+€85)
-  - DecalMX Pro-Tank-Decals statt DIY (+€30)
-  - Heidenau K60 statt Mitas E-07 (+€51)
-  - Antigravity Batterie statt JMT (+€65)
-  - Kriega US-20 statt Budget Panniers (+€85)
+  - Seat Concepts Kit statt Sattler (+€60, bessere Qualität)
+  - Antigravity Batterie statt JMT (+€60, mehr CCA, Restart-Funktion)
+  - Kriega US-20 Drybag statt Budget-Panniers (+€80, besser wetterfest)
+  - Heidenau K60 statt Mitas E-07 (+€73, bessere Haltbarkeit)
+  - MRA Touring Windschild statt DIY (+€65, besserer Windschutz)
 
 ---
 
@@ -176,6 +178,32 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - Auspuff Leo Vince SBK = EINZIGE legale Option ✅
 - Kette+Ritzel DID 520VX3 + JT 15/44 ✅
 - Bremsen EBC FA185HH + HEL SS ✅
+
+## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-27)
+
+### Ergebnisse:
+- **Alle Preise mit 3+ EU-Quellen verifiziert** (FC-Moto, Motea, Louis, Amazon.de, eBay.de, YSS-Store.de, Reiff-Moto, Delkevic EU)
+- **Neue Best-Preise gefunden:** Phase 1 ~€409 (vorher ~€422-480), Phase 2 ~€944, Phase 3 ~€688, Phase 4 ~€187
+- **Gesamt Option A:** €2,228 (vorher ~€2,505) = **€277 Ersparnis!**
+- **Bundle Deals:** Ketten-Set spart €27 (Motea), Race Tech Bundle spart €15 (FC-Moto), Mitas Set spart €10 (Reiff)
+- **Neue Budget-Alternativen:** Generisch 7" LED €25 vs Koso €100, Hagon Twins €175 vs YSS Mono €339, Shinko 804/805 €156 vs Mitas €189
+- **Gebraucht-Quellen:** Leo Vince Slip-on gebraucht €215 (vs neu €329-385), SW-Motech Haube gebraucht €65 (vs neu €110-175)
+- **Phase 3 jetzt bequem:** €688 / €1,000 = 31% Reserve (vorher nur 12%!)
+- **Koso RX-22 Preis korrigiert:** €99.90 (FC-Moto), nicht €200+ wie ursprünglich geschätzt
+
+### Budget-Guard Update:
+
+| Phase | Vorher | Jetzt | Reserve | Status |
+|-------|--------|-------|---------|--------|
+| 1: Zuverlässigkeit | €480 | **€409** | **+€391 (49%)** | ✅ Verbessert |
+| 2: Fahrwerk | €865 | **€944** | **+€256 (21%)** | ⚠️ Höher durch Mitas E-07+ Dakar |
+| 3: Africa Twin Look | €882 | **€688** | **+€312 (31%)** | ✅ Stark verbessert |
+| 4: Touring-Komfort | €214 | **€187** | **+€613 (77%)** | ✅ Verbessert |
+| **Total** | **€2,441** | **€2,228** | **+€2,072** | ✅ |
+
+Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md) für vollständige Details.
+
+---
 
 ## Neue Team-Erweiterungsvorschläge
 
