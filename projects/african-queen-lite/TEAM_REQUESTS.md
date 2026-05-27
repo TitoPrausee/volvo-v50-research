@@ -8,8 +8,9 @@
 | `aql-suspension-handler` | Fahrwerk | 8h | Gabel, Dämpfer, Bremsen, Gewichtsverteilung |
 | `aql-electrical` | Elektrik | 8h | Stator, LED, LiFePO4, Leistungs-Bilanz |
 | `aql-stylist` | Design/Look | 12h | Africa-Twin-Look, Farbschema, Referenzen |
+| `aql-developer` | Entwickler | 6h | Build-Tracker, Custom-Dashboard, Wiring-Diagrams, Tools |
 | `aql-budget-hunter` | Preise | 6h | Günstigste Quellen, Alternativen, DIY |
-| `aql-mechanic` | Motor/Antrieb | 12h | Vergaser, Übersetzung, Wartung, Leistung |
+| `aql-mechanic` | Motor/Antrieb | 12h | Vergaser, Übersetzung, Wartung, Sound |
 
 + 3 generische Forschungs-Agenten (vehicle-research, -community, -specs)
 
@@ -33,7 +34,10 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Decal/Grafik-Designer**: Custom Tank-Decals im African Queen Style
 - **Sitzbank-Umpolsterer**: Wer baut flache Sitzbänke für NX650?
 
-### 🔄 Budget-Hunter benötigt:
+### 🔄 Entwickler benötigt:
+- **UI/UX-Feedback**: Wie soll der Build-Tracker aussehen? Was anzeigen? Dark Mode?
+- **Arduino/ESP32-Community**: Referenz-Projekte für Custom-Motorrad-Dashboards
+- **3D-Druck-Spezialist**: Gehäuse für Custom-Dashboard drucken
 - **Gebrauchtteile-Scout**: NX650 Teile auf eBay/Kleinanzeigen finden
 - **DIY-Tutorial-Finder**: Was kann man selbst machen (Windschild, Sitzbank, Decals)?
 
