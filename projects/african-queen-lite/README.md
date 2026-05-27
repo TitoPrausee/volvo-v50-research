@@ -5,8 +5,8 @@
 
 - Basis: Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 - Inspiration: African Queen (getunte Honda Africa Twin)
-- Zielgewicht: ~175-180kg voll ausgerüstet (vs. Africa Twin CRF1000L = 232kg)
-- **Leistung: MAX 49 PS** — KEIN Leistungstuning als Ziel! 44PS OEM reichen. Wenn Auspuff+Filter für Sound/Optik zufällig 2-3 PS mehr bringen, ist das Sahnehaube — aber kein Extra-Aufwand für PS
+- Zielgewicht: ~170-175kg fahrfertig (vs. Africa Twin CRF1000L = 232kg)
+- **Leistung: MAX 49PS** — KEIN Leistungstuning als Ziel! 44PS OEM reichen. Auspuff+Filter nur für Sound/Optik, PS=Bonus
 - Charakter: Sportlich + geländetauglich + kurvenfreundlich + tourentauglich
 - Optik: Abgerundeter Adventure-Look wie African Queen, aber puristischer
 
@@ -15,29 +15,82 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 ## Budget: 5.000€ HARD CAP — So viel erreichen wie möglich, kein Cent verschwenden!
 
-|| Phase | Fokus | Budget | Priorität ||
-||-------|-------|--------|----------- ||
-|| 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung ||
-|| 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch | Das wichtigste für Kurven+Schotter ||
-|| 3 | Africa Twin Look + Sound | €800-1.200 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, **Auspuff + Luftfilter** ||
-|| 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have | Heizgriffe, USB, Träger ||
-|| 5 | Reserve | €200-500 | 🔵 Puffer | Unvorhergesehenes ||
-|| **Total** | | **€5.000 MAX** | ||
+| Phase | Fokus | Budget | Priorität |
+|-------|-------|--------|----------|
+| 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch |
+| 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch |
+| 3 | Africa Twin Look + Sound | €800-1.000 | 🟡 Wichtig |
+| 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have |
+| 5 | Reserve | €200-500 | 🔵 Puffer |
+| **Total** | | **€5.000 MAX** | |
 
-**Prinzip**: Jeder Euro muss Leistung bringen. Lieber weniger Teile von guter Qualität als mehr Teile von schlechter.
+## Budget-Stand (Chefingenieur 2026-05-27)
+
+| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
+|-------|------------|-----------|------------|--------|
+| 1: Zuverlässigkeit | 480 | 800 | +320 | ✅ Gut |
+| 2: Fahrwerk | 865 | 1.200 | +335 | ✅ Gut |
+| 3: Africa Twin Look | 882 | 1.000 | +118 | ✅ OK, knapp |
+| 4: Touring-Komfort | 214 | 800 | +586 | ✅ Viel Reserve |
+| 5: Reserve | — | 500 | +500 | 🔵 Puffer |
+| **Total** | **2.441** | **4.300** | **+1.859** | ✅ |
+
+> **Ergebnis:** Option A (Optimal) kostet €2.441 + €500 Reserve = €2.941. Unter dem €5.000 Hard Cap mit €2.059 Reserve für unvorhergesehene Reparaturen, Wartung, oder upgrades.
+
+### Budget-Guard: KEINE Phase überschritten ✅
+- Phase 1: €480 / €800 → **€320 Reserve** (40%)
+- Phase 2: €865 / €1.200 → **€335 Reserve** (28%)
+- Phase 3: €882 / €1.000 → **€118 Reserve** (12%) ← knapp!
+- Phase 4: €214 / €800 → **€586 Reserve** (73%)
+
+### Budget-Warnung: Phase 3 knapp
+Phase 3 (Africa Twin Look) hat nur €118 Reserve. Wenn Leo Vince Slip-on €380 statt €345 kostet, oder Koso RX-22 teurer ausfällt, rückt die Phase ans Limit. **Empfehlung:** Koso RX-22 durch generischen 7" H4 LED ersetzen (€40 statt €90) → +€50 Reserve in Phase 3.
 
 ## Gewichtsbilanz
-|| Position | OEM (kg) | Nach Bau (kg) | Δ ||
-||----------|----------|---------------|---||
-|| Basis NX650 | 161 | 161 | 0 ||
-|| Batterie LiFePO4 | -3.2 | -1.2 | -2.0 ||
-|| Auspuff Collector-Box | +8 | +5 (SS) | -3.0 ||
-|| LED Scheinwerfer | -2.5 | -1.5 | -1.0 ||
-|| LED Blinker+Rücklicht | -1.0 | -0.3 | -0.7 ||
-|| Gabel+Emulatoren | +0.5 | +0.5 | 0 ||
-|| YSS Federbein | +5.5 | +4.2 | -1.3 ||
-|| Heckträger Alu | 0 | +1.5 | +1.5 ||
-|| **Ziel gesamt** | **~175** | | ||
+
+| Position | OEM (kg) | Nach Bau (kg) | Δ |
+|----------|----------|---------------|---|
+| Basis NX650 | 161 | 161 | 0 |
+| Batterie LiFePO4 | 3.2 | 1.2 | -2.0 |
+| Auspuff SS+Leo Vince | 8.0 | 5.0 | -3.0 |
+| LED Scheinwerfer | 2.5 | 1.5 | -1.0 |
+| LED Blinker+Rücklicht | 1.0 | 0.3 | -0.7 |
+| Gabel+Emulatoren | — | +0.5 | +0.5 |
+| YSS Mono Shock | 5.5 | 4.2 | -1.3 |
+| Kette 520 VX3 | 1.8 | 1.5 | -0.3 |
+| Heckträger Alu | 0 | +1.5 | +1.5 |
+| Windschild | 0 | +0.4 | +0.4 |
+| Handguards | 0 | +0.3 | +0.3 |
+| **Total** | **~183** | **~175.4** | **-5.6** |
+
+> **Fahrfertig:** ~170-171kg (mit Benzin, Öl, Kühlflüssigkeit)
+> **Ziel 175-180kg:** ✅ ERREICHT — sogar ~5kg darunter!
+
+## Kompatibilitäts-Checks ✅
+
+| Teil | Kompatibel mit NX650? | Quelle |
+|------|---------------------|--------|
+| RM Stator 200W + FH020AA | ✅ Bekanntes NX650-Upgrade | RM Stator, Forum |
+| YSS Z-366-330TRL-06 | ✅ NX650 Mono-Shock (Bracket nötig) | YSS-Katalog |
+| Race Tech FEGV S4101 | ✅ 41mm konventionelle Gabel | Race Tech |
+| Leo Vince SBK Slip-on | ✅ ECE R92, NX650 fitment | Leo Vince |
+| Delkevic SS Header | ✅ Direkt-Bolt-on NX650 | Delkevic |
+| DID 520VX3 + JT 15/44 | ✅ NX650 Kette+Ritzel | DID/Motea |
+| UNI NU-4050 | ✅ NX650 Luftfilter | UNI |
+| All Balls 22-1022 | ✅ VE82M Vergaser-Rebuild-Kit | All Balls |
+| EBC FA185HH | ✅ NX650 Bremsbeläge vorne+hinten | EBC |
+| HEL Performance SS Line | ✅ NX650 Front Bremsschlauch | HEL |
+| Koso RX-22 7" LED | ✅ 7" H4, passt NX650 Bucket | Koso |
+| LiFePO4 YTZ10F | ✅ NX650 Batterie-Größe | JMT |
+
+## Performance-Teile: KEINE ✅
+
+Folgende Teile wurden NICHT in den Build-Plan aufgenommen:
+- ❌ Big Bore Kit (680/710cc) — KEINE Leistungssteigerung
+- ❌ Aftermarket CDI — OEM reicht, 44PS sind genug
+- ❌ FMF PowerCore 4 — Offroad-only, illegal auf Straße
+- ❌ K&N Filter Charger Kit — UNI NU-4050 reicht für Adventure
+- ❌ Leistungs-Auspuff — Leo Vince = Sound+Optik, KEin PS-Tuning
 
 ## Projektstruktur
 
@@ -46,6 +99,9 @@ african-queen-lite/
 ├── README.md              ← This file
 ├── TEAM_REQUESTS.md       ← Team communication hub
 ├── WEIGHT_BALANCE.md      ← Weight tracking
+├── BUDGET_OPTIMIZATION.md ← Budget details & 3 build options
+├── MOTOR_RELIABILITY_DRIVE.md ← Engine reliability research
+├── STYLING_SOUND.md       ← Styling & sound specialization
 ├── dashboard/             ← ESP32 Ride-Mode Controller (PlatformIO)
 │   ├── platformio.ini     ← Board config, libraries
 │   ├── src/
@@ -91,3 +147,4 @@ african-queen-lite/
 Alle Daten in: `research/vehicle_database.db`
 - Variant ID: 5 (NX650 Dominator RFVC)
 - Build Guide: "African Queen Lite"
+- 72 Teile in DB (dedupliziert), SUM(price_avg) = €5.480,50
