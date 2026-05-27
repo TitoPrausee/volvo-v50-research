@@ -1,0 +1,77 @@
+# Volvo P1 Platform CEM (Central Electronic Module) Pinout Data
+# Test file - Web search NOT available in current toolset
+# Date: 2026-05-27
+
+## NOTE
+Live web search tools were not available in this agent's toolset.
+The data below is compiled from training knowledge only — it should be verified against official sources (VIDA, Volvo wiring diagrams, or community resources like swedespeed.com, matthewsvolvosite.com).
+
+---
+
+## P1 Platform Overview
+Vehicles: Volvo C30 (2007-2013), S40/V50 (2004-2012), C70 (2006-2013)
+
+## CEM Connector Overview
+The P1 CEM sits behind the glovebox. It has multiple connectors (typically labeled A, B, C, D, E, or numbered depending on revision).
+
+### Main Connectors (CEM-Low and CEM-High variants)
+
+**CEM A-connector (large, 54-pin) — Power, Ground, LIN bus, CAN bus:**
+- Pin A1: Battery power (30) — always on
+- Pin A2: Ignition power (15) — switched
+- Pin A3-A6: Ground (31)
+- Pin A7-A8: CAN-H / CAN-L (drivetrain CAN)
+- Pin A9-A10: CAN-H / CAN-L (body CAN/comfort CAN)
+- Pin A11-A12: LIN bus 1, LIN bus 2
+
+**CEM B-connector (medium, 26-pin) — Lighting & signaling:**
+- Pin B1: Left turn signal output
+- Pin B2: Right turn signal output
+- Pin B3: Brake light output
+- Pin B4: Reverse light output
+- Pin B5: Rear fog light
+- Pin B6: Position/parking lights (left)
+- Pin B7: Position/parking lights (right)
+- Pin B8: License plate light
+
+**CEM C-connector (large, 40-pin) — Wiper, washer, horn, HVAC:**
+- Pin C1: Horn relay control
+- Pin C2: Windshield wiper (speed 1)
+- Pin C3: Windshield wiper (speed 2)
+- Pin C4: Rear wiper (if equipped)
+- Pin C5: Washer pump
+- Pin C6: Blower motor control
+
+**CEM D-connector (20-pin) — Door modules, interior lighting:**
+- Pin D1-D4: LIN to driver/passenger door modules
+- Pin D5-D6: Interior lighting (dome/courtesy)
+- Pin D7-D8: Sunroof control (if equipped)
+
+**CEM E-connector (16-pin) — Immobilizer, keyless, auxiliary:**
+- Pin E1-E2: Immobilizer antenna ring
+- Pin E3-E4: Keyless entry receiver
+- Pin E5: Siren control
+- Pin E6: Hood switch
+
+## Important Notes
+1. Pinouts vary between model years (pre-2008 vs post-2008 facelift).
+2. CEM part numbers changed across production runs — always verify against your specific CEM.
+3. The P1 CEM has "CEM-Low" and "CEM-High" variants depending on options.
+4. Official pinout data requires Volvo VIDA/DICE subscription or a wiring diagram manual.
+5. Community resources: swedespeed.com forums, matthewsvolvosite.com, volvoforums.com have user-verified pinouts.
+
+## Recommended Search Terms (for web search)
+- "Volvo V50 CEM connector diagram"
+- "Volvo C30 CEM pinout"
+- "P1 CEM wiring diagram PDF"
+- "Volvo VIDA CEM pin assignments"
+
+---
+
+## Verification Status
+This data is from training knowledge only and should be cross-referenced with:
+1. Volvo VIDA/DICE official documentation
+2. Physical multimeter verification on your specific vehicle
+3. Community-verified pinout diagrams on forums
+
+Some pin positions may be incorrect — the P1 platform had multiple CEM revisions (30758460, 30758461, 31268840, etc.) with different pin assignments.

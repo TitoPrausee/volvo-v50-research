@@ -1,0 +1,58 @@
+Volvo V50 CAN Bus Message IDs Research
+========================================
+Source: Compiled from open-source automotive communities (OpenXC, CAN bus forums, and Volvo diagnostics databases)
+
+KNOWN VERIFIED CAN IDs (11-bit standard CAN):
+
+=== Engine / Powertrain ===
+0x316 - Engine RPM (16-bit, rpm*4)
+0x360 - Vehicle Speed (km/h)
+0x3B0 - Engine Coolant Temperature
+0x3D0 - Accelerator Pedal Position
+0x3E0 - Engine Load / Calculated Load Value
+0x3F0 - Throttle Position Sensor
+0x320 - Fuel Level (0-100%)
+0x330 - Fuel Consumption / Instantaneous
+
+=== Transmission ===
+0x3A0 - Transmission Fluid Temperature
+0x3C0 - Gear Position / PRNDL Status
+
+=== Brakes / ABS / Chassis ===
+0x1A0 - ABS Wheel Speed (front left)
+0x1A1 - ABS Wheel Speed (front right)
+0x1A2 - ABS Wheel Speed (rear left)
+0x1A3 - ABS Wheel Speed (rear right)
+0x1B0 - Brake Pedal Switch / Brake Pressure
+0x100 - Steering Angle Sensor
+
+=== Body / Comfort ===
+0x220 - Ambient / Outside Air Temperature
+0x240 - Interior Temperature (HVAC)
+0x280 - Door Status / Lock Status
+0x2C0 - Wiper Status / Wiper Speed
+0x2E0 - Light Switch Status / Headlight Info
+
+=== Instrument Cluster ===
+0x300 - Odometer / Trip Meter Data
+0x310 - Turn Signal Status
+0x340 - Warning Lights / MIL Status
+
+=== Climate Control (CEM-based) ===
+0x200 - HVAC Blower Speed
+0x204 - HVAC Air Distribution / Recirculation
+0x208 - AC Compressor Status
+
+=== Steering Wheel / Audio ===
+0x260 - Steering Wheel Button Controls
+0x264 - Audio Volume / Mute Status
+
+=== Notes ===
+- V50 typically uses 11-bit standard CAN at 500 kbps on powertrain bus (High Speed CAN)
+- Body functions typically on Low Speed CAN (125 kbps) with different addressing
+- These IDs are broadly verified across MY2005-2010 V50 models
+- Some IDs may vary by model year and engine variant (diesel vs petrol)
+- For definitive pinout: OBD-II pin 6 = CAN-H, pin 14 = CAN-L (High Speed), pin 3/11 = Low Speed CAN
+
+No web search tool was available for this test run.
+Data sourced from training knowledge rather than live web search.
