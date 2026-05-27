@@ -6,7 +6,7 @@
 - Basis: Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 - Inspiration: African Queen (getunte Honda Africa Twin)
 - Zielgewicht: ~175-180kg voll ausgerüstet (vs. Africa Twin CRF1000L = 232kg)
-- **Leistung: MAX 49 PS** — moderate Steigerung von 44→49 PS erwünscht! Auspuff + Luftfilter + Vergaser-Abstimmung bringen Klang UND bis zu 5 PS mehr
+- **Leistung: MAX 49 PS** — KEIN Leistungstuning als Ziel! 44PS OEM reichen. Wenn Auspuff+Filter für Sound/Optik zufällig 2-3 PS mehr bringen, ist das Sahnehaube — aber kein Extra-Aufwand für PS
 - Charakter: Sportlich + geländetauglich + kurvenfreundlich + tourentauglich
 - Optik: Abgerundeter Adventure-Look wie African Queen, aber puristischer
 
