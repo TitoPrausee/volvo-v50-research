@@ -17,29 +17,32 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 | Phase | Fokus | Budget | Priorität |
 |-------|-------|--------|-----------|
-| 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung |
+| 1 | Motorlauf & Sicherheit (MUSS) | €400-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung |
 | 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch | Das wichtigste für Kurven+Schotter |
-| 3 | Africa Twin Look + Sound | €800-1.200 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, **Auspuff + Luftfilter** |
-| 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have | Heizgriffe, USB, Träger |
-| 5 | Reserve | €200-500 | 🔵 Puffer | Unvorhergesehenes |
+| 3 | Africa Twin Look + Sound | €500-600 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, Auspuff (nur Optik+Gewicht) |
+| 4 | Touring-Komfort | €200-500 | 🟢 Nice-to-have | Heizgriffe, USB, Träger |
+| 5 | Reserve | €500+ | 🔵 Puffer | Unvorhergesehenes |
 | **Total** | | **€5.000 MAX** | |
 
 **Prinzip**: Jeder Euro muss Leistung bringen. Lieber weniger Teile von guter Qualität als mehr Teile von schlechter.
 
+**Budget-Report**: Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md) — 3 Build-Optionen von €1.600 bis €4.200
+
 ## Gewichtsbilanz
-| Position | OEM (kg) | Nach Bau (kg) | Δ |
-|----------|----------|---------------|---|
-| Basis NX650 | 161 | 161 | 0 |
-| Batterie LiFePO4 | -3.2 | -1.2 | -2.0 |
-| Auspuff Collector-Box | +8 | +5 (SS) | -3.0 |
-| LED Scheinwerfer | -2.5 | -1.5 | -1.0 |
-| LED Blinker+Rücklicht | -1.0 | -0.3 | -0.7 |
-| Gabel+Emulatoren | +0.5 | +0.5 | 0 |
-| YSS Federbein | +5.5 | +4.2 | -1.3 |
-| Heckträger Alu | 0 | +1.5 | +1.5 |
-| **Ziel gesamt** | **~175** | | |
+Siehe [WEIGHT_BALANCE.md](./WEIGHT_BALANCE.md)
 
 ## DB
 Alle Daten in: `research/vehicle_database.db`
 - Variant ID: 5 (NX650 Dominator RFVC)
 - Build Guide: "African Queen Lite"
+- 55 Teile im System (nach Bereinigung)
+
+## GESTRICHENE Teile (KEINE Leistungssteigerung!)
+- ❌ Aftermarket CDI Unit — 44PS reichen
+- ❌ FMF PowerCore 4 — Leistungs-Auspuff, nicht nötig
+- ❌ Big Bore Kits — KEINE Leistungssteigerung
+- ❌ Polestar/Volvo Tuning — falsches Fahrzeug (V50)
+
+## Empfohlene Build-Option
+**Option A (Optimal): ~€2.500** — YSS Mono, RT Emulatoren, Mitas E-07, DIY-Optik
+→ Unter Budget mit €2.500 Reserve für Unvorhergesehenes!
