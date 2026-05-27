@@ -63,11 +63,17 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Zündschloss-Kontakte**: Reinigen + Kontaktspray (Kosten: €5)
 - **Zusätzlich Massekabel**: Batterie → Rahmen → Motor direkt löten (Kosten: €5-15)
 
-### 🔄 Stylist benötigt:
-- **Farbschema**: African Queen rot/blau/weiß Tank-Decals → DIY Vinyldruck (€5-10) oder DecalMX (€30-60)
-- **Sitzbank**: Flach umpolstern lassen → lokaler Sattler (~€80-150)
-- **Auspuff-Look**: SS Header (edel) + Leo Vince Carbon = Adventure-Racing-Look ✅ BESTÄTIGT (StVZO legal!)
-- **Auspuff Sound**: Leo Vince SBK mit DB-Killer = tief, voller Thump, legal ✅
+### ✅ Styling+Sound ERLEDIGT (dieser Run):
+- **Auspuff Strategie**: OPTIMAL = Delkevic SS Header + Leo Vince SBK Slip-on (€460-580, -3kg, 93dB, StVZO-legal) ✅
+- **Farbschema**: Tricolor Weiß `#F5F5F5` / Rot `#C8102E` / Blau `#003DA5` / Schwarz `#1A1A1A` mit HEX-Codes ✅
+- **Africa Twin Design-Elemente**: 10 Schlüsselelemente identifiziert (Scheinwerfer, Beak, Tank-Decals, Sitzbank, etc.) ✅
+- **Sitzbank**: Flach umpolstern, Gripper-Vinyl, rote Stepp-Naht. Sattler €100-150 ODER Seat Concepts Kit €200 ✅
+- **LED-Umbau**: Koso RX-22 7" LED + DRL-Ring = Africa Twin Look. -1.7kg Total ✅
+- **Weight-Bilanz**: Alle Styling-Änderungen dokumentiert. Netto -2.3kg (Option A) bis -2.8kg (Option B) ✅
+- **DIY-Optionen**: 11 Projekte mit Kosten/Ersparnis/Dauer dokumentiert ✅
+- **Referenz-Bikes**: 8 Referenzen inkl. African Queen, Camel ADV, Rally Raid ✅
+- **Phase 3 Budget**: 3 Optionen — Optimal €800-1.053, Budget €335-487, Max-Style €1.000-1.200 ✅
+- **Luftfilter**: UNI NU-4050 = Adventure-Best-Choice, K&N für Street-Sound ✅
 
 ### ✅ Entwickler ERLEDIGT (frühere Runs):
 - **ESP32 Ride-Mode Controller**: Komplett implementiert! 6 Modi, Sensor-Support, BLE, OLED Display ✅

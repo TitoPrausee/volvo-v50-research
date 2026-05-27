@@ -33,8 +33,24 @@
 | LED Blinker+Rücklicht | ~€40 | ~€57/kg | Alle Optionen |
 | YSS Mono Shock | ~€375 | ~€288/kg | Option A+B (Option C: OEM) |
 
+## Styling & Sound Detail-Gewicht (Phase 3)
+
+| Teil | OEM (kg) | Neu (kg) | Δ (kg) | Quelle |
+|------|----------|----------|--------|--------|
+| Leo Vince SBK Slip-on | — | 2.0 (ersetzt OEM 5.5) | -1.0 | Leo Vince |
+| SS Header (Collector-Delete) | — | — | -2.0 | Delkevic |
+| UNI NU-4050 Luftfilter | — | — | ±0 | UNI (selbes Gewicht) |
+| LED Scheinwerfer 7" | 2.5 | 1.5 | -1.0 | Koso/generisch |
+| LED Blinker 4er + Rücklicht | 1.0 | 0.3 | -0.7 | LED Mini E9 |
+| Sitzbank Umpolsterung | — | — | ±0 | Sattler |
+| Tail Tidy + Alu Rack | 0 | +1.7 | +1.7 | Universal |
+| Windschild Polycarbonat | 0 | +0.4 | +0.4 | DIY |
+| Tank Decals | — | — | ±0 | DIY Vinyl |
+| Handguards | 0 | +0.3 | +0.3 | Acerbis |
+
 ## TODO vom Chefingenieur
 - [x] Exakte Gewichte für jeden Teile-Vorschlag verifiziert ✅
 - [x] Preis-Leistungs-Verhältnis berechnet ✅
-- [ ] Gewichtsverteilung vorne/hinten berechnen (vome: ~55%, hinten: ~45% geschätzt)
+- [x] Styling-Gewichtsbilanz erstellt (Phase 3 Siehe STYLING_SOUND.md) ✅
+- [ ] Gewichtsverteilung vorne/hinten berechnen (vorne: ~55%, hinten: ~45% geschätzt)
 - [ ] Tank voll/leer Einfluss auf Handling (15L = ~11kg Benzin)
