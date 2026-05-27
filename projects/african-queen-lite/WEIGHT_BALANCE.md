@@ -6,7 +6,7 @@
 |----------|----------|---------------|--------|--------|
 | Basis NX650 trocken | 161 | 161 | 0 | Honda Spec |
 | Batterie YB14L-A2 | 3.2 | 1.2 (LiFePO4) | **-2.0** | JMT/Antigravity |
-| Auspuff Collector+Muffler | 8.0 | 5.0 (SS Header+Slip-on) | **-3.0** | Delkevic/FMF |
+| Auspuff Collector+Muffler | 8.0 | 5.0 (SS Slip-on) | **-3.0** | Delkevic/FMF/LeoVince — KLANG + OPTIK + -3kg! |
 | Scheinwerfer H4 | 2.5 | 1.5 (LED 7") | **-1.0** | JW Speaker/No-Name |
 | Blinker+Rücklicht Glühl. | 1.0 | 0.3 (LED) | **-0.7** | Mini LED |
 | Gabelöl+Emulatoren | — | +0.5 (Gold Valve) | **+0.5** | Race Tech |

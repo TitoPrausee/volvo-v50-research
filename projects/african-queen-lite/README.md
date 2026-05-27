@@ -6,7 +6,7 @@
 - Basis: Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 - Inspiration: African Queen (getunte Honda Africa Twin)
 - Zielgewicht: ~175-180kg voll ausgerüstet (vs. Africa Twin CRF1000L = 232kg)
-- **Leistung: MAX 49 PS** — keine Leistungssteigerung nötig! 44PS reichen, max 49PS falls ohnehin Optimierung ansteht
+- **Leistung: MAX 49 PS** — moderate Steigerung von 44→49 PS erwünscht! Auspuff + Luftfilter + Vergaser-Abstimmung bringen Klang UND bis zu 5 PS mehr
 - Charakter: Sportlich + geländetauglich + kurvenfreundlich + tourentauglich
 - Optik: Abgerundeter Adventure-Look wie African Queen, aber puristischer
 
@@ -19,8 +19,8 @@ Siehe Cron-Jobs: `aql-*` Präfix
 |-------|-------|--------|-----------|
 | 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch | Zuverlässigkeit, KEINE Leistungssteigerung |
 | 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch | Das wichtigste für Kurven+Schotter |
-| 3 | Africa Twin Look | €600-1.000 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild |
-| 4 | Touring-Komfort | €400-800 | 🟢 Nice-to-have | Heizgriffe, USB, Träger |
+| 3 | Africa Twin Look + Sound | €800-1.200 | 🟡 Wichtig | LED, Sitzbank, Heck, Windschild, **Auspuff + Luftfilter** |
+| 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have | Heizgriffe, USB, Träger |
 | 5 | Reserve | €200-500 | 🔵 Puffer | Unvorhergesehenes |
 | **Total** | | **€5.000 MAX** | |
 
