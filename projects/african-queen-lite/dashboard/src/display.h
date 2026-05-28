@@ -1,6 +1,6 @@
 #pragma once
 // ============================================================
-// African Queen Lite — OLED Display (SSD1306 128x64 I2C) v2.1
+// African Queen Lite — OLED Display (SSD1306 128x64 I2C) v2.3
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
@@ -67,15 +67,15 @@ public:
         oled_.print(F("AQL"));
         oled_.setCursor(10, 28);
         oled_.setTextSize(1);
-        oled_.print(F("Ride Mode Ctrl v2.1"));
+        oled_.print(F("Ride Mode Ctrl v2.3"));
         oled_.setCursor(10, 42);
         oled_.print(F("NX650 RFVC"));
         oled_.setCursor(10, 54);
-        oled_.print(F("3-MAP CDI+LONGEVITY"));
+        oled_.print(F("3-MAP CDI+LONG+SPEED"));
         oled_.display();
         delay(2000);
 
-        Serial.println("[DISPLAY] SSD1306 initialized (128x64 I2C) v2.1");
+        Serial.println("[DISPLAY] SSD1306 initialized (128x64 I2C) v2.3");
         return true;
     }
 

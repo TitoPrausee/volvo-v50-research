@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-African Queen Lite — Build Tracker Web App v2.2
+African Queen Lite — Build Tracker Web App v2.3
 Reads from vehicle_database.db and serves a dashboard.
-v2.2: Auto-RPM valve curves, fuel estimation per mode, gear detection,
+v2.3: Auto-RPM valve curves, fuel estimation per mode, gear detection,
       deep sleep, config mode, OTA updates
 Run: python3 app.py
 Open: http://localhost:5050
@@ -17,7 +17,7 @@ DB_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'research', 
 app = Flask(__name__)
 
 # ============================================================
-# Ride Mode Controller Configuration (matches ESP32 firmware v2.2)
+# Ride Mode Controller Configuration (matches ESP32 firmware v2.3)
 # ============================================================
 RIDE_MODES = {
     "STRASSE": {
@@ -89,8 +89,33 @@ NX650_DATA = {
     "weight_target": "155 kg (target)",
     "budget_hard_cap": 5000,
     "stator_watts": 180,
-    "battery_type": "LiFePO4 4S 12.8V"
+    "battery_type": "LiFePO4 4S 12.8V",
+    "gps_pins": {"rx": 15, "tx": 14},
+    "wheel_speed_pin": 39
 }
+
+# v2.3: Rev Limiter Parameters per Mode
+REV_LIMITERS = {
+    "STRASSE": {"soft_cut_rpm": 6800, "max_retard_deg": -3, "hard_cut_rpm": 7100, "hard_limit_rpm": 7300},
+    "STADT":   {"soft_cut_rpm": 6300, "max_retard_deg": -4, "hard_cut_rpm": 6600, "hard_limit_rpm": 6800},
+    "GELÄNDE": {"soft_cut_rpm": 7200, "max_retard_deg": -2, "hard_cut_rpm": 7400, "hard_limit_rpm": 7600},
+    "SPORT":   {"soft_cut_rpm": 7200, "max_retard_deg": -2, "hard_cut_rpm": 7400, "hard_limit_rpm": 7600},
+    "COMFORT": {"soft_cut_rpm": 6300, "max_retard_deg": -3, "hard_cut_rpm": 6600, "hard_limit_rpm": 6800},
+    "SOUND":   {"soft_cut_rpm": 6800, "max_retard_deg": -2, "hard_cut_rpm": 7000, "hard_limit_rpm": 7200}
+}
+
+# v2.3: Dedicated Airbox RPM Curves per Mode
+AIRBOX_CURVES = {
+    "STRASSE": [(1500, 20), (2500, 35), (4000, 50), (5500, 55), (7000, 45)],
+    "STADT":   [(1500, 10), (2500, 20), (4000, 30), (5500, 35), (7000, 25)],
+    "GELÄNDE": [(1500, 30), (2500, 60), (3000, 90), (5000, 100), (7000, 100)],
+    "SPORT":   [(1500, 25), (2500, 50), (4000, 85), (5500, 100), (7000, 100)],
+    "COMFORT": [(1500, 15), (2500, 25), (4000, 40), (5500, 40), (7000, 30)],
+    "SOUND":   [(1200, 50), (2000, 70), (3000, 85), (4500, 100), (6500, 90)]
+}
+
+# v2.3: Speed input sources (priority order)
+SPEED_SOURCES = ["GPS", "WHEEL", "RPM_ESTIMATE"]
 
 # ============================================================
 # HTML Dashboard Template
@@ -101,7 +126,7 @@ DASHBOARD_HTML = """
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AQL v2.2 — Ride Mode Controller Dashboard</title>
+<title>AQL v2.3 — Ride Mode Controller Dashboard</title>
 <style>
   :root {
     --bg-dark: #0a0e17;
@@ -176,7 +201,7 @@ DASHBOARD_HTML = """
 </head>
 <body>
 <div class="container">
-  <h1>🏍️ African Queen Lite v2.2 <span class="feature-badge">ESP32</span><span class="feature-badge new-badge">NEW</span></h1>
+  <h1>🏍️ African Queen Lite v2.3 <span class="feature-badge">ESP32</span><span class="feature-badge new-badge">NEW</span></h1>
   <p class="subtitle">Ride Mode Controller — Honda NX650 Dominator RFVC — Auto-RPM Valve + Fuel + Gear + Sleep</p>
 
   <!-- New Features Overview -->
@@ -243,7 +268,7 @@ DASHBOARD_HTML = """
 
   <!-- ESP32 Pin Mapping -->
   <div class="card" style="margin-bottom: 16px;">
-    <div class="card-title">🔌 ESP32 Pin Mapping v2.2</div>
+    <div class="card-title">🔌 ESP32 Pin Mapping v2.3</div>
     <table class="pin-table">
       <tr><th>GPIO</th><th>Type</th><th>Function</th></tr>
       <tr><td>0</td><td style="color:#f97316">Encoder</td><td>ENCODER_BTN (BOOT)</td></tr>
@@ -265,7 +290,7 @@ DASHBOARD_HTML = """
       <tr><td>36</td><td style="color:#34d399">ADC</td><td>Stator Voltage Divider</td></tr>
     </table>
     <div style="font-size: 0.7rem; color: var(--text-dim); margin-top: 8px;">
-      v2.2 Production: GPIO14/13 → DRV8833 AIN1/AIN2 (Exhaust), GPIO23/2 → DRV8833 BIN1/BIN2 (Airbox), AS5600 @ 0x36/0x37
+      v2.3 Production: GPIO14/13 → DRV8833 AIN1/AIN2 (Exhaust), GPIO23/2 → DRV8833 BIN1/BIN2 (Airbox), AS5600 @ 0x36/0x37
     </div>
   </div>
 
@@ -347,7 +372,7 @@ DASHBOARD_HTML = """
   </div>
 
   <footer>
-    African Queen Lite v2.2 — ESP32 Ride-Mode Controller — Honda NX650 Dominator RFVC<br>
+    African Queen Lite v2.3 — ESP32 Ride-Mode Controller — Honda NX650 Dominator RFVC<br>
     Auto-RPM Valve • Fuel Estimation • Gear Detection • Deep Sleep • Config Mode • OTA Update<br>
     <span style="font-size: 0.7rem; color: var(--text-dim);">Last updated: 2026-05-28</span>
   </footer>
@@ -577,7 +602,7 @@ def api_valve_curves():
     return jsonify(curves)
 
 if __name__ == '__main__':
-    print("🏍️  African Queen Lite v2.2 — Build Tracker Dashboard")
+    print("🏍️  African Queen Lite v2.3 — Build Tracker Dashboard")
     print(f"   Database: {DB_PATH}")
     print(f"   URL: http://localhost:5050")
     app.run(host='0.0.0.0', port=5050, debug=True)

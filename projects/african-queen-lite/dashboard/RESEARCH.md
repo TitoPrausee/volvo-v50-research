@@ -1,4 +1,4 @@
-# African Queen Lite — Ride-Mode Controller Research v2.2
+# African Queen Lite — Ride-Mode Controller Research v2.3
 
 ## 1. ESP32 vs Arduino vs Teensy — Motorcycle Controller
 
@@ -236,3 +236,90 @@ SSD1306 128x64 OLED (4 auto-cycling pages):
 **Page 1 (HEALTH):** Stator status, battery SOC, runtime
 **Page 2 (MAINT):** Maintenance items with overdue warnings
 **Page 3 (TRIP):** Odometer, trip, peak temp, stator/battery summary
+
+---
+
+## 5. StVZO Legal Research — Custom Ignition & Exhaust on NX650
+
+### Programmable CDI — Legal Status
+- **StVZO §55a**: Zündzeitpunkt may only be changed with type-approved parts
+- **In practice**: Programmable CDI is legal IF it doesn't exceed the manufacturer's original timing range
+- The NX650 RFVC has a single ignition map — adding 3 maps is a gray area
+- **Recommendation**: Map C (standard) = OEM-equivalent timing. Maps A and B should stay within ±3° of specification
+- **Key risk**: TÜV inspection will check exhaust emissions and noise — not ignition timing specifically
+
+### Exhaust Valve — Legal Status
+- **StVZO §49**: Abgasanlagen must be type-approved (EG-Betriebserlaubnis)
+- A custom exhaust valve in a modified exhaust system requires:
+  - EG-Betriebserlaubnis for the complete exhaust system
+  - Or: Einzelabnahme (individual approval) via TÜV
+- **Sound mode**: In STADT mode (valve closed), the bike must still meet the 80dB(A) limit at 5m
+- **Exhaust valve retrofit**: Legal if the valve is part of a type-approved exhaust system (Akrapovič, Yoshimura with EXUP)
+- **DIY exhaust valve**: Requires Einzelabnahme — feasible but requires documentation
+
+### Display on Handlebar — Legal Status
+- **StVZO §23**: Instruments and displays are allowed if they don't obstruct the rider's view
+- OLED/TFT displays are legal — many factory bikes have them (Ducati, KTM, BMW)
+- The display must not show video or entertainment content while riding
+- Our display shows only vehicle data — fully legal
+
+### LED Indicator — Legal Status
+- **StVZO §51**: Light fixtures must be type-approved
+- A single WS2812 LED for mode indication is legal as a supplementary indicator
+- Must not be confused with turn signals or other required lights
+- Colors: Avoid flashing red/blue (emergency vehicle) — our mode colors are fine
+
+### Lenker-Schalter (Handlebar Switches) — Options
+Weatherproof handlebar switches rated for motorcycle use:
+1. **HealTech QR Quickshifter buttons** — waterproof, OEM-quality (~€25)
+2. **Domino MX095** — 22mm bar mount, IP67, used on rally bikes (~€15)
+3. **Trail Tech 2-button switch** — ATV/motorcycle rated, IP68 (~€20)
+4. **Custom 3D-printed housing with sealed microswitches** — best for our encoder mount (~€10-15)
+
+### OLED vs TFT bei Sonnenlicht
+- **SSD1306 OLED (128x64)**: Good contrast, readable in shade, washes out in direct sun. Current draw: ~10mA
+- **SSD1306 with inverted mode**: White-on-black becomes black-on-white — much better in direct sunlight
+- **IPS TFT (ST7789, 1.3")**: Excellent in sunlight, faster refresh, but higher power (~30-50mA)
+- **Transflective LCD (NOA1 style)**: Best in sunlight, nearly zero power in daylight, but monochrome
+- **Decision**: SSD1306 with v2.1 sunlight inversion mode is ADEQUATE for motorcycle use
+  - The inverted mode (v2.1) makes it readable in direct sun
+  - Low power draw preserves battery
+  - For v2.3: Consider adding an auto-brightness sensor (LDR on GPIO) for future TFT upgrade
+
+---
+
+## 6. v2.3 Development Notes
+
+### Speed Input Module (NEW)
+- GPS NMEA on Serial2 (GPIO14/GPIO15) — primary speed source
+- Wheel hall sensor on GPIO39 (input-only pin) — secondary source
+- Fallback to RPM-based estimation when no GPS/sensor
+- Priority: GPS > Wheel > RPM estimate
+- EMA filter (α=0.3) for GPS speed smoothing
+
+### Smooth Mode Transitions (NEW)
+- ModeTransition class interpolates servo positions over 1.5s
+- easeInOutCubic curve for natural servo feel
+- CDI map changes are still instant (engine safety)
+- LED changes instant (visual feedback)
+
+### Dedicated Airbox RPM Curves (IMPROVED)
+- Airbox resonance is different from exhaust backpressure
+- STADT mode: airbox mostly closed (quiet intake), exhaust partially open (scavenging)
+- SOUND mode: both wide open for maximum acoustic output
+- Airbox has narrower effective RPM band — different curve shape than exhaust
+
+### Rev Limiter Soft-Cut (NEW)
+- 3-stage progressive limiter per mode:
+  1. Soft-cut: timing retard begins (gradual power reduction)
+  2. Hard-cut: full retard + cylinder dropout (strong limit)
+  3. Hard-limit: absolute no-spark cutoff (safety)
+- STADT/COMFORT: earlier limiter for fuel economy (6800 RPM)
+- GELÄNDE/SPORT: higher limiter for power (7600 RPM)
+- Soft-cut timing retard applied via CDI map offset
+
+### Pin Assignment Changes (v2.3)
+- GPIO 14: GPS UART2 TX (was DRV8833 AIN2 in production mode — now shared)
+- GPIO 15: GPS UART2 RX (was unused)
+- GPIO 39: Wheel speed hall sensor (was unused — input-only pin)
+- Note: GPS and DRV8833 share GPIO14. When in production motor mode, GPS must use alternative pins or be disabled via compile flag

@@ -1,7 +1,14 @@
 // ============================================================
-// African Queen Lite — Main Program v2.2
+// African Queen Lite — Main Program v2.3
 // ESP32 Ride-Mode Controller for Honda NX650 Dominator RFVC
 // ============================================================
+//
+// v2.3 Changes:
+//   - Speed input module: GPS NMEA, wheel sensor, RPM fallback
+//   - Smooth mode transitions: ease-in-out servo interpolation
+//   - Dedicated airbox RPM curves (independent from exhaust valve)
+//   - Rev limiter soft-cut: progressive ignition retard before hard limit
+//   - Fixed display splash version
 //
 // v2.2 Changes:
 //   - Auto-RPM exhaust valve: position follows RPM curves per mode
@@ -41,6 +48,8 @@
 #include "sleep_manager.h"
 #include "config_mode.h"
 #include "ota_update.h"
+#include "speed_input.h"
+#include "mode_transition.h"
 
 // ---- Global Objects ----
 Sensors         sensors;
@@ -58,6 +67,8 @@ GearEstimator   gearEstimator;
 SleepManager    sleepManager;
 ConfigMode      configMode;
 OTAUpdate       otaUpdate;
+SpeedInput      speedInput;
+ModeTransition  modeTransition;
 
 // ---- State ----
 RideMode currentMode = MODE_STRASSE;
@@ -106,7 +117,7 @@ void setup() {
     Serial.println();
     Serial.println(F("========================================"));
     Serial.println(F("  African Queen Lite — Ride Mode Ctrl  "));
-    Serial.println(F("  v2.2 — AutoValve + Fuel + Gear + Sleep"));
+    Serial.println(F("  v2.3 — Speed+Transitions+SoftLimiter"));
     Serial.println(F("  Honda NX650 Dominator RFVC           "));
     Serial.println(F("========================================"));
     Serial.println();
@@ -185,6 +196,12 @@ void setup() {
     // ---- Initialize Config Mode ----
     configMode.begin();
 
+    // ---- Initialize Speed Input ----
+    speedInput.begin();
+
+    // ---- Initialize Mode Transition ----
+    modeTransition.begin();
+
     // ---- Restore Last Mode from EEPROM ----
     RideMode saved_mode = ModeStorage::loadMode();
     if (saved_mode >= MODE_COUNT) saved_mode = MODE_STRASSE;
@@ -249,6 +266,7 @@ void loop() {
         // (display module handles this)
         // Still update sensors for safety
         sensors.update();
+        speedInput.update(sensors.getSpeedKmhX10());
 
         // Feed watchdog
         esp_task_wdt_reset();
@@ -266,6 +284,9 @@ void loop() {
         sensors.update();
         last_sensor_ms = now;
 
+        // Update speed input (GPS > wheel > RPM estimate)
+        speedInput.update(sensors.getSpeedKmhX10());
+
         // Update longevity monitor (includes runtime counter)
         longevity.update(
             sensors.getVoltage(),
@@ -274,8 +295,8 @@ void loop() {
             sensors.getSpeedKmhX10()
         );
 
-        // Update gear estimator
-        gearEstimator.update(sensors.getRPM(), sensors.getSpeedKmhX10());
+        // Update gear estimator with real speed
+        gearEstimator.update(sensors.getRPM(), speedInput.getSpeedKmhX10());
 
         // Update fuel estimator (every 10s)
         if (now - last_fuel_ms >= FUEL_CALC_MS) {
@@ -291,12 +312,29 @@ void loop() {
 
     // ---- Auto RPM Valve Control ----
     // When enabled, exhaust and airbox positions follow RPM curves
+    // v2.3: Airbox now has its own dedicated AIRBOX_CURVES
     if (autoRPMValve.isEnabled()) {
         uint16_t rpm = sensors.getRPM();
         uint8_t valve_pos = autoRPMValve.calculatePosition(currentMode, rpm);
         uint8_t airbox_pos = autoRPMValve.calculateAirboxPosition(currentMode, rpm);
+
+        // During mode transition, interpolate valve/airbox smoothly
+        if (modeTransition.isActive()) {
+            uint8_t trans_valve, trans_airbox;
+            modeTransition.update(trans_valve, trans_airbox);
+            // Blend: use transition for base, then overlay RPM curve
+            valve_pos = (trans_valve + valve_pos) / 2;   // Average
+            airbox_pos = (trans_airbox + airbox_pos) / 2;
+        }
+
         exhaustValve.setTarget(valve_pos);
         airboxFlap.setTarget(airbox_pos);
+    } else if (modeTransition.isActive()) {
+        // No RPM valve but transition is active — smooth servo movement
+        uint8_t trans_valve, trans_airbox;
+        modeTransition.update(trans_valve, trans_airbox);
+        exhaustValve.setTarget(trans_valve);
+        airboxFlap.setTarget(trans_airbox);
     }
 
     // ---- Update Servos (smooth transitions) ----
@@ -459,6 +497,13 @@ void handleEncoder() {
 // Mode Application
 // ============================================================
 void applyMode(RideMode mode) {
+    // v2.3: Start smooth transition instead of instant snap
+    if (previousMode != mode) {
+        modeTransition.start(previousMode, mode,
+                              exhaustValve.getPosition(),
+                              airboxFlap.getPosition());
+    }
+
     cdi.setMode(mode);
 
     // If auto RPM valve is DISABLED, use static positions from MODE_PARAMS
@@ -471,6 +516,11 @@ void applyMode(RideMode mode) {
     led.setMode(mode);
     display.showModeSwitch(mode);
     ModeStorage::saveMode(mode);  // Persist to EEPROM
+    previousMode = mode;
+
+    Serial.printf("[MODE] → %s (transition %s)\n",
+        MODE_NAMES[mode],
+        modeTransition.isActive() ? "active" : "instant");
 }
 
 RideMode nextMode(RideMode current) {
@@ -521,6 +571,20 @@ void checkAlerts() {
     // Redline warning
     bool prev_rpm = alert_rpm;
     alert_rpm = sensors.isRPMRedline();
+
+    // v2.3: Soft-cut rev limiter warning
+    if (!alert_rpm) {
+        int8_t retard = autoRPMValve.getRevLimiterRetard(currentMode, sensors.getRPM());
+        if (retard < 0) {
+            Serial.printf("[REV] Soft-cut active: %d° retard at %d RPM\n", retard, sensors.getRPM());
+        }
+    }
+
+    // v2.3: Hard rev limit — cut ignition
+    if (autoRPMValve.isHardLimit(currentMode, sensors.getRPM())) {
+        Serial.printf("[REV] HARD LIMIT at %d RPM!\n", sensors.getRPM());
+        alert_rpm = true;
+    }
 
     if (alert_rpm && !prev_rpm) {
         Serial.printf("[ALERT] Redline: %d RPM!\n", sensors.getRPM());

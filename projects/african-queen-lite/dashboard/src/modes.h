@@ -1,8 +1,14 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Ride Mode Definitions v2.2
+// African Queen Lite — Ride Mode Definitions v2.3
 // Honda NX650 Dominator RFVC
 // ============================================================
+//
+// v2.3 Changes:
+//   - Added: Dedicated airbox RPM curves (AIRBOX_CURVES) — independent from exhaust
+//   - Added: Rev limiter soft-cut parameters (REV_LIMITERS) per mode
+//   - Added: Speed input pins (GPS_UART_RX/TX, WHEEL_SPEED)
+//   - Fixed: Display splash version updated to v2.3
 //
 // v2.2 Changes:
 //   - Added: Auto-RPM exhaust valve curves per mode (valve position follows RPM)
@@ -184,6 +190,56 @@ constexpr ValveCurve VALVE_CURVES[MODE_COUNT] = {
     {{{1200, 60}, {2000, 85}, {3000, 95}, {4500, 100}, {6500, 80}} }, 5},
 };
 
+// ---- Auto RPM Airbox Curves ----
+// v2.3: Dedicated airbox RPM curves (previously derived from valve curves)
+// Airbox behavior is different from exhaust valve:
+//   - Airbox affects intake resonance, not backpressure
+//   - Closed airbox = quiet, rich low-end torque
+//   - Open airbox = loud, free-flowing, peakier power band
+//   - Airbox has a narrower effective RPM band than exhaust
+constexpr ValveCurve AIRBOX_CURVES[MODE_COUNT] = {
+    // STRASSE: moderate resonance tuning, 50% midrange
+    {{ {{1500, 20}, {2500, 35}, {4000, 50}, {5500, 55}, {7000, 45}} }, 5},
+    // STADT: mostly closed for quiet, slight opening at high RPM
+    {{{1500, 10}, {2500, 20}, {4000, 30}, {5500, 35}, {7000, 25}} }, 5},
+    // GELÄNDE: fully open above 3000 for maximum flow
+    {{{1500, 30}, {2500, 60}, {3000, 90}, {5000, 100}, {7000, 100}} }, 5},
+    // SPORT: aggressive opening, fully open above 4000
+    {{{1500, 25}, {2500, 50}, {4000, 85}, {5500, 100}, {7000, 100}} }, 5},
+    // COMFORT: gentle opening, never fully open
+    {{{1500, 15}, {2500, 25}, {4000, 40}, {5500, 40}, {7000, 30}} }, 5},
+    // SOUND: wide open early for resonance howl, tapers at top end
+    {{{1200, 50}, {2000, 70}, {3000, 85}, {4500, 100}, {6500, 90}} }, 5},
+};
+
+// ---- Rev Limiter Soft-Cut Curves ----
+// v2.3: Progressive ignition retard before hard rev limit.
+// Each mode has 3 rev limiter stages:
+//   1. SOFT_CUT_START: begin retarding timing (°offset added)
+//   2. HARD_CUT_START: timing fully retarded, cylinder dropout begins
+//   3. HARD_LIMIT: absolute rev limit (no spark above this)
+struct RevLimiterParams {
+    uint16_t soft_cut_rpm;    // RPM where timing retard begins
+    int8_t   max_retard_deg;  // Maximum timing retard (degrees) at hard cut
+    uint16_t hard_cut_rpm;    // RPM where cylinder dropout begins
+    uint16_t hard_limit_rpm;  // Absolute rev limit
+};
+
+constexpr RevLimiterParams REV_LIMITERS[MODE_COUNT] = {
+    // STRASSE: conservative limiter for road safety
+    { 6800, -3, 7100, 7300 },
+    // STADT: early limiter, maximize fuel economy
+    { 6300, -4, 6600, 6800 },
+    // GELÄNDE: high limiter for off-road power needs
+    { 7200, -2, 7400, 7600 },
+    // SPORT: aggressive limiter, high revs
+    { 7200, -2, 7400, 7600 },
+    // COMFORT: early limiter, smooth and relaxed
+    { 6300, -3, 6600, 6800 },
+    // SOUND: moderate limiter, focus on acoustic range
+    { 6800, -2, 7000, 7200 },
+};
+
 // ---- Sensor Limits / Thresholds ----
 constexpr uint16_t RPM_REDLINE        = 7500;   // NX650 redline
 constexpr uint16_t RPM_IDLE_DEFAULT   = 1300;   // warm idle
@@ -261,6 +317,11 @@ namespace Pin {
     // I2C
     constexpr uint8_t OLED_SDA       = 21;   // I2C: OLED
     constexpr uint8_t OLED_SCL       = 22;   // I2C: OLED
+
+    // v2.3: Speed Input
+    constexpr uint8_t GPS_UART_RX    = 15;  // UART2 RX for GPS NMEA (GPIO15)
+    constexpr uint8_t GPS_UART_TX    = 14;  // UART2 TX for GPS NMEA (GPIO14)
+    constexpr uint8_t WHEEL_SPEED    = 39;  // Wheel speed sensor (hall effect, input-only)
 }
 
 // ---- Debounce / Timing ----

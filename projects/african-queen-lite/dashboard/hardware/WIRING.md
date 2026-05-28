@@ -1,9 +1,9 @@
-# African Queen Lite — Wiring Diagram & Hardware Guide v2.2
+# African Queen Lite — Wiring Diagram & Hardware Guide v2.3
 
-## ESP32 Pin Assignment (Updated for v2.2)
+## ESP32 Pin Assignment (Updated for v2.3)
 
 ```
-ESP32 DevKit V1 — Pin Mapping v2.2
+ESP32 DevKit V1 — Pin Mapping v2.3
 ====================================
 
 INPUTS:
@@ -17,6 +17,9 @@ INPUTS:
   GPIO 34 ← ADC: Thermistor (NTC 10kΩ voltage divider)
   GPIO 35 ← ADC: Battery voltage divider
   GPIO 36 ← ADC: Stator/regulator voltage divider
+  GPIO 39 ← Wheel speed sensor (hall effect, input-only)
+  GPIO 15 ← UART2 RX: GPS NMEA input (v2.3)
+  GPIO 14 ← UART2 TX: GPS NMEA output (v2.3)
 
 OUTPUTS:
   GPIO 25 → PWM: Exhaust valve servo
@@ -181,3 +184,50 @@ AS5600 Magnetic Encoders (position feedback):
 | Deep Sleep | None extra | Uses existing GPIO4 (wake) + GPIO18 (wake) |
 | Config Mode | None (software) | Uses existing encoder long-press |
 | OTA Update | WiFi antenna | ESP32 built-in — no extra wiring |
+## GPS Module Connection (v2.3)
+
+```
+GPS Module (e.g., u-blox NEO-6M, NEO-M8N)
+    │
+    ├── VCC ← 3.3V (from ESP32 3V3 output)
+    ├── GND ← Common ground
+    ├── TX  → ESP32 GPIO 15 (UART2 RX)
+    └── RX  ← ESP32 GPIO 14 (UART2 TX)
+
+Note: GPS module draws ~25mA at 3.3V. The ESP32's 3V3 output can supply this.
+For motorcycle use, mount GPS antenna facing upward (sky view).
+Recommended: u-blox NEO-M8N with ceramic patch antenna (~€8-12 from AliExpress)
+Configuration: Set to 9600 baud, NMEA output at 1Hz (GPRMC + GPGGA)
+```
+
+### GPS Configuration (u-blox)
+```
+1. Connect GPS to USB-TTL adapter
+2. Use u-center software or Minicom
+3. Set baud rate: 9600 (default for most modules)
+4. Enable $GPRMC and $GPGGA sentences
+5. Set update rate: 1 Hz (1000ms)
+6. Set dynamic model: 4 (Automotive) — best for motorcycle
+```
+
+## Wheel Speed Sensor (v2.3)
+
+```
+Hall Effect Sensor (e.g., A3144 or TLE4905L)
+    │
+    ├── VCC ← 3.3V (from ESP32)
+    ├── GND ← Common ground
+    └── OUT → ESP32 GPIO 39 (input-only, interrupt capable)
+
+Magnet Placement:
+    └── Small neodymium magnet (3mm x 1mm disc) glued to brake disc
+        or bolted to front sprocket carrier
+    └── Sensor mounted ~2-3mm from magnet surface
+    └── 1 pulse per wheel revolution = speed from RPM calculation
+```
+
+### Wheel Speed Calculation
+- Tire: 120/90-17, circumference ≈ 2.04m
+- 1 pulse per revolution → speed = (pulses/sec × 2.04) × 3.6 = km/h
+- At 100 km/h ≈ 13.6 pulses/sec (0.7-0.8m between pulses)
+- Minimum debouncing: 5ms (same as ignition pulse)

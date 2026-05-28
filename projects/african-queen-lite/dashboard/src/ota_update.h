@@ -70,7 +70,7 @@ static const char OTA_HTML[] PROGMEM = R"rawliteral(
   <div id="status"></div>
 </div>
 <div class="info">
-  AQL v2.2 — Honda NX650 Dominator RFVC<br>
+  AQL v2.3 — Honda NX650 Dominator RFVC<br>
   Current version will be replaced after upload.
 </div>
 <script>
