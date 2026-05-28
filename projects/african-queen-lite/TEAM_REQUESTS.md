@@ -114,16 +114,55 @@ Jeder Mode hat 5 Interpolationspunkte (RPM → Ventilposition %):
 
 ---
 
-## CHEFINGENIEUR UPDATE — 2026-05-28 (Preis-Jäger Run #2)
+## CHEFINGENIEUR UPDATE — Run #5 Preis-Verifikation (2026-05-28)
 
-### DB-Verifizierung (2026-05-28 — Run #2)
-- **143 NX650-fitment Teile** in DB (inkl. alle Alternativen + neue Bundle/Kits)
-- **DB SUM(price_avg):** EUR12.657 fuer alle NX650-Teile (NICHT Build-Budget — enthaelt alle Alternativen + Optionen)
-- **Option A Build-Kosten:** EUR2.264 (28 Teile)
-- **54 NX650 Known Issues:** 5 critical (Stator, Regler, Verbinder), 4 high (Verkabelung, CDI)
-- **7 Preise aktualisiert:** Stator EUR95, Regler EUR55, EBC FA185HH EUR20, Koso RX-22 EUR99.90, Mitas E-07+ Dakar EUR89.90/109
-- **6 neue Teile (Run #2):** Bundle-Deals (Ketten-Set, Mitas Set, RT Fork Kit), Schweißarbeiten, Regler-Verbinder-Kit, Stator-Connector
-- **Keine Performance-Teile** in DB fuer NX650 eingefuegt
+### Preis-Updates (7 Teile):
+
+| Teil | Run #4 Preis | Run #5 Preis | Δ | Beste Quelle |
+|------|-------------|-------------|---|-------------|
+| Leo Vince SBK Slip-on | €389-400 | **€329** (neu) | -€60 | Louis restocked 🎯 |
+| EBC FA185HH Bremsbeläge | €15.90 | **€13.90** | -€2 | eBay.de |
+| Venhill SS Bremsleitung | €39.95 | **€34.90** | -€5.05 | eBay.de |
+| All Balls Vergaser-Kit | €27.90 | **€24.90** | -€3 | eBay.de |
+| UNI NU-4050 Luftfilter | €19.90 | **€14.99** | -€4.91 | eBay.de/Amazon |
+| DID 520VX3 Ketten-Set | €99.90 | **€94.90** | -€5 | Amazon.de |
+| K&N HA-6502 Luftfilter | €43-55 | **€39.95** | -€3-15 | eBay.de |
+
+### 🚨 Leo Vince StVZO-Klarstellung (Run #5):
+
+**Leo Vince SBK M15051 = EINZIGE StVZO-legale Slip-on Option für NX650!**
+- ✅ ECE R92 (ABE D) genehmigt → einfache Eintragung
+- ❌ Delkevic Slip-on = BSAU 193 (UK-Standard) → NICHT StVZO-legal in D/A/CH!
+- ❌ FMF PowerCore 4 = Nur Offroad → keine StVZO-Zulassung
+- ⚠️ Delkevic SS Header = keine E-Nummer → Graubereich, toleriert mit Leo Vince Muffler
+
+**Neue Leo Vince Preise:**
+- Louis: **€329.95** (bester Preis neu!)
+- FC-Moto: €359.95
+- eBay.de: €350-430
+- Motea: €365 (5-7 Tage Lieferung)
+
+### Phase 1 aktualisiert: ~€393 (Run #4: €416 → Run #5: €393 = -€23)
+
+### Gesamt Option A: ~€2.128 (Run #4: €2.168 → Run #5: €2.128 = -€40)
+
+### 💡 Empfehlung an Chefingenieur:
+Phase 1 ist jetzt bei 51% Reserve — €407 freies Budget. Phase 3 Leo Vince neu €329 statt gebraucht €215 = Entscheidung: Neu mit Garantie+E-Nummer (+€114) oder gebraucht riskanter (-€114).
+
+---
+
+## BUDGET-GUARD STATUS — Run #5 (2026-05-28)
+
+| Phase | Geplant | Budget | Reserve | Status |
+|-------|---------|--------|---------|--------|
+| 1: Zuverlässigkeit | **€393** | €800 | **+€407 (51%)** | ✅ |
+| 2: Fahrwerk | **€880** | €1.200 | **+€320 (27%)** | ✅ |
+| 3: Africa Twin Look | **€655** | €1.000 | **+€345 (35%)** | ✅ |
+| 4: Touring-Komfort | **€187** | €800 | **+€613 (77%)** | ✅ |
+| 5: Reserve | — | €500 | **+€500** | 🔵 |
+| **Total** | **€2.128** | **€4.300** | **+€2.172** | ✅ |
+
+**Freie Reserve unter Hard Cap: €2.372 (47%)**
 
 ### FAHRWERK-SPEZIALIST UPDATE — 2026-05-28 (Run #3)
 

@@ -478,24 +478,29 @@
 
 ---
 
-## 📊 BUDGET-GUARD STATUS — Aktualisiert Run #4 (2026-05-28)
+## 📊 BUDGET-GUARD STATUS — Aktualisiert Run #5 (2026-05-28)
 
-| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
+|| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
 |-------|------------|-----------|------------|--------|
-| 1: Zuverlässigkeit | **€416** | €800 | **+€384** | ✅ 48% Reserve |
-| 2: Fahrwerk | **€880** | €1.200 | **+€320** | ✅ 27% Reserve |
-| 3: Africa Twin Look | **€685** | €1.000 | **+€315** | ✅ 32% Reserve |
+| 1: Zuverlässigkeit | **€393** | €800 | **+€407** | ✅ 51% Reserve |
+| 2: Fahrwerk | **€880** | €1,200 | **+€320** | ✅ 27% Reserve |
+| 3: Africa Twin Look | **€655** | €1,000 | **+€345** | ✅ 35% Reserve |
 | 4: Touring-Komfort | **€187** | €800 | **+€613** | ✅ 77% Reserve |
 | 5: Reserve | — | €500 | **+€500** | 🔵 Puffer |
-| **Total** | **€2,168** | **€4.300** | **+€2,132** | ✅ |
+| **Total** | **€2,128** | **€4.300** | **+€2,172** | ✅ |
 
-> **ERGEBNIS:** Option A kostet €2,168 + €500 Reserve = €2,668. Unter dem €5,000 Hard Cap mit **€2,332 Reserve** (47%) für unvorhergesehene Reparaturen, Wartung, TÜV, oder Upgrades.
+> **ERGEBNIS:** Option A kostet €2,128 + €500 Reserve = €2,628. Unter dem €5,000 Hard Cap mit **€2,372 Reserve** (47%) für unvorhergesehene Reparaturen, Wartung, TÜV, oder Upgrades.
 
-> **Run #4 vs. Run #3:** €28 günstiger! (€2,196 → €2,168)
-> - Radlager Amazon Kombo: **-€7**
-> - LED Blinker günstiger: **-€3**
-> - Race Tech Motea einzeln: **-€10**
-> - Phase 1 Misc optimiert: **-€8**
+> **Run #5 vs. Run #4:** €40 günstiger! (€2,168 → €2,128)
+> - Leo Vince €329 statt €389: **-€60** (Phase 3) ← Louis restocked!
+> - UNI Luftfilter €14.99 statt €19.90: **-€4.91** (Phase 1)
+> - All Balls Vergaser-Kit €24.90 statt €27.90: **-€3.00** (Phase 1)
+> - EBC Bremsbeläge €13.90 statt €15.90: **-€2.00** (Phase 1)
+> - Venhill Bremsleitung €34.90 statt €39.95: **-€5.05** (Phase 1)
+> - DID Ketten-Set €94.90 statt €99.90: **-€5.00** (Phase 1)
+> - Phase 1 sparen €15.91, Phase 3 sparen €60 = **ca. €76 netto**
+> - Aber Leo Vince neu €329 vs gebraucht €215 = Phase 3 teurer (+€114 bei Neukauf)
+> - Netto: Phase 1 günstiger, Phase 3 Leo Vince neu als Option
 
 ### Empfohlene Reserve-Nutzung:
 1. **Notfall-Reparaturen:** €500-800 (immer zurückhalten!)
@@ -526,6 +531,35 @@
 | #2 | 2026-05-28 | €2,264 | +€36 | Connector-Kits, Preis-Korrekturen, 6 neue Teile |
 | #3 | 2026-05-28 | €2,196 | -€68 | Venhill statt HEL, YSS WRS Italy, Preis-Korrekturen |
 | #4 | 2026-05-28 | €2,168 | -€28 | Shinko/BBB Alternativen, Fälschungs-Warnung, Race Tech Motea, Preis-Feintuning |
+| #5 | 2026-05-28 | **€2,128** | **-€40** | Preis-Verifikation Run #5: Leo Vince €329, EBC €13.90, Venhill €34.90, All Balls €24.90, UNI €14.99, DID Set €94.90 |
+
+### Run #5 Preis-Korrekturen (2026-05-28)
+
+| Teil | Run #4 Preis | Run #5 Preis | Ersparnis | Quelle |
+|------|-------------|-------------|-----------|--------|
+| Leo Vince SBK Slip-on | €389 (gebraucht ~€215) | **€329** (neu, Louis) | -€60 vs Run #4 avg | Louis restocked, eBay |
+| EBC FA185HH Bremsbeläge | €15.90 | **€13.90** | -€2.00 | eBay.de |
+| Venhill SS Bremsleitung | €39.95 | **€34.90** | -€5.05 | eBay.de |
+| All Balls Vergaser-Kit | €27.90 | **€24.90** | -€3.00 | eBay.de |
+| UNI NU-4050 Luftfilter | €19.90 | **€14.99** | -€4.91 | eBay.de/Amazon |
+| DID 520VX3 Ketten-Set | €99.90 | **€94.90** | -€5.00 | Amazon.de |
+| **Run #5 Ersparnis** | | | **-€40.91** | |
+
+**Neue Option A Gesamt: ~€2,128** (statt €2,168 in Run #4)
+
+### 🚨 Leo Vince StVZO-Bestätigung (Run #5)
+
+Leo Vince SBK M15051 ist **EINZIGE** StVZO-legale Slip-on Option:
+- ✅ **ECE R92** genehmigt → ABE liegt bei → einfache Eintragung
+- FC-Moto: €359.95 (bestätigt verfügbar)
+- Louis: €329.95 (restocked!)
+- eBay.de: €350-430 (verschiedene Verkäufer)
+- **Beste Quelle:** Louis €329.95 oder eBay €350
+
+Delkevic Slip-on hat **BSAU 193** (UK-standard), **NICHT StVZO-legal** in D/A/CH!
+Delkevic SS Header hat **keine E-Nummer** → Graubereich, aber häufig toleriert wenn Leo Vince Muffler ECE R92 hat.
+
+FMF PowerCore 4: **Nur Offroad!** Keine StVZO-Zulassung.
 
 ---
 

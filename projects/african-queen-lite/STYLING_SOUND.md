@@ -15,23 +15,31 @@
 | **🥇 OPTIMAL** | Delkevic SS Header + Leo Vince SBK Slip-on | 460-580 | -3 kg (8→5) | ~93 dB mit DB-Killer | ✅ JA | ⭐ BESTE WAHL |
 | **🥈 BUDGET** | Delkevic SS Header + OEM Muffler | 150-250 | -2 kg (8→6) | ~82 dB | ✅ JA | Legal + günstig |
 
-### Auspuff-Optionen Detail — VERIFIZIERTE 2026 EU-Preise
+### Auspuff-Optionen Detail — VERIFIZIERTE 2026 EU-Preise (Run #5 Update)
 
 | Slip-on | Material | Gewicht | Lautstärke | dB-Killer | E-Nummer/StVZO | Preis (€) | Sound-Charakter |
 |---------|----------|---------|-------------|-----------|-----------------|-----------|-----------------|
-| **Leo Vince SBK** (M15051) | Edelstahl/Carbon | ~2.0 kg | 93 dB | ✅ Ja, entfernbar | ✅ ECE R92 (ABE D) | 389-400 (eBay.de Carbon), ~310-380 (SS) | Tief, voller Thump, kernig |
+| **Leo Vince SBK** (M15051) | Edelstahl/Carbon | ~2.0 kg | 93 dB | ✅ Ja, entfernbar | ✅ **ECE R92 (ABE D)** | **329-360** (Louis €329, FC-Moto €360) | Tief, voller Thump, kernig |
 | Delkevic 14" SS | Edelstahl | ~1.2 kg | 95-100 dB | ❌ Nein | ❌ Keine E-Nummer | 130-180 | Laut, kernig, dröhnend |
 | Delkevic 8" Carbon | Carbon | ~1.5 kg | 95-100 dB | ❌ Nein | ❌ Keine E-Nummer | 180-250 | Laut, aggressive |
-| FMF PowerCore 4 | Aluminium | ~1.5 kg | 100+ dB | ❌ Offroad only | ❌ Nur Offroad | 250-320 | Sehr laut, aggressiv |
+| FMF PowerCore 4 | Aluminium | ~1.5 kg | 100+ dB | ❌ Offroad only | ❌ Nur Offroad | 290-340 | Sehr laut, aggressiv |
 | Yoshimura RS-2 | SS/Carbon | ~1.8 kg | 90-95 dB | ✅ Ja | ⚠️ Teilweise | 350-450 | Tief, autoritär |
 | OEM Muffler (mit SS Header) | Stahl | ~5.5 kg | ~80 dB | — | ✅ OEM legal | 0 (bestehend) | Leise, leicht tiefer |
 
-**NEUE MARKT-ERKENNTNISSE (2026-05-28 eBay.de Recherche):**
+**🚨 StVZO-Klarstellung (Run #5):**
+- **Leo Vince SBK M15051 = EINZIGE StVZO-legale Slip-on Option** für NX650 in D/A/CH
+- Leo Vince hat **ECE R92 (ABE D)** → einfache Eintragung, keine separate Begutachtung nötig
+- Delkevic Slip-ons haben **BSAU 193** (UK-Standard) → **NICHT StVZO-legal** in Deutschland!
+- FMF PowerCore 4 = **Nur Offroad**, keine StVZO-Zulassung
+- Delkevic SS Header = **keine E-Nummer** → Graubereich, häufig toleriert mit Leo Vince Muffler
 
-- **Leo Vince M15051 für NX650 Dominator 88-96** bestätigt verfügbar mit **ABE** (deutsche Betriebserlaubnis!)
-  - Carbon-Version: €389,95 auf eBay.de
-  - Edelstahl-Version: ~€310-380
-  - Mit Slip-On Edelstahl Endtopf: ~€399-499
+**NEUE MARKT-ERKENNTNISSE (2026-05-28 Run #5):**
+
+- **Leo Vince M15051 NEU-Preis aktualisiert:**
+  - **Louis: €329.95** ← BESTER NEU-PREIS! (Restocked!)
+  - FC-Moto: €359.95 (bestätigt verfügbar)
+  - eBay.de: €350-430 (verschiedene Verkäufer)
+  - Motea: €365 (5-7 Tage Lieferung)
 - **Delkevic NX650 Komplett-Systeme** zahlreich auf eBay.de:
   - 350mm Oval BSAU (BS-AU zertifiziert = UK-road-legal): ~€133-389
   - 225mm Oval Edelstahl: ~€130-200

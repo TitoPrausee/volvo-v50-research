@@ -371,7 +371,7 @@ Startprobleme heiß?
 
 ## 7️⃣ ZUSAMMENFASSUNG: PRIORITÄTEN & BUDGET
 
-### Phase 1: KRITISCH — Motorlauf & Sicherheit (~€450-480)
+### Phase 1: KRITISCH — Motorlauf & Sicherheit (~€393)
 
 | # | Teil | Preis (€) | Priorität | DB ID |
 |---|------|-----------|-----------|-------|
@@ -380,17 +380,17 @@ Startprobleme heiß?
 | 3 | Regler-Verbinder-Kit RM14016 | 8 | 🔴 KRITISCH | 345 |
 | 4 | Stator 3-Pin Connector Set | 9 | 🔴 KRITISCH | 346/307 |
 | 5 | Massekabel Batterie-Rahmen-Motor | 5-10 | 🔴 KRITISCH | 309 |
-| 6 | All Balls Carb Rebuild Kit 22-1022 | 27.90 | 🔴 KRITISCH | 40 |
+| 6 | All Balls Carb Rebuild Kit 22-1022 | **24.90** | 🔴 KRITISCH | 40 |
 | 7 | **Inline-Kraftstofffilter 8mm** | 5-8 | 🔴 KRITISCH | **446 NEU** |
 | 8 | **Silikon-Unterdruckschläuche 3mm** | 5-10 | 🔴 WICHTIG | **447 NEU** |
-| 9 | UNI Luftfilter NU-4050 | 19.90 | 🟡 Wichtig | 15 |
-| 10 | DID 520VX3 + JT 15/44 Ketten-Kit | 99.90 | 🟡 Wichtig | 28/343 |
-| 11 | EBC FA185HH Bremsbeläge (vorne) | 15.90 | 🟡 Wichtig | 219 |
-| 12 | Venhill SS Bremsscheibenleitung (vorne) | 54-65 | 🟡 Wichtig | 223 |
+| 9 | UNI Luftfilter NU-4050 | **14.99** | 🟡 Wichtig | 15 |
+| 10 | DID 520VX3 + JT 15/44 Ketten-Kit | **94.90** | 🟡 Wichtig | 28/343 |
+| 11 | EBC FA185HH Bremsbeläge (vorne) | **13.90** | 🟡 Wichtig | 219 |
+| 12 | Venhill SS Bremsscheibenleitung (vorne) | **34.90** | 🟡 Wichtig | 223/450 |
 | 13 | Hiflo HF131 Ölfilter | 5-9 | 🟢 Wartung | 53 |
 | 14 | NGK DPR8EA-9 Zündkerze | 5-7 | 🟢 Wartung | 106 |
 | 15 | Viton-Kraftstoffschlauch 3mm (5m) | 5-10 | 🟢 Wartung | 167 |
-| **Phase 1 Total** | | **~€405-470** | | |
+| **Phase 1 Total** | | **~€393** | | |
 
 ### Diagnose-Reserve (bei Bedarf, NICHT im Basis-Budget)
 
