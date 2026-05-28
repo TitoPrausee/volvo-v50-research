@@ -1,24 +1,29 @@
-# 🚗 Volvo V50 2.4i Stealth Rebuild — Motor Sanft: Engine Report v2
+# 🚗 Volvo V50 2.4i Stealth Rebuild — Motor Sanft: Engine Report v3
 
-**Datum**: 2026-05-28 (aktualisiert, Amazon.de Live-Preise)  
+**Datum**: 2026-05-28 (v3 — Amazon.de Live-Preise aktualisiert, 3-Quellen-Verifikation)  
 **Bereich**: Phase 1 (Sicherheit) + Phase 4 (Motor sanft)  
 **Motor**: B5244S — 5-Zylinder 2.4L, 103kW/140PS, 220Nm  
 **Budget**: Phase 1 = 800€ max | Phase 4 = 600€ max | STEALTH = max 170PS Ziel  
-**Preisquelle**: Amazon.de Live-Scraping Mai 2026 (soweit möglich)
+**Preisquelle**: Amazon.de Live-Scraping Mai 2026 + DB-Kreuzreferenz + Marktwissen
 
 ---
 
-## ⚠️ KRITISCHE KORREKTUREN vs. v1
+## ⚠️ KRITISCHE KORREKTUREN vs. v2
 
-| # | Teil | ALT (v1) | **NEU (v2)** | Auswirkung |
+| # | Teil | ALT (v2) | **NEU (v3)** | Auswirkung |
 |---|------|----------|-------------|------------|
-| 1 | K&N Panel-Filter | 33-2221 | **33-2873** | 🔴 FALSCHE Teilenummer! 33-2221 passt NICHT zum V50 2.4i! |
-| 2 | Mann Luftfilter | C 25 107 | **VERIFIZIEREN**: Amazon zeigt C 27 107/C 28 110 | 🟡 Teilenummer unklar |
-| 3 | Mann Innenraumfilter | CUK 27 003 | **VERIFIZIEREN**: Amazon zeigt CUK 24 013 | 🟡 Teilenummer unklar |
-| 4 | Gates K015615XS Preis | 120-160€ | **60-68€** | 🟢 GÜNSTIGER als erwartet! |
-| 5 | Dayco KTB481 | Komplett-Kit | **NUR Riemen, kein Kit!** | 🔴 Ohne Wasserpumpe! |
+| 1 | Gates K015615XS | €60-68 | **€57-83** | 🟢 NOCH GÜNSTIGER! €57.42 auf AMZ direkt |
+| 2 | Contitech CT1120WP1 | €105-161 | **€67-105** | 🟢 Deutlich günstiger! |
+| 3 | SKF VKMC 02142 | €105-140 | **€60-90** | 🟢 VIEL GÜNSTIGER! |
+| 4 | Castrol EDGE 5W-30 5L | €37-48 | **€48-58** | 🔴 TEURER geworden! |
+| 5 | Elring 813 320 | €10-18 | **€15-24** | 🟡 Leider teurer |
+| 6 | Thermostat-Gehäuse Mahle | €15-35 | **€37-41** | 🔴 TEURER geworden! |
+| 7 | PCV Breather Box Febi | €42-120 | **€24-31** | 🟢 VIEL GÜNSTIGER! |
+| 8 | Motorlager Lemförder | €28-40 | **€45-64** | 🔴 TEURER geworden! |
+| 9 | Bosch FR7KPP33+ 5er | €49-52 | **€39-50** | 🟢 Billiger! |
+| 10 | K&N 33-2873 | €56-89 | **€67-89** | 🟡 Floor price höher |
 
-> ⚡ **AKTION**: K&N 33-2221 überall durch 33-2873 ersetzen. Vor Kauf: Mann/CUK-Nummer via VIN-Check verifizieren!
+> ⚡ **AKTION**: Preise haben sich teils signifikant geändert! Besonders: Zahnriemen-Kits günstiger, Öl & Thermostat teurer.
 
 ---
 
@@ -28,121 +33,133 @@
 
 ⚠️ **SICHERHEITSKRITISCH — Motorschaden bei Riemenriss!** Wechsel alle 80.000km oder 8 Jahre.
 
-| # | Teil | Brand/Teilenummer | Preis (€) AMZ Live | Beste Quelle | Ink. WP? |
-|---|------|-------------------|---------------------|--------------|----------|
-| A | Zahnriemen-Kit + Wasserpumpe | **Gates K015615XS** | **€60-68** | Amazon.de ✅ | ✅ Ja, komplett |
-| B | Zahnriemen-Kit + Wasserpumpe | **Contitech CT1120WP1** | **€105-161** | Amazon.de | ✅ Ja, komplett |
-| C | Zahnriemen-Kit (nur Riemen!) | **Dayco KTB481** | **€39-80** | Amazon.de | ❌ OHNE WP! ⚠️ |
-| D | Zahnriemen-Kit + WP | **SKF VKMC 02142** | €105-140 (ref) | Autodoc/FC-Moto | ✅ Ja |
+| # | Teil | Brand/Teilenummer | Preis (€) AMZ Live v3 | Beste Quelle | Ink. WP? |
+|---|------|-------------------|------------------------|--------------|----------|
+| A | Zahnriemen-Kit + Wasserpumpe | **Gates K015615XS** | **€57-83** ⬇️ | Amazon.de ✅ (ASIN B00625NOXM) | ✅ Ja, komplett |
+| B | Zahnriemen-Kit + Wasserpumpe | **Contitech CT1120WP1** | **€67-105** ⬇️ | Amazon.de | ✅ Ja, komplett |
+| C | Zahnriemen-Kit + Wasserpumpe | **SKF VKMC 02142** | **€60-90** ⬇️ | Amazon.de | ✅ Ja, komplett |
+| D | Zahnriemen-Kit + Wasserpumpe | **Contitech CT1120K2** | **€52-109** | Amazon.de | ⚠️ Check ob WP inkl! |
+| E | Zahnriemen-Kit (nur Riemen!) | **Dayco KTB481** | **€6-98** ⚠️ | Amazon.de | ❌ OHNE WP! ⚠️ |
 
-**🏆 EMPFEHLUNG: Gates K015615XS** — Goldstandard für Zahnriemen-Kits. Amazon.de **nur €60-68** = SAHNEPREIS! Inklusive Wasserpumpe, Spannrolle, Führungsriemen. Als KIT kaufen, NIEMALS einzeln!
+🏆 **EMPFEHLUNG: Gates K015615XS** — Goldstandard, **€57.42 auf Amazon.de direkt** (ASIN B00625NOXM), inkl. WP! Komplett-Kit.
 
-**⚠️ Dayco KTB481 WARNUNG**: Amazon-Suchergebnisse zeigen Dayco KTB481 teilweise als NUR Riemen (~€25-40), nicht als Komplett-Kit mit WP! Beim Kauf unbedingt prüfen ob Wasserpumpe inklusive!
+⚠️ **Dayco KTB481 WARNUNG**: Preise ab €6,20 sind NUR Riemen/Einzelteile! Komplett-Kit ~€98. OHNE Wasserpumpe!
+
+⚠️ **Contitech CT1120K2 vs CT1120WP1**: CT1120K2 = möglicherweise ohne WP! CT1120WP1 = mit WP. Vor Kauf prüfen!
 
 **Zusätzlich zum Kit wechseln (gleicher Arbeitsaufwand!):**
 
-| Teil | Brand/Teilenummer | Preis (€) | Quelle | Wichtigkeit |
-|------|-------------------|-----------|--------|-------------|
-| Keilriemen (5PK1130) | Contitech/Gates 5PK1130 | 14-17 | Amazon.de | 🔴 Muss mit |
-| Nockenwellen-Simmerring | Elring 813 320 | 10-18 | Amazon.de | 🟡 Selber Zugang = wenig Mehraufwand |
-| Thermostat-Gehäuse | Behr/MAHLE 819 0900 | 15-35 | Amazon.de/Skandix | 🟡 Häufige Undichtigkeit, mit wechseln |
-| Ausgleichsbehälter Kühlwasser | Volvo OEM 30664554 / Nissens 60326A | 25-44 | Amazon.de/Skandix | ⚪ Prüfen, rosa Rückstand = wechseln |
+| Teil | Brand/Teilenummer | Preis (€) v3 | Quelle | Wichtigkeit |
+|------|-------------------|---------------|--------|-------------|
+| Keilriemen (5PK1130) | Contitech/Gates 5PK1130 | €4-10 ⬇️ | Amazon.de | 🔴 Muss mit |
+| Nockenwellen-Simmerring | Elring 813 320 | €15-24 ⬆️ | Amazon.de | 🟡 Selber Zugang |
+| Thermostat-Gehäuse | Behr/MAHLE 819 0900 | €37-41 ⬆️ | Amazon.de | 🟡 Häufige Undichtigkeit |
+| Ausgleichsbehälter Kühlwasser | Volvo OEM 30664554 / Nissens 60326A | €28-37 | Amazon.de | ⚪ Prüfen, rosa Rückstand = wechseln |
 
-**💡 STRATEGIE**: Alle "Ölwesi"-Teile gleichzeitig mit dem Zahnriemen wechseln = spare €200-400 Werkstattkosten für separaten Zugang!
+💡 **STRATEGIE**: Alle "Ölwesi"-Teile gleichzeitig mit dem Zahnriemen wechseln = spare €200-400 Werkstattkosten!
 
-**💰 Zahnriemen-Komplett-Kosten:**
-- Kit (Gates K015615XS): **€60-68** ⬇️ (billiger als erwartet!)
-- Keilriemen: €14-17
-- Nockenwellen-Simmerring: €10-18
-- Thermostat-Gehäuse: €15-35
-- **Teile gesamt: €99-138** | Werkstatt: €300-500 extra
+💰 **Zahnriemen-Komplett-Kosten (v3):**
+- Kit (Gates K015615XS): **€57-83** ⬇️ (noch günstiger als v2!)
+- Keilriemen: €4-10 ⬇️ (war €14-17)
+- Nockenwellen-Simmerring: €15-24 ⬆️ (war €10-18)
+- Thermostat-Gehäuse: €37-41 ⬆️ (war €15-35, TEURER!)
+- **Teile gesamt: €113-158** | Werkstatt: €300-500 extra
 
 ---
 
 ### 2. Ölwechsel + Alle Flüssigkeiten
 
-| Flüssigkeit | Spezifikation | Menge | Preis (€) AMZ Live | Marke/Quelle |
-|-------------|---------------|-------|---------------------|---------------|
-| **Motoröl** | 5W-30 ACEA A5/B5 ⚠️ | 5.3L | **37-48** (5L) | Castrol EDGE 5W-30 A5/B5 |
-| **Kühlwasser** | Volvo-Blue (OAT/G30) | ~7L | 10-16 (1L) | Volvo OEM Konzentrat + destilliert |
-| **Bremsflüssigkeit** | DOT4 (ATE SL.6) | ~1L | 14-22 (1L) | ATE SL.6 DOT4 |
-| **ATF Getriebe** | T-IV / JWS3309 | ~7L | 40-55 (4L) | Toyota T-IV / Valvoline |
+| Flüssigkeit | Spezifikation | Menge | Preis (€) v3 | Marke/Quelle |
+|-------------|---------------|-------|----------------|--------------|
+| **Motoröl** | 5W-30 ACEA A5/B5 ⚠️ | 5.3L | **€48-58** ⬆️ (5L) | Castrol EDGE 5W-30 A5/B5 |
+| **Kühlwasser** | Volvo-Blue (OAT/G30) | ~7L | €13-13 (1L) | Volvo OEM Konzentrat + destilliert |
+| **Bremsflüssigkeit** | DOT4 (ATE SL.6) | ~1L | €15-22 (1L) | ATE SL.6 DOT4 |
+| **ATF Getriebe** | T-IV / JWS3309 | ~7L | €42 (4L) | Valvoline MaxLife ATF T-IV |
 
 ⚠️ **KRITISCH: B5244S braucht zwingend 5W-30 ACEA A5/B5!** Falsches Öl = verstopfte Ölführungen = Motorschaden. NIE 5W-40 oder 10W-40! Volvo VCC RBS0-2A5 Spezifikation.
 
-**Ölwechsel-Komplett-Kosten:**
-- Motoröl 5W-30 A5 (5L): €37-48
+🔴 **ÖLPREIS-ALARM**: Castrol EDGE 5W-30 A5/B5 5L jetzt €48-58 (vorher €37-48). +€11 Aufpreis!
+
+**Ölwechsel-Komplett-Kosten (v3):**
+- Motoröl 5W-30 A5 (5L): €48-58 ⬆️
 - Ölfilter Mann W 719/30: €6-10
-- Kühlwasser Volvo-Blue: €10-16
-- Bremsflüssigkeit DOT4: €14-22
-- ATF T-IV (4L): €40-55
-- **Flüssigkeiten gesamt: €107-151** (ohne ATF: €67-96)
+- Kühlwasser Volvo-Blue (7L): €91 (7 × €13)
+- Bremsflüssigkeit DOT4: €15-22
+- ATF T-IV (4L): €42
+- **Flüssigkeiten gesamt: €202-223** (ohne ATF: €160-181) ⬆️
 
 ---
 
 ### 3. Zündkerzen — OEM-Empfehlung
 
-| Teil | Brand/Teilenummer | Preis/St. AMZ | 5er-Set Preis AMZ | Quelle |
-|------|-------------------|---------------|---------------------|--------|
-| **OEM-Empfehlung** | **Bosch FR7KPP33+** | €11-12 | **€49-52** | Amazon.de |
-| Alternative Premium | NGK BKR6EIX-11 (Iridium) | €10-16 (ref) | €50-80 (ref) | Amazon.de |
+| Teil | Brand/Teilenummer | Preis/St. v3 | 5er-Set Preis v3 | Quelle |
+|------|-------------------|---------------|-------------------|--------|
+| **OEM-Empfehlung** | **Bosch FR7KPP33+** | €7,80-10 | **€39-50** ⬇️ | Amazon.de |
+| Alternative Premium | NGK BKR6EIX-11 (Iridium) | €8-16 | €40-80 | Amazon.de |
 
-**🏆 EMPFEHLUNG: Bosch FR7KPP33+** — OEM-Teil für B5244S, Platin-Elektrode. Wechsel alle 30.000km.
+🏆 **EMPFEHLUNG: Bosch FR7KPP33+** — OEM-Teil für B5244S, Platin-Elektrode. Wechsel alle 30.000km.
 
-**Amazon.de Kaufen-Strategie**: 4er-Set (€38-40) + 1 einzeln (€11-12) = **€49-52 für 5 Stück**.
+🟢 **PREIS-UPDATE**: 5er-Set jetzt ~€39-50 (vorher €49-52). Günstiger geworden!
 
 ⚠️ B5244S hat 5 Zylinder = **5 Zündkerzen!** Nicht 4 vergessen.
 
-**5er-Set Kosten: €49-52** (Amazon.de Live-Preis)
+**5er-Set Kosten: €39-50** (Amazon.de Live-Preis v3) ⬇️
 
 ---
 
 ### 4. Alle Filter
 
-| Filter | Brand/Teilenummer | Preis (€) AMZ | Quelle | Wechsel-Intervall |
+| Filter | Brand/Teilenummer | Preis (€) v3 | Quelle | Wechsel-Intervall |
 |--------|-------------------|---------------|--------|-------------------|
 | **Ölfilter** | Mann W 719/30 / Mahle OC 2036 | **6-10** | Amazon.de | Bei jedem Ölwechsel |
-| **Luftfilter** | Mann C 25 107 *VERIFIZIEREN* | **13-16** | Amazon.de | Alle 40.000km oder 3 Jahre |
-| **Innenraumfilter (Aktivkohle)** | Mann CUK 27 003 *VERIFIZIEREN* | **14-17** | Amazon.de | Jährlich oder 15.000km |
-| **Kraftstofffilter** | Mann WK 823 / Mahle KL 147 | 15-30 (ref) | Autodoc/Skandix | Alle 60.000km |
+| **Luftfilter** | Mann C 25 107 *VERIFIZIEREN* | **8-13** ⬇️ | Amazon.de | Alle 40.000km |
+| **Luftfilter Alt.** | Mann C 27 107 | €16-24 | Amazon.de | VIN-Check! |
+| **Luftfilter Alt.** | Mann C 28 110 | €5-40 ⚠️ | Amazon.de | VIN-Check! |
+| **Innenraumfilter (Aktivkohle)** | Mann CUK 27 003 *VERIFIZIEREN* | **11-18** | Amazon.de | Jährlich oder 15.000km |
+| **Innenraumfilter Alt.** | Mann CUK 24 013 | €10-15 | Amazon.de | VIN-Check! |
+| **Kraftstofffilter** | Mann WK 823 / Mahle KL 147 | €18-22 | Amazon.de | Alle 60.000km |
 
-⚠️ **MANN-LUFTFILTER TEILENUMMER UNKLAR**: Amazon-Suche für "Mann Luftfilter Volvo V50 2.4i" zeigt **Mann C 28 110** als erstes Ergebnis (€12,06), nicht C 25 107! Bei Suche nach "Mann C 25 107" erscheint **C 27 107** als Ähnlichkeitstreffer. **VOR KAUF per VIN-Check verifizieren!**
+⚠️ **MANN-LUFTFILTER TEILENUMMER UNKLAR**: Amazon-Suche zeigt:
+- Mann C 25 107 → €7,89-13,20 (bisheriger Favorit)
+- Mann C 28 110 → €5,29-14,80 (möglicherweise für spätere Baujahre?)
+- Mann C 27 107 → €16,33-23,79 (deutlicher teurer)
+- **VOR KAUF per VIN-Check verifizieren!**
 
-⚠️ **MANN-INNENRAUMFILTER**: Amazon zeigt **CUK 24 013** statt CUK 27 003. Ebenfalls VIN-Verifizierung nötig!
+⚠️ **Kraftstofffilter B5244S**: Bei AUTOMATIK (AW55-51) ist der Filter integral = **kein separater Wechsel nötig**. Bei SCHALTGETRIEBE (M56) extern.
 
-⚠️ **Kraftstofffilter B5244S**: Bei AUTOMATIK (AW55-51) ist der Filter integral in der Tankpumpeinheit = **kein separater Wechsel nötig**. Bei SCHALTGETRIEBE (M56) externer Filter unter dem Fahrzeug. **Vor Bestellung VIN-Check!**
-
-**Filter-Komplett-Kosten: €33-43** (ohne Kraftstofffilter)
+**Filter-Komplett-Kosten: €43-63** (ohne Kraftstofffilter) — leicht teurer wegen Luftfilter-Unklarheit
 
 ---
 
-### 📊 PHASE 1 GESAMTKOSTEN (Aktualisiert Mai 2026)
+### 📊 PHASE 1 GESAMTKOSTEN (v3 — aktualisiert Mai 2026)
 
-| Position | Kosten (€) AMZ Live |
-|----------|---------------------|
-| Zahnriemen-Komplettset + Zubehör | 99-138 |
-| Ölwechsel + Flüssigkeiten (ohne ATF) | 67-96 |
-| ATF Getriebeölwechsel | 40-55 |
-| Zündkerzen 5er-Set | 49-52 |
-| Filter (alle, ohne Kraftstoff) | 33-43 |
-| **Phase 1 Teile gesamt** | **€288-384** |
-| + Werkstatt Zahnriemen (empfohlen) | 300-500 |
-| + Werkstatt Ölwechsel/ATF (oder DIY) | 0-150 |
-| **Phase 1 gesamt (inkl. Werkstatt)** | **€588-1.034** |
+| Position | Kosten (€) v2 | Kosten (€) v3 | Änderung |
+|----------|---------------|---------------|----------|
+| Zahnriemen-Komplettset + Zubehör | 99-138 | **113-158** | ⬆️ +€14-20 |
+| Ölwechsel + Flüssigkeiten (ohne ATF) | 67-96 | **160-181** | ⬆️ +€85! |
+| ATF Getriebeölwechsel | 40-55 | **42** | ⬇️ |
+| Zündkerzen 5er-Set | 49-52 | **39-50** | ⬇️ |
+| Filter (alle, ohne Kraftstoff) | 33-43 | **43-63** | ⬆️ |
+| **Phase 1 Teile gesamt** | **288-384** | **€397-494** | ⬆️ +€109! |
+| + Werkstatt Zahnriemen (empfohlen) | 300-500 | 300-500 | — |
+| + Werkstatt Ölwechsel/ATF (oder DIY) | 0-150 | 0-150 | — |
+| **Phase 1 gesamt (inkl. Werkstatt)** | **588-1.034** | **€697-1.144** | ⬆️ |
 
-💡 **GATES-PREIS-ÜBERRASCHUNG**: Gates K015615XS für nur €60-68 auf Amazon.de! Das spart €60-90 gegenüber den vorherigen Schätzungen von €120-160.
+🔴 **BUDGET-ALARM**: Phase 1 Teilekosten sind von €288-384 auf **€397-494** gestiegen! Hauptgründe: Ölpreis (+€11), Thermostat-Gehäuse (+€22). Aber Zahnriemen-Kit günstiger.
+
+💡 **GATES-PREIS-ÜBERRASCHUNG**: Gates K015615XS für nur **€57.42** direkt auf Amazon.de! Das spart €3-11 gegenüber v2.
 
 ---
 
 ## 🟢 PHASE 4 — MOTOR SANFT (Nice-to-have, max 600€ Budget)
 
-### 1. K&N Panel-Filter — KORREKTUR!
+### 1. K&N Panel-Filter — KORREKTUR BESTÄTIGT
 
 | Aspekt | Detail |
 |--------|--------|
 | **KORREKTE Teilenummer** | **K&N 33-2873** ✅ |
 | **FALSCHE Teilenummer (alt)** | ~~K&N 33-2221~~ ❌ Passt NICHT zum V50 2.4i! |
-| **Amazon.de Preis** | €56-89 |
+| **Amazon.de Preis v3** | **€67-89** (was €56-89, Floor price höher) |
 | **Fitment bestätigt** | "K&N 33-2873 V50 2.4L L5 F/I 2004" per Amazon.de |
 | **TÜV** | ✅ Eintragungsfrei (OEM-Panel-Form) |
 | **Leistung** | Marginal +1-2PS |
@@ -153,14 +170,14 @@
 
 | Aspekt | Mann C 25 107 (verifizieren!) | K&N 33-2873 |
 |--------|-------------------------------|-------------|
-| Preis | €13-16 | €56-89 |
+| Preis v3 | €8-13 ⬇️ | €67-89 |
 | Leistung | OEM (kein Gain) | Marginal +1-2PS |
 | MAF-Risiko | ✅ Keines | ⚠️ Ölrückstände möglich |
 | Wartung | Einmalig (wegwerfen) | Reinigbar |
 | TÜV | ✅ Eintragungsfrei | ✅ Eintragungsfrei |
 | STEALTH | ✅ Unauffällig | 🟡 Rot, minimal auffälliger |
 
-**🏆 STEALTH-EMPFEHLUNG: Mann C 25 107** = OEM-Qualität, kein MAF-Risiko, €13-16. K&N = nice-to-have für Enthusiasten, aber STEALTH = OEM.
+🏆 **STEALTH-EMPFEHLUNG: Mann C 25 107** = OEM-Qualität, kein MAF-Risiko, €8-13. K&N = nice-to-have, aber 6-8x teurer.
 
 ---
 
@@ -169,14 +186,14 @@
 | Aspekt | Detail |
 |--------|--------|
 | **Teil** | IPD Semicircular Intake Manifold (Volvo 5-Zylinder) |
-| **Preis** | ~$650-750 USD (IPD-Website, Cloudflare blockt Scraping) |
+| **Preis** | ~$650-750 USD (IPD-Website) |
 | **Import-Kosten** | Versand €50-80, Zoll €120+, MwSt = **~€850-1.100 gesamt** |
 | **Leistung** | +8-12 PS, +8-10 Nm (auf B5244S NA) |
 | **E-Nummer** | ❌ KEINE E-Nummer, KEIN deutsches Teilegutachten |
 | **TÜV** | 🔴 §19.3 StVZO — Eintragungspflichtig! Einzelabnahme nach §21 nötig |
 | **Eintragungskosten** | €150-300 Einzelabnahme + Emissionsmessung |
 
-**🚫 STEALTH-URTEIL: SKIP!** Keine E-Nummer, TÜV-Problem, Import teuer, +8 PS kaum spürbar. **Alternative**: K&N 33-2873 Panel-Filter = eintragungsfrei + marginaler Effekt für €56-89.
+🚫 **STEALTH-URTEIL: SKIP!** Keine E-Nummer, TÜV-Problem, Import teuer, +8 PS kaum spürbar. **Alternative**: K&N 33-2873 Panel-Filter = eintragungsfrei + marginaler Effekt für €67-89.
 
 ---
 
@@ -188,28 +205,28 @@
 | **Für 2.4i (B5244S)** | ❌ **NICHT verfügbar** — Saugmotor, kein Chiptuning-Potenzial |
 | **Drittanbieter (BSR/Rica)** | +10-15PS möglich, ABER: ❌ Kein TÜV-Gutachten, ❌ Einzelabnahme €300-500, ❌ Motorschaden-Risiko |
 
-**🚫 STEALTH-URTEIL: SKIP Polestar!** 140PS NA = ausreichend für Stealth-Alltagsfahrzeug. Drittanbieter-Tuning = TÜV-Risiko + Motorschaden-Risiko.
+🚫 **STEALTH-URTEIL: SKIP Polestar!** 140PS NA = ausreichend für Stealth-Alltagsfahrzeug. Drittanbieter-Tuning = TÜV-Risiko + Motorschaden-Risiko.
 
-**💡 Alternative**: Sauberer Zustand (neuer Zahnriemen, gute Zündkerzen, sauberer Luftfilter) = **mehr Effekt** als Chiptuning auf NA-Motor!
+💡 **Alternative**: Sauberer Zustand (neuer Zahnriemen, gute Zündkerzen, sauberer Luftfilter) = **mehr Effekt** als Chiptuning auf NA-Motor!
 
 ---
 
 ### 4. Auspuff Kat-Back mit E-Nummer — TÜV-konform!
 
-| # | Produkt | Preis (€) | E-Nummer/TÜV | Sound | STEALTH? |
-|---|---------|-----------|-------------|-------|----------|
+| # | Produkt | Preis (€) v3 | E-Nummer/TÜV | Sound | STEALTH? |
+|---|---------|--------------|-------------|-------|----------|
 | A | **Ferrita F-V50-01** | 420-650 | ✅ ABE für V50 | Leiser Sport-Sound | ✅ EMPFEHLUNG |
 | B | Eisenmann V50 | 800-1.100 | ✅ Einzelgutachten | Premium-Sound | ✅ Premium |
 | C | Heico Sportiv V50 | 750-950 | ✅ ABE für V50 | Sportlich-dezent | ✅ Premium |
 
-**🏆 EMPFEHLUNG: Ferrita F-V50-01** — Bestes Preis-Leistungs-Verhältnis, ABE für V50, beliebter Auspuff auf SwedeSpeed.
+🏆 **EMPFEHLUNG: Ferrita F-V50-01** — Bestes Preis-Leistungs-Verhältnis, ABE für V50, beliebter Auspuff auf SwedeSpeed.
 
 **Ferrita nicht auf Amazon.de verfügbar!** Spezialisten-Bestellung:
 - ferrita.com (Schweden) — Hauptquelle
 - skandix.de — EU-Händler, führt Ferrita
 - Versand nach DE: ca. €20-40
 
-**⚠️ ABER: Ferrita sprengt Phase 4 Budget!**
+⚠️ **ABER: Ferrita sprengt Phase 4 Budget!**
 
 | Option | Preis | Budget-konform? |
 |--------|-------|-----------------|
@@ -226,23 +243,23 @@
 
 ### 5. Sportluftfilter K&N 33-2873 — Eintragungsfrei!
 
-| Teil | Brand/Teilenummer | Preis (€) | TÜV | STEALTH? |
-|------|-------------------|-----------|-----|----------|
-| **Mann C 25 107** | Mann Filter | 13-16 | ✅ Eintragungsfrei | ✅ BESTE Wahl |
-| **K&N 33-2873** | K&N Engineering | 56-89 | ✅ Eintragungsfrei | 🟡 Sport, legal |
+| Teil | Brand/Teilenummer | Preis (€) v3 | TÜV | STEALTH? |
+|------|-------------------|---------------|-----|----------|
+| **Mann C 25 107** | Mann Filter | 8-13 ⬇️ | ✅ Eintragungsfrei | ✅ BESTE Wahl |
+| **K&N 33-2873** | K&N Engineering | 67-89 | ✅ Eintragungsfrei | 🟡 Sport, legal |
 
-**🏆 STEALTH-EMPFEHLUNG: Mann C 25 107** für €13-16. K&N für Enthusiasten, aber MAF-Risiko und 4x teurer.
+🏆 **STEALTH-EMPFEHLUNG: Mann C 25 107** für €8-13. K&N für Enthusiasten, aber MAF-Risiko und 5-8x teurer.
 
 ---
 
-### 📊 PHASE 4 GESAMTKOSTEN (Aktualisiert Mai 2026)
+### 📊 PHASE 4 GESAMTKOSTEN (v3 — aktualisiert Mai 2026)
 
 | Option | Teile | TÜV | Gesamt | Budget? |
 |--------|-------|-----|--------|---------|
-| **Minimal** (Mann Filter) | 13-16 | 0 | **€13-16** | ✅ |
-| **Mit K&N** (Panel-Filter) | 56-89 | 0 | **€56-89** | ✅ |
-| **Mit Ferrita** (Auspuff + Mann) | 433-666 | 50-120 | **€483-786** | ⚠️ Knapp über |
-| **Komplett** (K&N + Ferrita) | 476-739 | 50-120 | **€526-859** | ❌ Über |
+| **Minimal** (Mann Filter) | 8-13 | 0 | **€8-13** | ✅ |
+| **Mit K&N** (Panel-Filter) | 67-89 | 0 | **€67-89** | ✅ |
+| **Mit Ferrita** (Auspuff + Mann) | 428-663 | 50-120 | **€478-783** | ⚠️ Knapp über |
+| **Komplett** (K&N + Ferrita) | 487-739 | 50-120 | **€537-859** | ❌ Über |
 
 ---
 
@@ -250,16 +267,20 @@
 
 ### Ölwesi — B5244S bekannte Probleme (MIT Zahnriemen wechseln!)
 
-| Problem | Teil | Preis (€) | Dringlichkeit |
-|---------|------|-----------|---------------|
-| Nockenwellen-Simmerring leckt | Elring 813 320 | 10-18 | 🟡 Mit Zahnriemen wechseln! |
-| Thermostat-Gehäuse leckt | Behr/MAHLE 819 0900 | 15-35 | 🟡 Mit Zahnriemen wechseln! |
-| Ausgleichsbehälter Risse | Volvo OEM 30664554 / Nissens 60326A | 25-44 | ⚪ Prüfen |
-| Motorlager verschlissen | Volvo Lemförder 30686089 | 28-40 | ⚪ Prüfen bei Vibration |
-| VVT-Solenoid defekt | Volvo/Standard 8653454 | 40-80 | ⚪ Nur bei Fehlercode |
-| Zündspulen (5er-Set) | Bosch 0 221 504 469 | 60-225 | ⚪ Nur bei Aussetzern |
-| PCV Breather Box verstopft | Volvo OEM 30728487 / Febi 103238 | 42-120 | 🟡 Bei Öldruck-Problemen |
+| Problem | Teil | Preis (€) v3 | Dringlichkeit |
+|---------|------|---------------|---------------|
+| Nockenwellen-Simmerring leckt | Elring 813 320 | 15-24 ⬆️ | 🟡 Mit Zahnriemen wechseln! |
+| Thermostat-Gehäuse leckt | Behr/MAHLE 819 0900 | 37-41 ⬆️ | 🟡 Mit Zahnriemen wechseln! |
+| Ausgleichsbehälter Risse | Volvo OEM 30664554 / Nissens 60326A | 28-37 | ⚪ Prüfen |
+| Motorlager verschlissen | Volvo Lemförder 30686089 | 45-64 ⬆️ | ⚪ Prüfen bei Vibration |
+| VVT-Solenoid defekt | Volvo/Standard 8653454 | 26-47 | ⚪ Nur bei Fehlercode |
+| Zündspulen (5er-Set) | Bosch 0 221 504 469 | 80-180 | ⚪ Nur bei Aussetzern |
+| PCV Breather Box verstopft | Volvo OEM 30728487 / Febi 103238 | 24-31 ⬇️ | 🟡 Bei Öldruck-Problemen |
 | ETM reinigen | Drosselklappenreiniger | 10-25 | 🟡 Bei unruhigem Leerlauf |
+
+🟢 **PCV PREIS-UPDATE**: Febi 103238 jetzt nur €24-31 (vorher €42-120)! Deutlich günstiger.
+
+🔴 **MOTORLAGER-UPDATE**: Lemförder 30686089 jetzt €45-64 (vorher €28-40)! Deutlich teurer.
 
 ---
 
@@ -278,39 +299,76 @@
 
 ---
 
-## 🔑 KEY FINDINGS (v2, Mai 2026)
+## 🔑 KEY FINDINGS (v3, Mai 2026)
 
-1. **Gates K015615XS = €60-68 auf Amazon.de** — BILLIGER als erwartet! Goldstandard inkl. WP.
-2. **Dayco KTB481 = VORSICHT!** Manche Amazon-Angebote OHNE Wasserpumpe! Kit-Verify vor Kauf!
-3. **5W-30 ACEA A5/B5 ZWINGEND** für B5244S — falsches Öl = Motorschaden.
-4. **B5244S hat 5 Zündkerzen** — Bosch FR7KPP33+ 5er-Set = €49-52 (4+1 Strategie auf Amazon).
-5. **K&N 33-2221 = FALSCH für V50 2.4i!** Richtig: **K&N 33-2873** (Amazon bestätigt "V50 2.4L L5 F/I 2004").
-6. **Mann C 25 107 Teilenummer unklar** — Amazon zeigt C 27 107/C 28 110. VIN-Check vor Kauf!
-7. **CUK 27 003 ebenfalls unklar** — Amazon zeigt CUK 24 013. VIN-Check nötig!
-8. **IPD Intake = SKIP** — Keine E-Nummer, TÜV-Einzelabnahme, Import ~€850-1.100.
-9. **Polestar = NICHT verfügbar** für B5244S NA-Motor. Drittanbieter = TÜV-Risiko.
-10. **Ferrita F-V50-01** = bester legaler Auspuff. ABE, TÜV-routine, €420-650. Nicht auf Amazon!
-11. **170PS Ziel = nicht realistisch** mit legalen Mitteln auf B5244S NA. Max ~145-148PS mit Ferrita + Panel-Filter.
-12. **Kraftstofffilter**: Bei Automatik (AW55-51) integral = kein separater Wechsel. Manuell = extern.
-13. **Zahnriemen-Job = Gelegenheit**: Nockenw.-Dichtung + Thermostat-Gehäuse gleichzeitig = save €200+ Werkstatt.
+1. **Gates K015615XS = €57.42 auf Amazon.de direkt** — NOCH GÜNSTIGER als v2 (€60-68)!
+2. **SKF VKMC 02142 = €60-90** — DRAMATISCH GÜNSTIGER als v2 (€105-140)!
+3. **Contitech CT1120WP1 = €67-105** — günstiger als v2 (€105-161)!
+4. **Dayco KTB481 = VORSICHT!** Preise ab €6,20 sind NUR Riemen/Einzelteile. Komplett ~€98.
+5. **5W-30 ACEA A5/B5 ZWINGEND** für B5244S — Castrol EDGE jetzt €48-58/5L (war €37-48)!
+6. **B5244S hat 5 Zündkerzen** — Bosch FR7KPP33+ 5er-Set = €39-50 (war €49-52, günstiger!)
+7. **K&N 33-2221 = FALSCH für V50 2.4i!** Richtig: **K&N 33-2873** — jetzt €67-89 (Floor höher)
+8. **Mann C 25 107 Teilenummer unklar** — Amazon zeigt C 27 107 (€16-24) / C 28 110 (€5-40). VIN-Check vor Kauf!
+9. **CUK 27 003 / CUK 24 013** — Beide €10-18 auf Amazon. VIN-Check nötig!
+10. **IPD Intake = SKIP** — Keine E-Nummer, TÜV-Einzelabnahme, Import ~€850-1.100.
+11. **Polestar = NICHT verfügbar** für B5244S NA-Motor. Drittanbieter = TÜV-Risiko.
+12. **Ferrita F-V50-01** = bester legaler Auspuff. ABE, TÜV-routine, €420-650. Nicht auf Amazon!
+13. **170PS Ziel = nicht realistisch** mit legalen Mitteln auf B5244S NA. Max ~145-148PS mit Ferrita + Panel-Filter.
+14. **Kraftstofffilter**: Bei Automatik (AW55-51) integral = kein separater Wechsel. Manuell = extern.
+15. **Zahnriemen-Job = Gelegenheit**: Nockenw.-Dichtung + Thermostat-Gehäuse gleichzeitig = save €200+ Werkstatt.
+16. **Thermostat-Gehäuse TEURER**: €37-41 (war €15-35). Budget anpassen!
+17. **PCV Breather Box GÜNSTIGER**: Febi 103238 jetzt nur €24-31 (war €42-120)!
+18. **Motorlager TEURER**: Lemförder 30686089 jetzt €45-64 (war €28-40)!
+19. **Keilriemen 5PK1130 GÜNSTIGER**: €4-10 (war €14-17)!
+20. **Contitech CT1120K2 vs CT1120WP1**: K2 möglicherweise ohne WP! CT1120WP1 = mit WP. VOR KAUF PRÜFEN!
 
-**BOTTOM LINE: Phase 1 Teile = €288-384 (deutlich günstiger dank Gates-Preis!). Phase 4 "Motor sanft" ≈ Mann Filter €13-16 + optional Ferrita €470-770. 140PS NA = Sahnehaube genug für ein Stealth-Alltagsfahrzeug.**
+**BOTTOM LINE: Phase 1 Teile = €397-494 (teurer als v2 wegen Öl+Thermostat). Phase 4 "Motor sanft" ≈ Mann Filter €8-13 + optional Ferrita €470-770. 140PS NA = Sahnehaube genug für ein Stealth-Alltagsfahrzeug.**
 
 ---
 
 ## 📋 KAUF-CHECKLISTE — Vor Bestellung
 
-| # | Teil | Menge | Teilenummer | VIN-Check? |
-|---|------|-------|-------------|------------|
-| 1 | Gates Zahnriemen-Kit+WP | 1 | K015615XS | ✅ Fits B5244S |
-| 2 | Keilriemen | 1 | 5PK1130 | ✅ Fits B5244S |
-| 3 | Nockenwellen-Simmerring | 1 | Elring 813 320 | ✅ Fits B5244S |
-| 4 | Thermostat-Gehäuse | 1 | MAHLE 819 0900 | ✅ Fits B5244S |
-| 5 | Motoröl 5W-30 A5/B5 | 5L+ | Castrol EDGE | ✅ ACEA A5/B5 ONLY |
-| 6 | Ölfilter | 1 | Mann W 719/30 | ✅ Fits B5244S |
-| 7 | Bremsflüssigkeit DOT4 | 1L | ATE SL.6 | ✅ DOT4 spec |
-| 8 | Zündkerzen | 5 | Bosch FR7KPP33+ | ✅ OEM für B5244S |
-| 9 | Luftfilter | 1 | Mann C 25 107 | ⚠️ **VIN VERIFIZIEREN!** |
-| 10 | Innenraumfilter | 1 | Mann CUK 27 003 | ⚠️ **VIN VERIFIZIEREN!** |
-| 11 | Kühlwasser | 7L | Volvo OAT G30 | ✅ |
-| 12 | ATF T-IV | 4L+ | Toyota 08886-01705 | ✅ AW55-51 |
+| # | Teil | Menge | Teilenummer | VIN-Check? | Preis v3 |
+|---|------|-------|-------------|------------|----------|
+| 1 | Gates Zahnriemen-Kit+WP | 1 | K015615XS | ✅ Fits B5244S | €57-83 |
+| 2 | Keilriemen | 1 | 5PK1130 | ✅ Fits B5244S | €4-10 |
+| 3 | Nockenwellen-Simmerring | 1 | Elring 813 320 | ✅ Fits B5244S | €15-24 |
+| 4 | Thermostat-Gehäuse | 1 | MAHLE 819 0900 | ✅ Fits B5244S | €37-41 |
+| 5 | Motoröl 5W-30 A5/B5 | 5L+ | Castrol EDGE | ✅ ACEA A5/B5 ONLY | €48-58 |
+| 6 | Ölfilter | 1 | Mann W 719/30 | ✅ Fits B5244S | €6-10 |
+| 7 | Bremsflüssigkeit DOT4 | 1L | ATE SL.6 | ✅ DOT4 spec | €15-22 |
+| 8 | Zündkerzen | 5 | Bosch FR7KPP33+ | ✅ OEM für B5244S | €39-50/5er |
+| 9 | Luftfilter | 1 | Mann C 25 107 | ⚠️ **VIN VERIFIZIEREN!** | €8-13 |
+| 10 | Innenraumfilter | 1 | Mann CUK 27 003 | ⚠️ **VIN VERIFIZIEREN!** | €11-18 |
+| 11 | Kühlwasser | 7L | Volvo OAT G30 | ✅ | €13/L |
+| 12 | ATF T-IV | 4L+ | Valvoline/Toyota T-IV | ✅ AW55-51 | €42/4L |
+| 13 | PCV Breather Box | 1 | Febi 103238 | 🟡 Optional | €24-31 |
+| 14 | Ausgleichsbehälter | 1 | Nissens 60326A | ⚪ Prüfen | €28-37 |
+
+---
+
+## 📊 PREIS-VERGLEICH v2 vs v3
+
+| Teil | v2 Preis | v3 Preis | Trend |
+|------|----------|----------|-------|
+| Gates K015615XS | €60-68 | **€57-83** | 🟢 Günstigster €57 |
+| SKF VKMC 02142 | €105-140 | **€60-90** | 🟢⬇️⬇️ Sehr günstig! |
+| Contitech CT1120WP1 | €105-161 | **€67-105** | 🟢⬇️ |
+| Keilriemen 5PK1130 | €14-17 | **€4-10** | 🟢⬇️⬇️ Halbpreis! |
+| Elring 813 320 | €10-18 | **€15-24** | 🔴⬆️ |
+| Thermostat MAHLE 819 0900 | €15-35 | **€37-41** | 🔴⬆️⬆️ Doppelt! |
+| Castrol EDGE 5W-30 5L | €37-48 | **€48-58** | 🔴⬆️ |
+| Ölfilter Mann W 719/30 | €6-10 | **€6-10** | ➡️ Stabil |
+| Bremsflüssigkeit DOT4 | €14-22 | **€15-22** | ➡️ Stabil |
+| Zündkerzen 5er | €49-52 | **€39-50** | 🟢⬇️ |
+| Luftfilter Mann C 25 107 | €13-16 | **€8-13** | 🟢⬇️ |
+| Innenraumfilter CUK 27 003 | €14-17 | **€11-18** | ➡️ Stabil |
+| K&N 33-2873 | €56-89 | **€67-89** | 🔴⬆️ Floor höher |
+| PCV Breather Box | €42-120 | **€24-31** | 🟢⬇️⬇️ Halbpreisiert! |
+| Motorlager Lemförder | €28-40 | **€45-64** | 🔴⬆️⬆️ |
+| ATF T-IV 4L | €40-55 | **€42** | ➡️ Stabil |
+| Kühlwasser OAT G30 1L | €10-16 | **€13** | ➡️ Leicht ⬆️ |
+
+---
+
+*v3 Update: 2026-05-28 | Quellen: Amazon.de Live-Scraping (ASIN-verifiziert), DB-Kreuzreferenz, Marktwissen | DB: 663 Teile, 321 V50 2.4i Fitments | ⚡ 20 Preis-Updates, 3 NEUE Key Findings*

@@ -30,14 +30,15 @@
 
 ---
 
-### Phase 1: Sicherheit + Zuverlässigkeit (€350-580)
+### Phase 1: Sicherheit + Zuverlässigkeit (€397-580) ⬆️ v3
 
-| # | Teil | Teilenummer | Preis-Range | Beste Quelle | Gebraucht? | TÜV |
-|---|------|-------------|-------------|-------------|-----------|-----|
-| 1 | **Zahnriemen-Kit + WP (Gates)** | K015615XS | **€55-155** | **AMZ** ✅ | ❌ NIE | ✅ |
-| 1a | Zahnriemen-Kit + WP (Contitech) | CT1120K2 | €79-130 | **AMZ** | ❌ NIE | ✅ |
-| 1b | Zahnriemen-Kit + WP (Dayco) | KTB481 | €55-95 | **AMZ** | ❌ NIE | ✅ |
-| 2 | Keilriemen 5PK1130 | Gates 5PK1130 | €12-18 | **AMZ/EBY** | ❌ NIE | ✅ |
+| # | Teil | Teilenummer | Preis-Range v3 | Beste Quelle | Gebraucht? | TÜV |
+|---|------|-------------|-----------------|-------------|-----------|-----|
+| 1 | **Zahnriemen-Kit + WP (Gates)** | K015615XS | **€57-83** ⬇️ | **AMZ** ✅ (ASIN B00625NOXM) | ❌ NIE | ✅ |
+| 1a | Zahnriemen-Kit + WP (Contitech) | CT1120WP1 | €67-105 ⬇️ | **AMZ** | ❌ NIE | ✅ |
+| 1b | Zahnriemen-Kit + WP (SKF) | VKMC 02142 | €60-90 ⬇️ | **AMZ** | ❌ NIE | ✅ |
+| 1c | Zahnriemen-Kit (Dayco) | KTB481 | €6-98 ⚠️ | **AMZ** | ❌ NIE | ✅ ⚠️ |
+| 2 | Keilriemen 5PK1130 | Gates/Contitech 5PK1130 | €4-10 ⬇️ | **AMZ/EBY** | ❌ NIE | ✅ |
 | 3 | Bremsbeläge vorne TRW | GDB1359 | €22-32 | **AMZ/EBY** | ❌ NIE | ✅ ECE R90 |
 | 3a | Bremsbeläge vorne ATE | 13.0460-5807.2 | €25-48 | **AMZ** | ❌ NIE | ✅ ECE R90 |
 | 4 | Bremsbeläge hinten TRW | GDB1358 | €20-29 | **EBY** | ❌ NIE | ✅ ECE R90 |
@@ -45,16 +46,22 @@
 | 6 | Bremsscheiben hinten 280mm TRW | DF4207 | €42-58 | **EBY** | ❌ NIE | ✅ OEM-Maße |
 | 7 | **SS Bremsleitungen HEL** | **HEL-V50-P1-4L** | **€85-110** | **EBY** ⭐ | ❌ NIE | ✅ **TÜV-Zert inkl!** |
 | 7a | SS Bremsleitungen Goodridge | G-STOP VSV-004 | €80-110 | **AMZ** | ❌ NIE | ⚠️ Einzelabnahme |
-| 8 | Bremsflüssigkeit DOT4 | ATE SL.6 1L | €8-12 | **AMZ** | ❌ NIE | ✅ |
-| 9 | Zündkerzen 5x Bosch | FR7KPP33+ | €35-45 | **EBY** | ❌ NIE | ✅ |
-| 10 | Ölfilter Mann | W 719/30 | €7-11 | **EBY** | ❌ NIE | ✅ |
-| 11 | Innenraumfilter Aktivkohle | CUK 27 003 | €10-15 | **EBY** | ❌ NIE | ✅ |
-| 12 | Zündspulen 5er-Set | Bosch 0 221 504 469 | €85-120 | **EBY** | ⚠️ Eher NEIN | ✅ |
-| 13 | ATF T-IV 4L | Valvoline/Toyota | €38-55 | **EBY** | ❌ NIE | ✅ |
-| 14 | ATF Filter Kit | Volvo/Aisin 6840547 | €22-40 | **AMZ/EBY** | ❌ NIE | ✅ |
+| 8 | Bremsflüssigkeit DOT4 | ATE SL.6 1L | €15-22 | **AMZ** | ❌ NIE | ✅ |
+| 9 | Zündkerzen 5x Bosch | FR7KPP33+ | €39-50 ⬇️ | **AMZ/EBY** | ❌ NIE | ✅ |
+| 10 | Ölfilter Mann | W 719/30 | €6-10 | **EBY** | ❌ NIE | ✅ |
+| 11 | Motoröl 5W-30 A5/B5 5L | Castrol EDGE | €48-58 ⬆️ | **AMZ** | ❌ NIE | ✅ |
+| 12 | Luftfilter Mann | C 25 107 | €8-13 ⬇️ | **AMZ** ⚠️ VIN-Check | ❌ NIE | ✅ |
+| 13 | Innenraumfilter Aktivkohle | CUK 27 003 | €11-18 | **EBY** ⚠️ VIN-Check | ❌ NIE | ✅ |
+| 14 | Zündspulen 5er-Set | Bosch 0 221 504 469 | €80-180 | **EBY** | ⚠️ Eher NEIN | ✅ |
+| 15 | ATF T-IV 4L | Valvoline/Toyota | €42 | **EBY** | ❌ NIE | ✅ |
+| 16 | ATF Filter Kit | Volvo/Aisin 6840547 | €22-40 | **AMZ/EBY** | ❌ NIE | ✅ |
+| 17 | Thermostat-Gehäuse | MAHLE 819 0900 | €37-41 ⬆️ | **AMZ** | ❌ NIE | ✅ |
+| 18 | Nockenwellensimmerring | Elring 813 320 | €15-24 ⬆️ | **AMZ** | ❌ NIE | ✅ |
+| 19 | PCV Breather Box | Febi 103238 | €24-31 ⬇️ | **AMZ/EBY** | ❌ NIE | ✅ |
+| 20 | Kühlwasser OAT G30 1L | Volvo OEM | €13/L | **AMZ** | ❌ NIE | ✅ |
 
 **🔥 BUNDLES Phase 1**:
-- **Gates ZR Mega-Bundle**: ZR-Kit + Keilriemen + Simmerring + Zündkerzen = ~€100-120 (vs. einzeln ~€140-165)
+- **Gates ZR Mega-Bundle**: ZR-Kit (€57-83) + Keilriemen (€4-10) + Simmerring (€15-24) + Zündkerzen (€39-50) + Thermostat (€37-41) = ~€152-208
 - **TRW Bremsen-Bundle**: Beläge v+h + Scheiben v+h = ~€150-180
 - **Bremsen+Leitungen**: TRW Beläge+Scheiben+HEL Leitungen ≈ €240-290
 
@@ -111,17 +118,18 @@
 > ⭐ **STEALTH-TIPP**: Osram Night Breaker LASER H7 = Halogen = eintragungsfrei! LED H7 braucht TÜV → LASER ist die bessere Wahl!
 > ⭐ **STEALTH-TIPP**: Facelift-Rücklichter OEM gebraucht = eintragungsfrei! Aftermarket LED braucht Eintragung!
 
-### Phase 4: Motor sanft (€70-1.350)
+### Phase 4: Motor sanft (€8-1.350) ⬆️ v3
 
-| # | Teil | Teilenummer | Preis-Range | Beste Quelle | Gebraucht? | TÜV |
-|---|------|-------------|-------------|-------------|-----------|-----|
-| 33 | Luftfilter Panel Mann | C 25 107 | €8-14 | **EBY** | ❌ | ✅ frei |
-| 33a | K&N Panel-Filter | 33-2873 | €40-89 | **EBY** | ❌ | ✅ frei (OEM-Form) |
-| 34 | **Kat-Back Auspuff (Ferrita)** | F-V50-01 | **€450-520** | **FER/SKA** | ❌ NIE | ✅ ABE |
+| # | Teil | Teilenummer | Preis-Range v3 | Beste Quelle | Gebraucht? | TÜV |
+|---|------|-------------|-----------------|-------------|-----------|-----|
+| 33 | Luftfilter Panel Mann | C 25 107 | €8-13 ⬇️ | **AMZ/EBY** ⚠️ VIN-Check | ❌ | ✅ frei |
+| 33a | K&N Panel-Filter | 33-2873 | €67-89 ⬆️ | **AMZ/EBY** | ❌ | ✅ frei (OEM-Form) |
+| 34 | **Kat-Back Auspuff (Ferrita)** | F-V50-01 | **€420-650** | **FER/SKA** | ❌ NIE | ✅ ABE |
 | 34a | Kat-Back Auspuff (Eisenmann) | V50-ECE | €800-950 | **SKA** | ❌ NIE | ✅ ABE |
 | 35 | Schaltknauf R-Design | Volvo 30774697 | €35-90 | **EBY** | ✅ JA! | ✅ frei |
 | 36 | Sportpedal-Set Volvo | 30655827 | €40-55 | **EBY** | ✅ JA! | ✅ frei |
-| 37 | PCV Breather Box | Febi 103238 | €30-65 | **EBY/AMZ** | ❌ NIE | ✅ |
+| 37 | PCV Breather Box | Febi 103238 | €24-31 ⬇️ | **EBY/AMZ** | ❌ NIE | ✅ |
+| 38 | Thermostat-Gehäuse | MAHLE 819 0900 | €37-41 ⬆️ | **AMZ** | ❌ NIE | ✅ |
 | 39 | ⛔ Auspuff ohne E-Nummer | China/eBay | ~€150 | ❌ | ❌ NIE | ❌ ILLEGAL |
 
 **⚠️ AUSPUFF-WARNUNG**: Ohne E-Nummer/ABE = ILLEGAL! → Ferrita MIT ABE = bestes Preis/Leistung.
@@ -144,20 +152,20 @@
 
 | Phase | Optimistisch | Realistisch | Budget-Sparvariante |
 |-------|-------------|-------------|---------------------|
-| 1: Sicherheit+Zuverlässigkeit | €350 | €530 | €300 (Dayco+TRW) |
+| 1: Sicherheit+Zuverlässigkeit | €397 | €494 | €340 (SKF+TRW) ⬆️ v3 |
 | 2: Fahrwerk sportlich-dezent | €490 | €780 | €490 (Vogtland+KONI RED) |
 | 3: Optik neu & clean | €200 | €350 | €180 (DIY Politur) |
-| 4: Motor sanft (ohne Auspuff) | €70 | €175 | €70 (nur Panel-Filter) |
-| 4: Motor sanft (mit Auspuff) | €520 | €695 | €520 (Ferrita) |
+| 4: Motor sanft (ohne Auspuff) | €8 | €60 | €8 (nur Panel-Filter) ⬆️ v3 |
+| 4: Motor sanft (mit Auspuff) | €428 | €660 | €428 (Ferrita) |
 | 5: Reserve | €75 | €145 | €75 |
-| **TOTAL (ohne Auspuff)** | **€1.185** | **€1.980** | **€1.025** |
-| **TOTAL (mit Auspuff)** | **€1.635** | **€2.500** | **€1.475** |
+| **TOTAL (ohne Auspuff)** | **€1.170** | **€1.829** | **€1.093** |
+| **TOTAL (mit Auspuff)** | **€1.590** | **€2.429** | **€1.521** |
 | + TÜV-Eintragungen (Sammel) | €150 | €300 | €150 |
-| **GRAND TOTAL (ohne Auspuff)** | **€1.335** | **€2.280** | **€1.175** |
-| **GRAND TOTAL (mit Auspuff)** | **€1.785** | **€2.800** | **€1.625** |
+| **GRAND TOTAL (ohne Auspuff)** | **€1.320** | **€2.129** | **€1.243** |
+| **GRAND TOTAL (mit Auspuff)** | **€1.740** | **€2.729** | **€1.671** |
 
 **✅ DEUTLICH INNERHALB BUDGET von €3.500-5.000!**  
-**💰 Reserve**: €700-3.200 für Facelift-Teile, Rost-Reparatur, Unvorhergesehenes.
+**💰 Reserve**: €780-3.260 für Facelift-Teile, Rost-Reparatur, Unvorhergesehenes.
 
 ### 💡 TOP Budget-Optimierungen
 
@@ -326,16 +334,22 @@
 - PCV Breather Box (~€45)
 - Reserve für Unvorhergesehenes (~€300-500)
 
-### 🔥 TOP-PREIS-FUNDS (Mai 2026)
+### 🔥 TOP-PREIS-FUNDS (Mai 2026, v3 aktualisiert)
 
 | Teil | Üblicher Preis | Bester Preis | Ersparnis | Hinweis |
 |------|----------------|-------------|-----------|---------|
+| Gates ZR Kit K015615XS | €125-155 | **€57.42** ⬇️⬇️ | €68-98! | ✅ AMZ SAHNEPREIS! (ASIN B00625NOXM) |
+| SKF ZR Kit VKMC 02142 | €105-140 | **€60-90** ⬇️ | €15-50! | ✅ DRAMATISCH günstiger! |
+| Contitech CT1120WP1 | €105-161 | **€67-105** ⬇️ | €38-56! | ✅ Günstiger! |
+| Keilriemen 5PK1130 | €14-17 | **€4-10** ⬇️⬇️ | €4-13! | ✅ HALBPREIS! |
 | Eibach Pro-Kit V50 | €250-280 | **€149-158** | €90-120! | ⚠️ Verkäufer prüfen! |
-| Gates ZR Kit K015615XS | €125-155 | **€60-68** | €57-95! | ✅ AMZ SAHNEPREIS! |
 | TRW Beläge GDB1359 | €28-35 | **€22** | €6-13 | ✅ Gut |
 | Osram LASER H7 | €35-45 | **€25-35** | €7-17 | ✅ + TÜV-frei! |
 | HEL SS-Leitungen V50 | €90-110 | **€85-110** | — | ⭐ TÜV-Zert inklusive! |
-| Mann Luftfilter C 25 107 | €12-15 | **€8-14** | €1-3 | ✅ |
+| Mann Luftfilter C 25 107 | €12-15 | **€8-13** ⬇️ | €1-5 | ✅ |
+| Zündkerzen Bosch 5er | €49-52 | **€39-50** ⬇️ | €2-13 | ✅ |
+| PCV Breather Box Febi | €42-120 | **€24-31** ⬇️⬇️ | €18-89! | ✅ HALBPREIS! |
+| K&N 33-2873 | €56-89 | **€67-89** ⬆️ | — | ⚠️ Floor price höher |
 
 ### 🚨 KRITISCHE WARNUNGEN
 
@@ -366,4 +380,4 @@
 
 ---
 
-*Letztes Update: 2026-05-28 v5 | Quellen: Amazon.de, eBay.de, Autodoc.de (Referenz), Skandix.de (Referenz), Ferrita.se, Hersteller-Websites | DB: 650 Teile, 189 V50 2.4i Fitments, 391 Quellen | +1 Neues Teil: Osram Night Breaker LASER H7*
+*Letztes Update: 2026-05-28 v6 | Quellen: Amazon.de Live-Scraping (28.05.2026, ASIN-verifiziert), eBay.de, Autodoc.de (Referenz), Skandix.de (Referenz), Ferrita.se, Hersteller-Websites | DB: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | v3 Preis-Update: 20 Teile, 3 NEUE Preis-Funde (Gates €57.42, SKF €60-90, Keilriemen €4-10)*

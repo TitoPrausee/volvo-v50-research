@@ -1,9 +1,9 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Chief Engineer Status Report
 
-**Datum**: 2026-05-28 (v6 — Preis-Jäger + TÜV-Experte Update)  
+**Datum**: 2026-05-28 (v7 — Motor Preis-Update v3 + Amazon.de Live-Preise)  
 **Rolle**: Chefingenieur & Projektleitung  
 **Budget**: 3.500-5.000€ HARD CAP  
-**DB-Stand**: 650 Teile, 189 V50 2.4i Fitments, 391 Quellen
+**DB-STAND**: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | ⚡ v3 Preis-Updates: 20 Teile aktualisiert
 
 ---
 
@@ -41,6 +41,12 @@
 | **Mann Innenraumfilter** | CUK 27 003 | **VIN-Check vor Kauf!** → CUK 24 013 möglich | 🟡 Unklar |
 | **Facelift-SW Teilenummern** | 30796020-23 ❌ | **31265914/31265915** ✅ (H7 Halogen) | 🔴 Korrigiert in DB |
 | **Dayco KTB481** | Komplett-Kit | **NUR Riemen, kein Kit!** ⚠️ | 🟡 Warnung |
+| **Thermostat-Gehäuse MAHLE** | €15-35 | **€37-41** ⬆️ | 🔴 PREIS-UPDATE v3! |
+| **Castrol EDGE 5W-30** | €37-48/5L | **€48-58/5L** ⬆️ | 🔴 PREIS-UPDATE v3! |
+| **SKF VKMC 02142** | €105-140 | **€60-90** ⬇️ | 🟢 VIEL GÜNSTIGER v3! |
+| **PCV Breather Box** | €42-120 | **€24-31** ⬇️ | 🟢 VIEL GÜNSTIGER v3! |
+| **Keilriemen 5PK1130** | €14-17 | **€4-10** ⬇️ | 🟢 HALBPREIS v3! |
+| **Motorlager Lemförder** | €28-40 | **€45-64** ⬆️ | 🔴 PREIS-UPDATE v3! |
 | **Ferodo DS2500** | Sport-Beläge | **KEIN ECE R90 → ILLEGAL!** | 🔴 Korrigiert → TRW/ATE |
 
 ---
@@ -51,7 +57,7 @@
 
 | Phase | Posten | Min (€) | Realistisch (€) | Max (€) | Budget-Spot | Status |
 |-------|--------|--------:|----------------:|--------:|------------|--------|
-| **1: Sicherheit** | Zahnriemen+WP, Keilriemen, Bremsen, Zündkerzen, Öl, Filter, Nockenwellendichtung, DOT4, ATF | 350 | 530 | 580 | €500-800 | ✅ |
+| **1: Sicherheit** | Zahnriemen+WP, Keilriemen, Bremsen, Zündkerzen, Öl, Filter, Nockenwellendichtung, DOT4, ATF | 397 | 494 | 580 | €500-800 | ✅ ⬆️ v3 |
 | **2: Fahrwerk** | Eibach Pro-Kit, KONI RED, Stabi-Links, Domlager, Stabi-Buchsen, SS-Leitungen, Keramik | 490 | 780 | 1.200 | €800-1.200 | ✅ |
 | **3: Optik** | Polierung DIY, Keramik, Grill, Osram LASER H7, Facelift-SW, Facelift-RL, Spiegelkappen, Rost | 200 | 350 | 695 | €800-1.200 | ✅ |
 | **4: Motor (o. Auspuff)** | Mann Luftfilter, Schaltknauf, Pedale, ETM-Clean, PCV-Kit | 70 | 175 | 257 | €400-600 | ✅ |
@@ -68,7 +74,7 @@
 ### Empfohlenes Szenario: B — STEALTH-Balance (~€2.143)
 
 1. ✅ Bremsen komplett: TRW Beläge+Scheiben + HEL SS-Leitungen = ~€350
-2. ✅ Zahnriemen-Kit Gates K015615XS = ~€60-68 ⬇️ Amazon SAHNEPREIS!
+2. ✅ Zahnriemen-Kit Gates K015615XS = **~€57** ⬇️ AMZ SAHNEPREIS! (ASIN B00625NOXM)
 3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = ~€500 (AMZ!)
 4. ✅ Polierung+Keramik DIY = ~€50
 5. ✅ Osram Night Breaker LASER H7 = ~€30 (EINTRAGUNGSFREI!)
@@ -212,5 +218,5 @@
 ---
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁  
-**DB-STAND**: 585 Teile, K&N 33-2873 korrigiert, FL-SW TN korrigiert, 16 Teile aktualisiert (Mai 2026).  
-**BUDGET**: ✅ DEUTLICH INNERHALB 5.000€ HARD CAP — Reserve €732-3.165 verfügbar.
+**DB-STAND**: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | v3 Preis-Update: 20 Teile aktualisiert (Mai 2026).  
+**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Phase 1 Teile €397-494 (⬆️ v3). Reserve €732-3.165 verfügbar.
