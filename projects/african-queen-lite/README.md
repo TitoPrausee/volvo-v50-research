@@ -2,29 +2,29 @@
 
 **Honda NX650 Dominator RFVC** — Zuverlässigkeit + Fahrwerk + Optik + Touring (44PS OEM, KEIN Performance-Tuning)
 
-## Projekt-Status (Chefingenieur Run #7 — 2026-05-28)
+## Projekt-Status (Budget-Jäger Run #6 — 2026-05-28)
 
-| Metric | Wert |
+|| Metric | Wert |
 |--------|------|
 | **Budget Hard Cap** | €5.000 |
-| **Option A Best-Price** | €2.128 |
-| **Option A + Reserve** | €2.628 |
-| **Freie Reserve** | €2.372 (47%) |
+| **Option A Best-Price** | €2.161 |
+| **Option A + Reserve** | €2.661 |
+| **Freie Reserve** | €2.339 (47%) |
 | **Gewicht Ziel** | 175-180 kg fahrfertig |
 | **Gewicht Ist (Option A)** | ~171 kg fahrfertig ✅ |
 | **DB Teile (NX650)** | 199 |
-| **DB Total** | 668 Teile, 415 Quellen |
+| **DB Total** | 668+ Teile, 415+ Quellen |
 | **Kompatibilität** | 15/15 Hauptteile ✅ |
 | **Performance-Teile** | 0 (15 gestrichen) ✅ |
 | **NX650 Known Issues** | 65 (5 critical, 7 high) |
 
-### Budget-Guard Status (Run #7 — 2026-05-28)
+### Budget-Guard Status (Run #6 — 2026-05-28)
 
-| Phase | Geplant | Budget | Reserve | Status |
+|| Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
-| 1: Zuverlässigkeit | €393 | €800 | +€407 (51%) | ✅ |
-| 2: Fahrwerk | €880 | €1.200 | +€320 (27%) | ✅ |
-| 3: Africa Twin Look | €655 | €1.000 | +€345 (35%) | ✅ |
+| 1: Zuverlässigkeit | €416 | €800 | +€384 (48%) | ✅ |
+| 2: Fahrwerk | €862 | €1.200 | +€338 (28%) | ✅ |
+| 3: Africa Twin Look | €696 | €1.000 | +€304 (30%) | ✅ |
 | 4: Touring-Komfort | €187 | €800 | +€613 (77%) | ✅ |
 | 5: Reserve | — | €500 | +€500 | 🔵 |
 

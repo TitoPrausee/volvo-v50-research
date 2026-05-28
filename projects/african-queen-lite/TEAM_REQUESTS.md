@@ -1,7 +1,7 @@
-# African Queen Lite — TEAM REQUESTS: Elektrik
+# African Queen Lite — TEAM REQUESTS: Elektrik + Fahrwerk + Budget
 
-**Date:** 2026-05-28  
-**Priority:** Phase 1 (Sicherheit) → Phase 3 (Look) → Phase 4 (Touring)
+**Date:** 2026-05-28 (Run #6)
+**Priority:** Phase 1 (Sicherheit) → Phase 2 (Fahrwerk) → Phase 3 (Look) → Phase 4 (Touring)
 
 ---
 
@@ -35,15 +35,16 @@
 ### Benötigte Teile
 | # | Teil | Teilenummer | Preis | Quelle |
 |---|------|-------------|-------|--------|
-| 1 | Koso RX-22 7" LED Scheinwerfer + DRL | Koso RX-22 | €110 | Amazon.de / Koso-Direct |
-| 2 | LED Blinker Set Mini E9-approved | Universal | €25 | Amazon.de |
-| 3 | LED Rück-/Bremslicht E-marked | Universal/Honda | €18 | Amazon.de |
+| 1 | Koso RX-22N 7" LED Scheinwerfer + DRL | Koso RX-22N | €100-109 | FC-Moto / Carpimoto 💡 |
+| 2 | LED Blinker Set Mini E9-approved | Universal | €16 | Amazon.de |
+| 3 | LED Rück-/Bremslicht E-marked | Universal/Honda | €17 | Amazon.de |
 | 4 | LED Blinker-Relais Electronic 3-Pin Honda | 38601-KY5-003 | €12 | Amazon.de / eBay |
 
 **ACHTUNG:**  
 - 7" Drop-in für NX650 Lochkreis → KEINE Modifikation nötig  
 - Blinker-Relais MUSS getauscht werden für LED-Kompatibilität  
-- RX-22 hat integriertes DRL = Standlicht-Verkabelung beachten
+- RX-22N hat DOT/ECE Zulassung → besser für TÜV!
+- 💡 **CHECKEN:** Carpimoto.it potenziell €84 für RX-22 (UNVERIFIED)
 
 ---
 
@@ -56,8 +57,8 @@
 ### Benötigte Teile
 | # | Teil | Teilenummer | Preis | Quelle |
 |---|------|-------------|-------|--------|
-| 1 | JMT LiFePO4 Batterie YTZ10F | JMT-YTZ10F-LFP | €55 | Amazon.de |
-| 2 | USB-Ladegerät Waterproof Dual 2.1A | Universal | €14 | Amazon.de |
+| 1 | JMT LiFePO4 Batterie YTZ10F | JMT-YTZ10F-LFP | €50 | Amazon.de |
+| 2 | USB-Ladegerät Waterproof Dual 2.1A | Universal | €13 | Amazon.de |
 
 **Alternative (Premium):**
 | # | Teil | Teilenummer | Preis | Quelle |
@@ -71,13 +72,44 @@
 
 **Typ:** Bestellung  
 **Priorität:** P3  
-**Budget:** €60-85
+**Budget:** €55-85
 
 | # | Teil | Teilenummer | Preis | Quelle |
 |---|------|-------------|-------|--------|
-| 1 | Oxford HotGrips Premium | Oxford | €65 | Amazon.de / Louis.de |
+| 1 | Oxford HotGrips Premium | Oxford | €55 | FC-Moto / Amazon.de |
 
 **HINWEIS:** Heizgriffe ziehen ~50-72W. Mit LED-Umbau (95W Reserve) → OK über 3000 RPM, kritisch bei Stadttempo.
+
+---
+
+## REQUEST FROM FAHRWERKSSPEZIALIST (Run #6 — 2026-05-28)
+
+### 1. GABELÖL KORREKTUR: 5W statt 7.5W! 🔴 BESTÄTIGT
+- **KRITISCH:** Mit Race Tech Emulatoren MUSS 5W Gabelöl verwendet werden!
+- 7.5W ist nur für OEM Dämpferstange (ohne Emulatoren)
+- DB-Eintrag ID 211 (Motul 5W) korrigiert
+- Budget: **€8.70** für 1L Motul 5W (spart €4.20 vs 7.5W!)
+
+### 2. Mitas E-07+ Dakar Set Bestpreis BESTÄTIGT
+- **Reiff Bundle Deal:** €175 für Front+Rear Set (bestätigt Run #6)
+- **Run #5 war €189** → spart €14!
+- **Alternative:** Shinko 804/805 Set €140 (Budget, kürzere Lebensdauer)
+
+### 3. YSS Heck-Dämpfer Entscheidung benötigt:
+- **Option A:** YSS Z-366 Mono (€330-367 inkl. Bracket+Schweißen) = BEST Performance, -3.660g
+- **Option B:** YSS Z367 Twin (€169 direkt bolt-on) = BEST Value, sofort montierbar, -1.900g
+- Empfehlung: **Mono** für maximale Fahrdynamik, **Twin** für Einfachheit
+
+### 4. Bremsen BEST VALUE bestätigt:
+- EBC FA185HH + Venhill SS = **€49 für +40-50% Bremsperformance**
+- 260mm Disc Upgrade = €185-275 für nur +1.5% → **P/L SCHLECHT**
+- Empfehlung: HH-Beläge + SS-Leitung, KEIN Disc-Upgrade
+
+### 5. EXHAUST GASKETS PFLICHT für Header-Swap 🔴 NEU
+- Header-Cylinder Gasket: ~€4-6 (Athena/Honda OEM)
+- Muffler Joint Gasket: ~€3-5 (Athena/Honda OEM)
+- Gesamt: ~€11 MÜSSEN in Phase 3 aufgenommen werden!
+- **DB-Einträge ID 704 + 705** mit PFLICHT-Hinweis aktualisiert
 
 ---
 
@@ -99,10 +131,11 @@ Plus neue Teile: DT Kit +120g, USB +80g, Ground +200g → Netto: **-3.650g (-3.6
 ## BESTELL-REIHENFOLGE
 
 1. **SOFORT:** RM Stator Combo + FH020AA + DT Kit + Ground Kit (Phase 1, ~€200)
-2. **Nächste Woche:** Koso RX-22 + LED Blinker + Rücklicht + Relais (Phase 3, ~€165)
-3. **Wenn Budget da:** JMT LiFePO4 + USB (Phase 4, ~€70)
-4. **Optional:** Heizgriffe (Phase 4+, ~€65)
-5. **Optional:** Antigravity Batterie-Upgrade (+€90 Aufpreis vs JMT)
+2. **SOFORT:** Exhaust Gaskets für Header-Swap (Phase 3, ~€11)
+3. **Nächste Woche:** Koso RX-22N + LED Blinker + Rücklicht + Relais (Phase 3, ~€145)
+4. **Wenn Budget da:** JMT LiFePO4 + USB (Phase 4, ~€63)
+5. **Optional:** Heizgriffe (Phase 4+, ~€55)
+6. **Optional:** Antigravity Batterie-Upgrade (+€90 Aufpreis vs JMT)
 
 **Budget Total Budget-Option:** €439  
 **Budget Total Premium-Option:** €827 (über 800€ Cap!)  
@@ -110,28 +143,4 @@ Plus neue Teile: DT Kit +120g, USB +80g, Ground +200g → Netto: **-3.650g (-3.6
 
 ---
 
-*Team Requests by: AQL Elektrik-Spezialist (cron)*
----
-
-## REQUEST FROM FAHRWERKSSPEZIALIST (Run #8, 2026-05-28)
-
-### 1. GABELÖL KORREKTUR: 5W statt 7.5W!
-- **KRITISCH:** Mit Race Tech Emulatoren MUSS 5W Gabelöl verwendet werden!
-- 7.5W ist nur für OEM Dämpferstange (ohne Emulatoren)
-- DB-Eintrag ID 211 (Motul 5W) korrigiert
-- Budget: €8.70 für 1L Motul 5W
-
-### 2. YSS Heck-Dämpfer Entscheidung benötigt:
-- **Option A:** YSS Z-366 Mono (€330-367 inkl. Bracket+Schweißen) = BEST Performance, -3.660g
-- **Option B:** YSS Z367 Twin (€169 direkt bolt-on) = BEST Value, sofort montierbar, -1.900g
-- Empfehlung: **Mono** für maximale Fahrdynamik, **Twin** für Einfachheit
-
-### 3. Bremsen BEST VALUE bestätigt:
-- EBC FA185HH + Venhill SS = **€49 für +40-50% Bremsperformance**
-- 260mm Disc Upgrade = €185-275 für nur +1.5% → **P/L SCHLECHT**
-- Empfehlung: HH-Beläge + SS-Leitung, KEIN Disc-Upgrade
-
-### 4. Reifen BESTÄTIGT:
-- Mitas E-07+ Dakar = BEST für 80/20 Sport+Gelände+Touring
-- €18.9/1000km = bester €/km im Vergleich
-- Shinko 804/805 = Budget-Alternative aber 33% kürzere Lebensdauer
+*Team Requests by: AQL Elektrik-Spezialist + Fahrwerksspezialist + Budget-Jäger (Run #6, 2026-05-28)*
