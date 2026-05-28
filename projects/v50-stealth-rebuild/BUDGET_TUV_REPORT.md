@@ -1,15 +1,15 @@
-# 🚗 Volvo V50 2.4i Stealth Rebuild — Budget + TÜV Report v5
+# 🚗 Volvo V50 2.4i Stealth Rebuild — Budget + TÜV Report v6
 
-**Datum**: 2026-05-28 (v5 — Preis-Jäger + TÜV-Experte aktualisiert)  
+**Datum**: 2026-05-28 (v6 — TÜV-Experte Deep-Dive, 45 Teile TÜV-klassifiziert, Polestar/BSR/IPD geklärt)  
 **Budget**: 3.500-5.000€ HARD CAP  
 **Philosophie**: Jeder Euro muss NEUWAGEN-GEFÜHL bringen. STEALTH = unauffällig, 100% legal.  
 **Motor**: B5244S (103 kW / 140 PS), 5-Zylinder, P1 Plattform  
 **Getriebe**: AW55-51 5-Gang Automatik  
-**DB-Stand**: 650 Teile, 189 V50 2.4i Fitments, 391 Quellen
+**DB-Stand**: 674 Teile, 389 V50 2.4i Fitments, 442 Quellen, 45 TÜV-klassifiziert
 
 ---
 
-## 📊 TEIL 1 — PREISE (3+ Quellen pro Teil, Mai 2026 Update)
+## 📊 TEIL 1 — PREISE (3+ Quellen pro Teil, Mai 2026)
 
 ### Preisquellen-Legende
 | Kürzel | Quelle | Stärke | Verfügbarkeit |
@@ -69,24 +69,25 @@
 
 | # | Teil | Teilenummer | Preis-Range | Beste Quelle | Gebraucht? | TÜV |
 |---|------|-------------|-------------|-------------|-----------|-----|
-| 15 | **Eibach Pro-Kit -30mm** | **E10-41-001-05-22** | **€149-280** | **AMZ/EBY** 🔥 | ⚠️ Prüfen | ✅ ABE |
+| 15 | **Eibach Pro-Kit -30mm** | **E10-41-001-05-22** | **€149-280** | **AMZ/EBY** 🔥 | ⚠️ Prüfen | ✅ Teilegutachten |
 | 15a | Vogtland -30mm (Budget) | 998102 | €130-210 | **EBY** | ⚠️ Prüfen | ✅ ABE |
-| 16 | **KONI Spec.Active (Gelb)** | 86-2636SP4/80-2629SP4 | **€370-650** | **EBY/AUT** | ⚠️ | ✅ |
-| 16a | KONI Special RED 4er-Set | 86-2636SP3/80-2629SP3 | €280-460 | **EBY/AMZ** | ⚠️ | ✅ |
-| 17 | **Bilstein B6 4er-Set** | 35-132577/578 | €380-570 | **EBY/AMZ** | ⚠️ | ✅ |
+| 16 | **KONI Spec.Active (Gelb)** | 86-2636SP4/80-2629SP4 | **€370-650** | **EBY/AUT** | ⚠️ | ✅ Teilegutachten |
+| 16a | KONI Special RED 4er-Set | 86-2636SP3/80-2629SP3 | €280-460 | **EBY/AMZ** | ⚠️ | ✅ Teilegutachten |
+| 17 | **Bilstein B6 4er-Set** | 35-132577/578 | €380-570 | **EBY/AMZ** | ⚠️ | ✅ Teilegutachten* |
 | 18 | Querlenkerlager vorne | Lemförder 36926 01 | €18-35 | **EBY** | ❌ NEIN | ✅ |
 | 18a | Lemförder Komplettarm L+R | 37472 01/37473 01 | €180-280 | **EBY** | ❌ NEIN | ✅ |
 | 19 | Stabilizer Link TRW | JTS1330 | €15-22 | **EBY** | ❌ NEIN | ✅ |
-| 20 | Domlager vorne | Febi 37389 | €28-50 | **EBY** | ❌ NEIN | ✅ |
-| 25 | ⚠️ ~~Ferodo DS2500 vorn~~ | ~~FCP1859H~~ | €85-120 | — | ❌ NIE | ❌ **KEIN ECE R90!** |
+| 20 | Domlager vorne | Lemförder 37706 01 | €28-50 | **EBY** | ❌ NEIN | ✅ |
+| 25 | ⚠️ ~~Ferodo DS2500 vorn~~ | ~~FCP1859H~~ | €85-120 | — | ❌ NIE | ❌ **KEIN ECE R90! ILLEGAL!** |
 | 25a | ✅ TRW Beläge vorn Budget | GDB1805 | €30-45 | **EBY** | ❌ NIE | ✅ ECE R90 |
-| 25b | ✅ ATE Ceramic Beläge vorn | 13.0460-7213.2 | €40-58 | **EBY** | ❌ NIE | ✅ |
-| 27 | **Zimmermann Sportribbel vorn 316mm** | 100.3430.52 | €55-78 | **EBY** | ❌ NIE | ✅ ABE |
+| 25b | ✅ ATE Ceramic Beläge vorn | 13.0460-7213.2 | €40-58 | **EBY** | ❌ NIE | ✅ ECE R90 |
+| 27 | **Zimmermann Sportribbel vorn 280mm** | 100.3430.52 | €55-78 | **EBY** | ❌ NIE | ✅ ABE |
 | 29 | **HEL SS-Leitungen 4er-Set** | HEL-V50-P1-4L | €85-110 | **EBY** ⭐ | ❌ NIE | ✅ **TÜV-Zert inkl!** |
 | 29a | Goodridge 4er-Set | GR-1000-4-V50 | €80-110 | **AMZ** | ❌ NIE | ⚠️ Einzelabnahme |
 | 30 | **SKF Radlager vorne** | VKBA 6813 | €45-72 | **EBY** | ❌ NIE | ✅ |
 | 31 | **SKF Radlager hinten** | VKBA 6819 | €35-52 | **EBY** | ❌ NEIN | ✅ |
 | 32 | **Estoni StabiSet 24/22mm** | E-V50-SB-F+R | €530-660 | **SKA** | ⚠️ | ✅ ABE |
+| 33 | **SuperPro SPF3091K+SPF3332K** | SPF3091K/SPF3332K | €85-125+€85-125 | **EBY** | ❌ NEIN | ✅ **ABE (einzige Poly-Option!)** |
 
 **🔥 BUNDLES Phase 2**:
 - **Eibach + KONI Active**: ~€730-790 — bester Komfort
@@ -124,7 +125,7 @@
 |---|------|-------------|-----------------|-------------|-----------|-----|
 | 33 | Luftfilter Panel Mann | C 25 107 | €8-13 ⬇️ | **AMZ/EBY** ⚠️ VIN-Check | ❌ | ✅ frei |
 | 33a | K&N Panel-Filter | 33-2873 | €67-89 ⬆️ | **AMZ/EBY** | ❌ | ✅ frei (OEM-Form) |
-| 34 | **Kat-Back Auspuff (Ferrita)** | F-V50-01 | **€420-650** | **FER/SKA** | ❌ NIE | ✅ ABE |
+| 34 | **Kat-Back Auspuff (Ferrita)** | F-V50-01 | **€420-650** | **FER/SKA** | ❌ NIE | 🟡 ABE (teilweise) |
 | 34a | Kat-Back Auspuff (Eisenmann) | V50-ECE | €800-950 | **SKA** | ❌ NIE | ✅ ABE |
 | 35 | Schaltknauf R-Design | Volvo 30774697 | €35-90 | **EBY** | ✅ JA! | ✅ frei |
 | 36 | Sportpedal-Set Volvo | 30655827 | €40-55 | **EBY** | ✅ JA! | ✅ frei |
@@ -152,20 +153,20 @@
 
 | Phase | Optimistisch | Realistisch | Budget-Sparvariante |
 |-------|-------------|-------------|---------------------|
-| 1: Sicherheit+Zuverlässigkeit | €397 | €494 | €340 (SKF+TRW) ⬆️ v3 |
+| 1: Sicherheit+Zuverlässigkeit | €397 | €494 | €340 (SKF+TRW) |
 | 2: Fahrwerk sportlich-dezent | €490 | €780 | €490 (Vogtland+KONI RED) |
 | 3: Optik neu & clean | €200 | €350 | €180 (DIY Politur) |
-| 4: Motor sanft (ohne Auspuff) | €8 | €60 | €8 (nur Panel-Filter) ⬆️ v3 |
+| 4: Motor sanft (ohne Auspuff) | €8 | €60 | €8 (nur Panel-Filter) |
 | 4: Motor sanft (mit Auspuff) | €428 | €660 | €428 (Ferrita) |
 | 5: Reserve | €75 | €145 | €75 |
 | **TOTAL (ohne Auspuff)** | **€1.170** | **€1.829** | **€1.093** |
 | **TOTAL (mit Auspuff)** | **€1.590** | **€2.429** | **€1.521** |
-| + TÜV-Eintragungen (Sammel) | €150 | €300 | €150 |
-| **GRAND TOTAL (ohne Auspuff)** | **€1.320** | **€2.129** | **€1.243** |
-| **GRAND TOTAL (mit Auspuff)** | **€1.740** | **€2.729** | **€1.671** |
+| + TÜV-Eintragungen (Sammel) | €150 | €200 | €150 |
+| **GRAND TOTAL (ohne Auspuff)** | **€1.320** | **€2.029** | **€1.243** |
+| **GRAND TOTAL (mit Auspuff)** | **€1.740** | **€2.629** | **€1.671** |
 
 **✅ DEUTLICH INNERHALB BUDGET von €3.500-5.000!**  
-**💰 Reserve**: €780-3.260 für Facelift-Teile, Rost-Reparatur, Unvorhergesehenes.
+**💰 Reserve**: €871-3.757 für Facelift-Teile, Rost-Reparatur, Unvorhergesehenes.
 
 ### 💡 TOP Budget-Optimierungen
 
@@ -183,14 +184,15 @@
 
 ---
 
-## 🔍 TEIL 2 — TÜV-DEUTSCHLAND (KRITISCH!)
+## 🔍 TEIL 2 — TÜV-DEUTSCHLAND (KRITISCH! — Deep-Dive v6)
 
 ### StVZO-TÜV-Regeln Deutschland
 
 | Paragraf | Bedeutung | Relevanz |
 |---------|-----------|----------|
 | **§19.3** | Änderungen brauchen Eintragung wenn von Typgenehmigung abweichend | Meiste Änderungen |
-| **§21** | Erweiterte Einzelabnahme für größere Änderungen | Motor-Änderungen |
+| **§21** | Erweiterte Einzelabnahme für größere Änderungen | Motor-Änderungen, Intakes |
+| **§22** | Anbau parts, die die Kontur/Sicherheit verändern | Frontlippen, Spoiler |
 | **E-Nummer** | Europäische Typgenehmigung = eintragungsfrei | Teile MIT E-Nummer |
 | **ABE** | Allgemeine Betriebserlaubnis = einfache Eintragung | Teile MIT ABE |
 | **Teilegutachten** | Gutachten vom Hersteller = Eintragung möglich | Eibach, KONI etc. |
@@ -208,7 +210,7 @@
 | ✅ | Fußmatten | Innenraum |
 | ✅ | Zündkerzen/Ölfilter/Innenraumfilter | Verschleißteil |
 | ✅ | Bremsbeläge ECE R90 (TRW/Textar/ATE) | ECE R90 zertifiziert |
-| ✅ | Bremsscheiben OEM-Maße | OEM-Maße |
+| ✅ | Bremsscheiben OEM-Maße (280mm) | OEM-Maße |
 | ✅ | **Osram Night Breaker LASER H7** | Halogen = eintragungsfrei! |
 | ✅ | Spiegelkappen schwarz | Keine Formänderung |
 | ✅ | Diffusor folieren/sprayen | Keine Formänderung |
@@ -220,90 +222,175 @@
 | 🟡 | Eibach Pro-Kit -30mm | §19.3 Fahrwerk | €80-150 |
 | 🟡 | KONI/Bilstein Sport-Dämpfer | §19.3 Fahrwerk | €80-150 (Paket) |
 | 🟡 | SS-Bremsleitungen (HEL) | §19.3 | €0-50 (TÜV-Zert inkl!) |
-| 🟡 | SS-Bremsleitungen (Goodridge) | §19.3 | €100-200 (Einzelabnahme!) |
+| 🟡 | SS-Bremsleitungen (Goodridge) | §19.3 | €150-250 (Einzelabnahme!) |
 | 🟡 | Kat-Back Auspuff (Ferrita) | §19.3 | €50-80 (ABE) |
+| 🟡 | Kat-Back Auspuff (Eisenmann) | §19.3 | €50-80 (ABE) |
 | 🟡 | LED H7 Birnen | §19.3 | €30-80 |
 | 🟡 | LED Rücklichter (Aftermarket) | §19.3 | €60-120 |
 | 🟡 | Facelift-Scheinwerfer | §19.3 Baumuster | €50-100 |
-| 🟡 | Heico Frontlippe | §19.3 Kontur | €50-120 |
+| 🟡 | Heico Frontlippe | §19.3 Kontur | €50-80 |
+| 🟡 | Estoni StabiSet 24/22mm | §19.3 Fahrwerk | €50-80 |
+| 🟡 | SuperPro Poly-Buchsen | §19.3 Fahrwerk | €0-50 (ABE!) |
 
 | VERBOTEN/SKIP ❌ | TEIL | Grund |
 |---|------|-------|
-| ❌ | IPD Intake | Kein Gutachten, §21 möglich |
-| ❌ | Polestar B5244S | Nicht bestätigt für 2.4i |
-| ❌ | Ferodo DS2500 | KEIN ECE R90 = ILLEGAL |
-| ❌ | Powerflex Poly | Keine ABE für P1 → SuperPro |
+| ❌ | IPD Intake | Kein Gutachten, §21 möglich, sehr schwer einzutragen |
+| ❌ | BSR Chiptuning B5244S | Kein deutsches TÜV-Zertifikat, Einzelabnahme sehr schwierig |
+| ❌ | Ferodo DS2500 | KEIN ECE R90 = ILLEGAL auf öffentlichen Straßen |
+| ❌ | Powerflex Poly | Keine ABE für P1 → SuperPro statt! |
 | ❌ | China-Auspuff ohne ABE | ILLEGAL, Stilllegung droht |
 | ❌ | Gebohrte Bremsscheiben | Kein TÜV auf P1 |
 | ❌ | LED H7 (in Halogen-Scheinwerfer) | TÜV-pflichtig, besser: LASER Halogen |
+| ❌ | Polestar B5244S 2.4i | Polestar NICHT für B5244S bestätigt (nur T5/T6/T8!) |
 
 ---
 
-### 🏆 TÜV-ANALYSE JE ÄNDERUNG (Detail)
+### 🏆 TÜV-EXPERTEN-ANALYSE JE ÄNDERUNG (Detail v6)
 
-#### 1. Eibach Pro-Kit -30mm 🟡 EINTRAGUNGSPFLICHTIG
-- **Teilegutachten**: ✅ Eibach hat Gutachten für V50 (E10-41-001-05-22)
-- **Prozess**: Teilegutachten vorlegen → TÜV prüft → Eintrag in Fahrzeugschein
+#### 1. Eibach Pro-Kit -30mm 🟡 EINTRAGUNGSPFLICHTIG — ROUTINE
+- **Teilegutachten**: ✅ Eibach hat Teilegutachten für V50 (E10-41-001-05-22)
+- **Prozess**: Teilegutachten vorlegen → TÜV prüft Federweg + Anschlagpuffer → Eintrag in Fahrzeugschein
 - **Kosten**: €80-150 (TÜV + Eintragung)
 - **STEALTH**: -30mm = maximal dezent, STEALTH-konform
 - **Tipp**: Eibach + KONI zusammen eintragen = 1x Prüfung, spart €50-100
+- **Vogtland 998102**: Alternative mit eigener ABE/Teilegutachten, ~€10-30 günstiger
+- **⚠️ WICHTIG**: Anschlagpuffer vorne ~20-25mm kürzen! Wird oft vergessen!
 - **⚠️ AMZ-Preiswarnung**: €150 ≪ Listenpreis €280! Originalverpackung + Teilegutachten verlangen!
-- **Vogtland 998102**: Alternative mit eigener ABE, ~€10-30 günstiger
 
-#### 2. KONI/Bilstein Sport-Dämpfer 🟡 EINTRAGUNGSPFLICHTIG
-- **Teilegutachten**: ✅ KONI und Bilstein haben Gutachten für V50
-- **Kosten**: €80-150 als Paket mit Eibach, €50-100 einzeln pro Achse
-- **WICHTIG**: Auch mit OEM-Federn brauchen Sport-Dämpfer Eintragung!
+#### 2. KONI/Bilstein Sport-Dämpfer 🟡 EINTRAGUNGSPFLICHTIG — DETAILLIERTE PRÜFUNG
+- **KONI Special RED (86-2636SP3/80-2629SP3)**: Hat Teilegutachten für V50. Sport-Stoßdämpfer = verändert Fahrverhalten = eintragungspflichtig §19.3
+- **KONI Spec.Active (86-2636SP4/80-2629SP4)**: Gleicher Status — Teilegutachten vorhanden, eintragungspflichtig
+- **Bilstein B6 (35-132577/578)**: Teilegutachten vorhanden. **⚠️ NUR für Sportfedern (-30 bis -40mm)!** Mit OEM-Federn = ILLEGAL! Bilstein B4 wäre OEM-Ersatz.
+- **Mit OEM-Federn allein**: ⚠️ GRAUZONE. KONI Sport allein hat Teilegutachten, aber KOMBI mit OEM-Federn wird oft toleriert, nicht garantiert legal. **Empfehlung**: Immer mit Eibach zusammen eintragen!
+- **Kosten**: €80-150 als Paket mit Eibach (1 Termin), €150-300 einzeln pro Achse
 - **Kombination**: Eibach + KONI = gemeinsame Eintragung = GÜNSTIGER
 
-#### 3. Sportbremsbeläge ✅ EINTRAGUNGSFREI (mit ECE R90)
-- **ECE R90**: TRW GDB1359/58 ✅, Textar PAD1003/02 ✅, ATE ✅, Brembo ✅
-- **ILLEGAL**: Ferodo DS2500 = KEIN ECE R90 = Straßenverkehrs-ILLEGAL
+#### 3. Sportbremsbeläge ✅ EINTRAGUNGSFREI (mit ECE R90) — WICHTIGE UNTERSCHEIDUNG
+- **ECE R90 Regelung**: Bremsbeläge MIT R90-Kennzeichnung auf der Belagrückseite = eintragungsfrei. Beläge OHNE R90 = illegal auf öffentlichen Straßen!
+- ✅ **TRW GDB1359/58**: ECE R90 ✅ = eintragungsfrei, beste Preise
+- ✅ **ATE Ceramic (13.0460-5807.2)**: ECE R90 ✅ = eintragungsfrei, Premium
+- ✅ **Textar PAD1003/02**: ECE R90 ✅ = eintragungsfrei
+- ✅ **Brembo Standard**: ECE R90 ✅ = eintragungsfrei
+- ❌ **Ferodo DS2500**: KEIN ECE R90! Rennbeläg = track only! Straßenteillegal!
+- ❌ **EBC Green/Yellow/Red**: Meist ohne R90 = illegal im Straßenverkehr!
 - **Empfehlung**: ✅ TRW GDB1359/58 = ECE R90, eintragungsfrei, beste Preise
 
 #### 4. SS-Bremsleitungen 🟡 EINTRAGUNGSPFLICHTIG — HEL = BESTE WAHL
-- **HEL Performance**: TÜV-Zertifikat INKLUSIVE = **€0-50 Eintragungskosten**
-- **Goodridge G-STOP**: ABE vorhanden, aber Einzelabnahme nötig = **€100-200 extra**
-- **TRW PHB1045**: Günstigste Option, ABE-Vorhandensein prüfen
-- **→ HEL spart €90-150 vs Goodridge!**
+- **HEL Performance**: TÜV-Zertifikat INKLUSIVE in der Verpackung = **€0-50 Eintragungskosten**  
+  - HEL liefert das Zertifikat direkt mit! Einfach beim TÜV vorlegen.
+  - **Das spart €100-200 vs. Goodridge Einzelabnahme!**
+- **Goodridge G-STOP**: ABE teilweise vorhanden, aber für V50 oft OHNE ABE → **Einzelabnahme nötig** ~€150-250 Extra
+- **TRW PHB1045**: Günstigste Option, ABE-Vorhandensein für V50 ungeklärt → prüfen!
+- **Einordnung**: SS-Bremsleitungen sind immer eintragungspflichtig §19.3. Aber: HEL macht es einfach durch inkludiertes Zertifikat!
+- **→ HEL spart €90-150 vs Goodridge! KLARER SIEGER!**
 
 #### 5. Kat-Back Auspuff 🟡 EINTRAGUNGSPFLICHTIG — ROUTINE MIT ABE
-- **Ferrita F-V50-01**: ABE vorhanden, €50-80 Eintragung, bestes Preis/Leistung
-- **Eisenmann**: ABE vorhanden, Premium-Sound
-- **Heico**: ABE vorhanden, teuer
+- **Ferrita F-V50-01**: Ferrita (schwedischer Hersteller) hat EG-Betriebserlaubnis für V50 2.4i. **⚠️ Prüfen ob ABE-Zertifikat für V50 2.4i explizit dabei ist!** Ohne ABE: Einzelabnahme €200-400. Mit ABE: Routinemaßnahme €50-80.
+- **Eisenmann**: Deutscher Hersteller! ABE/Teilegutachten für Volvo V50. **Beste TÜV-Option.** Routinemaßnahme €50-80.
+- **Heico**: Deutscher Volvo-Tuner. ABE vorhanden. Teuer (~€1.200), aber 100% legal und Premium-Sound.
 - **China-Auspuff**: ❌ KEIN ABE = ILLEGAL = Stilllegung droht
 - **⚠️ Kat MUSS intakt bleiben!** Kat-Back = hinter dem Kat = kein Abgas-Problem
+- **Geräuschmessung**: Bei TÜV-Eintragung wird Geräuschmessung gemacht. Ferrita/Eisenmann sind innerhalb der legalen Grenzen.
 
-#### 6. LED H7 Birnen 🟡 EINTRAGUNGSPFLICHTIG
-- LED in Halogen-Scheinwerfer = andere Lichtverteilung = §19.3
-- Selbst MIT E-Nummer auf der Birne: Fahrzeug braucht Eintragung
-- **STEALTH-TIPP**: Osram Night Breaker LASER H7 = Halogen = **völlig eintragungsfrei!** 130% heller!
+#### 6. LED H7 Birnen 🟡 EINTRAGUNGSPFLICHTIG — STEALTH-TIPP: HALOGEN BESSER!
+- **Rechtslage 2026**: LED in Halogen-Scheinwerfer = andere Lichtverteilung = §19.3 eintragungspflichtig
+- **Selbst MIT E-Nummer auf der Birne**: Fahrzeug braucht Eintragung (Lichtabnahme), weil es ursprünglich für Halogen typgenehmigt war
+- **E-Nummer Optionen**: Osram LEDriving (E1), Philips Ultinon (E1), Narva — haben E-Zeichen, aber trotzdem Eintragung nötig
+- **Prozess**: E-Nummer LED + Einbauabnahme + Scheinwerfereinstellung bei TÜV. Kosten: €30-80
+- **⚠️ Warnung**: Nicht-E-gekennzeichnete LED-Birnen (billige China-LEDs) = illegal + Versicherungsschutz erlischt!
+- **⭐ STEALTH-TIPP**: Osram Night Breaker LASER H7 = Halogen = **völlig eintragungsfrei!** 130% heller. Kein TÜV nötig. Besser als LED für STEALTH!
 
-#### 7. LED Rücklichter 🟡 EINTRAGUNGSPFLICHTIG — NUR MIT EG-Gutachten
-- Aftermarket: EG-Gutachten nötig, €60-120 Eintragung
-- **STEALTH-TIPP**: Volvo OEM Facelift-Rücklichter gebraucht = eintragungsfrei! €100-200/Paar
+#### 7. LED Rücklichter 🟡 EINTRAGUNGSPFLICHTIG — OME Besser!
+- **Aftermarket LED**: EG-Gutachten nötig, €60-120 Eintragung, Qualität variiert
+- **⭐ STEALTH-TIPP**: Volvo OEM Facelift-Rücklichter gebraucht = eintragungsfrei! €100-200/Paar auf eBay/Kleinanzeigen
+- **Empfehlung**: OEM Facelift-Rücklichter kaufen (!!), Aftermarket LED meiden
 
 #### 8. Schwarzer Grill ✅ MEIST EINTRAGUNGSFREI
-- OEM-Volvo Grill = Farbänderung = eintragungsfrei
-- Aftermarket: meist frei wenn gleiche Kontur wie OEM
+- **OEM-Volvo Grill (30782612)**: Farbänderung = eintragungsfrei. Wenn gleiche Kontur wie Original, kein Problem.
+- **Aftermarket**: Meist frei wenn gleiche Kontur. Bei veränderter Kontur → §19.3 Eintragung nötig.
+- **⚠️ Facelift vs Pre-Facelift**: Oben+unten Einfassung tauschen bei FL-Grill in Pre-FL!
+
+#### 9. Heico Frontlippe 🟡 EINTRAGUNGSPFLICHTIG — ROUTINE
+- **Heico Sportiv**: Deutscher Volvo-Tuner mit VOLLSTÄNDIGEM TÜV-Gutachten für alle Karosserieteile
+- **Prozess**: Heico Teilegutachten vorlegen → TÜV prüft Kontur/Aufbau → Eintragung §19.3
+- **Kosten**: €50-80 für Eintragung (Standard Teilegutachten)
+- **Kein Einzelabnahme nötig!** Heico liefert alles was nötig ist.
+
+#### 10. IPD Intake ❌ SKIP FÜR STEALTH
+- **IPD (US-Hersteller)**: KEIN deutsches TÜV-Gutachten. Keine ABE. Kein E-Nummer.
+- **Eintragbar?**: ⚠️ Theoretisch über §21 Einzelabnahme möglich, aber:
+  - Geräuschgutachten ~€200-300
+  - Emissionsprüfung (AU) nötig
+  - Gesamtkosten ~€200-400
+  - **Erfolgsquote niedrig** — viele TÜV-Prüfer lehnen Intake-Eintragungen ab
+- **Alternative**: K&N 33-2873 Panel-Filter (OEM-Form) = eintragungsfrei + leicht besseren Durchfluss
+- **STEALTH-EMPFEHLUNG**: Skip IPD Intake! K&N Panel-Filter statt!
+
+#### 11. Polestar Optimierung B5244S ⚠️ KLÄRUNG NÖTIG
+- **Polestar Optimization**: Offizielles Volvo-Tuning-Programm
+- **⚠️ VERFÜGBARKEIT**: Polestar ist offiziell VERFÜGBAR für V50 T5 und T6, aber **NICHT für den B5244S 2.4i Sauger!**
+  - Der 5-Zylinder Sauger (B5244S) hat KEINE offizielle Polestar-Optimierung
+  - Polestar bietet Chiptuning nur für Turbo/Turbomotoren an (T5, T6, D5, T8)
+- **Alternative Chiptuning B5244S**: 
+  - **BSR PPC**: Schwedischer Tuner, ~€600-900. **KEINE deutsche ABE.** Einzelabnahme §21 sehr schwierig (~€300-400 + Abgas-/Geräuschprüfung)
+  - **Heico Sportiv**: Deutscher Volvo-Tuner. Ggf. Optimierung für 5-Zylinder Sauger anfragbar. Wenn angeboten: TÜV-eintragbar via Heico-Gutachten.
+  - ** Fazit**: Chiptuning für B5244S = TÜV-technisch SEHR schwierig. STEALTH-Projekt sollte OHNE Chiptuning bleiben!
+
+#### 12. Facelift-Scheinwerfer 🟡 BAUMUSTER-EINTRAGUNG
+- **Volvo OEM Facelift-Scheinwerfer**: Sind eintragungsfrei wenn für V50 bestimmt (Plug&Play)
+- **⚠️ ABER**: H7 Halogen → H7 Halogen = kein Problem. H7 → LED/BI-Xenon = §19.3 Eintragung!
+- **Baumuster-Nummer**: 31265914/31265915 (H7 Halogen für 2.4i). MUSS passend sein!
+- **Kosten**: €50-100 für Eintragung bei veränderter Lichttechnik (nur nötig wenn nicht OEM-identisch)
+
+#### 13. Estoni StabiSet 24/22mm 🟡 EINTRAGUNGSPFLICHTIG — ROUTINE
+- **Estoni (estnischer Hersteller)**: Hat ABE für V50-Plattform. Standard Eintragung.
+- **Prozess**: Estoni ABE/Teilegutachten vorlegen → TÜV → Eintragung §19.3
+- **Kosten**: €50-80
+- **Alternative**: Do88 StabiSet (schwedisch) — teilweise TÜV-Zertifikate, weniger gut dokumentiert als Estoni
+
+#### 14. SuperPro Poly-Buchsen ✅ ABE VORHANDEN — BESTE POLY-OPTION
+- **SuperPro SPF3091K + SPF3332K**: ABE für P1-Plattform vorhanden! 
+- **⚠️ EINZIGE Poly-Option mit TÜV** für den V50!
+- **Powerflex**: KEIN ABE für P1-Plattform! → Einzelabnahme nötig oder illegal!
+- **Eintragung**: Bei ABE: §19.3 Routine-Eintragung €0-50. Bei Querlenker-Komplettarm: eintragungsfrei (OEM- Ersatz)
 
 ---
 
-### 🚦 TÜV-Eintragungs-Kosten Zusammenfassung
+### 🚦 TÜV-Eintragens-Kosten Zusammenfassung
 
-| Änderung | Eintragungsart | Kosten | Priorität |
-|----------|---------------|--------|-----------|
-| Eibach + KONI (Paket) | Teilegutachten | €80-150 | 🔴 Hoch |
-| SS-Leitungen (HEL Zert.) | TÜV-Zertifikat | €0-50! | 🟢 Niedrig |
-| Kat-Back Auspuff (Ferrita) | ABE | €50-80 | 🟡 Mittel |
-| Facelift-Scheinwerfer | Baumuster | €50-100 | 🟡 Mittel |
-| LED H7 Birnen | E-Nummer | €30-80 | 🟢 Niedrig |
-| LED Rücklichter (EG) | Teilegutachten | €60-120 | 🟢 Niedrig |
-| Heico Frontlippe | Teilegutachten | €50-120 | 🟢 Niedrig |
-| Grill schwarz | Meist frei | €0-50 | ⚪ Optional |
-| **Gesamt TÜV (alle auf 1x)** | **1 Termin** | **€150-300** | |
+| Änderung | Eintragungsart | Gutachten | Kosten | Priorität |
+|----------|---------------|-----------|--------|-----------|
+| Eibach + KONI (Paket) | §19.3 Teilegutachten | ✅ Eibach+KONI | €80-150 | 🔴 Hoch |
+| SS-Leitungen (HEL Zert.) | §19.3 TÜV-Zert | ✅ HEL inklusive | €0-50! | 🟢 Niedrig |
+| Kat-Back Auspuff (Ferrita) | §19.3 ABE | ✅ Ferrita/EG-BE | €50-80 | 🟡 Mittel |
+| Kat-Back Auspuff (Eisenmann) | §19.3 ABE | ✅ Eisenmann | €50-80 | 🟡 Mittel |
+| Facelift-Scheinwerfer | §19.3 Baumuster | ✅ Volvo | €50-100 | 🟡 Mittel |
+| LED H7 Birnen | §19.3 E-Nummer | ✅ Osram/Philips | €30-80 | ⚪ Skip → LASER |
+| LED Rücklichter (Aftermarket) | §19.3 EG | ✅/❌ je nach Hersteller | €60-120 | ⚪ Skip → OEM |
+| Heico Frontlippe | §19.3 Teilegutachten | ✅ Heico | €50-80 | 🟢 Optional |
+| Estoni StabiSet | §19.3 ABE | ✅ Estoni | €50-80 | 🟡 Mittel |
+| SuperPro Poly-Buchsen | §19.3 ABE | ✅ SuperPro | €0-50 | 🟢 Niedrig |
+| Grill schwarz | Meist frei | — | €0-50 | ⚪ Optional |
+| **Gesamt TÜV (alle auf 1x)** | **1 Termin** | | **€150-300** | |
 
 > 💡 **STEALTH-TIPP**: Alle Änderungen auf EINMAL beim TÜV eintragen = 1x Grundgebühr (~€50-80) + Einzelpositionen. Spart €200-400!
+
+---
+
+### ❌ TÜV-DETALJIERTE VERBOTE & SKIP-LISTE
+
+| Teil | Grund | TÜV-Alternative |
+|------|-------|-----------------|
+| **IPD Cold Air Intake** | Kein deutsches Gutachten, §21 Einzelabnahme sehr schwer | K&N 33-2873 Panel (eintragungsfrei!) |
+| **Polestar B5244S** | Nicht verfügbar für 2.4i Sauger! Nur T5/T6/T8 | — (kein Chiptuning empfohlen) |
+| **BSR PPC B5244S** | Kein deutsches TÜV-Zertifikat, Einzelabnahme sehr schwierig | — (kein Chiptuning empfohlen) |
+| **Ferodo DS2500** | KEIN ECE R90! Straßenteillegal! | TRW GDB1359/58 oder ATE Ceramic |
+| **Powerflex Poly-Buchsen** | Keine ABE für P1-Plattform! | SuperPro SPF3091K+SPF3332K (ABE!) |
+| **Goodridge SS-Leitungen** | Keine ABE für V50! Einzelabnahme nötig | HEL Performance (TÜV-Zert inklusive!) |
+| **China-Auspuff ohne ABE** | ILLEGAL, Stilllegung droht | Ferrita mit ABE oder Eisenmann |
+| **Gebohrte Bremsscheiben** | Kein TÜV für P1! | Zimmermann Sportribbel (geriffelt, ABE!) |
+| **LED H7 in Halogen** | Eintragungspflichtig, schlechte Lichtverteilung | Osram Night Breaker LASER H7 |
+| **Chiptuning B5244S (allgemein)** | Keine ABE, §21 Einzelabnahme sehr schwierig | — (STEALTH = kein Chiptuning!) |
 
 ---
 
@@ -334,7 +421,7 @@
 - PCV Breather Box (~€45)
 - Reserve für Unvorhergesehenes (~€300-500)
 
-### 🔥 TOP-PREIS-FUNDS (Mai 2026, v3 aktualisiert)
+### 🔥 TOP-PREIS-FUNDS (Mai 2026, v6 aktualisiert)
 
 | Teil | Üblicher Preis | Bester Preis | Ersparnis | Hinweis |
 |------|----------------|-------------|-----------|---------|
@@ -349,7 +436,6 @@
 | Mann Luftfilter C 25 107 | €12-15 | **€8-13** ⬇️ | €1-5 | ✅ |
 | Zündkerzen Bosch 5er | €49-52 | **€39-50** ⬇️ | €2-13 | ✅ |
 | PCV Breather Box Febi | €42-120 | **€24-31** ⬇️⬇️ | €18-89! | ✅ HALBPREIS! |
-| K&N 33-2873 | €56-89 | **€67-89** ⬆️ | — | ⚠️ Floor price höher |
 
 ### 🚨 KRITISCHE WARNUNGEN
 
@@ -363,6 +449,8 @@
 8. **K&N 33-2873**: KORREKT für V50 2.4i! ⚠️ 33-2221 passt NICHT!
 9. **Anschlagpuffer vorne**: Bei -30mm ~20-25mm kürzen! Wird oft vergessen!
 10. **V50 2.4i ≠ T5**: Bremsen, Federn, Auspuff, Zahnriemen — alles unterschiedlich! Immer 2.4i-spezifisch!
+11. **Polestar B5244S = NICHT VERFÜGBAR**: Polestar nur für Turbo-Motoren (T5/T6/T8), nicht für 2.4i Sauger!
+12. **IPD Intake = SKIP**: Kein deutsches Gutachten. K&N Panel-Filter (eintragungsfrei) statt!
 
 ---
 
@@ -378,6 +466,23 @@
 | Fußmatten | | Dämpfer (KONI/Bilstein) |
 | | | Luftfilter/Ölfilter |
 
+### 📦 BUNDLE-DEALS & DIY-OPTIONEN
+
+| Bundles | Preis | Quelle |
+|---------|-------|--------|
+| **Gates ZR Mega-Bundle** (ZR-Kit + Keilriemen + Simmerring + Zündkerzen + Thermostat) | €152-208 | AMZ |
+| **TRW Bremsen-Bundle** (Beläge v+h + Scheiben v+h) | €150-180 | EBY/AMZ |
+| **Bremsen+Leitungen** (TRW komplett + HEL SS) | €240-290 | EBY |
+| **Eibach + KONI Active Bundle** | €730-790 | EBY |
+| **Eibach + KONI RED Bundle** | €520-640 | EBY/AMZ |
+
+| DIY | Ersparnis vs. Profi | Aufwand |
+|-----|---------------------|---------|
+| **Polierung+Keramik selbst** | €250-550 | 6-8h Arbeit |
+| **Lederpflege selbst** | €50-100 | 2-3h Arbeit |
+| **Bremsen+ATF selbst** | €250-450 | 3-4h Arbeit |
+| **Zahnriemen selbst** | €200-400 | 4-6h Arbeit (Fortgeschritten!) |
+
 ---
 
-*Letztes Update: 2026-05-28 v6 | Quellen: Amazon.de Live-Scraping (28.05.2026, ASIN-verifiziert), eBay.de, Autodoc.de (Referenz), Skandix.de (Referenz), Ferrita.se, Hersteller-Websites | DB: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | v3 Preis-Update: 20 Teile, 3 NEUE Preis-Funde (Gates €57.42, SKF €60-90, Keilriemen €4-10)*
+*Letztes Update: 2026-05-28 v6 | TÜV-Experte Deep-Dive: 45 Teile TÜV-klassifiziert, Polestar/BSR/IPD geklärt, ECE R90 Detail-Check, LED H7 Rechtslage 2026 | DB: 674 Teile, 389 V50 2.4i Fitments, 442 Quellen | Preis-Update: v3 Bestätigt | KEY FINDINGS: Polestar NICHT für B5244S, BSR/IPD ohne ABE, LED H7 = eintragungspflichtig, LASER H7 = eintragungsfrei, HEL = BESTE SS-Leitung (TÜV-Zert inkl)*

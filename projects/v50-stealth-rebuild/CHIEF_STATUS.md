@@ -1,6 +1,6 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Chief Engineer Status Report
 
-**Datum**: 2026-05-28 (v9 — Fahrwerksspezialist Audit, Bremsengröße geklärt, Domlager korrigiert)  
+**Datum**: 2026-05-28 (v10 — TÜV-Experte Deep-Dive, 45 Teile TÜV-klassifiziert, Polestar/BSR/IPD geklärt)  
 **Rolle**: Chefingenieur & Projektleitung  
 **Budget**: 3.500-5.000€ HARD CAP  
 **DB-STAND**: 674 Teile, 1.075 Fitments, 440 Quellen, 200 V50 2.4i unique Parts, 78 verified  
@@ -145,41 +145,51 @@
 
 ### ✅ EINTRAGUNGSFREI (keine TÜV-Kosten)
 
-1. ✅ Panel-Luftfilter Mann C 25 107 / K&N 33-2873 (OEM-Form)
-2. ✅ Sport-Schaltknauf / Sportpedale (clip-on)
-3. ✅ Polierung / Keramikversiegelung / Lederpflege
-4. ✅ Bremsbeläge ECE R90 (TRW / ATE / Textar / Brembo)
-5. ✅ Bremsscheiben OEM-Maße (280mm)
-6. ✅ Zündkerzen / Ölfilter / Innenraumfilter
-7. ✅ **Osram Night Breaker LASER H7 = eintragungsfrei!** ⭐
+1. ✅ Panel-Luftfilter Mann C 25 107 / K&N 33-2873 (OEM-Form, keine Änderung)
+2. ✅ Sport-Schaltknauf / Sportpedale (clip-on, Innenraum)
+3. ✅ Polierung / Keramikversiegelung / Lederpflege (Kosmetik)
+4. ✅ Bremsbeläge ECE R90 (TRW / ATE / Textar / Brembo) — R90-Kennzeichnung auf Belagrückseite prüfen!
+5. ✅ Bremsscheiben OEM-Maße (280mm Standard)
+6. ✅ Zündkerzen / Ölfilter / Innenraumfilter (Verschleißteile)
+7. ✅ **Osram Night Breaker LASER H7 = eintragungsfrei!** ⭐ (Halogen = kein TÜV nötig!)
 8. ✅ Grill schwarz (OEM, keine Kontur-Änderung)
-9. ✅ Spiegelkappen schwarz / Diffusor folieren
+9. ✅ Spiegelkappen schwarz / Diffusor folieren (Kosmetik)
 10. ✅ Fußmatten / Innenraum-Detail
 11. ✅ Bremsscheiben Zimmermann Sportribbel (ABE, geriffelt NICHT gebohrt)
+12. ✅ Facelift-Rücklichter OEM Volvo (Volvo OEM = eintragungsfrei!)
+13. ✅ SuperPro Poly-Buchsen SPF3091K+SPF3332K (ABE für P1!)
 
 ### 🟡 EINTRAGUNGSPFLICHTIG — Routine mit Gutachten
 
-| Änderung | Gutachten | TÜV-Kosten | Notiz |
-|----------|-----------|-------------|-------|
-| Eibach Pro-Kit -30mm | ✅ Teilegutachten | €80-150 | Zusammen mit KONI = 1 Termin |
-| KONI Sport-Dämpfer | ✅ Teilegutachten | (inkl. oben) | Paket mit Eibach! |
-| SS-Bremsleitungen HEL | ✅ TÜV-Zert inklusive | €0-50 | HEL = BESTE OPTION! |
-| Ferrita Kat-Back Auspuff | ✅ ABE vorhanden | €50-80 | Routine |
-| Facelift-Scheinwerfer | Baumuster-Nummer | €50-100 | H7 Halogen für 2.4i! |
-| LED H7 (falls statt LASER) | E-Nummer auf Birne | €30-80 | Besser: LASER = frei! |
+| Änderung | Gutachten | TÜV-Kosten | Detail-Notiz |
+|----------|-----------|-------------|-------------|
+| Eibach Pro-Kit -30mm | ✅ Teilegutachten | €80-150 | Zusammen mit KONI = 1 Termin. Anschlagpuffer kürzen! |
+| KONI Sport-Dämpfer | ✅ Teilegutachten | (inkl. oben) | Paket mit Eibach! Niemals allein mit OEM-Federn! |
+| Bilstein B6 | ✅ Teilegutachten | (inkl. oben) | NUR mit Sportfedern -30 bis -40mm! |
+| SS-Bremsleitungen HEL | ✅ **TÜV-Zert inklusive!** | €0-50 | HEL = BESTE OPTION! Zertifikat in Verpackung! |
+| Ferrita Kat-Back Auspuff | ⚠️ ABE teilweise | €50-80 (mit ABE) | Prüfen ob ABE für V50 2.4i dabei! Ohne ABE: Einzelabnahme €200-400 |
+| Eisenmann Kat-Back | ✅ ABE/Teilegutachten | €50-80 | Deutscher Hersteller = 100% TÜV |
+| Facelift-Scheinwerfer | Baumuster-Nummer | €50-100 | H7 Halogen für 2.4i! TN 31265914/15 |
+| LED H7 (falls statt LASER) | E-Nummer auf Birne | €30-80 | SELBST MIT E-Nummer: Eintragung nötig! |
 | LED Rücklichter (Aftermarket) | EG-Gutachten nötig | €60-120 | Besser: OEM Facelift = frei! |
-| Heico Frontlippe | ✅ TÜV-Gutachten | €50-120 | Optional |
+| Heico Frontlippe | ✅ Heico Teilegutachten | €50-80 | Deutscher Volvo-Tuner = Routine |
+| Estoni StabiSet 24/22mm | ✅ ABE | €50-80 | Standard Eintragung |
+| LED H7 Birnen | E-Nummer (Osram/Philips) | €30-80 | Eintragungspflichtig! Besser: LASER H7 = frei! |
 
-### ❌ SKIP FÜR STEALTH
+### ❌ SKIP FÜR STEALTH — TÜV-DETAILLIERTE VERBOTE
 
-- ❌ IPD Intake Pipe (kein Gutachten, §21 möglich)
-- ❌ Polestar B5244S (NICHT verfügbar)
-- ❌ Powerflex Poly (keine ABE → SuperPro statt!)
-- ❌ Ferodo DS2500 (**KEIN ECE R90 = ILLEGAL!**)
+- ❌ **IPD Intake Pipe** (kein deutsches Gutachten, §21 Einzelabnahme sehr schwer, ~€200-400)
+- ❌ **Polestar B5244S** (**NICHT verfügbar für 2.4i Sauger!** Nur T5/T6/T8)
+- ❌ **BSR Chiptuning B5244S** (kein deutsches TÜV-Zertifikat, Einzelabnahme schwierig)
+- ❌ **Powerflex Poly** (keine ABE für P1 → SuperPro statt!)
+- ❌ **Ferodo DS2500** (**KEIN ECE R90 = STRASSENVERKEHRS-ILLEGAL!**)
+- ❌ **EBC Beläge** (meist keine ECE R90 = illegal im Straßenverkehr!)
+- ❌ **Goodridge SS-Leitungen** (keine ABE für V50 → Einzelabnahme €150-250 Extra → HEL statt!)
 - ❌ Tieferlegung über -30mm
-- ❌ China-Auspuff ohne ABE
+- ❌ China-Auspuff ohne ABE (Stilllegung droht!)
 - ❌ Gebohrte Bremsscheiben (kein TÜV für P1)
-- ❌ LED H7 (stattdessen LASER H7 = frei + STEALTH!)
+- ❌ LED H7 in Halogen-Gehäuse (besser: LASER H7 = eintragungsfrei)
+- ❌ **Chiptuning B5244S allgemein** (STEALTH = kein Chiptuning!)
 
 ### 💡 TÜV-Sammel-Termin-Strategie
 
@@ -222,21 +232,27 @@
 | Facelift-SW Verfügbarkeit | 🟡 MITTEL | Gebraucht ~€250-290/paar auf Kleinanzeigen |
 | Ferrita Lieferzeit | 🟡 MITTEL | 3-5 Wochen Lieferzeit ab Schweden |
 
-### 🆕 NEU in v9
+### 🆕 NEU in v10
 
-- 🚨 **BREMSEN-GRÖßE geklärt**: V50 2.4i Standard = 280/280mm, T5 = 316/302mm! ALLE Teilenummern doppelt in DB
-- 🚨 **DOMLAGER korrigiert**: Febi 37389 = Stabi-Link, NICHT Domlager! Richtiges Domlager = Lemförder 37706 01
-- 📦 **DB: 6 neue 280mm Bremsen-Teile** hinzugefügt (Zimmermann Coat Z, TRW GDB1359/58, ATE Ceramic 280mm)
-- 📦 **DB: Alle 316/302mm T5-Teile** mit Warnung markiert: "For T5 SPORT brakes only!"
-- ❌ **Ferodo DS2500** korrekt als STRASSENVERKEHRS-ILLEGAL markiert in DB
-- 🔧 **V50-Tools-Kategorie leer** — braucht: Federspanner, Bremsentlüfter, Torx-Set
-- **Hel Performance SS-Leitungen** als BESTE OPTION bestätigt (TÜV-Zert inklusive)
-- **SuperPro Poly** hat ABE — im Gegensatz zu Powerflex!
+- 🔍 **TÜV-Experte Deep-Dive**: 45 Teile in DB mit TÜV-Status (Teilegutachten/ABE/ECE R90/Einzelabnahme/verboten)
+- 🚨 **Polestar B5244S = NICHT VERFÜGBAR**: Polestar nur für Turbo-Motoren (T5/T6/T8), nicht 2.4i Sauger!
+- 🚨 **BSR Chiptuning B5244S**: Kein deutsches TÜV-Zertifikat, Einzelabnahme §21 sehr schwierig
+- 🚨 **IPD Intake = SKIP**: Kein deutsches Gutachten, §21 Einzelabnahme sehr schwer, ~€200-400 Kosten
+- 🚨 **BREMSEN-GRÖßE geklärt**: V50 2.4i Standard = 280/280mm, T5 = 316/302mm!
+- 🚨 **DOMLAGER korrigiert**: Febi 37389 = Stabi-Link, NICHT Domlager! Lemförder 37706 01
+- ✅ **LED H7 Rechtslage 2026**: LED in Halogen-Gehäuse = eintragungspflichtig §19.3, selbst MIT E-Nummer
+- ✅ **Osram Night Breaker LASER H7 = eintragungsfrei** = beste STEALTH-Option
+- ✅ **KONI/Bilstein TÜV-Details**: Beide Teilegutachten, aber IMMER mit Sportfedern zusammen eintragen!
+- ✅ **HEL vs Goodridge geklärt**: HEL = TÜV-Zert inklusive (€0-50), Goodridge = Einzelabnahme (€150-250)
+- ✅ **ECE R90 Detail-Check**: TRW/ATE/Textar/Brembo = ECE R90 ✓, Ferodo DS2500/EBC = ILLEGAL ✓
+- ✅ **Ferodo DS2500** korrekt als STRASSENVERKEHRS-ILLEGAL markiert in DB
+- ✅ **SuperPro Poly** hat ABE — EINZIGE Poly-Option mit TÜV für P1
+- 📦 **DB: 45 Teile mit tuv_status in specs JSON** — vollständige TÜV-Klassifizierung
 
 ---
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁  
-**DB-STAND**: 674 Teile, 1.075 Fitments, 78+ V50 verified, 440 Quellen | 160 CAN-Messages, 218 Signals, 176 Issues  
-**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Realistisch €3.023 (mit Auspuff), Reserve €574-2.811  
+**DB-STAND**: 674 Teile, 1.075 Fitments, 78+ V50 verified, 442 Quellen, 45 TÜV-klassifiziert  
+**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Realistisch €2.629 (mit Auspuff), Reserve €871-2.371  
 **BUDGET-STATUS**: 🟢 GRÜN — Alle Phasen innerhalb Budget-Spots.  
-**🚨 NEU v9**: BREMSEN-GRÖßE geklärt (280mm Standard vs 316/302mm T5), DOMLAGER korrigiert, 6 neue 280mm-Teile in DB
+**🚨 NEU v10**: TÜV-Experte Deep-Dive: 45 Teile TÜV-klassifiziert, Polestar/BSR/IPD geklärt, LED H7 Rechtslage 2026, HEL=beste SS-Leitung
