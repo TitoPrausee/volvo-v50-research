@@ -20,29 +20,28 @@ Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar 
 
 ---
 
-## CHEFINGENIEUR UPDATE — 2026-05-28
+## CHEFINGENIEUR UPDATE — 2026-05-28 (Preis-Jäger Run #2)
 
-### DB-Verifizierung (2026-05-28)
-- **137 NX650-fitment Teile** in DB (inkl. alle Alternativen)
-- **DB SUM(price_avg):** EUR12.105 fuer alle NX650-Teile (NICHT Build-Budget — enthaelt alle Alternativen + Optionen)
-- **Option A Build-Kosten:** EUR2.228 (28 Teile)
-- **54 NX650 Known Issues:** 4 critical (Stator, Regler), 2 high (Verkabelung, CDI)
-- **27 neue NX650-Ersatzteile** (IDs 303-329) von Research-Agenten hinzugefuegt — Dichtungen, OEM-Ersatzteile, Motorinternas
-- Wichtige neue Teile: Neutral-Schalter (EUR14), Regler-Verbinder-Kit (EUR8), Kraftstoffhahn (EUR55) — bekannte Schwachstellen
+### DB-Verifizierung (2026-05-28 — Run #2)
+- **143 NX650-fitment Teile** in DB (inkl. alle Alternativen + neue Bundle/Kits)
+- **DB SUM(price_avg):** EUR12.657 fuer alle NX650-Teile (NICHT Build-Budget — enthaelt alle Alternativen + Optionen)
+- **Option A Build-Kosten:** EUR2.264 (28 Teile)
+- **54 NX650 Known Issues:** 5 critical (Stator, Regler, Verbinder), 4 high (Verkabelung, CDI)
+- **7 Preise aktualisiert:** Stator EUR95, Regler EUR55, EBC FA185HH EUR20, Koso RX-22 EUR99.90, Mitas E-07+ Dakar EUR89.90/109
+- **6 neue Teile (Run #2):** Bundle-Deals (Ketten-Set, Mitas Set, RT Fork Kit), Schweißarbeiten, Regler-Verbinder-Kit, Stator-Connector
 - **Keine Performance-Teile** in DB fuer NX650 eingefuegt
-- **Kleinere Duplikate** in Issues (Stator/Regler mehrfach) — Cleanup empfohlen
 
-### Budget-Guard Status (VERIFIZIERT 2026-05-28)
+### Budget-Guard Status (VERIFIZIERT 2026-05-28 — Run #2)
 KEINE Phase ueberschritten!
 
 | Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
-| 1: Zuverlaessigkeit | EUR409 | EUR800 | +EUR391 (49%) | OK |
+| 1: Zuverlaessigkeit | EUR445 | EUR800 | +EUR355 (44%) | OK — +EUR17 Connector-Kits |
 | 2: Fahrwerk | EUR944 | EUR1.200 | +EUR256 (21%) | OK |
 | 3: Africa Twin Look | EUR688 | EUR1.000 | +EUR312 (31%) | OK |
 | 4: Touring-Komfort | EUR187 | EUR800 | +EUR613 (77%) | OK |
 | 5: Reserve | — | EUR500 | +EUR500 | Puffer |
-| **Total** | **EUR2.228** | **EUR4.300** | **+EUR2.072** | OK |
+| **Total** | **EUR2.264** | **EUR4.300** | **+EUR2.036** | OK |
 
 ### Gewicht-Bilanz
 - **Trockengewicht nach Bau:** ~155.4 kg (OEM: 161 kg) = -5.6 kg
@@ -231,27 +230,26 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - Kette+Ritzel DID 520VX3 + JT 15/44 ✅
 - Bremsen EBC FA185HH + HEL SS ✅
 
-## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-27)
+## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-28 — Run #2)
 
-### Ergebnisse:
-- **Alle Preise mit 3+ EU-Quellen verifiziert** (FC-Moto, Motea, Louis, Amazon.de, eBay.de, YSS-Store.de, Reiff-Moto, Delkevic EU)
-- **Neue Best-Preise gefunden:** Phase 1 ~€409 (vorher ~€422-480), Phase 2 ~€944, Phase 3 ~€688, Phase 4 ~€187
-- **Gesamt Option A:** €2,228 (vorher ~€2,505) = **€277 Ersparnis!**
-- **Bundle Deals:** Ketten-Set spart €27 (Motea), Race Tech Bundle spart €15 (FC-Moto), Mitas Set spart €10 (Reiff)
-- **Neue Budget-Alternativen:** Generisch 7" LED €25 vs Koso €100, Hagon Twins €175 vs YSS Mono €339, Shinko 804/805 €156 vs Mitas €189
-- **Gebraucht-Quellen:** Leo Vince Slip-on gebraucht €215 (vs neu €329-385), SW-Motech Haube gebraucht €65 (vs neu €110-175)
-- **Phase 3 jetzt bequem:** €688 / €1,000 = 31% Reserve (vorher nur 12%!)
-- **Koso RX-22 Preis korrigiert:** €99.90 (FC-Moto), nicht €200+ wie ursprünglich geschätzt
+### Ergebnisse Run #2:
+- **7 DB-Preise aktualisiert** — Stator €95, Regler €55, EBC FA185HH €20, Koso RX-22 €99.90, Mitas E-07+ Dakar front €89.90, rear €109
+- **6 neue Teile hinzugefügt** — Bundle-Deals (Ketten-Set ID343, Mitas Set ID342, RT Fork Kit ID344), Schweißarbeiten ID341, Regler-Verbinder-Kit ID345, Stator-Connector ID346
+- **KRITISCH NEU:** Regler-Verbinder-Kit (€8) + Stator-Connector (€9) = **PFLICHT-Kauf!** Schmelz-Problem bei NX650. LÖTEN statt stecken!
+- **Phase 1 +€17** wegen Connector-Kits (€445 statt €409)
+- **Gesamt Option A:** €2,264 (vorher €2,228) = +€36 (Connector-Kits + Preisaktualisierungen)
+- **Web-Scraping:** FC-Moto, Motea, Louis, idealo blockieren automatische Zugriffe. Preise basieren auf Verifikation vom 2026-05-27.
+- **Seasonaler Hinweis:** Motorsaison Mai → Preise höher. Winter-Sale (Nov-Feb) = 10-20% günstiger für Reifen, Fahrwerk, Zubehör.
 
-### Budget-Guard Update:
+### Budget-Guard Update (Run #2):
 
-| Phase | Vorher | Jetzt | Reserve | Status |
-|-------|--------|-------|---------|--------|
-| 1: Zuverlässigkeit | €480 | **€409** | **+€391 (49%)** | ✅ Verbessert |
-| 2: Fahrwerk | €865 | **€944** | **+€256 (21%)** | ⚠️ Höher durch Mitas E-07+ Dakar |
-| 3: Africa Twin Look | €882 | **€688** | **+€312 (31%)** | ✅ Stark verbessert |
-| 4: Touring-Komfort | €214 | **€187** | **+€613 (77%)** | ✅ Verbessert |
-| **Total** | **€2,441** | **€2,228** | **+€2,072** | ✅ |
+| Phase | Vorher (Run #1) | Jetzt (Run #2) | Reserve | Status |
+|-------|-----------------|----------------|---------|--------|
+| 1: Zuverlässigkeit | €409 | **€445** | **+€355 (44%)** | ⚠️ +€17 Connector-Kits (PFLICHT!) |
+| 2: Fahrwerk | €944 | **€944** | **+€256 (21%)** | ✅ Gleich |
+| 3: Africa Twin Look | €688 | **€688** | **+€312 (31%)** | ✅ Gleich |
+| 4: Touring-Komfort | €187 | **€187** | **+€613 (77%)** | ✅ Gleich |
+| **Total** | **€2,228** | **€2,264** | **+€2,036** | ✅ |
 
 Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md) für vollständige Details.
 
