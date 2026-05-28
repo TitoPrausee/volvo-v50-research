@@ -1,29 +1,28 @@
 // ============================================================
-// African Queen Lite — Main Program v2.1
+// African Queen Lite — Main Program v2.2
 // ESP32 Ride-Mode Controller for Honda NX650 Dominator RFVC
 // ============================================================
 //
-// v2.1 Changes:
+// v2.2 Changes:
+//   - Auto-RPM exhaust valve: position follows RPM curves per mode
+//   - Fuel estimation per mode: mL/100km, range, low fuel warning
+//   - Gear estimation: RPM/speed correlation for gear detection
+//   - Config mode: long-press encoder for on-bike settings
+//   - Deep sleep: 5 min engine off → deep sleep (wake on ignition)
+//   - Display: gear indicator, fuel level, estimated range
+//
+// v2.1:
 //   - CDI 3-map control (Map A/B/C via GPIO27 + GPIO33)
-//   - Engine runtime counter (minutes actually incremented now)
-//   - BLE longevity data now transmitted every BLE_UPDATE_MS
+//   - Engine runtime counter
+//   - BLE longevity data
 //   - CDI emergency fallback to Map C
-//   - Fixed: NX650_FINAL_RATIO naming consistency
+//   - Fixed: NX650_FINAL_RATIO naming
 //
 // 6 Ride Modes: STRASSE, STADT, GELÄNDE, SPORT, COMFORT, SOUND
 // Controls: Exhaust valve, Airbox flap, CDI map select, LED indicator
-// Monitors: RPM, Temperature, Battery, Oil pressure, Stator health
+// Monitors: RPM, Temperature, Battery, Oil pressure, Stator health, Fuel
 // Displays: SSD1306 OLED (128x64 I2C) — 4 auto-cycling pages
 // Connects: BLE for smartphone logging
-//
-// Safety features:
-//   - Watchdog timer (5s timeout)
-//   - Brownout detection enabled
-//   - Emergency exhaust valve open on critical alerts
-//   - Oil pressure warning with auto-alert
-//   - Temperature shutdown protection
-//   - Stator health monitoring (detects failing stator BEFORE breakdown)
-//   - CDI fallback to Map C (standard timing) on emergency
 
 #include <Arduino.h>
 #include "modes.h"
@@ -36,6 +35,11 @@
 #include "bluetooth.h"
 #include "led_indicator.h"
 #include "encoder.h"
+#include "auto_rpm_valve.h"
+#include "fuel_estimator.h"
+#include "gear_estimator.h"
+#include "sleep_manager.h"
+#include "config_mode.h"
 
 // ---- Global Objects ----
 Sensors         sensors;
@@ -47,6 +51,11 @@ Bluetooth       ble;
 LEDIndicator    led;
 LongevityMonitor longevity;
 RotaryEncoder   encoder;
+AutoRPMValve    autoRPMValve;
+FuelEstimator   fuelEstimator;
+GearEstimator   gearEstimator;
+SleepManager    sleepManager;
+ConfigMode      configMode;
 
 // ---- State ----
 RideMode currentMode = MODE_STRASSE;
@@ -69,6 +78,8 @@ unsigned long last_display_ms   = 0;
 unsigned long last_ble_ms       = 0;
 unsigned long last_watchdog_ms  = 0;
 unsigned long last_eeprom_ms    = 0;
+unsigned long last_fuel_ms     = 0;
+unsigned long last_sleep_check_ms = 0;
 
 // ---- Alert flags ----
 bool alert_temp  = false;
@@ -76,6 +87,7 @@ bool alert_volt  = false;
 bool alert_oil   = false;
 bool alert_rpm   = false;
 bool alert_stator = false;
+bool alert_fuel  = false;
 
 // ---- Forward declarations ----
 void handleButtons();
@@ -92,10 +104,15 @@ void setup() {
     Serial.println();
     Serial.println(F("========================================"));
     Serial.println(F("  African Queen Lite — Ride Mode Ctrl  "));
-    Serial.println(F("  v2.1 — 3-Map CDI + Runtime + BLE Fix "));
+    Serial.println(F("  v2.2 — AutoValve + Fuel + Gear + Sleep"));
     Serial.println(F("  Honda NX650 Dominator RFVC           "));
     Serial.println(F("========================================"));
     Serial.println();
+
+    // ---- Check wake from deep sleep ----
+    if (SleepManager::wokeFromDeepSleep()) {
+        Serial.printf("[WAKE] Woke from deep sleep: %s\n", SleepManager::getWakeReason());
+    }
 
     // ---- Initialize Watchdog Timer ----
     esp_task_wdt_init(5, true);  // 5 second timeout, panic on timeout
@@ -137,6 +154,21 @@ void setup() {
     // ---- Initialize Longevity Monitor ----
     longevity.begin();
 
+    // ---- Initialize Auto RPM Valve ----
+    autoRPMValve.begin();
+
+    // ---- Initialize Fuel Estimator ----
+    fuelEstimator.begin();
+
+    // ---- Initialize Gear Estimator ----
+    gearEstimator.begin();
+
+    // ---- Initialize Sleep Manager ----
+    sleepManager.begin();
+
+    // ---- Initialize Config Mode ----
+    configMode.begin();
+
     // ---- Restore Last Mode from EEPROM ----
     RideMode saved_mode = ModeStorage::loadMode();
     if (saved_mode >= MODE_COUNT) saved_mode = MODE_STRASSE;
@@ -146,10 +178,11 @@ void setup() {
     applyMode(currentMode);
 
     Serial.println();
-    Serial.printf("[INIT] Mode: %s (restored from EEPROM)\\n", MODE_NAMES[currentMode]);
-    Serial.printf("[INIT] CDI: Map %c (GPIO%d + GPIO%d)\\n",
+    Serial.printf("[INIT] Mode: %s (restored from EEPROM)\n", MODE_NAMES[currentMode]);
+    Serial.printf("[INIT] CDI: Map %c (GPIO%d + GPIO%d)\n",
         cdi.getCurrentMap() == CDI_MAP_A ? 'A' : (cdi.getCurrentMap() == CDI_MAP_B ? 'B' : 'C'),
         Pin::CDI_MAP_A, Pin::CDI_MAP_B);
+    Serial.printf("[INIT] Auto-RPM Valve: %s\n", autoRPMValve.isEnabled() ? "ON" : "OFF");
     Serial.println(F("[INIT] Ready — ride safe!"));
     Serial.println();
 
@@ -166,6 +199,46 @@ void loop() {
         last_watchdog_ms = now;
     }
 
+    // ---- Config Mode: Check for long press ----
+    bool encoder_btn = (digitalRead(Pin::ENCODER_BTN) == LOW);
+    if (configMode.checkLongPress(encoder_btn)) {
+        configMode.enter();
+    }
+
+    // ---- If in Config Mode, handle differently ----
+    if (configMode.isActive()) {
+        // Handle config mode encoder actions
+        EncoderAction action = encoder.update();
+        switch (action) {
+            case ACTION_MODE_UP:
+                configMode.handleRotate(1);
+                break;
+            case ACTION_MODE_DOWN:
+                configMode.handleRotate(-1);
+                break;
+            case ACTION_PRESS:
+                configMode.handlePress();
+                break;
+            default:
+                break;
+        }
+
+        // Check config timeout
+        configMode.checkTimeout();
+
+        // Apply brightness
+        led.setBrightness(configMode.getBrightness());
+
+        // Update display with config screen
+        // (display module handles this)
+        // Still update sensors for safety
+        sensors.update();
+
+        // Feed watchdog
+        esp_task_wdt_reset();
+        return;  // Skip normal riding logic while in config
+    }
+
     // ---- Handle Buttons (legacy Mode+/Mode-) ----
     handleButtons();
 
@@ -177,7 +250,7 @@ void loop() {
         sensors.update();
         last_sensor_ms = now;
 
-        // Update longevity monitor (includes runtime counter v2.1)
+        // Update longevity monitor (includes runtime counter)
         longevity.update(
             sensors.getVoltage(),
             sensors.getRPM(),
@@ -185,8 +258,29 @@ void loop() {
             sensors.getSpeedKmhX10()
         );
 
+        // Update gear estimator
+        gearEstimator.update(sensors.getRPM(), sensors.getSpeedKmhX10());
+
+        // Update fuel estimator (every 10s)
+        if (now - last_fuel_ms >= FUEL_CALC_MS) {
+            float speed_km = sensors.getSpeedKmhX10() / 10.0f;
+            float distance_km = speed_km * (FUEL_CALC_MS / 3600000.0f);  // distance in this interval
+            fuelEstimator.update(distance_km, currentMode, sensors.getRPM());
+            last_fuel_ms = now;
+        }
+
         // Check alert conditions
         checkAlerts();
+    }
+
+    // ---- Auto RPM Valve Control ----
+    // When enabled, exhaust and airbox positions follow RPM curves
+    if (autoRPMValve.isEnabled()) {
+        uint16_t rpm = sensors.getRPM();
+        uint8_t valve_pos = autoRPMValve.calculatePosition(currentMode, rpm);
+        uint8_t airbox_pos = autoRPMValve.calculateAirboxPosition(currentMode, rpm);
+        exhaustValve.setTarget(valve_pos);
+        airboxFlap.setTarget(airbox_pos);
     }
 
     // ---- Update Servos (smooth transitions) ----
@@ -214,7 +308,7 @@ void loop() {
         last_display_ms = now;
     }
 
-    // ---- Update BLE (every 1s) — v2.1: includes longevity data ----
+    // ---- Update BLE (every 1s) ----
     if (now - last_ble_ms >= BLE_UPDATE_MS) {
         ble.update(
             currentMode,
@@ -227,7 +321,7 @@ void loop() {
             cdi.getCurrentMap()
         );
 
-        // v2.1: Also send longevity data via BLE
+        // Longevity data via BLE
         ble.updateLongevity(
             (uint8_t)longevity.getStatorStatus(),
             longevity.getBatteryPercent(),
@@ -236,6 +330,25 @@ void loop() {
         );
 
         last_ble_ms = now;
+    }
+
+    // ---- Sleep Manager ----
+    if (now - last_sleep_check_ms > 5000) {
+        if (sleepManager.update(sensors.getRPM())) {
+            // 5 minutes engine off → deep sleep
+            sleepManager.enterDeepSleep();
+            // Doesn't return from here — ESP32 resets on wake
+        }
+        last_sleep_check_ms = now;
+    }
+
+    // ---- EEPROM Save (every 30s) ----
+    if (now - last_eeprom_ms >= EEPROM_SAVE_MS) {
+        ModeStorage::saveMode(currentMode);
+        // Also update odometer and runtime
+        ModeStorage::saveOdometer(longevity.getTotalOdometerKm() * 10);
+        ModeStorage::saveRuntime(longevity.getEngineRuntimeMin());
+        last_eeprom_ms = now;
     }
 }
 
@@ -294,13 +407,13 @@ void handleEncoder() {
         case ACTION_MODE_UP:
             currentMode = nextMode(currentMode);
             applyMode(currentMode);
-            Serial.printf("[ENCODER] Mode → %s\\n", MODE_NAMES[currentMode]);
+            Serial.printf("[ENCODER] Mode → %s\n", MODE_NAMES[currentMode]);
             break;
 
         case ACTION_MODE_DOWN:
             currentMode = prevMode(currentMode);
             applyMode(currentMode);
-            Serial.printf("[ENCODER] Mode → %s\\n", MODE_NAMES[currentMode]);
+            Serial.printf("[ENCODER] Mode → %s\n", MODE_NAMES[currentMode]);
             break;
 
         case ACTION_PAGE_UP:
@@ -327,8 +440,14 @@ void handleEncoder() {
 // ============================================================
 void applyMode(RideMode mode) {
     cdi.setMode(mode);
-    exhaustValve.setMode(mode);
-    airboxFlap.setMode(mode);
+
+    // If auto RPM valve is DISABLED, use static positions from MODE_PARAMS
+    // If enabled, auto_rpm_valve handles it in the main loop
+    if (!autoRPMValve.isEnabled()) {
+        exhaustValve.setMode(mode);
+        airboxFlap.setMode(mode);
+    }
+
     led.setMode(mode);
     display.showModeSwitch(mode);
     ModeStorage::saveMode(mode);  // Persist to EEPROM
@@ -343,7 +462,7 @@ RideMode prevMode(RideMode current) {
 }
 
 // ============================================================
-// Alert Checks — Safety Critical + Longevity
+// Alert Checks — Safety Critical + Longevity + Fuel
 // ============================================================
 void checkAlerts() {
     // Temperature warnings
@@ -366,7 +485,7 @@ void checkAlerts() {
     alert_volt = sensors.isVoltageLow() || sensors.isVoltageHigh();
 
     if (alert_volt && !prev_volt) {
-        Serial.printf("[ALERT] Voltage warning: %.1fV\\n", sensors.getVoltage());
+        Serial.printf("[ALERT] Voltage warning: %.1fV\n", sensors.getVoltage());
         if (!alert_temp) led.setAlert(true);
     }
 
@@ -384,19 +503,34 @@ void checkAlerts() {
     alert_rpm = sensors.isRPMRedline();
 
     if (alert_rpm && !prev_rpm) {
-        Serial.printf("[ALERT] Redline: %d RPM!\\n", sensors.getRPM());
+        Serial.printf("[ALERT] Redline: %d RPM!\n", sensors.getRPM());
     }
 
     // Stator health warning
     StatorStatus stator = longevity.getStatorStatus();
     if (stator >= STATOR_DEGRADED) {
-        Serial.printf("[ALERT] Stator: %s (%.1fV)\\n",
+        Serial.printf("[ALERT] Stator: %s (%.1fV)\n",
             longevity.getStatorStatusText(), longevity.getStatorVoltage());
         if (!alert_temp) led.setAlert(true);
     }
 
+    // Fuel level warning
+    bool prev_fuel = alert_fuel;
+    alert_fuel = fuelEstimator.isLowFuel();
+
+    if (alert_fuel && !prev_fuel) {
+        Serial.printf("[ALERT] Low fuel: %.1fL remaining!\n", fuelEstimator.getFuelLiters());
+        if (!alert_temp && !alert_oil) {
+            led.setStatorWarning(true);  // Reuse yellow flash for fuel warning
+        }
+    }
+
+    if (fuelEstimator.isCriticalFuel()) {
+        Serial.printf("[ALERT] CRITICAL FUEL: %.1fL — refuel NOW!\n", fuelEstimator.getFuelLiters());
+    }
+
     // Clear alert if all conditions normal
-    if (!alert_temp && !alert_oil && stator < STATOR_DEGRADED) {
+    if (!alert_temp && !alert_oil && stator < STATOR_DEGRADED && !alert_fuel) {
         led.setAlert(false);
     }
 }

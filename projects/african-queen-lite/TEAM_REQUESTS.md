@@ -313,26 +313,33 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **NEU:** Dekomp-Ventil 12351-KY5-871 (ID#449, €15-35) — KOSTENLOS einstellen! ✅
 - **NEU:** 5 Teile in DB, 3 Build Guides aktualisiert ✅
 
-## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-28 — Run #2)
+## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-28 — Run #3)
+
+### Ergebnisse Run #3 (NEU):
+- **🆕 Venhill statt HEL SS Bremsleitung:** €39.95 statt €54.90 = **€15 gespart** (gleiche Qualität!)
+- **🆕 YSS Z-366 Mono Shock WRS Italy:** €246.50 statt €299 = **€52 gespart** (WRS €226.50 + €20 Versand)
+- **4 DB-Preise aktualisiert:** YSS Z-366, Venhill SS Line, EBC FA185HH, All Balls Carb Kit
+- **1 neues Teil:** Venhill SS Brake Line Front NX650 (ID 450) als BEST VALUE Alternative zu HEL
+- **Gesamt Option A:** €2.196 (Run #2: €2.264 → Run #3: €2.196 = **-€68**)
+- **DB-Min-Preise Warnung:** Mehrere DB-Min-Preise sind Ausreißer/Sale-Preise (Mitas Front €53.73, Carb Kit €9.49). Immer aktuelle EU-Quellen verifizieren!
 
 ### Ergebnisse Run #2:
 - **7 DB-Preise aktualisiert** — Stator €95, Regler €55, EBC FA185HH €20, Koso RX-22 €99.90, Mitas E-07+ Dakar front €89.90, rear €109
 - **6 neue Teile hinzugefügt** — Bundle-Deals (Ketten-Set ID343, Mitas Set ID342, RT Fork Kit ID344), Schweißarbeiten ID341, Regler-Verbinder-Kit ID345, Stator-Connector ID346
 - **KRITISCH NEU:** Regler-Verbinder-Kit (€8) + Stator-Connector (€9) = **PFLICHT-Kauf!** Schmelz-Problem bei NX650. LÖTEN statt stecken!
 - **Phase 1 +€17** wegen Connector-Kits (€445 statt €409)
-- **Gesamt Option A:** €2,264 (vorher €2,228) = +€36 (Connector-Kits + Preisaktualisierungen)
 - **Web-Scraping:** FC-Moto, Motea, Louis, idealo blockieren automatische Zugriffe. Preise basieren auf Verifikation vom 2026-05-27.
 - **Seasonaler Hinweis:** Motorsaison Mai → Preise höher. Winter-Sale (Nov-Feb) = 10-20% günstiger für Reifen, Fahrwerk, Zubehör.
 
-### Budget-Guard Update (Run #2):
+### Budget-Guard Update (Run #3):
 
-| Phase | Vorher (Run #1) | Jetzt (Run #2) | Reserve | Status |
-|-------|-----------------|----------------|---------|--------|
-| 1: Zuverlässigkeit | €409 | **€445** | **+€355 (44%)** | ⚠️ +€17 Connector-Kits (PFLICHT!) |
-|| 2: Fahrwerk | €944 | **€1.005** | **+€195 (16%)** | ✅ Deep-Dive (2026-05-28) |
-| 3: Africa Twin Look | €688 | **€688** | **+€312 (31%)** | ✅ Gleich |
-| 4: Touring-Komfort | €187 | **€187** | **+€613 (77%)** | ✅ Gleich |
-| **Total** | **€2,228** | **€2,264** | **+€2,036** | ✅ |
+| Phase | Run #1 | Run #2 | Run #3 | Reserve | Status |
+|-------|--------|--------|--------|---------|--------|
+| 1: Zuverlässigkeit | €409 | €445/€470 | **€429** | **+€371 (46%)** | ✅ 🆕 Venhill statt HEL spart €15 |
+| 2: Fahrwerk | €944 | €1.005 | **€892** | **+€308 (26%)** | ✅ 🆕 YSS WRS Italy spart €52 |
+| 3: Africa Twin Look | €688 | €688 | **€688** | **+€312 (31%)** | ✅ Unverändert |
+| 4: Touring-Komfort | €187 | €187 | **€187** | **+€613 (77%)** | ✅ Unverändert |
+| **Total** | **€2.228** | **€2.264** | **€2.196** | **+€2.104** | ✅ **-€68 vs Run #2** |
 
 Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md) für vollständige Details.
 

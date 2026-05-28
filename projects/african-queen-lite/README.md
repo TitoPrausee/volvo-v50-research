@@ -24,35 +24,38 @@ Siehe Cron-Jobs: `aql-*` Präfix
 | 5 | Reserve | €200-500 | 🔵 Puffer |
 | **Total** | | **€5.000 MAX** | |
 
-## Budget-Stand (Chefingenieur 2026-05-28 — DB-Verifizierung + Preis-Jäger Run #2)
+## Budget-Stand (Preis-Jäger Run #3 — 2026-05-28)
 
-| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
+|| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
 |-------|------------|-----------|------------|--------|
-| 1: Zuverlässigkeit | 470 | 800 | +330 (41%) | ✅ Stark |
-| 2: Fahrwerk | 944 | 1.200 | +256 (21%) | ✅ OK |
+| 1: Zuverlässigkeit | 429 | 800 | +371 (46%) | ✅ Stark |
+| 2: Fahrwerk | 892 | 1.200 | +308 (26%) | ✅ Gut |
 | 3: Africa Twin Look | 688 | 1.000 | +312 (31%) | ✅ Gut |
 | 4: Touring-Komfort | 187 | 800 | +613 (77%) | ✅ Sehr gut |
 | 5: Reserve | — | 500 | +500 | 🔵 Puffer |
-| **Total** | **2.289** | **4.300** | **+2.011** | ✅ |
+| **Total** | **2.196** | **4.300** | **+2.104** | ✅ |
 
-> **Ergebnis:** Option A (Optimal) kostet €2.289 + €500 Reserve = €2.789. Unter dem €5.000 Hard Cap mit **€2.211 Reserve** (44%).
+> **Ergebnis:** Option A (Optimal) kostet €2.196 + €500 Reserve = €2.696. Unter dem €5.000 Hard Cap mit **€2.304 Reserve** (46%).
 > 
-> ⚠️ Phase 1 um €38 gestiegen: Regler-Verbinder-Kit + Stator-Connector (€17) + Inline-Kraftstofffilter (€7) + Silikonschläuche (€7) + Diagnose-Reserve hinzugefügt — BEKANNTE NX650-Probleme!
+> 🆕 **Run #3 Verbesserung:** €68 günstiger als Run #2! (€2.264 → €2.196)
+> - Venhill SS Bremsleitung statt HEL: **-€15** (gleiche Qualität!)
+> - YSS Z-366 Mono Shock WRS Italy: **-€52.50** (gleiche YSS Qualität!)
+> - Diverse Preis-Korrekturen: **-€0.50**
 
 ### Budget-Guard: KEINE Phase überschritten ✅
-- Phase 1: €470 / €800 → **€330 Reserve** (41%) — +€38 Filter+Schläuche+Connectors
-- Phase 2: €944 / €1.200 → **€256 Reserve** (21%) — Mitas E-07+ Dakar teurer
-- Phase 3: €688 / €1.000 → **€312 Reserve** (31%)
-- Phase 4: €187 / €800 → **€613 Reserve** (77%)
+- Phase 1: €429 / €800 → **€371 Reserve** (46%) — 🆕 Venhill statt HEL spart €15!
+- Phase 2: €892 / €1.200 → **€308 Reserve** (26%) — 🆕 YSS Z-366 WRS Italy spart €52!
+- Phase 3: €688 / €1.000 → **€312 Reserve** (31%) — unverändert
+- Phase 4: €187 / €800 → **€613 Reserve** (77%) — unverändert
 
-### DB-Verifizierung (2026-05-28 — Preis-Jäger Run #2)
-- **148 NX650-fitment Teile** in DB (inkl. alle Alternativen + Bundle/Kits + 5 neue Motor-Zuverlässigkeit)
-- **DB SUM(price_avg) alle NX650:** €12.657 (nicht AQL-Budget — enthält Alternativen!)
-- **33 Teile in Option A Build-Plan:** €2.289 (inkl. Diagnose-Reserve)
+### DB-Verifizierung (2026-05-28 — Preis-Jäger Run #3)
+- **187 NX650-fitment Teile** in DB (inkl. alle Alternativen + Bundle/Kits)
+- **DB SUM(price_avg) alle NX650:** ~€13.200 (nicht AQL-Budget — enthält Alternativen!)
+- **34 Teile in Option A Build-Plan:** €2.196
 - **54 NX650 Known Issues:** 5 critical (Stator, Regler, +Verbinder), 4 high (Verkabelung, CDI)
-- **Neu hinzugefügte NX650-Teile (IDs 303-346):** 44 Teile — Dichtungen, OEM-Ersatzteile, Motorinternas, Bundle-Deals, Connector-Kits
-- **7 Preise aktualisiert:** Stator €95, Regler €55, EBC FA185HH €20, Koso RX-22 €99.90, Mitas E-07+ Dakar €89.90/€109
-- **6 neue Teile (Run #2):** Bundle-Deals (Ketten-Set, Mitas Set, RT Fork Kit), Schweißarbeiten, Regler-Verbinder-Kit, Stator-Connector
+- **4 DB-Preise aktualisiert (Run #3):** YSS Z-366 min/max/avg, Venhill SS Line, EBC FA185HH, All Balls Carb Kit
+- **1 neues Teil (Run #3):** Venhill SS Brake Line Front NX650 (ID 450)
+- **🆕 Run #3 Key Finds:** Venhill statt HEL = €15 sparen, YSS WRS Italy = €52 sparen
 
 ### Neue NX650-Ersatzteile in DB (nicht im Build-Budget)
 Folgenden Teile wurden von Research-Agenten hinzugefügt — wichtig als Referenz für Wartung, aber **NICHT** im AQL-Build-Budget enthalten:

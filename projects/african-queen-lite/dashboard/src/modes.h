@@ -1,15 +1,22 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Ride Mode Definitions v2.1
+// African Queen Lite — Ride Mode Definitions v2.2
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
-// v2.1 Changes:
-//   - Fixed: NX650_FINAL_RATIO naming (was inconsistent NX650_FINALRatio)
+// v2.2 Changes:
+//   - Added: Auto-RPM exhaust valve curves per mode (valve position follows RPM)
+//   - Added: Fuel consumption estimation per mode (mL/100km)
+//   - Added: Gear estimation parameters
+//   - Added: Deep sleep timeout
+//   - Added: Config mode constants
+//   - Improved: Sweep rate ranges refined for smoother transitions
+//
+// v2.1:
+//   - Fixed: NX650_FINAL_RATIO naming
 //   - Added: CDI_MAP_B pin (GPIO33) for 3-map CDI control
-//   - Added: CDI map index per mode (0=A/eco, 1=B/sport, 2=C/fallback)
 //   - Added: Engine runtime increment logic constants
-//   - Fixed: EEPROM layout addresses (aligned properly)
+//   - Fixed: EEPROM layout addresses
 
 #include <cstdint>
 #include <EEPROM.h>
@@ -36,6 +43,16 @@ enum RideMode : uint8_t {
     MODE_COUNT     = 6
 };
 
+// ---- Config Mode IDs ----
+enum ConfigMode : uint8_t {
+    CONFIG_IDLE         = 0,  // Normal riding
+    CONFIG_BRIGHTNESS   = 1,  // Adjust LED brightness
+    CONFIG_VALVE_CAL    = 2,  // Calibrate exhaust valve endpoints
+    CONFIG_AIRBOX_CAL   = 3,  // Calibrate airbox flap endpoints
+    CONFIG_RIDE_MODE    = 4,  // Select ride mode
+    CONFIG_COUNT        = 5
+};
+
 // ---- Mode Color for LED indicator (WS2812 RGB) ----
 struct ModeColor {
     uint8_t r, g, b;
@@ -59,6 +76,15 @@ constexpr const char* MODE_NAMES[MODE_COUNT] = {
     "SOUND"
 };
 
+constexpr const char* MODE_NAMES_SHORT[MODE_COUNT] = {
+    "STR",   // 4 chars max for OLED
+    "STD",
+    "GLD",
+    "SPT",
+    "CMF",
+    "SND"
+};
+
 // ---- Throttle Response Curves ----
 // 0=linear, 1=progressive (gentle start, aggressive mid-top)
 // 2=aggressive, 3=soft
@@ -77,44 +103,92 @@ enum CDIMap : uint8_t {
     CDI_MAP_C      = 2,  // Fallback/standard timing (both pins HIGH)
 };
 
+// ---- RPM-based Valve Curve Point ----
+// Valves follow an RPM curve: at rpm_low, position=start%; at rpm_high, position=end%
+// Interpolation is linear between points
+struct ValveCurvePoint {
+    uint16_t rpm;        // RPM at this point
+    uint8_t  position;   // Valve position 0-100%
+};
+
+// ---- Auto RPM Valve Curve per Mode ----
+// Each mode has a curve that maps RPM → valve position
+// This is used when ENABLE_AUTO_RPM_VALVE is active
+// Points should be listed in ascending RPM order
+constexpr uint8_t MAX_VALVE_CURVE_POINTS = 5;
+
+struct ValveCurve {
+    ValveCurvePoint points[MAX_VALVE_CURVE_POINTS];
+    uint8_t        num_points;  // 2-5 points
+};
+
+// ---- Fuel Consumption Estimate per Mode ----
+// mL/100km estimated for NX650 (based on riding style)
+struct FuelEstimate {
+    uint16_t ml_per_100km;  // Estimated fuel consumption in mL per 100km
+    uint8_t  reserve_l;      // Reserve warning threshold in liters (NX650: 3.4L tank reserve)
+};
+
 // ---- Mode Parameters ----
 // ignition_offset : degrees retard (-) or advance (+) from base timing
-// valve_percent   : exhaust valve position 0=closed 100=fully open
-// airbox_percent  : airbox resonance flap 0=closed 100=fully open
+// valve_percent   : exhaust valve position 0=closed 100=fully open (base position)
+// airbox_percent  : airbox resonance flap 0=closed 100=fully open (base position)
 // idle_target     : target idle RPM (x10, e.g. 130 = 1300 RPM)
 // rev_limit      : rev limit (x100, e.g. 70 = 7000 RPM)
 // sweep_rate     : servo transition speed 1=slow 10=instant
 // throttle_curve : throttle response mapping
 // cdi_map        : which CDI timing map to select (A/B/C)
+// fuel_est       : fuel consumption estimate for this mode
 // display_color  : RGB for mode LED indicator
 
 struct ModeParams {
     int8_t   ignition_offset;   // degrees: -5 to +5
-    uint8_t  valve_percent;     // 0-100 exhaust valve
-    uint8_t  airbox_percent;    // 0-100 airbox flap
+    uint8_t  valve_percent;     // 0-100 exhaust valve (base position)
+    uint8_t  airbox_percent;    // 0-100 airbox flap (base position)
     uint8_t  idle_target;       // target idle RPM (x10, e.g. 130=1300)
     uint8_t  rev_limit;         // rev limit (x100, e.g. 70=7000)
     uint8_t  sweep_rate;        // servo transition speed: 1=slow smooth, 10=instant
     ThrottleCurve throttle_curve;
     CDIMap   cdi_map;           // CDI timing map selection
+    FuelEstimate fuel;          // Fuel consumption estimate
     ModeColor color;
 };
 
 // ---- Default Mode Parameter Sets ----
 constexpr ModeParams MODE_PARAMS[MODE_COUNT] = {
-    //          IGN   VALVE  AIRBOX  IDLE  REV_LIMIT  SWEEP  THROTTLE         CDI_MAP       COLOR
-    /* STRASSE */ {  0,    50,    50,   130,   70,   3,  THROTTLE_LINEAR,     CDI_MAP_A, {  0, 255,   0} },
-    /* STADT   */ { -2,    20,    30,   120,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {  0, 100, 255} },
-    /* GELAENDE*/ {  2,   100,   100,   140,   75,   6,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {255,  50,  50} },
-    /* SPORT   */ {  3,   100,   100,   135,   75,   8,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {255, 165,   0} },
-    /* COMFORT */ { -1,    40,    40,   125,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {148,   0, 255} },
-    /* SOUND   */ {  1,   100,    80,   130,   70,   5,  THROTTLE_PROGRESSIVE, CDI_MAP_C, {  0, 255, 255} },
+    //          IGN   VALVE  AIRBOX  IDLE  REV_LIMIT  SWEEP  THROTTLE         CDI_MAP       FUEL(ml/100km,reserveL)           COLOR
+    /* STRASSE */ {  0,    50,    50,   130,   70,   3,  THROTTLE_LINEAR,     CDI_MAP_A, {3500, 3}, {  0, 255,   0} },
+    /* STADT   */ { -2,    20,    30,   120,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {3000, 4}, {  0, 100, 255} },
+    /* GELAENDE*/ {  2,   100,   100,   140,   75,   6,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {4500, 2}, {255,  50,  50} },
+    /* SPORT   */ {  3,   100,   100,   135,   75,   8,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {5000, 2}, {255, 165,   0} },
+    /* COMFORT */ { -1,    40,    40,   125,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {3200, 4}, {148,   0, 255} },
+    /* SOUND   */ {  1,   100,    80,   130,   70,   5,  THROTTLE_PROGRESSIVE, CDI_MAP_C, {4000, 3}, {  0, 255, 255} },
+};
+
+// ---- Auto RPM Valve Curves ----
+// Each mode has an RPM-based valve position curve
+// When ENABLE_AUTO_RPM_VALVE is active, valve position is
+// interpolated from these curves instead of using valve_percent directly
+constexpr ValveCurve VALVE_CURVES[MODE_COUNT] = {
+    // STRASSE: gradual opening from 2000-6000 RPM, peak at 6500
+    {{ {{2000, 15}, {3000, 35}, {4500, 50}, {6000, 65}, {7000, 50}} }, 5},
+    // STADT: mostly closed, slight opening at higher RPM for scavenging
+    {{{1500, 10}, {2500, 15}, {4000, 20}, {5500, 30}, {6500, 20}} }, 5},
+    // GELÄNDE: fully open above 2500 RPM (maximum flow for power)
+    {{{1500, 40}, {2500, 80}, {3500, 100}, {5000, 100}, {7000, 100}} }, 5},
+    // SPORT: early opening, fully open above 3000
+    {{{1500, 30}, {2500, 60}, {3000, 90}, {5000, 100}, {7000, 100}} }, 5},
+    // COMFORT: moderate opening, smooth delivery
+    {{{1500, 15}, {2500, 30}, {4000, 40}, {5500, 40}, {7000, 35}} }, 5},
+    // SOUND: wide open for maximum acoustic output
+    {{{1200, 60}, {2000, 85}, {3000, 95}, {4500, 100}, {6500, 80}} }, 5},
 };
 
 // ---- Sensor Limits / Thresholds ----
 constexpr uint16_t RPM_REDLINE        = 7500;   // NX650 redline
 constexpr uint16_t RPM_IDLE_DEFAULT   = 1300;   // warm idle
 constexpr uint16_t RPM_IDLE_COLD      = 1800;   // cold start fast idle
+constexpr uint16_t RPM_SHIFT_OPTIMAL  = 5500;   // optimal shift point (fuel economy)
 
 constexpr float    TEMP_WARNING       = 115.0f; // °C cylinder head warning
 constexpr float    TEMP_CRITICAL      = 125.0f; // °C shutdown warning
@@ -141,6 +215,10 @@ constexpr float    LIFEPO4_25_PCT     = 12.8f;  // V ~25% SOC
 constexpr float    LIFEPO4_EMPTY      = 10.0f;  // V depleted — disconnect load
 constexpr float    LIFEPO4_CHARGE_14_6= 14.6f;  // V max charge voltage
 
+// ---- NX650 Tank ----
+constexpr float    NX650_TANK_CAPACITY_L = 16.0f;  // liters
+constexpr float    NX650_RESERVE_L      = 3.4f;     // liters reserve
+
 // ---- Maintenance Intervals ----
 constexpr uint16_t MAINT_OIL_CHANGE_KM    = 6000;  // km between oil changes (NX650 spec)
 constexpr uint16_t MAINT_VALVE_ADJUST_KM  = 12000; // km between valve adjustments
@@ -151,6 +229,13 @@ constexpr uint16_t MAINT_TIRE_CHECK_KM    = 1000;  // km between tire pressure c
 
 // ---- Runtime Tracking ----
 constexpr unsigned long RUNTIME_INCREMENT_MS = 60000; // 1 minute increment
+
+// ---- Deep Sleep ----
+constexpr unsigned long DEEP_SLEEP_TIMEOUT_MS = 300000; // 5 minutes engine off → deep sleep
+constexpr unsigned long DEEP_SLEEP_WAKEUP_US = 0;       // No timer wake (wake on ignition)
+
+// ---- Config Mode Timeout ----
+constexpr unsigned long CONFIG_TIMEOUT_MS = 10000; // Auto-exit config after 10s inactivity
 
 // ---- Pin Definitions ----
 namespace Pin {
@@ -170,7 +255,7 @@ namespace Pin {
     constexpr uint8_t EXHAUST_VALVE   = 25;  // PWM: exhaust valve servo
     constexpr uint8_t AIRBOX_FLAP    = 26;   // PWM: airbox resonance flap servo
     constexpr uint8_t CDI_MAP_A       = 27;   // Digital: CDI Map A select (active LOW)
-    constexpr uint8_t CDI_MAP_B       = 33;   // Digital: CDI Map B select (active LOW) — v2.1 NEW
+    constexpr uint8_t CDI_MAP_B       = 33;   // Digital: CDI Map B select (active LOW) — v2.1
     constexpr uint8_t LED_DATA        = 32;   // WS2812 RGB LED data
 
     // I2C
@@ -188,6 +273,7 @@ constexpr unsigned long BLE_UPDATE_MS       = 1000;  // BLE broadcast interval
 constexpr unsigned long EEPROM_SAVE_MS      = 30000;  // EEPROM save interval (30s)
 constexpr unsigned long STATOR_CHECK_MS    = 5000;   // Stator health check interval
 constexpr unsigned long WATCHDOG_TIMEOUT   = 5000;   // ESP32 watchdog timeout ms
+constexpr unsigned long FUEL_CALC_MS       = 10000;  // Fuel estimation update interval (10s)
 
 // ---- Servo PWM Ranges ----
 constexpr uint16_t SERVO_MIN_US  = 500;    // Exhaust valve servo min pulse
@@ -199,6 +285,15 @@ constexpr uint8_t  SERVO_FREQ_HZ = 50;     // Standard 50Hz servo PWM
 #ifndef USE_PRODUCTION_MOTOR
 #define USE_PRODUCTION_MOTOR  0
 #endif
+
+// ---- Gear Estimation ----
+// NX650 gear ratios (used to estimate current gear from RPM/speed)
+// Gear detection: wheel_speed = (RPM * tire_circ) / (primary_ratio * gear_ratio * final_ratio * 60)
+// If estimated speed matches actual speed → likely in that gear
+constexpr float NX650_GEAR_RATIOS[5] = {2.846f, 1.857f, 1.389f, 1.091f, 0.913f};
+constexpr float NX650_FINAL_RATIO   = 2.833f;
+constexpr float NX650_PRIMARY_RATIO = 2.176f;
+constexpr float NX650_TIRE_CIRC_M   = 2.04f;     // meters (120/90-17)
 
 // ---- EEPROM Persistence Helper ----
 class ModeStorage {
