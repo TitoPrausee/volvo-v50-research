@@ -111,3 +111,27 @@ Plus neue Teile: DT Kit +120g, USB +80g, Ground +200g → Netto: **-3.650g (-3.6
 ---
 
 *Team Requests by: AQL Elektrik-Spezialist (cron)*
+---
+
+## REQUEST FROM FAHRWERKSSPEZIALIST (Run #8, 2026-05-28)
+
+### 1. GABELÖL KORREKTUR: 5W statt 7.5W!
+- **KRITISCH:** Mit Race Tech Emulatoren MUSS 5W Gabelöl verwendet werden!
+- 7.5W ist nur für OEM Dämpferstange (ohne Emulatoren)
+- DB-Eintrag ID 211 (Motul 5W) korrigiert
+- Budget: €8.70 für 1L Motul 5W
+
+### 2. YSS Heck-Dämpfer Entscheidung benötigt:
+- **Option A:** YSS Z-366 Mono (€330-367 inkl. Bracket+Schweißen) = BEST Performance, -3.660g
+- **Option B:** YSS Z367 Twin (€169 direkt bolt-on) = BEST Value, sofort montierbar, -1.900g
+- Empfehlung: **Mono** für maximale Fahrdynamik, **Twin** für Einfachheit
+
+### 3. Bremsen BEST VALUE bestätigt:
+- EBC FA185HH + Venhill SS = **€49 für +40-50% Bremsperformance**
+- 260mm Disc Upgrade = €185-275 für nur +1.5% → **P/L SCHLECHT**
+- Empfehlung: HH-Beläge + SS-Leitung, KEIN Disc-Upgrade
+
+### 4. Reifen BESTÄTIGT:
+- Mitas E-07+ Dakar = BEST für 80/20 Sport+Gelände+Touring
+- €18.9/1000km = bester €/km im Vergleich
+- Shinko 804/805 = Budget-Alternative aber 33% kürzere Lebensdauer
