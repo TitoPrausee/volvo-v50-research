@@ -18,7 +18,7 @@
 || 🔥 Auspuff | 6 | ✅ Gut — Ferrita (€420-650), Eisenmann (€800-1100), Heico (€750-950) ||
 || 🛢️ Fluide | 5 | ✅ — Öl, ATF T-IV, Bremsflüssigkeit DOT4, Lenkflüssigkeit, Kühlwasser ||
 || 🎨 Optik/Exterior | 4 | ⚠️ Teilweise — Grill, LED H7, LED Rücklichter, Heico Lippe ||
-|| 🛋️ Innenraum | 5 | ⚠️ Teilweise — Schaltknauf, Pedale, Lederpflege, DIM Cluster, Sonnenblende ||
+|| 🛋️ Innenraum | 13 | ✅ Vollständig — Lederpflege, Schaltknauf R-Design, Pedale Alu, Lenkrad R-Design, Fußmatten Velours+Gummi, LED Warmweiß, Kunststoffpflege, 12V Kofferraum, Kofferraummatte, Türpflege, DIM Cluster, Sonnenblende (NEU 2026-05-28) ||
 || 🕹️ Elektrik | 8 | ⚠️ — ABS-Sensor, Batterie, CEM-Relay, ETM, Anlasser, Lichtmaschine ||
 || ⛽ Ansaugung | 2 | ✅ — **K&N 33-2873** (korrigiert!) / Mann C 25 107, MAF Sensor ||
 || ⏱️ Zahnriemen | 5 | ✅ — Gates+Contitech+Dayco Kit, WP, Keilriemen, Nockenwellendichtung ||

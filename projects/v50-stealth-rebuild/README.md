@@ -90,7 +90,7 @@
 - ✅ Zahnriemen: 5 Kits (Gates, Contitech, Dayco) + WP
 - ✅ Kühlung: 5 Teile (Kühlmittel, Thermostat, Ausgleichsbehälter)
 - ⚠️ Optik: 4 Teile (Grill, LED, Lippe, Rücklichter) — FEHLT: Facelift-SW, Spiegelkappen
-- ⚠️ Interior: 5 Teile — FEHLT: Fußmatten
+- ✅ Interior: 13 Teile — Vollständig inkl. Lederpflege, Knauf, Pedale, Lenkrad, Matten, LED, Kofferraum (NEU 2026-05-28)
 - ✅ TÜV: Jedes Teil geprüft auf E-Nummer/ABE/Eintragungspflicht
 - 🚫 25 T5-only Teile identifiziert und ausgeschlossen
 - ⚠️ Eibach T5 [E10-85-003-01-22] vs 2.4i [E10-41-001-05-22] — VERWECHSLUNGS-GEFAHR!
@@ -128,4 +128,5 @@ Siehe TEAM_REQUESTS.md
 - `EXTERIOR_OPTICS_REPORT.md` — Optik & Detail (vollständig)
 - `FRONT_LIP_SEARCH.md` — Frontstoßfänger-Lippe Suche
 - `CANBUS_DEV_REPORT.md` — CAN-Bus & Software Entwickler-Status
+- `INTERIOR_REPORT.md` — Innenraum-Spezialist: Leder, Knauf, Pedale, Lenkrad, Matten, LED (NEU 2026-05-28)
 - `hardware/HARDWARE_SETUP.md` — Pi4+PiCAN2 Hardware-Installation
