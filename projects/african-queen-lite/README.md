@@ -108,7 +108,7 @@ Folgenden Teile wurden von Research-Agenten hinzugefügt — wichtig als Referen
 
 Folgende Teile wurden NICHT in den Build-Plan aufgenommen:
 - ❌ Big Bore Kit (680/710cc) — KEINE Leistungssteigerung
-- ❌ Aftermarket CDI — OEM reicht, 44PS sind genug
+- ❌ Aftermarket CDI — OEM reicht, 44PS sind genug *(Ignitech DC-CDI-P2 = OE-Ersatz mit 3 Maps, kein Leistungstuning)*
 - ❌ FMF PowerCore 4 — Offroad-only, illegal auf Straße
 - ❌ K&N Filter Charger Kit — UNI NU-4050 reicht für Adventure
 - ❌ Leistungs-Auspuff — Leo Vince = Sound+Optik, KEin PS-Tuning
@@ -128,45 +128,55 @@ african-queen-lite/
 │   ├── src/
 │   │   ├── main.cpp       ← Main program, mode switching, display loop
 │   │   ├── modes.h        ← 6 ride modes with parameter sets
-│   │   ├── cdi_controller.h   ← Ignition timing control (Map A/B select)
+│   │   ├── cdi_controller.h   ← Ignition timing control (3-map: A/B/C via GPIO27+GPIO33)
 │   │   ├── exhaust_valve.h    ← Servo PWM for exhaust valve
 │   │   ├── airbox.h           ← Servo PWM for airbox resonance flap
 │   │   ├── sensors.h          ← RPM, temp, voltage, oil pressure sensing
-│   │   ├── display.h          ← SSD1306 OLED 128x64 rendering
+│   │   ├── display.h          ← SSD1306 OLED 128x64 rendering (sunlight-optimized v2.1)
 │   │   ├── bluetooth.h        ← NimBLE service for smartphone logging
 │   │   └── led_indicator.h    ← WS2812 RGB LED mode indicator
 │   ├── hardware/
-│   │   └── WIRING.md       ← Pin mappings, circuits, enclosure notes
+│   │   ├── WIRING.md       ← Pin mappings, circuits, enclosure notes
+│   │   ├── wiring_diagram.py ← SVG+ASCII wiring diagram generator (v2.1)
+│   │   └── parts_checker.py ← Parts compatibility checker against DB (v2.1)
 │   └── RESEARCH.md          ← Research findings (MCU, servo, CDI, StVZO)
 └── tracker/                ← Build tracker web app (Python/Flask)
     ├── app.py              ← Dashboard server (port 5050)
     └── requirements.txt
 ```
 
-## Ride-Mode Controller — 6 Modi
+## Ride-Mode Controller v2.1 — 6 Modi
 
-| Mode | Zündung | Valve | Airbox | LED | Charakter |
-|------|---------|-------|--------|-----|-----------|
-| STRASSE | 0° | 50% | 50% | 🟢 Grün | Ausgewogen, moderater Sound |
-| STADT | -2° | 20% | 30% | 🔵 Blau | Leise, spritsparend |
-| GELÄNDE | +2° | 100% | 100% | 🔴 Rot | Aggressiv, volle Leistung |
-| SPORT | +3° | 100% | 100% | 🟠 Orange | Scharf, sportlich |
-| COMFORT | -1° | 40% | 40% | 🟣 Lila | Sanft, cruisen |
-| SOUND | +1° | 100% | 80% | 🔵 Türkis | Best Sound, nicht max Leistung |
+| Mode | Zündung | Valve | Airbox | CDI Map | LED | Charakter |
+|------|---------|-------|--------|---------|-----|-----------|
+| STRASSE | 0° | 50% | 50% | A | 🟢 Grün | Ausgewogen, moderater Sound |
+| STADT | -2° | 20% | 30% | A | 🔵 Blau | Leise, spritsparend |
+| GELÄNDE | +2° | 100% | 100% | B | 🔴 Rot | Aggressiv, volle Leistung |
+| SPORT | +3° | 100% | 100% | B | 🟠 Orange | Scharf, sportlich |
+| COMFORT | -1° | 40% | 40% | A | 🟣 Lila | Sanft, cruisen |
+| SOUND | +1° | 100% | 80% | C | 🔵 Türkis | Best Sound, nicht max Leistung |
 
 ## Hardware
 
 - **MCU:** ESP32 DevKit (WiFi + BLE, 34 GPIO, 240MHz dual-core)
-- **Display:** SSD1306 1.3" OLED (128×64, I²C) — sonnenlichtlesbar
+- **Display:** SSD1306 1.3" OLED (128×64, I²C) — sunlight-optimized firmware v2.1
 - **LED:** WS2812 RGB (1 LED, Modus-Farbe)
-- **Servos:** MG996R (Prototyp) → später Pololu 37D Gearmotor + AS5600
-- **CDI:** Ignitech DC-CDI-P2 (Map A/B via GPIO)
+- **Servos:** MG996R (Prototyp) → **DRV8833+AS5600** motor driver (v2.1, compile-time selectable)
+- **CDI:** Ignitech DC-CDI-P2 (3-Map: A/B/C via GPIO27+GPIO33, EC-type approved)
 - **Switches:** 2× Cyclops Adventure Switch (Mode+/Mode-), IP68
 - **Gehäuse:** 3D-gedruckt PETG, IP67 mit Dichtung, Lenker-Halterung
+
+### v2.1 Key Changes
+- **3-Map CDI:** GPIO27 (Map A/B) + GPIO33 (Map B/C) → 3 ignition curves via Ignitech DC-CDI-P2
+- **DRV8833+AS5600:** Closed-loop motor driver for exhaust/airbox valves (replaces unreliable RC servos)
+- **Sunlight display:** 2x font for temp/voltage, inverted display mode, high-contrast layout
+- **Engine runtime fix:** `update_runtime()` with millis()-based minute tracking
+- **Wiring diagram generator:** Python SVG+ASCII generator in `hardware/wiring_diagram.py`
+- **Parts compatibility checker:** Validates components against `vehicle_database.db`
 
 ## DB
 Alle Daten in: `research/vehicle_database.db`
 - Variant ID: 5 (NX650 Dominator RFVC)
-- 137 NX650-fitment Teile in DB
-- 54 NX650 Known Issues (4 critical)
+- 143 NX650-fitment Teile in DB
+- 54 NX650 Known Issues (5 critical)
 - Build Guide #8: African Queen Lite Styling (active)

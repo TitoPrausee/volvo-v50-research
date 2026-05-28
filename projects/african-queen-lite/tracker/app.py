@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-African Queen Lite — Build Tracker Web App v2.0
+African Queen Lite — Build Tracker Web App v2.1
 Reads from vehicle_database.db and serves a dashboard.
-v2.0: Added ride-mode controller section with mode parameters,
-      longevity monitoring, and hardware status.
+v2.1: 3-Map CDI (A/B/C), DRV8833 motor driver, sunlight display,
+      engine runtime tracking, BLE longevity data fix
 Run: python3 app.py
 Open: http://localhost:5050
 """
@@ -23,37 +23,37 @@ RIDE_MODES = {
     "STRASSE": {
         "color": "#00FF00", "ignition_offset": 0, "valve_percent": 50,
         "airbox_percent": 50, "idle_rpm": 1300, "rev_limit": 7000,
-        "sweep_rate": 3, "throttle_curve": "LINEAR",
+        "sweep_rate": 3, "throttle_curve": "LINEAR", "cdi_map": "A",
         "description": "Ausgewogen, gute Leistung, moderater Sound, verbrauchsoptimiert"
     },
     "STADT": {
         "color": "#0064FF", "ignition_offset": -2, "valve_percent": 20,
         "airbox_percent": 30, "idle_rpm": 1200, "rev_limit": 6500,
-        "sweep_rate": 2, "throttle_curve": "SOFT",
+        "sweep_rate": 2, "throttle_curve": "SOFT", "cdi_map": "A",
         "description": "Sanfter Anfahrt, leise (Exhaust Valve geschlossen), spritsparend"
     },
     "GELÄNDE": {
         "color": "#FF3232", "ignition_offset": 2, "valve_percent": 100,
         "airbox_percent": 100, "idle_rpm": 1400, "rev_limit": 7500,
-        "sweep_rate": 6, "throttle_curve": "AGGRESSIVE",
+        "sweep_rate": 6, "throttle_curve": "AGGRESSIVE", "cdi_map": "B",
         "description": "Aggressiver Zündzeitpunkt, volle Leistung, Drehzahl-hoch-halten"
     },
     "SPORT": {
         "color": "#FFA500", "ignition_offset": 3, "valve_percent": 100,
         "airbox_percent": 100, "idle_rpm": 1350, "rev_limit": 7500,
-        "sweep_rate": 8, "throttle_curve": "AGGRESSIVE",
+        "sweep_rate": 8, "throttle_curve": "AGGRESSIVE", "cdi_map": "B",
         "description": "Volle Leistung, scharfer Zündzeitpunkt, sportlicher Sound"
     },
     "COMFORT": {
         "color": "#9400FF", "ignition_offset": -1, "valve_percent": 40,
         "airbox_percent": 40, "idle_rpm": 1250, "rev_limit": 6500,
-        "sweep_rate": 2, "throttle_curve": "SOFT",
+        "sweep_rate": 2, "throttle_curve": "SOFT", "cdi_map": "A",
         "description": "Weicher Zündzeitpunkt, leise, sanfte Gasannahme, cruisen"
     },
     "SOUND": {
         "color": "#00FFFF", "ignition_offset": 1, "valve_percent": 100,
         "airbox_percent": 80, "idle_rpm": 1300, "rev_limit": 7000,
-        "sweep_rate": 5, "throttle_curve": "PROGRESSIVE",
+        "sweep_rate": 5, "throttle_curve": "PROGRESSIVE", "cdi_map": "C",
         "description": "Reiner Sound-Modus! Zündung für besten Sound optimiert"
     },
 }
@@ -81,7 +81,7 @@ DASHBOARD_HTML = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏍️ African Queen Lite — Build Tracker v2.0</title>
+    <title>🏍️ African Queen Lite — Build Tracker v2.1</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'SF Mono', 'Fira Code', monospace; background: #0a0a0a; color: #e0e0e0; }
@@ -140,7 +140,7 @@ DASHBOARD_HTML = """
 <body>
 <div class="header">
     <h1>🏍️ African Queen Lite — Build Tracker</h1>
-    <p>Honda NX650 Dominator RFVC · <span class="tag tag-v2">v2.0 LONGEVITY</span> · Budget: 5.000€ HARD CAP</p>
+    <p>Honda NX650 Dominator RFVC · <span class="tag tag-v2">v2.1 3-MAP CDI</span> · Budget: 5.000€ HARD CAP</p>
 </div>
 
 <div class="container">
@@ -159,7 +159,7 @@ DASHBOARD_HTML = """
 
         <!-- Ride Mode Controller -->
         <div class="card wide-card">
-            <h2>🎮 Ride Mode Controller <span class="tag tag-esp32">ESP32</span> <span class="tag tag-v2">v2.0</span></h2>
+            <h2>🎮 Ride Mode Controller <span class="tag tag-esp32">ESP32</span> <span class="tag tag-v2">v2.1</span></h2>
             <div class="mode-grid">
                 {% for mode, params in modes.items() %}
                 <div class="mode-card">
@@ -168,7 +168,7 @@ DASHBOARD_HTML = """
                         {{mode}}
                     </div>
                     <div class="mode-param">IGN: {{'+' if params.ignition_offset >= 0 else ''}}{{params.ignition_offset}}° · V:{{params.valve_percent}}% · A:{{params.airbox_percent}}%</div>
-                    <div class="mode-param">Idle:{{params.idle_rpm}} · Rev:{{params.rev_limit}} · Sweep:{{params.sweep_rate}}</div>
+                    <div class="mode-param">CDI: Map {{params.cdi_map}} · Idle:{{params.idle_rpm}} · Rev:{{params.rev_limit}}</div>
                     <div class="mode-param">Throttle: {{params.throttle_curve}}</div>
                     <div class="mode-desc">{{params.description}}</div>
                 </div>

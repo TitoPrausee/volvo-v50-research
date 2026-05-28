@@ -1,4 +1,4 @@
-# African Queen Lite — Ride-Mode Controller Research v2.0
+# African Queen Lite — Ride-Mode Controller Research v2.1
 
 ## 1. ESP32 vs Arduino vs Teensy — Motorcycle Controller
 
@@ -179,3 +179,87 @@ Do NOT use standard RC servos (SG90/MG996R) — too fragile for heat/vibration.
 | Coolant | N/A | **Air-cooled!** |
 
 **v2.0 Feature:** All intervals tracked in EEPROM, with overdue warnings on display
+
+---
+
+## v2.1 Research Additions (2026-05-28)
+
+### 8. 3-Map CDI Control — Ignitech DC-CDI-P2
+
+The Ignitech DC-CDI-P2 supports **2-pin map selection** for up to 3 ignition maps:
+- **Pin 1 (CDI_MAP_A, GPIO27):** Low=Map A, High=Map B
+- **Pin 2 (CDI_MAP_B, GPIO33):** When Pin1=High AND Pin2=High → Map C
+- Logic table: A=LL, B=HL, C=HH (L=LOW, H=HIGH on respective pin)
+
+**v2.1 Mode→Map assignments:**
+
+| Mode | CDI Map | Pin A (GPIO27) | Pin B (GPIO33) | Rationale |
+|------|---------|----------------|----------------|-----------|
+| STRASSE | A | LOW | LOW | Balanced, OEM-equivalent |
+| STADT | A | LOW | LOW | Economy, retarded timing not in CDI map |
+| GELÄNDE | B | HIGH | LOW | Advanced timing for off-road power |
+| SPORT | B | HIGH | LOW | Aggressive timing |
+| COMFORT | A | LOW | LOW | Retarded via software if needed |
+| SOUND | C | HIGH | HIGH | Sound-optimized map (custom tuning) |
+
+**TÜV note:** Ignitech DC-CDI-P2 has **EC type approval** — legal for road use in DE. Map switching itself is not regulated (no StVZO clause forbids it). However, Map C must not exceed OEM peak power (§19.2).
+
+### 9. DRV8833 + AS5600 Motor Driver for Exhaust/Airbox Valves
+
+**Problem:** RC servos (MG996R) are not reliable for motorcycle use — vibration destroys potentiometers, position drift occurs, no feedback.
+
+**v2.1 Solution:** Compile-time selectable DRV8833+AS5600 motor driver:
+- **DRV8833:** H-bridge motor driver, drives DC gearmotor for valve
+- **AS5600:** 12-bit magnetic rotary encoder (I²C), closed-loop position feedback
+- **Compile flag:** `USE_DRV8833` in platformio.ini selects motor driver vs RC servo
+- **RC servo fallback:** MG996R on GPIO still available for prototyping
+
+**Wiring (DRV8833+AS5600):**
+- DRV8833 IN1→GPIO14, IN2→GPIO12 (exhaust), IN1→GPIO4, IN2→GPIO2 (airbox)
+- AS5600 SDA→GPIO21, SCL→GPIO22 (shared I²C bus, different I²C addresses)
+- AS5600 power: 3.3V, DRV8833 power: 5V (motor supply)
+
+**Cost:** DRV8833 breakout ~€3, AS5600 module ~€4, Pololu 37D gearmotor ~€35 = ~€42 per axis (x2 = ~€84)
+
+### 10. OLED Sunlight Readability — v2.1 Optimizations
+
+**Problem:** SSD1306 OLED (128x64) is hard to read in direct sunlight on a motorcycle.
+
+**v2.1 Software optimizations (no hardware change):**
+- **2x font for critical values:** Temperature and voltage displayed in 2x height (16→32px characters)
+- **Inverted display mode:** `ssd1306_normal_mode` → `ssd1306_invert_display` in bright conditions
+- **High-contrast layout:** White text on black background, thick borders, no thin lines
+- **Priority display:** Only show mode name + 2 critical values on main ride page (less clutter = more readable)
+
+**Still recommended for production:** Sharp Memory LCD LS027B7DH01 (transflective, €20). SSD1306 is prototype-only.
+
+### 11. Engine Runtime Tracking — Bug Fix
+
+**v2.0 Bug:** `engine_runtime_min_` in `longevity.h` was never incremented — only declared and reset.
+
+**v2.1 Fix:** Added `update_runtime()` method using `millis()` delta tracking:
+```cpp
+void update_runtime() {
+    uint32_t now = millis();
+    if (now - last_runtime_millis_ >= 60000UL) {
+        engine_runtime_min_++;
+        last_runtime_millis_ += 60000UL;
+    }
+}
+```
+Called from `main.cpp` loop when engine is running (RPM > 0).
+
+### 12. Wiring Diagram Generator
+
+**v2.1 Tool:** `dashboard/hardware/wiring_diagram.py` — Python script that generates:
+- **SVG diagram:** Color-coded wiring with component blocks, pin labels, wire colors
+- **ASCII diagram:** Terminal-friendly text rendering for quick reference
+- Reads pin definitions from `platformio.ini` comment conventions
+- Includes all v2.1 hardware: ESP32, DRV8833, AS5600, Ignitech CDI, sensors, servos, display, LED, encoder
+
+### 13. Parts Compatibility Checker
+
+**v2.1 Tool:** Python script reading `vehicle_database.db` to validate:
+- All controller components against known NX650-fitment parts
+- Cross-reference with known issues (stator, regulator, connectors)
+- Budget compliance check against €5,000 hard cap

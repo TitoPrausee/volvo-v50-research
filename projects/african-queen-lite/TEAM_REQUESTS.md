@@ -102,6 +102,36 @@ Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md)
 - Bundle-Deals identifiziert: Ketten-Set, Stator+Reg, RT Fork-Kit, Reifen-Set
 - Gebraucht-vs-Neu-Strategie definiert
 
+## ENTWICKLER UPDATE — Ride Mode Controller v2.1 (2026-05-28)
+
+### Was wurde gebaut:
+**Ride-Mode Controller v2.1** — Bug Fixes + 3-Map CDI + DRV8833 Motor Driver + Sunlight Display
+
+**Bug Fixes:**
+- `longevity.h`: `engine_runtime_min_` wurde nie inkrementiert → `update_runtime()` mit millis()-Delta hinzugefügt
+- `sensors.h`: `NX650_FINAL_RATIO` Naming korrigiert (war `NX650_FINALRatio`)
+
+**Neue Features:**
+- **3-Map CDI Control:** GPIO27 (Map A/B) + GPIO33 (Map B/C) → 3 Zündkurven via Ignitech DC-CDI-P2
+  - STRASSE→A, STADT→A, GELÄNDE→B, SPORT→B, COMFORT→A, SOUND→C
+  - Map C = Sound-optimierte Zündkurve (nicht Leistung!)
+- **DRV8833+AS5600 Motor Driver:** Compile-time `USE_DRV8833` Flag in platformio.ini
+  - DRV8833 H-Bridge + AS5600 magnetischer Encoder = geschlossener Regelkreis
+  - RC Servo (MG996R) Fallback für Prototyping beibehalten
+- **OLED Sonnenlicht-Optimierung:** 2x Font für Temp/Spannung, invertierter Display-Modus
+- **Wiring Diagram Generator:** `hardware/wiring_diagram.py` (SVG+ASCII)
+- **Parts Compatibility Checker:** Validiert Controller-Komponenten gegen `vehicle_database.db`
+- **Tracker Web-App v2.1:** CDI Map Feld in Ride-Mode-Anzeige
+
+**Hardware-Kosten Controller:** ~€300 (ESP32 €5 + Ignitech CDI €120 + DRV8833+AS5600 €14 + Pololu 37D x2 €70 + Servos MG996R €8 + Sensoren €10 + OLED €3 + Gehäuse €5 + Kabel €15 + Encoder €5 + Sonstiges €45)
+
+### Anfragen an andere Agenten:
+- **@aql-electrical**: DRV8833 am 5V Motor-Supply OK? AS5600 I²C-Adresse Konflikt mit OLED (SSD1306=0x3C, AS5600=0x36/0x0F)?
+- **@aql-mechanic**: Sound-Map C Zündkurve — welche Zündzeitpunkte für besten NX650 Sound? Dyno-Test nötig?
+- **@aql-chief-engineur**: TÜV — 3-Map CDI switching §19.2 konform? Map C darf nicht über OEM 32kW liegen.
+
+---
+
 ## ENTWICKLER UPDATE — Ride Mode Controller v2.0 (2026-05-27)
 
 ### Was wurde gebaut:
@@ -215,13 +245,21 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - Farbschema und Design-Elemente definiert ✅
 
 ### ✅ Entwickler ERLEDIGT:
-- ESP32 Ride-Mode Controller implementiert ✅
-- Build Tracker Flask Web-Dashboard ✅
+- ESP32 Ride-Mode Controller v2.1 implementiert ✅
+- Build Tracker Flask Web-Dashboard v2.1 ✅
+- 3-Map CDI Control (GPIO27+GPIO33) ✅
+- DRV8833+AS5600 Motor Driver Support ✅
+- OLED Sunlight Readability Optimizations ✅
+- Engine Runtime Bug Fix ✅
+- Wiring Diagram Generator (SVG+ASCII) ✅
+- Parts Compatibility Checker ✅
 
 ### 🔄 Entwickler benötigt (noch offen):
 - **3D-Druck Gehäuse**: CAD-Modell für IP67 ESP32-Gehäuse am Lenker
-- **PCB Layout**: Custom ESP32 Shield (Stromversorgung, Servo-Treiber, Sensor-Inputs)
+- **PCB Layout**: Custom ESP32 Shield (DRV8833 motor driver, AS5600 encoder, Sensor-Inputs, CDI interface)
 - **Smartphone App**: BLE-Client für Android/iOS (Logging + Mode-Switch)
+- **Dyno-Test Map C**: Sound-optimierte Zündkurve muss auf Prüfstand validiert werden
+- **PlatformIO Compile Test**: Vollständige Kompilierung auf ESP32-Target bestätigen
 
 ### ✅ Motor/Antrieb ERLEDIGT:
 - Stator+Regler Combo bestätigt ✅
