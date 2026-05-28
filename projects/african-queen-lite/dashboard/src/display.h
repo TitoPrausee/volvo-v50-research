@@ -108,11 +108,14 @@ public:
     DisplayPage getCurrentPage() const { return current_page_; }
 
     // Main display update — call at regular interval
+    // v2.2: Added gear, fuel_liters, fuel_pct for display
     void update(RideMode mode, uint16_t rpm, float temp, float voltage,
                 uint8_t valve_pos, uint8_t airbox_pos,
                 bool oil_ok, uint8_t cdi_map,
                 bool temp_warn, bool volt_warn,
-                const LongevityMonitor& longevity) {
+                const LongevityMonitor& longevity,
+                uint8_t gear = 0, bool gear_valid = false,
+                float fuel_liters = 16.0f, uint8_t fuel_pct = 100) {
         if (!initialized_) return;
 
         oled_.clearDisplay();
@@ -147,12 +150,14 @@ public:
         // Draw current page
         switch (current_page_) {
             case PAGE_RIDE:   drawRidePage(mode, rpm, temp, voltage, valve_pos,
-                                            airbox_pos, oil_ok, cdi_map, temp_warn, volt_warn); break;
+                                            airbox_pos, oil_ok, cdi_map, temp_warn, volt_warn,
+                                            gear, gear_valid, fuel_liters, fuel_pct); break;
             case PAGE_HEALTH:  drawHealthPage(longevity, voltage, rpm); break;
             case PAGE_MAINT:   drawMaintPage(longevity); break;
             case PAGE_TRIP:    drawTripPage(longevity, rpm); break;
             default:           drawRidePage(mode, rpm, temp, voltage, valve_pos,
-                                            airbox_pos, oil_ok, cdi_map, temp_warn, volt_warn); break;
+                                            airbox_pos, oil_ok, cdi_map, temp_warn, volt_warn,
+                                            gear, gear_valid, fuel_liters, fuel_pct); break;
         }
 
         // Always show alert bar if any alerts active
