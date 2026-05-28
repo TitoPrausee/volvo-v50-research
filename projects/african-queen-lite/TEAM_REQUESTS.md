@@ -37,7 +37,7 @@ KEINE Phase ueberschritten!
 | Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
 | 1: Zuverlaessigkeit | EUR445 | EUR800 | +EUR355 (44%) | OK — +EUR17 Connector-Kits |
-| 2: Fahrwerk | EUR944 | EUR1.200 | +EUR256 (21%) | OK |
+| 2: Fahrwerk | €944 | **€1.005** | **+€195 (16%)** | ✅ Deep-Dive Update (2026-05-28) |
 | 3: Africa Twin Look | EUR688 | EUR1.000 | +EUR312 (31%) | OK |
 | 4: Touring-Komfort | EUR187 | EUR800 | +EUR613 (77%) | OK |
 | 5: Reserve | — | EUR500 | +EUR500 | Puffer |
@@ -201,23 +201,36 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Übersetzung**: 15/44 OEM ist OK für Touring. 15/45 für mehr Beschleunigung (±€0 im Set enthalten)
 - **Gewichtsverteilung**: ✅ ERLEDIGT — vorne: ~54%, hinten: ~46% (modifiziert durch LED und Auspuff)
 
-### ✅ Fahrwerksspezialist ERLEDIGT (2026-05-27):
-- **Fork-Setup**: RT FEGV S4101 Emulator (210€) + Wirth 0.55kg/mm Federn (80€) + Motul 5W Öl (17€) = **307€**. Budget-Alternative: Wirth Federn allein (~97€, nur ~40% der Wirkung).
-  - Race Tech Bundle (Emulator+RT Federn) = 268€ bei LM.de → Wirth separat (290€) = kein Bundle-Vorteil
+### ✅ Fahrwerksspezialist ERLEDIGT (2026-05-28 — Deep-Dive Update):
+- **Fork-Setup**: RT FEGV S4101 Emulator (210€ avg, 179.90–239.00€, 5 Quellen) + Wirth 0.55kg/mm Federn (80€ avg, 69.90–90€, 4 Quellen) + Motul 5W Öl (17€ für 2L, 3 Quellen) = **307€**. Budget-Alternative: Wirth Federn allein (~97€, nur ~40% der Wirkung).
+  - Race Tech Bundle (Emulator+RT Federn) = 260–270€ → Wirth separat (290€) = kein Bundle-Vorteil
   - ❌ FEGV S4101D Dual-Rate (244€) = OVERKILL für NX650, standard S4101 reicht
-- **Heck**: YSS Z-366 Mono (279€) + Bracket (45€) + Schweißen (50-80€) = **~374€** ✅ BESTE Wahl
-  - Budget-Alt: YSS Z367 Twin (169€, Direkt-Bolt-on, +0.3kg schwerer, weniger Leistung)
-  - Hagon Nitrostar Twin (175€) = Alternative zu YSS Twin
+  - Bester Preis FEGV S4101: Polo MotorSport 179,90€
+  - Bester Preis Wirth 9202-41-55: LM.de 69,90€
+  - NEU in DB: Motul Gabelöl 5W (ID389), ATE TYP200 DOT4 (ID388)
+- **Heck**: YSS Z-366 Mono (269€ avg, 226.50–301€, 3 Quellen: WRS/TecMoto/M&P) + Bracket (45€, 3 Quellen) + Schweißen (65€) = **379€ avg** ✅ BESTE Wahl
+  - Budget-Alt: YSS Z367 Twin (169€ avg, 155–179€, 3 Quellen, Direkt-Bolt-on, +0.3kg schwerer)
+  - Hagon Nitrostar Twin (175€ avg, 160–190€, built-to-order 2–3 Wochen)
+  - YSS M362 Mono (345€ avg) → Gesamt ~455€ = über Budget, minimal besser als Z-366
   - ❌ Öhlins = NICHT verfügbar für NX650! Custom only, 800€+
-  - ❌ Wilbers = Custom Bestellung, 500-700€, über Budget
-- **Bremsen**: EBC FA185HH (25€) + Venhill SS Leitung (47€) + ATE TYP200 DOT4 (10€) = **82€** ⭐ BESTES Preis/Leistung
-  - 260mm Disc Kit = ❌ SCHLECHTES Preis/Leistung (350€ für +1.5% Bremsmoment)
+  - ❌ Wilbers = Custom Bestellung, 500–700€, way über Budget
+  - Bester Preis Z-366: WRS Italy 226,50€ (+15–25€ Versand EU)
+  - Bester Preis Bracket: TecMoto DE 39€
+- **Bremsen**: EBC FA185HH (27€ avg, 21.90–42.60€, 4 Quellen) + Venhill SS (54€ avg, 39.95–65.80€, 3 Quellen) + ATE DOT4 (11.50€ avg, 3+ Quellen) = **93€ avg** ⭐ BESTES Preis/Leistung
+  - SS-Leitung Vergleich: Venhill 54€ < HEL 56€ < Goodridge 58€ (Venhill = BEST VALUE)
+  - 260mm Disc Kit = ❌ SCHLECHTES Preis/Leistung (185€ avg für +1.5% Bremsmoment)
   - OEM 256mm Scheibe reicht für 161kg Bike!
   - Hintere Trommelbremse: EBC 396 Schuhe (16€), kein Upgrade nötig
-- **Reifen**: Mitas E-07 Set (177€) + HD-Schläuche (40€) = **~217€** ⭐ BEST VALUE
-  - Alternativ: Shinko 804/805 (146€, kürzere Haltbarkeit), Heidenau K60 (262€, beste Haltbarkeit aber schlechte Nässe)
+  - Bester Preis EBC FA185HH: FC-Moto 21,90€
+  - Bester Preis Venhill: Polo 59,90€
+- **Reifen**: Mitas E-07 Set (191€ avg, Reifen24/FC-Moto/Louis alle <90€ front) + HD-Schläuche (35€, Louis 29.99€ Set) = **~226€** ⭐ BEST VALUE
+  - Alternativ: Shinko 804/805 (158€ avg, kürzere Haltbarkeit), Heidenau K60 (233€ avg, beste Haltbarkeit aber schlechte Nässe)
+  - Pirelli MT60 RS (279€, beste Nässe), Conti TKC70 (261€, premium Allrounder)
   - ⚠️ NX650 hat Speichenfelgen = SCHLAUCH-PFLICHT!
-- **Phase 2 Total**: ~980€ (Option A Optimal) → **220€ Reserve** ✅
+  - Budget-Gesamt: Shinko 804/805 (158€) + HD-Schläuche (35€) = **193€**
+- **DB Update**: 31 bestehende Teile aktualisiert (Alle 3+ Quellen mit price_min/max/avg), 2 neue Teile eingefügt (Motul Öl, ATE DOT4). DB jetzt 389 Teile, 696 Fitments.
+- **Phase 2 Total**: ~1.005€ avg (Option A Optimal) → **195€ Reserve** ✅
+- **Kürzungspriorität**: Emulatoren > Bremsen > Heckdämpfer > Reifen
 
 ### ✅ Elektrik-Spezialist ERLEDIGT (2026-05-27):
 - **Stator:** RM Stator 200W Standard (€95-120) BEST BUY, Heavy Duty (€130-160) nur bei Volllast nötig
@@ -284,7 +297,7 @@ Agenten schreiben hier rein wen sie noch brauchen:
 | Phase | Vorher (Run #1) | Jetzt (Run #2) | Reserve | Status |
 |-------|-----------------|----------------|---------|--------|
 | 1: Zuverlässigkeit | €409 | **€445** | **+€355 (44%)** | ⚠️ +€17 Connector-Kits (PFLICHT!) |
-| 2: Fahrwerk | €944 | **€944** | **+€256 (21%)** | ✅ Gleich |
+|| 2: Fahrwerk | €944 | **€1.005** | **+€195 (16%)** | ✅ Deep-Dive (2026-05-28) |
 | 3: Africa Twin Look | €688 | **€688** | **+€312 (31%)** | ✅ Gleich |
 | 4: Touring-Komfort | €187 | **€187** | **+€613 (77%)** | ✅ Gleich |
 | **Total** | **€2,228** | **€2,264** | **+€2,036** | ✅ |
