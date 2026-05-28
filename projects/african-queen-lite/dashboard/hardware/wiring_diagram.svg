@@ -1,115 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-<rect width="100%" height="100%" fill="#1a1a2e"/>
-<text x="600" y="30" fill="#e0e0e0" font-size="20" font-family="monospace" text-anchor="middle" font-weight="bold">African Queen Lite — ESP32 Ride-Mode Controller Wiring Diagram v2.1</text>
-<text x="600" y="48" fill="#888" font-size="11" font-family="monospace" text-anchor="middle">Honda NX650 Dominator RFVC</text>
-<rect x="450" y="80" width="300" height="700" rx="8" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
-<text x="600" y="105" fill="#e94560" font-size="16" font-family="monospace" text-anchor="middle" font-weight="bold">ESP32-WROOM-32</text>
-<text x="600" y="122" fill="#888" font-size="10" font-family="monospace" text-anchor="middle">AQL Ride-Mode Controller</text>
-<text x="460" y="140" fill="#3399FF" font-size="9" font-family="monospace">GPIO 4 MODE_UP</text>
-<line x1="450" y1="136" x2="390" y2="136" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="136" r="3" fill="#3399FF"/>
-<text x="460" y="159" fill="#3399FF" font-size="9" font-family="monospace">GPIO 5 MODE_DOWN</text>
-<line x1="450" y1="155" x2="390" y2="155" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="155" r="3" fill="#3399FF"/>
-<text x="460" y="178" fill="#3399FF" font-size="9" font-family="monospace">GPIO16 ENCODER_A</text>
-<line x1="450" y1="174" x2="390" y2="174" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="174" r="3" fill="#3399FF"/>
-<text x="460" y="197" fill="#3399FF" font-size="9" font-family="monospace">GPIO17 ENCODER_B</text>
-<line x1="450" y1="193" x2="390" y2="193" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="193" r="3" fill="#3399FF"/>
-<text x="460" y="216" fill="#3399FF" font-size="9" font-family="monospace">GPIO 0 ENCODER_BTN</text>
-<line x1="450" y1="212" x2="390" y2="212" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="212" r="3" fill="#3399FF"/>
-<text x="460" y="235" fill="#FF9933" font-size="9" font-family="monospace">GPIO18 IGNITION_PULSE</text>
-<line x1="450" y1="231" x2="390" y2="231" stroke="#FF9933" stroke-width="2"/>
-<circle cx="450" cy="231" r="3" fill="#FF9933"/>
-<text x="460" y="254" fill="#3399FF" font-size="9" font-family="monospace">GPIO19 OIL_PRESSURE</text>
-<line x1="450" y1="250" x2="390" y2="250" stroke="#3399FF" stroke-width="2"/>
-<circle cx="450" cy="250" r="3" fill="#3399FF"/>
-<text x="460" y="273" fill="#33CC33" font-size="9" font-family="monospace">GPIO34 THERMISTOR</text>
-<line x1="450" y1="269" x2="390" y2="269" stroke="#33CC33" stroke-width="2"/>
-<circle cx="450" cy="269" r="3" fill="#33CC33"/>
-<text x="460" y="292" fill="#FF3333" font-size="9" font-family="monospace">GPIO35 VOLTAGE_DIVIDER</text>
-<line x1="450" y1="288" x2="390" y2="288" stroke="#FF3333" stroke-width="2"/>
-<circle cx="450" cy="288" r="3" fill="#FF3333"/>
-<text x="460" y="311" fill="#FF3333" font-size="9" font-family="monospace">GPIO36 STATOR_SENSE</text>
-<line x1="450" y1="307" x2="390" y2="307" stroke="#FF3333" stroke-width="2"/>
-<circle cx="450" cy="307" r="3" fill="#FF3333"/>
-<text x="740" y="140" fill="#FF9933" font-size="9" font-family="monospace" text-anchor="end">EXHAUST_VALVE GPIO25</text>
-<line x1="750" y1="136" x2="810" y2="136" stroke="#FF9933" stroke-width="2"/>
-<circle cx="750" cy="136" r="3" fill="#FF9933"/>
-<text x="740" y="159" fill="#FF9933" font-size="9" font-family="monospace" text-anchor="end">AIRBOX_FLAP GPIO26</text>
-<line x1="750" y1="155" x2="810" y2="155" stroke="#FF9933" stroke-width="2"/>
-<circle cx="750" cy="155" r="3" fill="#FF9933"/>
-<text x="740" y="178" fill="#3399FF" font-size="9" font-family="monospace" text-anchor="end">CDI_MAP_A GPIO27</text>
-<line x1="750" y1="174" x2="810" y2="174" stroke="#3399FF" stroke-width="2"/>
-<circle cx="750" cy="174" r="3" fill="#3399FF"/>
-<text x="740" y="197" fill="#3399FF" font-size="9" font-family="monospace" text-anchor="end">CDI_MAP_B GPIO33</text>
-<line x1="750" y1="193" x2="810" y2="193" stroke="#3399FF" stroke-width="2"/>
-<circle cx="750" cy="193" r="3" fill="#3399FF"/>
-<text x="740" y="216" fill="#FF9933" font-size="9" font-family="monospace" text-anchor="end">LED_DATA GPIO32</text>
-<line x1="750" y1="212" x2="810" y2="212" stroke="#FF9933" stroke-width="2"/>
-<circle cx="750" cy="212" r="3" fill="#FF9933"/>
-<text x="740" y="235" fill="#3399FF" font-size="9" font-family="monospace" text-anchor="end">OLED_SDA GPIO21</text>
-<line x1="750" y1="231" x2="810" y2="231" stroke="#3399FF" stroke-width="2"/>
-<circle cx="750" cy="231" r="3" fill="#3399FF"/>
-<text x="740" y="254" fill="#3399FF" font-size="9" font-family="monospace" text-anchor="end">OLED_SCL GPIO22</text>
-<line x1="750" y1="250" x2="810" y2="250" stroke="#3399FF" stroke-width="2"/>
-<circle cx="750" cy="250" r="3" fill="#3399FF"/>
-<rect x="50" y="80" width="220" height="30" rx="4" fill="#16213e" stroke="#3399FF" stroke-width="1.5"/>
-<text x="160" y="92" fill="#3399FF" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Handlebar Buttons</text>
-<text x="160" y="103" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Mode+/Mode- Buttons</text>
-<rect x="50" y="135" width="220" height="30" rx="4" fill="#16213e" stroke="#3399FF" stroke-width="1.5"/>
-<text x="160" y="147" fill="#3399FF" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Rotary Encoder</text>
-<text x="160" y="158" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">KY-040 Encoder</text>
-<rect x="50" y="190" width="220" height="30" rx="4" fill="#16213e" stroke="#FF9933" stroke-width="1.5"/>
-<text x="160" y="202" fill="#FF9933" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Ignition Coil</text>
-<text x="160" y="213" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Pulse Generator Signal</text>
-<rect x="50" y="245" width="220" height="30" rx="4" fill="#16213e" stroke="#3399FF" stroke-width="1.5"/>
-<text x="160" y="257" fill="#3399FF" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Oil Pressure</text>
-<text x="160" y="268" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Pressure Switch</text>
-<rect x="50" y="300" width="220" height="30" rx="4" fill="#16213e" stroke="#33CC33" stroke-width="1.5"/>
-<text x="160" y="312" fill="#33CC33" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Thermistor</text>
-<text x="160" y="323" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">NTC 10kΩ Cylinder Head</text>
-<rect x="50" y="355" width="220" height="30" rx="4" fill="#16213e" stroke="#FF3333" stroke-width="1.5"/>
-<text x="160" y="367" fill="#FF3333" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Battery Voltage</text>
-<text x="160" y="378" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">R1=100kΩ R2=33kΩ Divider</text>
-<rect x="50" y="410" width="220" height="30" rx="4" fill="#16213e" stroke="#FF3333" stroke-width="1.5"/>
-<text x="160" y="422" fill="#FF3333" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Stator Voltage</text>
-<text x="160" y="433" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Voltage Divider</text>
-<rect x="830" y="80.0" width="240" height="35" rx="4" fill="#16213e" stroke="#FF9933" stroke-width="1.5"/>
-<text x="950" y="94.0" fill="#FF9933" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Exhaust Valve</text>
-<text x="950" y="106.0" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">PWM Servo / DRV8833</text>
-<rect x="830" y="146.0" width="240" height="35" rx="4" fill="#16213e" stroke="#FF9933" stroke-width="1.5"/>
-<text x="950" y="160.0" fill="#FF9933" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">Airbox Flap</text>
-<text x="950" y="172.0" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">PWM Servo / DRV8833</text>
-<rect x="830" y="212.0" width="240" height="35" rx="4" fill="#16213e" stroke="#3399FF" stroke-width="1.5"/>
-<text x="950" y="226.0" fill="#3399FF" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">CDI Map Select</text>
-<text x="950" y="238.0" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">Ignitech DC-CDI-P2</text>
-<rect x="830" y="278.0" width="240" height="35" rx="4" fill="#16213e" stroke="#FF9933" stroke-width="1.5"/>
-<text x="950" y="292.0" fill="#FF9933" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">WS2812 LED</text>
-<text x="950" y="304.0" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">RGB Mode Indicator</text>
-<rect x="830" y="344.0" width="240" height="35" rx="4" fill="#16213e" stroke="#3399FF" stroke-width="1.5"/>
-<text x="950" y="358.0" fill="#3399FF" font-size="8" font-family="monospace" text-anchor="middle" font-weight="bold">SSD1306 OLED</text>
-<text x="950" y="370.0" fill="#888" font-size="7" font-family="monospace" text-anchor="middle">128x64 I2C Display</text>
-<rect x="50" y="700" width="400" height="150" rx="6" fill="#16213e" stroke="#FF3333" stroke-width="2"/>
-<text x="250" y="718" fill="#FF3333" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold">⚡ Power Conditioning (CRITICAL)</text>
-<text x="65" y="738" fill="#ccc" font-size="9" font-family="monospace">• 12V Battery → 5A Fuse → TVS SMAJ28A</text>
-<text x="65" y="754" fill="#ccc" font-size="9" font-family="monospace">• 470µF + 100nF Decoupling Caps</text>
-<text x="65" y="770" fill="#ccc" font-size="9" font-family="monospace">• 1N5408 Reverse Polarity Protection</text>
-<text x="65" y="786" fill="#ccc" font-size="9" font-family="monospace">• 7805 → 3.3V LDO (or Mean Well RSD-30G-3.3)</text>
-<text x="65" y="802" fill="#ccc" font-size="9" font-family="monospace">• Conformal Coat: MG Chemicals 422B</text>
-<text x="65" y="818" fill="#ccc" font-size="9" font-family="monospace">• Mount: Rubber Grommets (McMaster 9485K52)</text>
-<rect x="830" y="700" width="260" height="150" rx="6" fill="#16213e" stroke="#555" stroke-width="1"/>
-<text x="960" y="718" fill="#e0e0e0" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Wire Color Legend</text>
-<line x1="845" y1="738" x2="885" y2="738" stroke="#FF3333" stroke-width="3"/>
-<text x="895" y="742" fill="#ccc" font-size="9" font-family="monospace">Red: Power / Battery voltage</text>
-<line x1="845" y1="760" x2="885" y2="760" stroke="#3399FF" stroke-width="3"/>
-<text x="895" y="764" fill="#ccc" font-size="9" font-family="monospace">Blue: Signal / Digital / I2C</text>
-<line x1="845" y1="782" x2="885" y2="782" stroke="#33CC33" stroke-width="3"/>
-<text x="895" y="786" fill="#ccc" font-size="9" font-family="monospace">Green: Analog sensor / Ground</text>
-<line x1="845" y1="804" x2="885" y2="804" stroke="#FF9933" stroke-width="3"/>
-<text x="895" y="808" fill="#ccc" font-size="9" font-family="monospace">Orange: PWM / Digital output</text>
-<text x="600" y="892" fill="#555" font-size="9" font-family="monospace" text-anchor="middle">Version 2.1 — 3-Map CDI + DRV8833 Motor Driver + Sunlight Display</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1450" style="background:#0a0e17">
+<text x="450" y="30" fill="#22d3ee" font-family="monospace" font-size="18" text-anchor="middle">African Queen Lite — ESP32 Wiring v2.2</text>
+<text x="450" y="50" fill="#9ca3af" font-family="monospace" font-size="11" text-anchor="middle">Honda NX650 Dominator RFVC • Auto-RPM Valve + Fuel + Gear + Sleep</text>
+<rect x="390" y="180" width="120" height="360" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+<text x="450" y="205" fill="#22d3ee" font-family="monospace" font-size="12" text-anchor="middle">ESP32</text>
+<text x="450" y="220" fill="#64748b" font-family="monospace" font-size="9" text-anchor="middle">v2.2</text>
+<text x="450" y="530" fill="#f59e0b" font-family="monospace" font-size="8" text-anchor="middle">DEEP SLEEP 10µA</text>
+<circle cx="390" cy="198" r="4" fill="#3399FF"/>
+<text x="400" y="202" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO 4</text>
+<line x1="180" y1="198" x2="390" y2="198" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="202" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">MODE_UP</text>
+<circle cx="390" cy="228" r="4" fill="#3399FF"/>
+<text x="400" y="232" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO 5</text>
+<line x1="180" y1="228" x2="390" y2="228" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="232" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">MODE_DOWN</text>
+<circle cx="390" cy="258" r="4" fill="#3399FF"/>
+<text x="400" y="262" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO16</text>
+<line x1="180" y1="258" x2="390" y2="258" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="262" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">ENCODER_A</text>
+<circle cx="390" cy="288" r="4" fill="#3399FF"/>
+<text x="400" y="292" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO17</text>
+<line x1="180" y1="288" x2="390" y2="288" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="292" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">ENCODER_B</text>
+<circle cx="390" cy="318" r="4" fill="#3399FF"/>
+<text x="400" y="322" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO 0</text>
+<line x1="180" y1="318" x2="390" y2="318" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="322" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">ENCODER_BTN</text>
+<circle cx="390" cy="348" r="4" fill="#FF9933"/>
+<text x="400" y="352" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO18</text>
+<line x1="180" y1="348" x2="390" y2="348" stroke="#FF9933" stroke-width="1.5"/>
+<text x="40" y="352" fill="#FF9933" font-family="monospace" font-size="8" text-anchor="end">IGNITION_PULSE</text>
+<circle cx="390" cy="378" r="4" fill="#3399FF"/>
+<text x="400" y="382" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO19</text>
+<line x1="180" y1="378" x2="390" y2="378" stroke="#3399FF" stroke-width="1.5"/>
+<text x="40" y="382" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="end">OIL_PRESSURE</text>
+<circle cx="390" cy="408" r="4" fill="#33CC33"/>
+<text x="400" y="412" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO34</text>
+<line x1="180" y1="408" x2="390" y2="408" stroke="#33CC33" stroke-width="1.5"/>
+<text x="40" y="412" fill="#33CC33" font-family="monospace" font-size="8" text-anchor="end">THERMISTOR</text>
+<circle cx="390" cy="438" r="4" fill="#FF3333"/>
+<text x="400" y="442" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO35</text>
+<line x1="180" y1="438" x2="390" y2="438" stroke="#FF3333" stroke-width="1.5"/>
+<text x="40" y="442" fill="#FF3333" font-family="monospace" font-size="8" text-anchor="end">VOLTAGE_DIVIDER</text>
+<circle cx="390" cy="468" r="4" fill="#FF3333"/>
+<text x="400" y="472" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="start">GPIO36</text>
+<line x1="180" y1="468" x2="390" y2="468" stroke="#FF3333" stroke-width="1.5"/>
+<text x="40" y="472" fill="#FF3333" font-family="monospace" font-size="8" text-anchor="end">STATOR_SENSE</text>
+<circle cx="510" cy="198" r="4" fill="#FF9933"/>
+<text x="500" y="202" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="end">GPIO25</text>
+<line x1="510" y1="198" x2="720" y2="198" stroke="#FF9933" stroke-width="1.5"/>
+<text x="860" y="202" fill="#FF9933" font-family="monospace" font-size="8" text-anchor="start">EXHAUST_VALVE</text>
+<circle cx="510" cy="228" r="4" fill="#FF9933"/>
+<text x="500" y="232" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="end">GPIO26</text>
+<line x1="510" y1="228" x2="720" y2="228" stroke="#FF9933" stroke-width="1.5"/>
+<text x="860" y="232" fill="#FF9933" font-family="monospace" font-size="8" text-anchor="start">AIRBOX_FLAP</text>
+<circle cx="510" cy="258" r="4" fill="#3399FF"/>
+<text x="500" y="262" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="end">GPIO27</text>
+<line x1="510" y1="258" x2="720" y2="258" stroke="#3399FF" stroke-width="1.5"/>
+<text x="860" y="262" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="start">CDI_MAP_A</text>
+<circle cx="510" cy="288" r="4" fill="#3399FF"/>
+<text x="500" y="292" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="end">GPIO33</text>
+<line x1="510" y1="288" x2="720" y2="288" stroke="#3399FF" stroke-width="1.5"/>
+<text x="860" y="292" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="start">CDI_MAP_B</text>
+<circle cx="510" cy="318" r="4" fill="#FF9933"/>
+<text x="500" y="322" fill="#e5e7eb" font-family="monospace" font-size="8" text-anchor="end">GPIO32</text>
+<line x1="510" y1="318" x2="720" y2="318" stroke="#FF9933" stroke-width="1.5"/>
+<text x="860" y="322" fill="#FF9933" font-family="monospace" font-size="8" text-anchor="start">LED_DATA</text>
+<circle cx="410" cy="540" r="4" fill="#3399FF"/>
+<text x="410" y="560" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="middle">OLED_SDA</text>
+<circle cx="460" cy="540" r="4" fill="#3399FF"/>
+<text x="460" y="560" fill="#3399FF" font-family="monospace" font-size="8" text-anchor="middle">OLED_SCL</text>
+<text x="20" y="600" fill="#22c55e" font-family="monospace" font-size="13" text-anchor="start">⚡ Power Supply</text>
+<rect x="20" y="605" width="860" height="60" rx="6" fill="#111827" stroke="#374151" stroke-width="1"/>
+<text x="35" y="625" fill="#e5e7eb" font-family="monospace" font-size="9">Battery 12V → 1N5408 → SMAJ28A → 470µF+100nF → 7805 (5V/1A) → ESP32 VIN</text>
+<text x="35" y="640" fill="#9ca3af" font-family="monospace" font-size="8">3.3V LDO for sensors/OLED•Voltage dividers: GPIO35 (100k/33k) • GPIO36 (100k/33k)</text>
+<text x="35" y="655" fill="#f59e0b" font-family="monospace" font-size="8">DEEP SLEEP: 80mA → 10µA after 5 min engine off • Wake: GPIO4 (Mode+) or GPIO18 (Ignition)</text>
+<text x="20" y="680" fill="#22d3ee" font-family="monospace" font-size="13">🔧 Exhaust Valve + Airbox (DRV8833 Production)</text>
+<rect x="20" y="685" width="860" height="80" rx="6" fill="#111827" stroke="#374151" stroke-width="1"/>
+<text x="35" y="702" fill="#e5e7eb" font-family="monospace" font-size="9">Exhaust: Pololu 37Dx52L gearmotor → DRV8833 (GPIO14=AIN1, GPIO13=AIN2) → AS5600 @ 0x36</text>
+<text x="35" y="717" fill="#e5e7eb" font-family="monospace" font-size="9">Airbox: Pololu 37Dx52L gearmotor → DRV8833 (GPIO23=BIN1, GPIO2=BIN2) → AS5600 @ 0x37</text>
+<text x="35" y="732" fill="#9ca3af" font-family="monospace" font-size="8">Mode: EXHAUST_VALVE=GPIO25(PWM), AIRBOX_FLAP=GPIO26(PWM) — used in RC servo testing only</text>
+<text x="35" y="740" fill="#f59e0b" font-family="monospace" font-size="8">v2.2 NEW: Auto-RPM valve curves — position follows RPM per mode (5 interpolation points)</text>
+<text x="35" y="752" fill="#9ca3af" font-family="monospace" font-size="8">Production: USE_PRODUCTION_MOTOR=1 in platformio.ini → DRV8833+AS5600</text>
+<text x="20" y="780" fill="#ef4444" font-family="monospace" font-size="13">⚡ Ignition (Ignitech DC-CDI-P2 3-Map)</text>
+<rect x="20" y="785" width="860" height="50" rx="6" fill="#111827" stroke="#374151" stroke-width="1"/>
+<text x="35" y="802" fill="#e5e7eb" font-family="monospace" font-size="9">CDI Map A (eco): GPIO27=LOW, GPIO33=HIGH → STRASSE/STADT/COMFORT</text>
+<text x="35" y="817" fill="#e5e7eb" font-family="monospace" font-size="9">CDI Map B (sport): GPIO27=HIGH, GPIO33=LOW → GELÄNDE/SPORT</text>
+<text x="35" y="830" fill="#e5e7eb" font-family="monospace" font-size="9">CDI Map C (fallback): GPIO27=HIGH, GPIO33=HIGH → SOUND/Emergency</text>
+<text x="20" y="850" fill="#a78bfa" font-family="monospace" font-size="13">📡 Sensors + Display</text>
+<rect x="20" y="855" width="860" height="70" rx="6" fill="#111827" stroke="#374151" stroke-width="1"/>
+<text x="35" y="872" fill="#e5e7eb" font-family="monospace" font-size="9">SSD1306 OLED (128x64 I2C) @ 0x3C — SDA=GPIO21, SCL=GPIO22</text>
+<text x="35" y="887" fill="#e5e7eb" font-family="monospace" font-size="9">NTC 10kΩ Thermistor → GPIO34 (ADC) • Oil Pressure → GPIO19 • Ignition Pulse → GPIO18</text>
+<text x="35" y="902" fill="#9ca3af" font-family="monospace" font-size="8">Battery Voltage → GPIO35 (100k/33k divider) • Stator Output → GPIO36 (100k/33k divider)</text>
+<text x="35" y="915" fill="#f59e0b" font-family="monospace" font-size="8">v2.2 NEW: Fuel estimation (software) • Gear detection (RPM/speed correlation) • Config mode (3s press)</text>
+<text x="20" y="940" fill="#60a5fa" font-family="monospace" font-size="13">🎮 Controls + LED</text>
+<rect x="20" y="945" width="860" height="50" rx="6" fill="#111827" stroke="#374151" stroke-width="1"/>
+<text x="35" y="962" fill="#e5e7eb" font-family="monospace" font-size="9">KY-040 Encoder: CLK=GPIO16, DT=GPIO17, BTN=GPIO0 • Mode+=GPIO4, Mode-=GPIO5</text>
+<text x="35" y="977" fill="#e5e7eb" font-family="monospace" font-size="9">WS2812 RGB LED → GPIO32 • Long press (3s) → Config Mode • Encoder toggle → Mode/Page select</text>
+<text x="35" y="990" fill="#9ca3af" font-family="monospace" font-size="8">Config: Brightness → Valve Cal → Airbox Cal → Mode Select → Exit</text>
+<text x="450" y="1430" fill="#64748b" font-family="monospace" font-size="9" text-anchor="middle">AQL v2.2 • Auto-RPM Valve • Fuel Estimation • Gear Detection • Deep Sleep • Config Mode • BLE</text>
 </svg>

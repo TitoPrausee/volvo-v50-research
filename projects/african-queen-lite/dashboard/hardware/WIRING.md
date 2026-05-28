@@ -1,9 +1,9 @@
-# African Queen Lite — Wiring Diagram & Hardware Guide v2.0
+# African Queen Lite — Wiring Diagram & Hardware Guide v2.2
 
-## ESP32 Pin Assignment (Updated for v2.0)
+## ESP32 Pin Assignment (Updated for v2.2)
 
 ```
-ESP32 DevKit V1 — Pin Mapping v2.0
+ESP32 DevKit V1 — Pin Mapping v2.2
 ====================================
 
 INPUTS:
@@ -16,17 +16,24 @@ INPUTS:
   GPIO 19 ← Oil pressure switch (LOW = pressure OK)
   GPIO 34 ← ADC: Thermistor (NTC 10kΩ voltage divider)
   GPIO 35 ← ADC: Battery voltage divider
-  GPIO 36 ← ADC: Stator/regulator voltage divider (NEW v2.0)
+  GPIO 36 ← ADC: Stator/regulator voltage divider
 
 OUTPUTS:
   GPIO 25 → PWM: Exhaust valve servo
   GPIO 26 → PWM: Airbox flap servo
-  GPIO 27 → CDI map select (LOW = Map A, HIGH = Map B)
+  GPIO 27 → CDI map select A (active LOW)
+  GPIO 33 → CDI map select B (active LOW)
   GPIO 32 → WS2812 RGB LED data
 
-I2C (OLED):
-  GPIO 21 → SDA (OLED SSD1306)
-  GPIO 22 → SCL (OLED SSD1306)
+DRIVER OUTPUTS (DRV8833 production mode):
+  GPIO 14 → DRV8833 AIN1 (Exhaust valve motor)
+  GPIO 13 → DRV8833 AIN2 (Exhaust valve motor)
+  GPIO 23 → DRV8833 BIN1 (Airbox flap motor)
+  GPIO 2  → DRV8833 BIN2 (Airbox flap motor)
+
+I2C (shared bus):
+  GPIO 21 → SDA (OLED SSD1306 + AS5600 exhaust @ 0x36 + AS5600 airbox @ 0x37)
+  GPIO 22 → SCL (OLED SSD1306 + AS5600 encoders)
 
 POWER:
   VIN ← 5V (from 7805 regulator, input from motorcycle battery)
@@ -36,7 +43,7 @@ POWER:
 ## Power Supply Circuit
 
 ```
-Motorcycle Battery (12V, stator-charged)
+Motorcycle Battery (12V LiFePO4 4S, stator-charged)
     │
     ├── 1N5408 Reverse Polarity Protection Diode
     │
@@ -55,7 +62,7 @@ Motorcycle Battery (12V, stator-charged)
     │       R2 = 33kΩ (to GND)
     │       Junction → GPIO 35
     │
-    └── Voltage Divider #2 (for ADC stator monitoring) [NEW v2.0]
+    └── Voltage Divider #2 (for ADC stator monitoring)
             R1 = 100kΩ (to regulator output+, after key switch)
             R2 = 33kΩ (to GND)
             Junction → GPIO 36
@@ -75,7 +82,7 @@ Motorcycle Battery (12V, stator-charged)
 - **Wire**: Use high-temperature silicone wire (≥200°C rated) for the sensor leads
 - **Heatshield**: Wrap wires in fiberglass sleeving near exhaust
 
-## Stator Voltage Sensing Circuit (NEW v2.0)
+## Stator Voltage Sensing Circuit
 
 ```
 Regulator/Rectifier Output (12V+ when running)
@@ -90,11 +97,12 @@ Regulator/Rectifier Output (12V+ when running)
 
 Purpose: Monitor charging system health.
 - At 3000+ RPM, voltage should be 13.0V-14.8V
-- Below 12.5V at cruise RPM → stator failing
-- Above 15.5V → regulator/rectifier failing
+- Below 12.5V at cruise RPM → stator failing (yellow warning)
+- Below 12.0V → stator critical (red warning)
+- Above 15.5V → regulator/rectifier failing (red warning)
 ```
 
-## Rotary Encoder Wiring (NEW v2.0)
+## Rotary Encoder Wiring
 
 ```
 KY-040 Rotary Encoder:
@@ -108,166 +116,68 @@ Recommended encoder: KY-040 with custom knob
 - Waterproof: Add silicone sealant around shaft
 - Alternative: Apem 5620 series (IP67, motorcycle-rated)
 - Knob: Large knurled aluminum, easy to grip with gloves
+- Long press (3 sec) → Config Mode (v2.2 NEW)
 ```
 
-## Ignition Pulse Pickup Circuit
+## CDI 3-Map Control (Ignitech DC-CDI-P2)
 
 ```
-NX650 Pulse Generator Coil (output: ~0.5-5V AC pulse)
-    │
-    ├── 10kΩ current limiting resistor
-    │
-    ├── PC817 Optocoupler (isolate ESP32 from ignition)
-    │       Anode → through 10kΩ resistor
-    │       Cathode → GND (motorcycle side)
-    │       Collector → GPIO 18 (with 10kΩ pullup to 3.3V)
-    │       Emitter → GND (ESP32 side)
-    │
-    └── 100nF cap (noise filtering)
+ESP32 GPIO 27 ─────── CDI Map A (active LOW = Map A selected)
+ESP32 GPIO 33 ─────── CDI Map B (active LOW = Map B selected)
+
+CDI Map Selection:
+  Map A (eco/retarded)  : GPIO27=LOW,  GPIO33=HIGH  → STRASSE, STADT, COMFORT
+  Map B (advanced/sport) : GPIO27=HIGH, GPIO33=LOW   → GELÄNDE, SPORT
+  Map C (fallback/standard): GPIO27=HIGH, GPIO33=HIGH → SOUND, Emergency
 ```
 
-## Exhaust Valve Servo Wiring
-
-### Production (Recommended): DRV8833 + Gearmotor + AS5600
+## Deep Sleep Wake Circuit (v2.2 NEW)
 
 ```
-ESP32 GPIO 25 (PWM) → DRV8833 IN1
-ESP32 GPIO 26 (PWM) → DRV8833 IN2 (airbox flap alternative)
+ESP32 Deep Sleep (5 min engine off → ~10µA):
 
+Wake Sources:
+  EXT0: GPIO 4 (Mode+ button) → wake on LOW (button press)
+  EXT1: GPIO 18 (Ignition pulse) → wake on HIGH (engine start)
+
+Behavior:
+  1. Engine off for >5 minutes → save state → deep sleep
+  2. Press Mode+ OR start engine → wake → full reboot → restore mode
+  3. Display shows "WAKE:" + reason on startup
+  4. All peripherals re-initialized on wake
+```
+
+## DRV8833 Dual H-Bridge (Production Mode)
+
+```
 DRV8833 Motor Driver:
-    IN1 = GPIO 25 (PWM exhaust valve)
-    IN2 = GPIO 26 (PWM airbox flap, if using same driver)
-    VCC = 3.3V (logic)
-    VM  = 12V (motor power from battery through fuse)
-    GND = GND
-    OUT1/OUT2 → Exhaust valve gearmotor
-    OUT3/OUT4 → Airbox flap gearmotor
+    VCC   ← 5V (from 7805 regulator)
+    GND   ← GND
+    AIN1  ← GPIO 14 (ESP32 PWM)
+    AIN2  ← GPIO 13 (ESP32 PWM)
+    BIN1  ← GPIO 23 (ESP32 PWM)
+    BIN2  ← GPIO 2  (ESP32 PWM)
+    A01/A02 → Exhaust valve gearmotor
+    B01/B02 → Airbox flap gearmotor
+    SLEEP   ← HIGH (always enabled)
 
-AS5600 Magnetic Encoder (I²C, exhaust valve position feedback):
-    VDD = 3.3V
-    SDA = GPIO 21 (shared I²C bus with OLED)
-    SCL = GPIO 22 (shared I²C bus with OLED)
-    GND = GND
-```
-
-### Prototype (Testing Only): Standard RC Servo
-
-```
-ESP32 GPIO 25 → Exhaust valve servo signal (Orange wire)
-ESP32 GPIO 26 → Airbox flap servo signal (Orange wire)
-
-Servo Power:
-    Red wire   → 5V (from 7805 regulator)
-    Brown wire → GND
-    Orange wire → GPIO 25/26 (PWM signal)
-
-⚠️ WARNING: RC servos (SG90/MG996R) are NOT suitable for production!
-    - Heat damage at exhaust proximity (>80°C)
-    - Vibration-induced failure
-    - No position feedback for fault detection
-    Use gearmotor + DRV8833 + AS5600 for production.
-```
-
-## CDI Map Select Wiring
-
-```
-ESP32 GPIO 27 → CDI Map Select Line
-
-Ignitech DC-CDI-P2:
-    Map Select Pin → GPIO 27 (through 1kΩ resistor)
-    LOW = Map A (base/retarded timing)
-    HIGH = Map B (advanced timing)
-
-If no programmable CDI available:
-    GPIO 27 → LED indicator only (shows recommended timing)
-    Actual timing change must be done manually via CDI software
-```
-
-## WS2812 LED Indicator Wiring
-
-```
-ESP32 GPIO 32 → WS2812 LED Data (through 470Ω resistor)
-WS2812 LED:
-    VCC → 5V (from 7805 regulator)
-    GND → GND
-    DIN → GPIO 32 (through 470Ω series resistor)
-    DOUT → (next LED, if chaining)
-
-Mounting: 3D-printed bracket on handlebar, IP67 sealed
-Shows: Green=Stadt, Blue=Strasse, Red=Gelände, Orange=Sport,
-       Violet=Comfort, Cyan=Sound, Flashing Red=Alert
-```
-
-## Complete System Wiring Summary
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    ESP32 DevKit V1                       │
-│                                                         │
-│  GPIO 0  ← Encoder SW (internal pullup)               │
-│  GPIO 4  ← Mode+ Button (pullup)                      │
-│  GPIO 5  ← Mode- Button (pullup)                      │
-│  GPIO 16 ← Encoder A (pullup)                          │
-│  GPIO 17 ← Encoder B (pullup)                          │
-│  GPIO 18 ← Ignition Pulse (optocoupler)                │
-│  GPIO 19 ← Oil Pressure Switch (pullup)               │
-│  GPIO 21 → I²C SDA (OLED + AS5600)                    │
-│  GPIO 22 → I²C SCL (OLED + AS5600)                    │
-│  GPIO 25 → Exhaust Valve Servo PWM                     │
-│  GPIO 26 → Airbox Flap Servo PWM                       │
-│  GPIO 27 → CDI Map Select                              │
-│  GPIO 32 → WS2812 LED Data                              │
-│  GPIO 34 ← ADC Thermistor                               │
-│  GPIO 35 ← ADC Battery Voltage                          │
-│  GPIO 36 ← ADC Stator Voltage                           │
-│                                                         │
-│  VIN ← 5V (7805 regulator)                              │
-│  3V3 ← Internal regulator                               │
-│  GND ← Common ground                                    │
-└─────────────────────────────────────────────────────────┘
-
-Power budget:
-    ESP32 + WiFi/BT:  ~80 mA @ 3.3V  = 0.26W
-    OLED SSD1306:     ~20 mA @ 3.3V   = 0.07W
-    WS2812 LED:       ~60 mA @ 5V     = 0.30W
-    Servos (2):       ~500 mA @ 5V    = 2.50W (peak, moving)
-    DRV8833 logic:    ~10 mA @ 3.3V   = 0.03W
-    ────────────────────────────────────────
-    Total average:    ~200 mA @ 12V    = 2.4W
-    Peak (servos):    ~700 mA @ 12V    = 8.4W
+AS5600 Magnetic Encoders (position feedback):
+    Exhaust valve: I2C address 0x36 (shared SDA/SCL with OLED)
+    Airbox flap:  I2C address 0x37 (shared SDA/SCL with OLED)
     
-    NX650 Stator output: ~180W @ 5000 RPM (15A @ 12V)
-    Headlight: ~55W (H4 bulb)
-    Available: ~120W — MORE than enough for controller
+    Each AS5600 needs:
+    - Neodymium magnet (6mm x 2.5mm diametric) glued to valve shaft
+    - Sensor mounted 2-5mm from magnet (non-contact!)
+    - Heat shield near exhaust (aluminum foil + fiberglass sleeve)
 ```
 
-## 3D-Printed Enclosure
+## v2.2 New Feature Wiring Summary
 
-```
-Design Requirements:
-    - IP67 waterproof (gasket + silicone seal)
-    - Handlebar mount (22mm clamp, rubber-damped)
-    - Sunlight-readable OLED position (angled ~15°)
-    - Encoder protrudes through top (sealed shaft)
-    - Cable glands for all external connections
-    - Internal mounting for ESP32 + DRV8833
-    
-Material: PETG or ABS (heat resistant, not PLA!)
-Wall Thickness: 3mm minimum
-Print Settings: 0.2mm layers, 40% infill, 3 perimeters
-```
-
-## Fuses & Protection
-
-```
-Circuit            Fuse Rating    Wire Gauge
-─────────────────  ───────────   ──────────
-Main 12V input     5A            18 AWG
-Servo power        3A            20 AWG
-ESP32 5V supply    500mA        22 AWG (polyfuse on 7805)
-Sensor inputs      —             24 AWG (signal level)
-OLED I²C           —             26 AWG
-
-All fuses: automotive blade fuses (water-resistant housings)
-All external connections: Deutsch DT or Superseal connectors (IP67)
-```
+| Feature | HW Needed | Wiring |
+|---------|-----------|--------|
+| Auto-RPM Valve | None (software) | Uses existing servos+AS5600 |  
+| Fuel Estimation | None (software) | Uses existing battery voltage ADC |
+| Gear Detection | None (software) | Uses existing RPM + speed estimation |
+| Deep Sleep | None extra | Uses existing GPIO4 (wake) + GPIO18 (wake) |
+| Config Mode | None (software) | Uses existing encoder long-press |
+| OTA Update | WiFi antenna | ESP32 built-in — no extra wiring |

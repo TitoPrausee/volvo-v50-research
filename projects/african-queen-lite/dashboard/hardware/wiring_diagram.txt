@@ -1,89 +1,111 @@
 ================================================================================
-  AFRICAN QUEEN LITE — ESP32 RIDE-MODE CONTROLLER WIRING v2.1
+  African Queen Lite — ESP32 Wiring Diagram v2.2
   Honda NX650 Dominator RFVC
+  Auto-RPM Valve + Fuel + Gear + Sleep + Config
 ================================================================================
 
-┌─────────────────────────────────────────────────────────────────────┐
-│                         INPUTS (Sensors + Controls)                │
-├─────────────────────────┬───────┬──────────────────────────────────┤
-│ Component               │ GPIO  │ Signal / Notes                   │
-├─────────────────────────┼───────┼──────────────────────────────────┤
-│ Handlebar Mode+ Btn     │ GPIO4  │ Digital IN, Pull-up, Debounced   │
-│ Handlebar Mode- Btn     │ GPIO5  │ Digital IN, Pull-up, Debounced   │
-│ Rotary Encoder CLK      │ GPIO16 │ Interrupt-capable, Quadrature A  │
-│ Rotary Encoder DT       │ GPIO17 │ Quadrature B direction           │
-│ Encoder Push Button     │ GPIO0  │ GPIO0=BOOT pin, Pull-up          │
-│ Ignition Pulse Coil     │ GPIO18 │ Interrupt RISING → RPM calc      │
-│ Oil Pressure Switch     │ GPIO19 │ LOW=OK, HIGH=WARNING             │
-│ Cylinder Head NTC       │ GPIO34 │ ADC1_CH6, NTC 10kΩ, Steinhart-Hart │
-│ Battery V Divider       │ GPIO35 │ ADC1_CH7, R1=100kΩ R2=33kΩ → ×4.03 │
-│ Stator V Divider        │ GPIO36 │ ADC1_CH0, Same divider ratio     │
-└─────────────────────────┴───────┴──────────────────────────────────┘
+  ESP32 DevKit V1 — Pin Mapping v2.2
+  ----------------------------------------------------------------------------
 
-┌─────────────────────────────────────────────────────────────────────┐
-│                         OUTPUTS (Actuators + Display)              │
-├─────────────────────────┬───────┬──────────────────────────────────┤
-│ Component               │ GPIO  │ Signal / Notes                   │
-├─────────────────────────┼───────┼──────────────────────────────────┤
-│ Exhaust Valve Servo     │ GPIO25 │ PWM 50Hz, Servo or DRV8833 IN1   │
-│ Airbox Flap Servo       │ GPIO26 │ PWM 50Hz, Servo or DRV8833 IN1   │
-│ CDI Map A Select        │ GPIO27 │ Active LOW → Map A (eco timing)  │
-│ CDI Map B Select        │ GPIO33 │ Active LOW → Map B (sport timing) │
-│ WS2812 RGB LED          │ GPIO32 │ Data In, Neopixel 1 LED          │
-│ OLED SDA (I2C)          │ GPIO21 │ SSD1306 128×64, Addr 0x3C        │
-│ OLED SCL (I2C)          │ GPIO22 │ I2C Clock, Shared with AS5600    │
-└─────────────────────────┴───────┴──────────────────────────────────┘
+  INPUTS:
+    GPIO  4  ← Mode+ button (handlebar, pullup)
+    GPIO  5  ← Mode- button (handlebar, pullup)
+    GPIO  0  ← Encoder BTN (BOOT pin, internal pullup)
+    GPIO 16  ← Encoder A (CLK, interrupt)
+    GPIO 17  ← Encoder B (DT)
+    GPIO 18  ← Ignition pulse coil (interrupt, optocoupler)
+    GPIO 19  ← Oil pressure switch (LOW = pressure OK)
+    GPIO 34  ← ADC: Thermistor (NTC 10kΩ)
+    GPIO 35  ← ADC: Battery voltage divider
+    GPIO 36  ← ADC: Stator voltage divider (v2.0+)
 
-┌─────────────────────────────────────────────────────────────────────┐
-│           PRODUCTION MOTOR DRIVER (USE_PRODUCTION_MOTOR=1)         │
-├─────────────────────────┬───────┬──────────────────────────────────┤
-│ Component               │ GPIO  │ Signal / Notes                   │
-├─────────────────────────┼───────┼──────────────────────────────────┤
-│ DRV8833 Exhaust IN1     │ 14    │ H-bridge AIN1 → Exhaust motor    │
-│ DRV8833 Exhaust IN2     │ 13    │ H-bridge AIN2 → Exhaust motor    │
-│ DRV8833 Airbox IN1      │ 23    │ H-bridge BIN1 → Airbox motor     │
-│ DRV8833 Airbox IN2      │ 2     │ H-bridge BIN2 → Airbox motor     │
-│ AS5600 Exhaust          │ I2C 0x36 │ Magnetic encoder (exhaust pos)   │
-│ AS5600 Airbox           │ I2C 0x37 │ Magnetic encoder (airbox pos)    │
-└─────────────────────────┴───────┴──────────────────────────────────┘
+  OUTPUTS:
+    GPIO 25  → PWM: Exhaust valve servo
+    GPIO 26  → PWM: Airbox flap servo
+    GPIO 27  → CDI Map A select (active LOW)
+    GPIO 33  → CDI Map B select (active LOW)
+    GPIO 32  → WS2812 RGB LED data
 
-┌──────────────────────────────────────────┐
-│        CDI 3-MAP SELECTION (v2.1)        │
-├──────────┬──────────┬─────────────────────┤
-│ MAP_A(27)│ MAP_B(33)│ Result              │
-├──────────┼──────────┼─────────────────────┤
-│ LOW      │ HIGH     │ Map A (eco/retarded)│
-│ HIGH     │ LOW      │ Map B (sport/advnc) │
-│ HIGH     │ HIGH     │ Map C (fallback/std)│
-│ LOW      │ LOW      │ INVALID — DON'T USE │
-└──────────┴──────────┴─────────────────────┘
+  I2C Bus (SDA=GPIO21, SCL=GPIO22):
+    SSD1306 OLED @ 0x3C
+    AS5600 Exhaust @ 0x36 (production: DRV8833)
+    AS5600 Airbox   @ 0x37 (production: DRV8833)
 
-┌─────────────────────────────────────────────────────────────────────┐
-│                 ⚡ POWER CONDITIONING (CRITICAL)                      │
-├─────────────────────────────────────────────────────────────────────┤
-│  • Power Conditioning: TVS SMAJ28A | 470µF+100nF caps | 1N5408 reverse polarity | 7805→3.3V LDO │
-│  • Conformal Coating: MG Chemicals 422B (vibration/moisture)         │
-│  • Anti-Vibration: Rubber grommets (McMaster 9485K52)                │
-│  • Voltage Divider: R1=100kΩ, R2=33kΩ → Factor=4.03 (measures up to ~14.5V) │
-│  • CDI: Ignitech DC-CDI-P2 (2-map USB programmable) — Map A=eco, Map B=sport, both HIGH=fallback C │
-│  • Exhaust Valve: 12V gearmotor + DRV8833 + AS5600 (NOT RC servo for production!) │
-│  • Waterproof: IP67 housing, silicone-sealed cable glands            │
-│  • Fuse: 5A fast-blow on +12V input line                             │
-└─────────────────────────────────────────────────────────────────────┘
+  DRV8833 Production Motor Driver (USE_PRODUCTION_MOTOR=1):
+    GPIO 14  → DRV8833 AIN1 (Exhaust valve)
+    GPIO 13  → DRV8833 AIN2 (Exhaust valve)
+    GPIO 23  → DRV8833 BIN1 (Airbox flap)
+    GPIO  2  → DRV8833 BIN2 (Airbox flap)
 
-                    ┌──────────────────────────┐
-   12V Battery ─────┤ 5A Fuse → TVS SMAJ28A    │
-                    │ 470µF + 100nF Caps       │
-                    │ 1N5408 Rev. Polarity Prot │
-                    │ 7805 → 3.3V LDO          │
-                    └──────────┬───────────────┘
-                               │
-                    ┌──────────▼───────────────┐
-   Buttons/Encoder ┤                          ├─ PWM → Exhaust Valve
-   Ignition Pulse  │      ESP32-WROOM-32       ├─ PWM → Airbox Flap
-   Oil Pressure    │   AQL Ride Mode Ctrl     ├─ GPIO → CDI Map A (27)
-   Thermistor      │                          ├─ GPIO → CDI Map B (33)
-   V Divider       │   6 Modes:               ├─ Data → WS2812 LED
-   Stator Sense    │   STRASSE/STADT/GELÄNDE  ├─ I2C → SSD1306 OLED
-                    │   SPORT/COMFORT/SOUND    ├─ BLE → Smartphone
-                    └──────────────────────────┘
+  DEEP SLEEP WAKE SOURCES:
+    GPIO  4  ← EXT0: Mode+ button (wake on LOW)
+    GPIO 18  ← EXT1: Ignition pulse (wake on HIGH)
+
+================================================================================
+  POWER SUPPLY
+================================================================================
+
+  Motorcycle Battery (12V, LiFePO4 4S)
+      │
+      ├── 1N5408 Reverse Polarity Protection Diode
+      ├── SMAJ28A TVS Diode (28V clamp)
+      ├── 470µF Electrolytic Cap (bulk filtering)
+      ├── 100nF Ceramic Cap (HF decoupling)
+      ├── 7805 Voltage Regulator → 5V/1A
+      │       └── ESP32 VIN (5V input)
+      │
+      ├── Voltage Divider #1 (Battery ADC)
+      │       R1 = 100kΩ → Battery+
+      │       R2 = 33kΩ  → GND
+      │       Junction → GPIO 35
+      │
+      └── Voltage Divider #2 (Stator ADC)
+              R1 = 100kΩ → Regulator output+
+              R2 = 33kΩ  → GND
+              Junction → GPIO 36
+
+================================================================================
+  CDI 3-MAP CONTROL (Ignitech DC-CDI-P2)
+================================================================================
+
+  Mode         CDI_MAP_A  CDI_MAP_B  Map  Used By
+  ────────────────────────────────────────────────
+  Eco/Retard   LOW        HIGH       A    STRASSE, STADT, COMFORT
+  Advanced     HIGH       LOW        B    GELÄNDE, SPORT
+  Fallback     HIGH       HIGH       C    SOUND, Emergency
+
+================================================================================
+  RIDE MODES v2.2
+================================================================================
+
+  Mode       Ign  Valve Airbox Idle  RevL  Sweep CDI Throttle Fuel
+  ─────────────────────────────────────────────────────────────────
+  STRASSE     0°   50%   50%  1300  7000   3    A   LINEAR   3.5L
+  STADT      -2°   20%   30%  1200  6500   2    A   SOFT     3.0L
+  GELÄNDE    +2°  100%  100%  1400  7500   6    B   AGGR     4.5L
+  SPORT      +3°  100%  100%  1350  7500   8    B   AGGR     5.0L
+  COMFORT    -1°   40%   40%  1250  6500   2    A   SOFT     3.2L
+  SOUND      +1°  100%   80%  1300  7000   5    C   PROG     4.0L
+
+================================================================================
+  v2.2 NEW FEATURES
+================================================================================
+
+  1. AUTO-RPM VALVE: Exhaust & airbox follow RPM curves per mode
+     - 5 interpolation points per mode (RPM → valve position %)
+     - Overrides static valve_percent when ENABLE_AUTO_RPM_VALVE=1
+
+  2. FUEL ESTIMATION: mL/100km per mode + range + low fuel alert
+     - RPM-adjusted consumption (idle -30%, high RPM +25%)
+     - 16L tank, 3.4L reserve warning, 1.5L critical
+
+  3. GEAR DETECTION: RPM/speed correlation estimates current gear
+     - Uses NX650 gear ratios: 2.846, 1.857, 1.389, 1.091, 0.913
+     - 15% tolerance, confidence percentage display
+
+  4. DEEP SLEEP: 5 min engine off → ESP32 deep sleep (~10µA)
+     - Wake sources: GPIO4 (Mode+ button) and GPIO18 (Ignition pulse)
+
+  5. CONFIG MODE: Long press encoder (3s) → on-bike settings
+     - Brightness → Valve Cal → Airbox Cal → Mode Select → Exit
+     - Auto-exit after 10s inactivity
