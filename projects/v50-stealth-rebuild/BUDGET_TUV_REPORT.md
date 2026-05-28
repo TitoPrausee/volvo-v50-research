@@ -75,35 +75,69 @@
 
 ---
 
-### Phase 2: Fahrwerk sportlich-dezent (€490-1.440)
+### Phase 2: Fahrwerk sportlich-dezent (€490-1.975)
 
-| # | Teil | Teilenummer | AMZ | AUT (ref) | SKA (ref) | Preis-Range | Beste Quelle | Gebraucht? |
-|---|------|-------------|-----|-----------|-----------|-------------|-------------|-----------|
-| 15 | Eibach Pro-Kit -30mm | E10-41-001-05-22 | €150-158 | €250 | €275 | €150-280 | **AMZ** 🔥 | ⚠️ Eher NEIN |
-| 15a | Vogtland -30mm (Budget) | 998102 | €140-180 | €140 | €155 | €140-180 | **AMZ** | ⚠️ Prüfen! |
-| 16 | KONI Special RED 4er-Set | 86-2636SP3/80-2629SP3 | €350-420 | €350 | — | €350-420 | **AMZ/KON** | ⚠️ Vielleicht |
-| 16a | KONI Spec.Active 4er-Set | 86-2636SP4/80-2629SP4 | €420-500 | €420 | — | €420-500 | **AMZ/KON** | ⚠️ Vielleicht |
-| 17 | Bilstein B6 4er-Set | 35-132577/35-132578 | €400-460 | €400 | — | €400-460 | **AMZ/BIL** | ⚠️ Vielleicht |
-| 18 | Querlenkerlager vorne | Lemförder 36926 01 | €22-35 | €22 | €28 | €22-35 | **AMZ/AUT** | ❌ NEIN |
-| 19 | Stabilizer Link TRW | TRW JTS1330 | €18-22 | €18 | €22 | €18-22 | **AMZ/AUT** | ❌ NEIN |
-| 20 | Domlager/Gelenklager vorne | Lemförder 37706 01 | €33-45 | €33 | €38 | €33-45 | **AMZ/AUT** | ❌ NEIN |
-| 21 | Stabi Links vorne Paar | Meyle HD 100 600 0011 | €18-35 | — | — | €18-35 | **AMZ** | ❌ NEIN |
-| 22 | Stabi Links hinten | Febi 37460 | €8-18 | — | — | €8-18 | **AMZ/EBY** | ❌ NEIN |
-| 23 | Poly-Buchsen Stabi | Energy Suspension | — | — | — | €15-18 | **EBY** | ⚠️ OEM besser |
-| 24 | Upper Torque Mount | Lemförder 36653 01 | €30-55 | — | — | €30-55 | **AMZ/AUT** | ❌ NEIN |
-| 24a | Powerflex Poly Insert | PFF5-301 | €22-42 | — | — | €22-42 | **AMZ/EBY** | ❌ N/A |
+> 📄 **Detail-Report**: siehe [SUSPENSION_REPORT.md](./SUSPENSION_REPORT.md)
+
+|| # | Teil | Teilenummer | AMZ | AUT (ref) | SKA (ref) | Preis-Range | Beste Quelle | Gebraucht? | TÜV | Notizen ||
+||---|------|-------------|-----|-----------|-----------|-------------|-------------|-----------|-----|---------||
+|| 15 | **Eibach Pro-Kit -30mm** | **E10-41-001-05-22** | €150-158 | €210 | €275 | €149-280 | **AMZ** 🔥 | ⚠️ Prüfen! | ✅ ABE | **2.4i spezifisch! NICHT T5 (01-22)!** ||
+|| 15a | Vogtland -30mm (Budget) | 998102 | €140-180 | €140 | €155 | €130-180 | **AMZ** | ⚠️ Prüfen! | ✅ ABE | Weicher als Eibach, komfortabler ||
+|| 15b | Weitec -30mm (Alt) | W-21001 | — | €150-190 | — | €150-190 | **AUT** | ⚠️ | ✅ ABE | H&R-Schwester ||
+|| 16 | **KONI Spec.Active (Gelb)** | 86-2636SP4/80-2629SP4 | €490-580 | €420 | — | €420-650 | **AMZ/KON** | ⚠️ | ✅ | **BEST für Komfort+Eibach. ÜBER Budget!** ||
+|| 16a | KONI Special RED 4er-Set | 86-2636SP3/80-2629SP3 | €300-380 | €350 | — | €300-420 | **AMZ/KON** | ⚠️ | ✅ | Budget, manuell einstellbar ||
+|| 17 | **Bilstein B6 4er-Set** | 35-132577/578 | €400-460 | €440 | — | €400-570 | **AMZ/BIL** | ⚠️ | ✅ | **Für Sportfedern bis -40mm! NICHT für Standardhöhe!** ||
+|| 17a | ❌ Bilstein B4 | 19-132575/576 | — | — | — | €250-350 | — | ❌ | ✅ | **FALSCH für -30mm! Auf Anschlagpuffer!** ||
+|| 17b | ❌ Sachs OEM | 110 116/117 | — | — | — | €180-300 | — | ❌ | — | **FALSCH für -30mm!** ||
+|| 18 | Querlenkerlager vorne | Lemförder 36926 01 | €22-35 | €22 | €28 | €22-35 | **AMZ/AUT** | ❌ NEIN | ✅ | Single bushing ||
+|| 18a | **Lemförder Komplettarm L+R** | 37472 01 / 37473 01 | — | €95-130 | — | €180-280 | **AUT** | ❌ NEIN | ✅ | **Empfohlen! Buchsen eingepresst, einfacher** ||
+|| 18b | SuperPro Poly-Kit | SPF3332K | — | €95-115 | — | €85-125 | **AUT/EBY** | ❌ NIE | ✅ ABE | **Einzige TÜV-Poly für P1! Powerflex = ❌** ||
+|| 19 | Stabilizer Link TRW | TRW JTS1330 | €18-22 | €18 | €22 | €18-22 | **AMZ/AUT** | ❌ NEIN | ✅ | ||
+|| 20 | Domlager/Gelenklager vorne | Febi 37389 | €30-45 | €33 | €38 | €30-50 | **AMZ/AUT** | ❌ NEIN | ✅ | **IMMER mit Federn wechseln!** ||
+|| 21 | Stabi Links vorne Paar | Meyle HD 100 600 0011 | €18-35 | — | — | €18-35 | **AMZ** | ❌ NEIN | ✅ | ||
+|| 22 | Stabi Links hinten | Febi 37460 | €8-18 | — | — | €8-18 | **AMZ/EBY** | ❌ NEIN | ✅ | ||
+|| 25 | **Ferodo DS2500 Beläge vorn** | FCP1859H | — | €85-110 | — | €85-120 | **AUT** | ❌ NIE | ✅ ECE R90 | **Bester Kaltbiss, HH!** ||
+|| 25a | ATE Ceramic Beläge vorn | 13.0460-7213.2 | — | €45-55 | — | €45-58 | **AUT** | ❌ NIE | ✅ | Sehr wenig Staub, Aufwärmphase ||
+|| 25b | TRW Beläge vorn Budget | GDB1805 | — | €35-45 | — | €35-45 | **AUT** | ❌ NIE | ✅ | Günstigste Option ||
+|| 26 | **Ferodo DS2500 Beläge hinten** | FCP1883H | — | €65-85 | — | €65-95 | **AUT** | ❌ NIE | ✅ ECE R90 | Match vorn ||
+|| 26a | ATE Ceramic Beläge hinten | 13.0460-7222.2 | — | €35-45 | — | €35-45 | **AUT** | ❌ NIE | ✅ | Low-dust ||
+|| 27 | **Zimmermann Sportribbel vorn 316mm** | 100.3430.52 | — | €65 | — | €60-78 | **AUT** | ❌ NIE | ✅ ABE | Geriffelt+beschichtet, Stealth! ||
+|| 27a | ATE Standard vorn Budget | 24.0120-0144.1 | — | €62 | — | €55-75 | **AUT** | ❌ NIE | ✅ | Glatt, bewährt ||
+|| 28 | **Zimmermann Sportribbel hinten 302mm** | 100.3429.52 | — | €48 | — | €45-58 | **AUT** | ❌ NIE | ✅ ABE | Match vorn ||
+|| 28a | ATE Standard hinten Budget | 24.0120-0143.1 | — | €42 | — | €40-55 | **AUT** | ❌ NIE | ✅ | ||
+|| 29 | **HEL SS-Leitungen 4er-Set** | HEL-V50-P1-4L | — | €90-110 | — | €90-110 | **AUT** | ❌ NIE | ✅ **Zertifikat!** | **TÜV inklusive vs Goodridge** ||
+|| 29a | Goodridge 4er-Set | GR-1000-4-V50 | €80-110 | €85-100 | — | €80-110 | **AMZ** | ❌ NIE | ⚠️ Einzelabnahme | **+€100-200 TÜV-Kosten** ||
+|| 29b | TRW SS-Leitungen Budget | PHB1045 | €55-75 | €58 | — | €55-85 | **AMZ/AUT** | ❌ NIE | ✅ | Günstigste TÜV-Option ||
+|| 30 | **SKF Radlager vorne** | VKBA 6813 | — | €52-65 | — | €52-72 | **AUT** | ❌ NIE | ✅ | **OEM-Qualität, safety-critical!** ||
+|| 30a | FAG Radlager vorne (Alt) | 713 6273 30 | — | €48-58 | — | €48-65 | **AUT** | ❌ NIE | ✅ | = SKF Qualität ||
+|| 31 | **SKF Radlager hinten** | VKBA 6819 | — | €38-48 | — | €38-52 | **AUT** | ❌ NIE | ✅ | ||
+|| 31a | FAG Radlager hinten (Alt) | 713 6274 30 | — | €35-45 | — | €35-45 | **AUT** | ❌ NIE | ✅ | ||
+|| 32 | **Estoni StabiSet 24/22mm** | E-V50-SB-F+R | — | — | €549-609 | €530-660 | **SKA** | ⚠️ | ✅ ABE | **TÜV-legal, schwarz, stealth** — OPTIONAL ||
+|| 32a | Do88 StabiSet 24/22mm | DO88-1001+2 | — | — | €520-595 | €490-610 | **SKA** | ⚠️ | ⚠️ Teil | Dunkelgrau — OPTIONAL ||
 
 **🔥 BUNDLE-DEALS Phase 2**:
-- **Eibach + KONI Paket**: ~€500-580 (AMZ) — Eibach €150 + KONI €350 = **€500** → bis zu €180 gespart!
-- **Vogtland + KONI Alternative**: Vogtland €140 + KONI €350 = **€490** → spart €10 vs Eibach+KONI
+- **Eibach + KONI Active (Gelb) Paket**: ~€730-790 (AMZ) — bester Komfort, ÜBER Budget
+- **Vogtland + Bilstein B6 Paket**: ~€630-700 — in Budget, sportlich-dezent
+- **Eibach + Bilstein B6**: ~€610-670 — Premium-Federn + Sport-Dämpfer
 - **⚠️ Warnung**: Eibach AMZ-Preis €150 ist UNTERHALB des Üblichen (Eibach.de Listenpreis ≈ €280). Verkäufer-Vertrauenswürdigkeit prüfen! Originalverpackung + Teilegutachten verlangen!
-- **Fahrwerks-Komplettset**: Eibach + KONI + Domlager + Stabilager = ~€570-690
+- **Fahrwerks-Komplettset Premium**: Eibach + KONI + Domlager + Stabilager + Ferodo + Zimmermann Ribbel + HEL = ~€1.200-1.400
+
+**⚠️ TÜV-WARNUNGEN Phase 2**:
+- **Bilstein B6**: NUR für Sportfedern (-30 bis -40mm). Mit Originalfedern = ILLEGAL + gefährlich!
+- **Eibach E10-41-001-05-22**: MUSS für 2.4i sein, NICHT T5 (01-22)! Falsche Feder = falsche Höhe/Rate
+- **Goodridge SS-Leitungen**: Einzelabnahme erforderlich (€100-200 Extra) → HEL besser
+- **Powerflex Poly**: Keine ABE für P1! → Einzelabnahme €200-400 → SuperPro statt Powerflex!
+- **Gebohrte Bremsscheiben**: Kein TÜV auf P1 → NUR geriffelt (Zimmermann Sportribbel)
+- **Anschlagpuffer vorne**: Bei -30mm ~20-25mm kürzen! Wird oft vergessen!
 
 **🔧 DIY-Optionen Phase 2**:
 - ✅ Federn wechseln: DIY mit Federspanner (~€30), 3-4h, spart €200-350
 - ✅ Dämpfer wechseln: DIY, 3-4h, spart €200-400
 - ✅ Stabilager wechseln: DIY, ~1h pro Seite, spart €80-120
+- ✅ Bremsen komplett: DIY 2-3h, spart €150-250
 - ⚠️ Domlager: DIY möglich, aber Federspanner nötig
+- ⚠️ Querlenker-Hinterbolzen: oft festgerostet auf P1! Rostlöser + Ersatzbolzen
+- ⚠️ Radlager vorne: Presseinsatz, Werkstatt empfohlen
 
 ---
 
