@@ -283,8 +283,8 @@ class DriveProfileAnalyzer:
         # Engine load: Low = eco, high = sporty
         scores['avg_load'] = min(100, self.metrics.avg_load * 1.2)
         
-        # Consumption: <3 L/h = eco, 3-6 = normal, >6 = sporty
-        scores['consumption'] = min(100, max(0, (self.metrics.est_consumption_lh - 0.5) * 12))
+        # Consumption: <3 L/h = eco, 3-8 = normal, >8 = sporty  
+        scores['consumption'] = min(100, max(0, (self.metrics.est_consumption_lh - 1.5) * 10))
         
         # Brake events: Few = eco/normal, many = sporty
         scores['brake_events'] = min(100, self.metrics.brake_events * 15)

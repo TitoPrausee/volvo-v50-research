@@ -955,10 +955,16 @@ def calculate_fuel_consumption(rpm: float, maf: float, rpm_prev: float = None) -
     AFR = 14.7
     FUEL_DENSITY = 0.75  # kg/L
     
-    # Fuel mass flow = MAF / AFR
-    fuel_mass_flow_kg_per_h = (maf / AFR) * 3600
+    # MAF is in g/s — convert to kg/s first
+    maf_kg_per_s = maf / 1000.0
     
-    # Convert to volume flow
+    # Fuel mass flow = MAF / AFR (kg/s)
+    fuel_mass_flow_kg_per_s = maf_kg_per_s / AFR
+    
+    # Convert to kg/h
+    fuel_mass_flow_kg_per_h = fuel_mass_flow_kg_per_s * 3600
+    
+    # Convert to volume flow (L/h)
     fuel_flow_l_per_h = fuel_mass_flow_kg_per_h / FUEL_DENSITY
     
     return fuel_flow_l_per_h

@@ -17,6 +17,7 @@
 - Optik: Werksmäßig, aber frisch — wie ein gepflegter 3-Jahre-alter Wagen
 - Kein Tieferlegungs-Tuning das auffällt — max. Eibach Pro-Kit (-30mm, eintragbar)
 - Kein lauter Auspuff — maximum sportlicher Kat-Back mit E-Nummer
+- ⚠️ **K&N 33-2221 = FALSCH für V50 2.4i!** Richtig: **K&N 33-2873**
 - LED-Rücklichter nur falls OEM-quality verfügbar (kein Alibaba-Look)
 
 ## Budget: ~3.500-5.000€ HARD CAP

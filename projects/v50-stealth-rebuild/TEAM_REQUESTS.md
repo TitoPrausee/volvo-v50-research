@@ -56,10 +56,15 @@ Siehe CHIEF_STATUS.md für vollständige Budget-Analyse.
   - **BRAUCHT: Fahrgestellnummer oder Baujahr-Info vom User!**
 
 #### 💻 Developer → CAN-Community
-- **Bremsdruck CAN-ID**: 0x0E8 (UNVERIFIED) — braucht physikalische Verifikation
-- **ABS Radgeschwindigkeiten**: 0x0D4-0x0D7 (UNVERIFIED) — braucht Sniffer-Logging
-- **Lenkwinkel CAN-ID**: 0x128 (UNVERIFIED) — braucht Verifikation
+- **Bremsdruck CAN-ID**: 0x0D6 + 0x0E8 (beide UNVERIFIED) — Implementiert, braucht physikalische Verifikation
+- **ABS Radgeschwindigkeiten**: 0x0D4 + 0x0D5 (UNVERIFIED) — Implementiert, braucht Sniffer-Verifikation
+- **Lenkwinkel CAN-ID**: 0x128 + 0x1B8 (beide UNVERIFIED) — Implementiert, braucht Verifikation
+- **Gierrate/Querbeschleunigung**: 0x0D7 (UNVERIFIED) — Implementiert, braucht Verifikation
+- **Motor-Status**: 0x0C4 (UNVERIFIED) — Implementiert, braucht Verifikation
+- **Licht-Status**: 0x3F0 (UNVERIFIED) — Implementiert, braucht Verifikation
+- **Gurt-Status**: 0x380 (UNVERIFIED) — Implementiert, braucht Verifikation
 - **PiCAN2 Hardware**: Besorgen und Erst-Test mit candump can0
+- **10 unverified IDs**: Alle im Decoder bereit, brauchen nur echte CAN-Bus-Daten zum Bestätigen
 
 #### 🏁 Fahrwerk → v50-budget
 - **KONI Special Active (Yellow) Verfügbarkeit**: 86-2636SP4 / 80-2629SP4

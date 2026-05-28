@@ -32,7 +32,7 @@
 
 | # | Teil | Teilenummer | AMZ | AUT (ref) | SKA (ref) | Preis-Range | Beste Quelle | Gebraucht? |
 |---|------|-------------|-----|-----------|-----------|-------------|-------------|-----------|
-| 1 | Zahnriemen-Kit + WP (Gates) | K015615XS | €98-128 | €125 | €155 | €98-155 | **AMZ** | ❌ NIE |
+| 1 | Zahnriemen-Kit + WP (Gates) | K015615XS | **€60-68** | €125 | €155 | **€60-155** | **AMZ** ✅ BEST | ❌ NIE |
 | 1a | Zahnriemen-Kit + WP (Contitech) | CT1120K2 | €79-112 | €110 | €130 | €79-130 | **AMZ** | ❌ NIE |
 | 1b | Zahnriemen-Kit + WP (Dayco) | KTB481 | €55-85 | €95 | — | €55-95 | **AMZ** | ❌ NIE |
 | 2 | Keilriemen 5PK1130 | Gates 5PK1130 | €14-18 | €14 | — | €12-18 | **AMZ/EBY** | ❌ NIE |
@@ -61,7 +61,7 @@
 
 **🔥 BUNDLE-DEALS Phase 1**:
 - **Bremsen-Komplettset** (v+h Beläge+Scheiben TRW): AMZ ~€150-180 als Set, einzeln ~€150-190
-- **Zahnriemen-Komplettset** (ZR+WP+Spannrolle+Keilriemen): Gates K015615XS + 5PK1130 ≈ €110-145
+- **Zahnriemen-Komplettset** (ZR+WP+Spannrolle+Keilriemen): Gates K015615XS + 5PK1130 ≈ **€74-85** ⬇️ (AMZ €60-68 Gates!)
 - **TRW Bremsen-Bundle**: Beläge v+h + Scheiben v+h = ~€150-180 (bis zu €30 vs. einzeln)
 - **Bremsen+Leitungen Bundle**: TRW Beläge+Scheiben+Goodridge Leitungen ≈ €230-290
 
@@ -174,7 +174,7 @@
 | # | Teil | Teilenummer | AMZ | AUT (ref) | Preis-Range | Beste Quelle | Gebraucht? |
 |---|------|-------------|-----|-----------|-------------|-------------|-----------|
 | 33 | Luftfilter Panel | Mann C 25 107 | €9-14 | €9 | €9-14 | **AMZ/AUT** | ❌ |
-| 33a | Luftfilter Panel Premium | K&N 33-2221 | €45-62 | €48 | €45-62 | **AMZ** | ❌ |
+| 33a | Luftfilter Panel Premium | **K&N 33-2873** ⚠️ korrigiert | €56-89 | €66 | €56-89 | **AMZ** | ❌ |
 | 34 | Kat-Back Auspuff (Ferrita) | F-V50-01 | — | — | €450-520 | **FER/SKA** | ❌ NIE |
 | 34a | Kat-Back Auspuff (Eisenmann) | V50-ECE | — | — | €800-950 | **SKA** | ❌ NIE |
 | 34b | Kat-Back Auspuff (Heico) | V50 | — | — | €750-950 | **SKA** | ❌ NIE |
@@ -365,7 +365,7 @@
 | **Eintragung** | 🔴 Sehr kompliziert — Einzelabnahme nach §21! |
 | **Kosten** | €150-300+ (inkl. Abgasmessung!) |
 | **FAZIT** | ❌ **SKIP für STEALTH!** Zu kompliziert, zu teuer, zu auffällig |
-| **Alternative** | ✅ K&N Panel-Filter 33-2221 = eintragungsfrei (OEM-Form) |
+| **Alternative** | ✅ **K&N 33-2873** (korrigiert!) = eintragungsfrei (OEM-Form) | ⚠️ 33-2221 passt NICHT zum V50 2.4i! |
 
 #### 6. Polestar Optimisation (B5244S) 🔴 SKIP FÜR STEALTH!
 
@@ -475,7 +475,7 @@
 
 #### ✅ EINTRAGUNGSFREI (keine TÜV-Kosten):
 1. ✅ Panel-Luftfilter (Mann C 25 107) = eintragungsfrei
-2. ✅ K&N Panel-Filter 33-2221 (OEM-Form) = eintragungsfrei
+2. ✅ **K&N 33-2873** Panel-Filter (OEM-Form) = eintragungsfrei ⚠️ 33-2221 FALSCH für V50 2.4i!
 3. ✅ Sport-Schaltknauf = eintragungsfrei
 4. ✅ Sport-Pedale (clip-on) = eintragungsfrei
 5. ✅ Polierung/Lackschutz/Keramik = eintragungsfrei
@@ -527,7 +527,7 @@
 ### Empfohlen: Szenario B — STEALTH-Balance (~€2.143)
 
 1. ✅ Bremsen komplett: TRW Beläge+Scheiben + Goodridge SS-Leitungen = **~€350**
-2. ✅ Zahnriemen-Kit Gates K015615XS = **~€98**
+2. ✅ Zahnriemen-Kit Gates K015615XS = **~€60-68** ⬇️ Amazon.de SAHNEPREIS!
 3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = **~€500** (AMZ!)
 4. ✅ Polierung+Keramik DIY = **~€50**
 5. ✅ Osram Night Breaker LASER H7 = **~€30** (EINTRAGUNGSFREI!)
@@ -560,7 +560,7 @@
 | Teil | Üblicher Preis | AMZ-Preis | Ersparnis | HINWEIS |
 |------|---------------|-----------|-----------|---------|
 | Eibach Pro-Kit V50 | €250-280 | **€150-158** | **€90-120!** | ⚠️ Verkäufer prüfen! Eibach.de ≈ €280 |
-| Gates ZR Kit K015615XS | €125-155 | **€98** | **€27-55** | ✅ Gut |
+| Gates ZR Kit K015615XS | €125-155 | **€60-68** | **€57-95** | ✅ SAHNEPREIS! |
 | TRW Beläge GDB1359 | €28-35 | **€22** | **€6-13** | ✅ Gut |
 | Dayco ZR Kit KTB481 | €85-95 | **€55-85** | **€10-30** | ✅ Budget-Option |
 | Osram LASER H7 | €35-45 | **€28-35** | **€7-17** | ✅ + TÜV-frei! |
