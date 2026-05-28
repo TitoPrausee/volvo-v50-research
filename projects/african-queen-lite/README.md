@@ -2,9 +2,9 @@
 
 **Honda NX650 Dominator RFVC** — Zuverlässigkeit + Fahrwerk + Optik + Touring (44PS OEM, KEIN Performance-Tuning)
 
-## Projekt-Status (Chefingenieur Run #5 — 2026-05-28)
+## Projekt-Status (Chefingenieur Run #6 — 2026-05-28)
 
-| Metric | Wert |
+|| Metric | Wert |
 |--------|------|
 | **Budget Hard Cap** | €5.000 |
 | **Option A Best-Price** | €2.128 |
@@ -16,15 +16,25 @@
 | **Kompatibilität** | 15/15 Hauptteile ✅ |
 | **Performance-Teile** | 0 (7 gestrichen) ✅ |
 
-### Budget-Guard Status (Run #5 — 2026-05-28)
+### Budget-Guard Status (Run #6 — 2026-05-28)
 
-| Phase | Geplant | Budget | Reserve | Status |
+|| Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
 | 1: Zuverlässigkeit | €393 | €800 | +€407 (51%) | ✅ |
 | 2: Fahrwerk | €880 | €1.200 | +€320 (27%) | ✅ |
 | 3: Africa Twin Look | €655 | €1.000 | +€345 (35%) | ✅ |
 | 4: Touring-Komfort | €187 | €800 | +€613 (77%) | ✅ |
 | 5: Reserve | — | €500 | +€500 | 🔵 |
+
+### Styling+Sound Update (Run #6 — 2026-05-28)
+
+- Leo Vince M15051: **FC-Moto auf €289-309 gesenkt** (war €360!)
+- Delkevic SS Header: **€165-189** (Delkevic EU Direct)
+- Koso RX-22 LED: **€84-94** (Carpimoto.it bester EU-Preis)
+- Neuartige UK-Optionen (Black Widow, Fuel Exhaust) = KEIN ABE
+- TÜV Phase 3 geschätzt: €90-250
+- Bundle-Empfehlung: FC-Moto Sammelbestellung (6 Teile, 1x Versand)
+- LED-Umbau: Flasher-Relay MUSS getauscht werden (M8/M10 Thread)
 
 ### ⚠️ Kompatibilitäts-Hinweise
 1. YSS Z-366 Mono: Bracket muss geschweißt werden (€65 extra)

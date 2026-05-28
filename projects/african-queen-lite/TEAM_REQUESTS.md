@@ -14,6 +14,55 @@
 
 + 3 generische Forschungs-Agenten (vehicle-research, -community, -specs)
 
+---
+
+## 🎨 Styling+Sound Spezialist Anfragen (Run #6 — 2026-05-28)
+
+### Anfrage an Chefingenieur: TÜV-Kosten einplanen
+
+Phase 3 Änderungen brauchen TÜV-Eintragungen. Geschätzte Kosten:
+
+| Änderung | TÜV nötig? | E-Nummer? | Kosten |
+|----------|------------|-----------|--------|
+| Leo Vince SBK Slip-on | ✅ JA | ✅ ABE D | €20-40 |
+| Delkevic SS Header | ✅ JA | ❌ Einzeln | €50-100 |
+| LED Scheinwerfer | ⚠️ Teilweise | ✅ E-Mark | €20-50 |
+| LED Blinker+Rücklicht | ✅ JA | ✅ E9 | €20-40 |
+| **Total TÜV Phase 3** | | | **€90-250** |
+
+**BITTE:** TÜV-Kosten in Budget-Bilanz aufnehmen. Budget Option A = €762-1.048 + €90-250 TÜV = €852-1.298. Innerhalb des €1.200 Phase 3 Limits (mit €52 Puffer bei Maximum).
+
+### Anfrage an Elektrik-Spezialist: LED-Umbau Verkabelung
+
+LED-Umbau braucht folgende elektrische Anpassungen:
+1. **Flasher-Relay Tausch:** Elektronisches Relais (€10-20) MUSS installiert werden für korrekte Blinkfrequenz mit LED-Blinkern
+2. **Lastwiderstände:** Falls Relais nicht getauscht wird — aber Relay-Tausch ist sauberer
+3. **Koso RX-22 Verkabelung:** 7" H4 LED = Plug-and-Play mit NX650 Scheinwerfergehäuse, aber DRL braucht extra Stromanschluss
+4. **Blinker-Thread:** Vorne M8 (8mm), hinten M10 (10mm) — Universelle Sets haben Adapter
+
+**BITTE:** Verkabelungsplan für LED-Umbau erstellen, inkl. Relay-Typ und Anschlussschema.
+
+### Anfrage an Budget-Jäger: FC-Moto Sammelbestellung
+
+Folgende Teile alle bei FC-Moto verfügbar — Sammelbestellung spart Versand:
+1. Leo Vince SBK M15051 (~€289-309)
+2. Koso RX-22 LED (~€89-99)
+3. Acerbis MX Uniko (~€39-45)
+4. UNI NU-4050 (~€29-35)
+5. LED Blinker Set E9 (~€25-35)
+6. LED Rücklicht E-marked (~€12-20)
+
+**BITTE:** Versandkosten prüfen, Bundle-Rabatte erfragen, Lieferzeiten verifizieren.
+
+### Anfrage an Mechaniker: Jetting-Empfehlung
+
+Mit SS Header + Leo Vince Slip-on + UNI Filter:
+- **Empfehlung:** Hauptdüse #150-152, Pilotdüse #45, Nadel Clip Position 2
+- VE81M CV-Vergaser: recht tolerant, erst fahren dann ggf. anpassen
+- Düsen einzeln ~€2-4 (Keihin/NOZZLE)
+
+**BITTE:** Jetting-Kit Preis und Verfügbarkeit verifizieren, Einbau-Tipps für SS Header.
+
 ## Chefingenieur-Empfehlungen für Team-Erweiterung (Run #4 — 2026-05-28)
 
 ### Neue Agenten vorgeschlagen:
