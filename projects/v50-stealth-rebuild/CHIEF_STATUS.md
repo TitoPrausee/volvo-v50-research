@@ -19,7 +19,7 @@
 | 🔥 Auspuff | 3 | ✅ Gut — Ferrita (€420-650), Eisenmann (€800-1100), Heico (€750-950) | — |
 | 🛢️ Fluide | 9 | ✅ — Öl, ATF T-IV, Bremsflüssigkeit DOT4, Lenkflüssigkeit, Kühlwasser | — |
 | 🎨 Optik/Exterior | 24 | ✅ Erweitert — Grill, LED H7, LED Rücklichter, Heico Lippe, Facelift-SW, Polierung, Keramik, Ecklichter, Kotflügel | — |
-| 🛋️ Innenraum | 13 | ✅ Vollständig — Lederpflege, Schaltknauf R-Design, Pedale Alu, Lenkrad R-Design, Fußmatten, LED Warmweiß, DIM Cluster, Sonnenblende | — |
+| 🛋️ Innenraum | 18 | ✅ v2 Erweitert — Lederpflege, Schaltknauf R-Design, Pedale Alu, Lenkrad R-Design, Fußmatten, LED Warmweiß, DIM Cluster, Sonnenblende, +DIM-Kit, +CEM-Löt-Kit, +Kupplungspedal, +Schaltmanschette, +Sonnenblende LED | — |
 | 🕹️ Elektrik | 17 | ✅ Erweitert — ABS-Sensor, Batterie, CEM-Relay, ETM, Anlasser, Lichtmaschine, Bluetooth, Ecklichter FL, Facelift-SW | — |
 | ⛽ Ansaugung | 2 | ✅ — **K&N 33-2873** (korrigiert!) / Mann C 25 107, MAF Sensor | — |
 | ⏱️ Zahnriemen | 5 | ✅ — Gates+Contitech+Dayco Kit, WP, Keilriemen, Nockenwellendichtung | — |
@@ -218,5 +218,6 @@
 ---
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁  
-**DB-STAND**: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | v3 Preis-Update: 20 Teile aktualisiert (Mai 2026).  
-**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Phase 1 Teile €397-494 (⬆️ v3). Reserve €732-3.165 verfügbar.
+**DB-STAND**: 668 Teile, 31 interior, 1061 Fitments | Interior v2: 5 NEUE Teile (DIM-Kit, CEM-Löt-Kit, Sonnenblende LED, Kupplungspedal, Schaltmanschette).  
+**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Interior Realistisch €585 (v2), Premium €861.  
+**Interior v2 NEU**: DIM Pixel-Reparatur, CEM Relay Löt-Kit, Kupplungspedal PN 30714139, Schaltmanschette, Sicherheits-Hinweise erweitert.

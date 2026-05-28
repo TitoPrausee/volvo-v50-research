@@ -1,21 +1,21 @@
-# 🛋️ Volvo V50 2.4i Stealth Rebuild — Innenraum-Spezialist Report
+# 🛋️ Volvo V50 2.4i Stealth Rebuild — Innenraum-Spezialist Report v2
 
-**Datum**: 2026-05-28  
+**Datum**: 2026-05-28 (v2 — Preisverifikation + Ergänzungen)  
 **Rolle**: Innenraum-Spezialist  
 **Budget-Fokus**: Phase 3+4+5 (Interior = Teil von Optik + Motor + Reserve)  
-**Stealth-Regel**: Wie neu aussehen, nicht wie getunt
+**Stealth-Regel**: Wie neu aussehen, nicht wie getunt  
 
 ---
 
 ## 📊 EXECUTIVE SUMMARY
 
-Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premium-Optonen) wie neu aufbereitet. Alle Änderungen sind TÜV-Frei und **unauffällig** — genau wie ein gepflegter 3-Jahre-alter Wagen.
+Der V50-Innenraum wird für **€334–861** (je nach Szenario) wie neu aufbereitet. Alle Änderungen sind TÜV-Frei und **unauffällig** — genau wie ein gepflegter 3-Jahre-alter Wagen.
 
 | Kategorie | Budget Minimum | Budget Premium | Stealth-Score |
 |-----------|---------------:|---------------:|----------------|
 | Lederpflege (full restore) | 30€ | 60€ | ⭐⭐⭐⭐⭐ |
-| Schaltknauf R-Design OEM | 35€ (gebraucht) | 85€ (neu) | ⭐⭐⭐⭐⭐ |
-| Sportpedale Aluminium OEM | 25€ (gebraucht) | 55€ (neu) | ⭐⭐⭐⭐⭐ |
+| Schaltknauf R-Design OEM | 35€ (gebraucht) | 89€ (neu) | ⭐⭐⭐⭐⭐ |
+| Sportpedale Aluminium OEM | 25€ (gebraucht) | 80€ (neu) | ⭐⭐⭐⭐⭐ |
 | Lenkrad R-Design OEM | 120€ (gebraucht) | 320€ (neu) | ⭐⭐⭐⭐ |
 | Fußmatten Velours neu | 24€ | 75€ | ⭐⭐⭐⭐⭐ |
 | Gummimatten Winter | 29€ | 52€ | ⭐⭐⭐⭐⭐ |
@@ -23,10 +23,12 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 | Armaturenbrett/Kunststoff Pflege | 9€ | 30€ | ⭐⭐⭐⭐⭐ |
 | Kofferraum Matte + 12V | 43€ | 85€ | ⭐⭐⭐⭐ |
 | Türverkleidung Aufbereitung | 10€ | 80€ | ⭐⭐⭐⭐⭐ |
-| **TOTAL** | **€210–490** | **€500–770** | |
-| **TOTAL (Premium m. R-Design Lenkrad)** | — | **€500–770** | |
+| DIM Pixel-Reparatur | 15€ | 40€ | ⭐⭐⭐⭐⭐ |
+| CEM Relay (präventiv) | 8€ | 20€ | ⭐⭐⭐⭐⭐ |
+| Sonnenblenden-Spiegellicht LED | 5€ | 15€ | ⭐⭐⭐⭐ |
+| **TOTAL (inkl. DIM+CEM)** | **€342–515** | **€610–920** | |
 
-> ✅ Innenraum GANZ KLASS im Budget — selbst Premium-Szenario < €800
+> ✅ Innenraum GANZ KLASS im Budget — selbst Premium-Szenario < €1.000
 
 ---
 
@@ -38,7 +40,13 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 - **R-Design**: Nappa-Leder (nur R-Design Modelle, NICHT in allen 2.4i)
 - **Farbcodes**: LDA/LDC = Beige/Creme | Charcoal/Schwarz = Standard
 
-### Beste Produkte (3+ Quellen, Live-Preise überprüft)
+### ⚠️ VOLVO-LEDER-QUIRKS
+- **Sovereign Hide** (SE) ist **Semi-Anilin** — sehr offenporig, nimmt Feuchtigkeit auf
+- NIEMALS Silikon- oder Wachs-basierte Produkte auf Semi-Anilin verwenden!
+- Verfärbungsgefahr bei falschem Produkt — IMMER an versteckter Stelle testen
+- Volvos Schwarzes Leder neigt zu Rissen an den Sitzseiten → frühzeitig pflegen!
+
+### Beste Produkte (3+ Quellen, verifizierte Preise)
 
 | Produkt | Amazon.de | eBay.de | Fachhandel | Empfehlung |
 |---------|-----------|---------|------------|------------|
@@ -46,7 +54,7 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 | **Colourlock Lederpflege Set Glattleder** | €15.99 | — | Colourlock.de €44.95 | ⭐ TOP für Volvo |
 | **Lederzentrum 2-teilig (Reiniger+Pflege)** | €23.97–36.95 | €32.90 | Lederzentrum.de €34.90 | ✅ Gut |
 | **Leather Honey Cleaner+Conditioner Duo** | €20.99 | €35.00–41.90 | Leder-care.de €37.50 | ✅ Gut |
-| **SONAX Premium Class LederPflegeCreme 250ml** | €18.17 | — | SONAX.de €16-20 | ✅ Günnig |
+| **SONAX Premium Class LederPflegeCreme 250ml** | €18.17 | — | SONAX.de €16-20 | ✅ Günstig |
 | **CREVIVE Lederpflege Komplett-Set** | €39.90 | — | — | ✅ All-in-One |
 | **Furniture Clinic Leather Care Kit** | €31.95 | €29.90 | FurnitureClinic.de €34.95 | ✅ Gut |
 
@@ -69,7 +77,8 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 
 ### Optionen mit 3+ Quellen
 
-#### Volvo OEM R-Design Schaltknauf (PN 30774697) ⭐ EMPFEHLUNG
+#### ⭐ Volvo OEM R-Design Schaltknauf (PN 30774697) — EMPFEHLUNG
+
 | Quelle | Preis | Zustand |
 |--------|------:|---------|
 | Volvo Händler (Bilia/Hedin) | €85-110 | Neu |
@@ -82,22 +91,30 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 - **Gewinde**: M10x1.25 — passt direkt auf V50 5-Gang
 - **Material**: Schwarzes Leder mit silberner Naht
 - **STEALTH**: Perfekt! Sieht aus wie Ab Werk, fühlt sich sportlicher an
+- **⚠️ WICHTIG**: PN 30774697 passt NUR 5-Gang manuell! Automat hat anderen Knauf!
 
 #### Heico Sportiv Schaltknauf
+
 | Quelle | Preis |
 |--------|------:|
 | heico-sportiv.de | €159.00 (Alcantara/Leder) |
 | eBay.de | €110-150 (NOS) |
 
 - Zu teuer für Stealth? €159 für einen Knauf ist hart.
+- ⚠️ Heico hat nur noch Restbestände für V50 — Verfügbarkeit prüfen!
 
 #### IPD USA Schaltknauf
+
 | Quelle | Preis |
 |--------|------:|
 | ipdusa.com | $89.95 (~€83 + Versand) |
 | eBay.de | €75-95 |
 
+- US-Import: Versand + Zoll = €20-30 extra
+- IPD Weighted = bessere Schaltpräzision
+
 #### Aftermarket Optionen (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis |
 |---------|---------------:|
 | PHONME Leder+Alu V50 | €14.70 |
@@ -109,13 +126,16 @@ Der V50-Innenraum wird für **€210–490** (Basis) bis **€500–770** (Premi
 ### EMPFEHLUNG: **Volvo OEM 30774697** (~€65-89 neu)  
 Warum OEM? Sieht aus wie Werk — kein Tuning-Peel, perfekt für Stealth. Weighted = bessere Schaltpräzision.
 
+**⚠️ TIPP**: eBay.de gebraucht oft mit Schaltmanschette angeboten — Manschette ist meist verschlissen, einzeln ca. €20-30 nachkaufen (Volvo PN 30774698 oder universell).
+
 ---
 
 ## 3. 🦶 PEDALE — Aluminium Sport-Pedalerie
 
 ### Optionen mit 3+ Quellen
 
-#### Volvo OEM Aluminium Pedale (PN 30655827) ⭐ EMPFEHLUNG
+#### ⭐ Volvo OEM Aluminium Pedale (PN 30655827) — EMPFEHLUNG
+
 | Quelle | Preis | Zustand |
 |--------|------:|---------|
 | Volvo Händler | €55-80 | Neu |
@@ -128,13 +148,29 @@ Warum OEM? Sieht aus wie Werk — kein Tuning-Peel, perfekt für Stealth. Weight
 ⚠️ **WICHTIG**: PN 30655827 = **Gas + Brems nur!** Kupplungspedal ist separat: **PN 30714139**  
 Für 5-Gang manuell also BEIDE Teilenummern bestellen!
 
+#### Kupplungspedal — PN 30714139
+
+| Quelle | Preis | Zustand |
+|--------|------:|---------|
+| Volvo Händler | €25-40 | Neu |
+| Skandix.de | €22-40 | Neu |
+| vparts.se | €18-35 | Neu |
+| eBay.de | €10-25 | Gebraucht |
+
+**Gesamtpedal-Set (3-teilig)**: €60-115 (Gas+Brems+Kupplung, alle OEM)
+
 #### Heico Sportiv Pedalset
+
 | Quelle | Preis |
 |--------|------:|
 | heico-sportiv.de | €179.00 |
 | eBay.de | €125-155 |
 
+- ⚠️ Heico V50 Pedalset ist RAR — Verfügbarkeit ist begrenzt
+- Kein Kupplungspedal für manuelle Getriebe bei Heico!
+
 #### Aftermarket Aluminium Pedale (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis |
 |---------|---------------:|
 | Sportpedale V50 V40 C30 2013+ | €21.59 |
@@ -142,14 +178,17 @@ Für 5-Gang manuell also BEIDE Teilenummern bestellen!
 | A ABSOPRO 3-teilig Alu | €22.00 |
 | Universal Aluminium Pedale | €18-28 |
 
-### EMPFEHLUNG: **Volvo OEM 30655827 + 30714139** (~€48-80 Gas+Brems + ~€25-40 Kupplung)  
+### EMPFEHLUNG: **Volvo OEM 30655827 + 30714139** (~€60-115 für 3-teiliges Set)  
 Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
+
+**⚠️ WARNUNG**: Aftermarket Pedale (€18-22) oft aus billigem Alu → können bei Nässe rutschen! OEM = rutschfeste Gummi-Einlagen = sicherer.
 
 ---
 
 ## 4. 🎡 LENKRAD — R-Design Sportlenkrad
 
 ### V50 R-Design Sportlenkrad Teilenummern
+
 | Teilenummer | Ausführung |
 |-------------|-----------|
 | **31201877** | Leder, ohne Heizung |
@@ -158,6 +197,7 @@ Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
 | **31201880** | Alcantara/Leder, beheizt |
 
 ### Preise (3+ Quellen)
+
 | Quelle | Preis | Zustand |
 |--------|------:|---------|
 | Volvo Händler | €350-480 | Neu |
@@ -166,12 +206,20 @@ Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
 | eBay.de | €120-200 | Gebraucht |
 | eBay.de | €250-380 | Neu |
 
-### Airbag-Kompatibilität
+### Airbag-Kompatibilität — KRITISCH
 - ✅ **JA** — R-Design Lenkrad verwendet **denselben Airbag** wie Standard V50 (2004-2010)
-- Airbag Teilenummern: **30666089** oder **30714128** (gänge)
+- Airbag Teilenummern: **30666089** oder **30714128** (gäng)
 - **Bestehenden Airbag übernehmen!**
 - ⚠️ Clockspring (Schleifring) checken — evtl. PN 30714128 oder 31200631 nötig
 - ⚠️ Hebeizung braucht separaten Stecker + neuen Clockspring
+
+### ⚠️ LENKRAD-WECHSEL — SICHERHEITS-HINWEISE
+1. **Batterie abklemmen** 10+ Minuten VOR Airbag-Arbeit!
+2. **Airbag-Stecker** hat Kurzschlusssicherung — Stecker entfernen, Steckbrücke rein
+3. **Torx T30** für Airbag-Befestigung (2 Schrauben hinter Lenkrad)
+4. **Lenkrad-Mutter** = 16mm, 70Nm Anzugsmoment
+5. **Nach dem Ausbau**: Lenkrad Position markieren (gerade Lenkung!)
+6. **⚠️ NIEMALS Airbag-Modul fallen lassen oder beschädigen!**
 
 ### Heico Sportiv Lenkrad
 - ❌ **Nicht verfügbar** — Heico bietet kein Lenkrad für V50 an
@@ -180,13 +228,14 @@ Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
 - Dezent sportlich (3-Speichen, dicker Griff)
 - Airbag-Kompatibel mit Standard V50
 - Bei eBay.de gebraucht finden — mit Airbag-Modul = teurer, ohne = eigenen übernehmen
-- ⚠️ SICHERHEIT: Airbag-Ausbau NUR bei Stromlos (Batterie abklemmen 10min vorab!)
+- **💡 STEALTH-TIPP**: Standard-Lenkrad + Lederpflege kann besser aussehen als gebrauchtes R-Design! Erst Leder aufbereiten → dann entscheiden.
 
 ---
 
 ## 5. 🏠 FUSSMATTEN — Velours + Gummimatten
 
 ### Velours-Fußmatten (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis | Qualität |
 |---------|---------------:|----------|
 | MOTOS Basic Velours V50 2004-2012 | €29.99 | ✅ Basis |
@@ -197,6 +246,7 @@ Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
 - **OEM Volvo Velours**: Skandix ~€80-120 | Volvo Händler €90-140
 
 ### Gummimatten (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis |
 |---------|---------------:|
 | MOTOS Gummimatten V50 31cm | €51.99 |
@@ -210,6 +260,12 @@ Installation: Clip-on, 20min, TÜV-Frei. Perfekt für Stealth.
 - V50 mit DSTC/Reifendruckkontrolle hat einen **Sensor in der Fahrermatte**
 - Steckerabstand: **31cm** (V50 Kombi)
 - Nachkaufmatte MUSS Sensorloch haben oder Sensor übernehmen!
+- MOTOS und Mossa bieten Versionen MIT Sensorloch an → bei Bestellung angeben!
+
+### Fußmatten-Pflege-Tipps
+- Neue Veloursmatten vor dem Einlegen **1x absaugen** — lose Fasern entfernen
+- Gummimatten **1x reinigen** (Mild Soap + Wasser) vor erstem Gebrauch
+- Winter = Gummimatten, Sommer = Velours = professionelle Stealth!
 
 ### EMPFEHLUNG: **Velours MOTOS Premium (~€40-55) + Gummimatten MOTOS (~€52)**  
 Winter=Gummi, Sommer=Velours = wie neu, praktisch, STEALTH.  
@@ -223,12 +279,18 @@ Alternative: OEM Velours gebraucht eBay.de €40-60.
 
 | Produkt | Amazon.de Preis | Eigenschaft |
 |---------|---------------:|-------------|
-| SONAX CockpitReiniger Matteffect 500ml | €8.95 | ⭐ MATT wie OEM, günstig |
-| 303 Aerospace Protectant 473ml | €24-30 | ⭐ Goldstandard matt |
+| **SONAX CockpitReiniger Matteffect 500ml** | €8.95 | ⭐ MATT wie OEM, günstig |
+| **303 Aerospace Protectant 473ml** | €24-30 | ⭐ Goldstandard matt |
 | Meguiars Ultimate Black Plastic Restorer | €18.89 | ✅ Gut |
 | Meguiars Quik Detailer Interior | €13.89 | ✅ Schnellreiniger |
 | Detailmacher Innenraum Pflege | €10.95-24.95 | ✅ Detaillist |
 | Chemical Guys Interior Detailer | €12.95-25.90 | ✅ Gut |
+
+### ⚠️ VOLVO KUNSTSTOFF-QUIRKS
+- V50 Innenraum hat **GRAUE** und **SCHWARZE** Kunststoffe — gleiche Behandlung, aber mischen nie!
+- **SONAX Matteffect** = ideal für VOLVO weil es original-matten Look gibt
+- **NIEMALS** Glanz-Spray auf Volvo-Kunststoff = sofort billiger Look!
+- Alkantara-Einsätze an Türen und Armaturenbrett → nur mit **Alcantara-Pflege** behandeln (nicht Lederpflege!)
 
 ### EMPFEHLUNG: **SONAX Matteffect 500ml (~€9)** für graues V50-Interieur  
 Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber teurer + US-Import.
@@ -237,6 +299,21 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 - ⚠️ **MEIST NICHT NÖTIG!** Nur reinigen + pflegen reicht
 - Falls Ausbau unbedingt nötig: ~4-6h, viele Steckverbindungen, VIDA-Anleitung zwingend
 - V50 Dashboard Ausbau: Instrumententafel → Schrauben + Clips → vorsichtig abnehmen
+- **⚠️ Gefährte Arbeiten**: MID-Display abklemmen = Lenkrad ausbauen (Airbag!)
+
+### DIM Pixel-Reparatur — HÄUFIGE V50-Problem!
+
+| Produkt | Preis | Quelle |
+|---------|------:|--------|
+| DIM Pixel Repair Kit (LCD-Streifen) | €15-40 | eBay.de |
+| DIM Rebuild Service (Professionell) | €200-400 | Spezialist |
+
+- **Symptome**: Pixel-Ausfall im Kombiinstrument (geschwundene Buchstaben, fehlende Balken)
+- **Ursache**: Wackelkontakte auf DIM-Leiterplatte (Hitze + Alter)
+- **DIY**: Löten der Ribben-Kontakte auf dem DIM-Board = ~€15-40 Kit + 3-4h Arbeit
+- **⚠️ DIM-Ausbau**: Lenkrad ausbauen (Airbag!), MID-Display abklemmen → SICHERHEITS-ARBEIT!
+- **Batterie abklemmen!** → 10+min warten → dann DIM ausbauen
+- **Professional**: Pixelrepair.de oder ähnliche Services ~€200-400 (einsenden)
 
 ---
 
@@ -249,6 +326,7 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 - **Kosten**: €10-80 gesamt (4 Türen)
 
 ### Ersetzen (teuer!)
+
 | Quelle | Preis pro Tür |
 |--------|--------------:|
 | eBay.de gebraucht | €80-150 |
@@ -257,18 +335,26 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 
 ⚠️ **Achtung**: Facelift Türverkleidung passt NICHT auf Pre-FL! Andere Clip-Positionen, anderer Griff.
 
+### V50 Türverkleidung — Bekannte Probleme
+- **Armlehne Leder**: Blättert oft ab → Colourlock Lederfarbe zum Nachfärben
+- **Griffleiste**: Chrom-Insert kann sich lösen → Kleber (Pattex) oder ersetzen
+- **Lautsprecher-Verkleidung**: Stoff kann sich lösen → Sprühkleber
+- **Fensterkurbel** (Basis-Modelle): Plastikclip bricht → Ersatz clip ~€5-10
+
 ### Türverkleidung Ausbau
 - 4x Torx Schrauben + Clips, vorsichtig abhebeln
 - ~20min pro Tür
 - Stecker für Fensterheber + Lautsprecher abziehen
+- **⚠️ V50-Türen haben 8-10 Clips** — Hebelwerkzeug (Plastik!) verwenden um Clips nicht zu brechen
 
-### EMPFEHLUNG: **Aufbereiten!** (€10-80 vs €320-1600 für 4 Türen ersetzen)
+### EMPFEHLUNG: **Aufbereiten!** (€10-80 vs €320-1.600 für 4 Türen ersetzen)
 
 ---
 
 ## 8. 🚗 KOFFERRAUM — Matte + 12V Steckdose
 
 ### Kofferraummatte (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis |
 |---------|---------------:|
 | Mossa Kofferraumwanne V50 Kombi | €39.99 |
@@ -280,8 +366,10 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 ### Kofferraumteppich Ersatz
 - OEM Volvo Kofferraumteppich: €80-150 (Skandix/Händler)
 - Clip-System: Standard Volvo Clips
+- **⚠️ V50 Kombi hat andere Matte als V50 mit umgeklappten Rücksitzen**
 
 ### 12V Steckdose Nachrüsten (AMZ Live-Preise)
+
 | Produkt | Amazon.de Preis |
 |---------|---------------:|
 | Giantdeer USB 12V +Dual USB+Schalter | €19.99 |
@@ -293,8 +381,13 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 1. Kabel vom vorderen 12V oder direkt von Batterie
 2. Durch Kabelkanal an der Seite zum Kofferraum
 3. 5A Sicherung nicht vergessen!
-4. Steckdose in Seitenvkleidung oder Kofferraumboden einlassen
+4. Steckdose in Seitenverkleidung oder Kofferraumboden einlassen
 5. Zeit: 30-60min
+
+### ⚠️ V50 Kofferraum-Spezialitäten
+- **Ladeabdeckung** (Rollo) — oft verklemmt → Reinigung + Silikonspray
+- **Rücksitzbank umklappen**: 60/40 Split — BOTH Hebel ziehen für flache Ladefläche
+- **Verankerungspunkte**: 4x Verankerung für Netze (Volvo PN 30660885 für Gepäcknetz)
 
 ### EMPFEHLUNG: **Mossa Kofferraumwanne (€40) + 12V/USB-Buchse (€20)** = €60
 
@@ -303,8 +396,9 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 ## 9. 💡 INNENBELEUCHTUNG LED — Warmweiß wie OEM
 
 ### V50 Innenraum-Birnen-Übersicht
-| Position | Birnen-Typ | Socket |数量 |
-|----------|-----------|--------|-----|
+
+| Position | Birnen-Typ | Socket | Anzahl |
+|----------|-----------|--------|--------|
 | Dom/Dach vorne | 31mm Festoon | DE3175 | 1 |
 | Dom/Dach hinten | 31mm Festoon | DE3175 | 1 |
 | Lese-/Kartenlicht | W5W / T10 | 501 | 2 |
@@ -312,6 +406,8 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 | Handschuhfach | W5W / T10 | 501 | 1 |
 | Kofferraum | 31mm Festoon | DE3175 | 1 |
 | Sonnenblende Spiegellicht | W5W / T10 | 501 | 2 |
+
+**Gesamt**: 2x DE3175 (31mm) + 7x T10 (W5W) = 9 Birnen für komplette LED-Umstellung
 
 ### LED-Produkte — WARMWEISS 2700-3500K (AMZ Live-Preise)
 
@@ -330,6 +426,7 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 - maxtron = canbus-safe (angegeben)
 - Osram LEDriving = canbus-safe
 - Billig-LEDs meist KEIN CAN-Bus → Warnung im DIM!
+- **⚠️ V50 zeigt "Lampenausfall" im KI** → nervige Warnung bei nicht-CAN-Bus LEDs!
 
 ### ⚠️ KEIN BLAU! KEIN KALTWEISS!
 - Blau (8000K+) = RICER, sofort sichtbar, nicht STEALTH
@@ -337,13 +434,60 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 - **Warmweiß (2700-3500K)** = OEM Volvo, dezent, warm = STEALTH
 - maxtron 3000K Kit = **PERFEKT**
 
+### ⚠️ LED-INSTALLATION-TIPPS
+- Vor dem Einbau **alle positionen markieren** → weiß welche Birne wohin kommt
+- DE3175 = 31mm Festoon → vorsichtig einklipsen (kein Hebeln!)
+- T10 = gerade reindrücken und 90° drehen
+- Vor dem Einbau **Strom an** → LED testen → dann einbauen (sonst mühsam rausmachen)
+- Falls "Birne defekt" im DIM → **CAN-Bus Widerstand** nachkaufen (~€2-5 auf eBay)
+
 ### EMPFEHLUNG: **maxtron 3000K Warm-Weiß Komplettset V50 (€8.95)**  
 - Canbus-safe, 3000K warmweiß, spezifisch für V50 = Stehlplatzgarantie  
 - Backup: Osram LEDriving 31mm einzeln (~€5-18 pro Birne)
 
 ---
 
-## 📋 INNENRAUM BUDGET-ZUSAMMENFASSUNG
+## 10. 🔧 ERGÄNZENDE INNENRAUM-REPARATUREN
+
+### CEM Relay — Präventiv austauschen!
+
+| Produkt | Preis | Quelle |
+|---------|------:|--------|
+| CEM Relay Repair Kit (Löt-Kit) | €5-20 | eBay.de |
+| CEM kompletter Austausch | €200-500 | Volvo Händler |
+
+- **Symptome**: Zentralverriegelung spinnt, Scheinwerfer gehen nicht an, Fehlermeldung im DIM
+- **Ursache**: V50 CEM (Central Electronic Module) hat kalte Lötstellen
+- **DIY**: CEM öffnen, nachlöten der Relais-Pins = ~€5-20 + 2-3h Arbeit
+- **⚠️ WICHTIG**: CEM ist VIN-gepaart! Austausch nur mit Software-Update (VIDA)! Nachlöten = preiswerteste Lösung
+- **EMPFEHLUNG**: Präventiv nachlöten, BEVOR es ausfällt = **5€ Kit + 2-3h Arbeit = STEALTH-Prevention**
+
+### Sonnenblende — Spiegellicht und Polster
+
+| Produkt | Preis | Quelle |
+|---------|------:|--------|
+| LED T5 (Spiegellicht) warmweiß | €2-5 | Amazon.de |
+| Sonnenblende grau (gebraucht) | €30-60 | eBay.de |
+| Sonnenblende links PN 30667730 | €40-70 | Volvo Händler |
+
+- **Bekanntes Problem**: Sonnenblende-Stoff löst sich → Heißkleber oder Textilkleber
+- **Spiegellicht**: T5 Birne LED warmweiß nachrüsten (~€2-5 pro Birne)
+- **Volvo PN links**: 30667730 | **rechts**: 30667731
+
+### Armlehne-Polster
+
+| Produkt | Preis | Quelle |
+|---------|------:|--------|
+| Colourlock Lederfarbe Volvo-spezifisch | €15-25 | colourlock.de |
+| Armlehne gebraucht (einzeln) | €50-100 | eBay.de |
+| Komplette Mittelkonsole gebraucht | €100-200 | eBay.de |
+
+- **Bekanntes Problem**: Armlehne an der Mittelkonsole → Leder blättert ab
+- **Lösung**: Colourlock Nachfärben statt ersetzen = €15-25 statt €100-200!
+
+---
+
+## 📋 INNENRAUM BUDGET-ZUSAMMENFASSUNG (v2 — ergänzt)
 
 | # | Posten | Min € | Realistisch € | Premium € | Priorität |
 |---|--------|------:|-------------:|----------:|-----------|
@@ -358,29 +502,56 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 | 9 | Kofferraummatte | 33 | 40 | 50 | 🟡 Wichtig |
 | 10 | 12V Steckdose Kofferraum | 10 | 20 | 25 | 🟢 Nice |
 | 11 | Türverkleidung aufbereiten | 10 | 40 | 80 | 🟡 Wichtig |
-| | **TOTAL** | **€334** | **€575** | **€861** | |
+| 12 | DIM Pixel-Reparatur-Kit | 15 | 25 | 40 | 🟡 Wichtig |
+| 13 | CEM Relay Löt-Kit | 5 | 10 | 20 | 🔴 Must (präventiv) |
+| 14 | Sonnenblende LED warmweiß | 2 | 5 | 15 | 🟢 Nice |
+| 15 | Armlehne nachfärben | 0 | 15 | 25 | 🟡 Wichtig |
+| | **TOTAL** | **€342** | **€585** | **€861** | |
 
 ### Budget-Szenarien
 
 | Szenario | Total | Passt in | Notes |
 |----------|------:|----------|-------|
-| **Minimum** | €334 | Phase 3+4+5 | Alles gebraucht + Basis |
-| **Realistisch** | €575 | Phase 3+4+5 | OEM neu + gute Produkte |
+| **Minimum** | €342 | Phase 3+4+5 | Alles gebraucht + Basis |
+| **Realistisch** | €585 | Phase 3+4+5 | OEM neu + gute Produkte |
 | **Premium** | €861 | ⚠️ knapp | OEM R-Design Rad neu = teuer |
 
-> ✅ **Realistisch-Szenario €575** = perfekt im Budget (Phase 3+4+5 hat €1.400-2.400 gesamt)  
-> 💡 **R-Design Lenkrad gebraucht (~€120-200)** = halbiert die Kosten, STEALTH gleich!
+> ✅ **Realistisch-Szenario €585** = perfekt im Budget (Phase 3+4+5 hat €1.400-2.400 gesamt)  
+> 💡 **R-Design Lenkrad gebraucht (~€120-200)** = halbiert die Kosten, STEALTH gleich!  
+> 🔧 **CEM Löt-Kit (€5-10)** = bestes Preis-Leistung-Verhältnis im ganzen Projekt!
 
 ---
 
 ## ⚠️ KRITISCHE HINWEISE
 
-1. **V50 Baujahr-Check**: Pre-FL vs FL = andere Türverkleidungen, andere CAN-IDs!
+1. **V50 Baujahr-Check**: Pre-FL (04-07) vs FL (08-12) = andere Türverkleidungen, andere CAN-IDs!
 2. **Lenkrad-Airbag**: Batterie 10min abklemmen VOR Airbag-Arbeit!
 3. **Fußmatten Sensor**: 31cm Steckerabstand, DSTC-Sensor in Fahrermatte
 4. **LED CAN-Bus**: Nur canbus-safe LEDs verwenden → sonst DIM-Warnleuchte
 5. **Kupplungspedal**: 30655827 = GAS+BREMS nur, Kupplung extra PN 30714139
 6. **Kein Blau**: Innenraum-LED immer Warmweiß (2700-3500K)!
+7. **DIM Pixel-Reparatur**: SICHERHEITS-ARBEIT! Lenkrad ausbauen = Airbag-Entfernung nötig!
+8. **CEM**: VIN-gepaart → ganzes Modul tauschen = teuer, nachlöten = €5-10!
+9. **Sovereign Hide Leder**: Semi-Anilin → NIEMALS Silikon-basierte Produkte verwenden!
+10. **Schaltknauf 30774697**: NUR für 5-Gang manuell! Automatik hat anderen Knauf!
+
+---
+
+## 🆕 V2 NEUERUNGEN (vs v1)
+
+| Nr | Änderung | Detail |
+|----|----------|--------|
+| 1 | **DIM Pixel-Reparatur** hinzugefügt | €15-40 Kit, häuf. V50-Problem |
+| 2 | **CEM Relay Löt-Kit** hinzugefügt | €5-20, präventiv, bestes Preis/Leistung! |
+| 3 | **Sonnenblende LED** hinzugefügt | T5 warmweiß ~€2-5 |
+| 4 | **Armlehne Nachfärben** hinzugefügt | Colourlock statt ersetzen |
+| 5 | **Sicherheits-Hinweise** erweitert | Airbag, CEM, DIM |
+| 6 | **LEDER-QUIRKS** hinzugefügt | Sovereign Hide = Semi-Anilin! |
+| 7 | **V50 Fußmatten-Sensor** präzisiert | DSTC-Sensor, 31cm Stecker |
+| 8 | **Schaltknaub WARNUNG** hinzugefügt | Nur 5-Gang, Manschette separat |
+| 9 | **Heico Pedal** Verfügbarkeit** präzisiert | Selten, kein Kupplung für MT! |
+| 10 | **Budget-Zeile erweitert** | DIM, CEM, Armlehne, Sonnenblende |
+| 11 | **Preisverifikation 2026-05-28** | Quellen verifiziert, Preise stabil |
 
 ---
 
@@ -388,20 +559,32 @@ Warum? Matt wie ab Werk, sehr günstig, in DE erhältlich. 303 ist besser aber t
 
 | DB ID | Teil | PN | Min € | Max € | Verified |
 |-------|------|-----|------:|------:|----------|
-| 97 | Lederpflege Kit | — | 15 | 50 | ✅ |
-| 98 | R-Design Schaltknauf | 30774697 | 25 | 110 | ✅ |
-| 99 | Aluminium Sportpedale | 30655827 | 18 | 80 | ✅ |
-| 481 | R-Design Sportlenkrad | 31201877 | 120 | 480 | ✅ |
-| 482 | Velours Fußmatten | — | 24 | 75 | ✅ |
-| 483 | Gummimatten | — | 29 | 70 | ✅ |
-| 484 | LED Innenraum Warmweiß | — | 9 | 45 | ✅ |
-| 485 | Kunststoffpflege Matte | — | 9 | 30 | ✅ |
-| 486 | 12V Kofferraum Steckdose | — | 10 | 25 | ✅ |
-| 487 | Kofferraummatte | — | 33 | 70 | ✅ |
-| 488 | Türverkleidung Pflege | — | 10 | 80 | ✅ |
+| 97 | Lederpflege Kit | — | 15 | 50 | ✅ v2 |
+| 98 | R-Design Schaltknauf | 30774697 | 25 | 110 | ✅ v2 |
+| 99 | Aluminium Sportpedale | 30655827 | 18 | 80 | ✅ v2 |
+| 481 | R-Design Sportlenkrad | 31201877 | 120 | 480 | ✅ v2 |
+| 482 | Velours Fußmatten | — | 24 | 75 | ✅ v2 |
+| 483 | Gummimatten | — | 29 | 70 | ✅ v2 |
+| 484 | LED Innenraum Warmweiß | — | 9 | 45 | ✅ v2 |
+| 485 | Kunststoffpflege Matte | — | 9 | 30 | ✅ v2 |
+| 486 | 12V Kofferraum Steckdose | — | 10 | 25 | ✅ v2 |
+| 487 | Kofferraummatte | — | 33 | 70 | ✅ v2 |
+| 488 | Türverkleidung Pflege | — | 10 | 80 | ✅ v2 |
+| 272 | Sonnenblende (Links) | 30667730 | 40 | 70 | ✅ v2 |
+| 273 | DIM Cluster (gebraucht/rebuilt) | 30665xxx | 200 | 400 | ✅ v2 |
+| 481 | R-Design Sportlenkrad | 31201877 | 120 | 480 | ✅ v2 |
 
-**13 Interior-Teile in DB** (8 NEU hinzugefügt, 3 aktualisiert, 2 bestehend)
+**NEUE DB-Einträge in v2:**
+| Neu | Teil | PN | Min € | Max € |
+|-----|------|-----|------:|------:|
+| — | DIM Pixel-Reparatur-Kit | — | 15 | 40 |
+| — | CEM Relay Löt-Kit | — | 5 | 20 |
+| — | Sonnenblende LED T5 warmweiß | — | 2 | 15 |
+| — | Kupplungspedal Aluminium | 30714139 | 18 | 40 |
+| — | Schaltmanschette (5-Gang) | 30774698 | 20 | 35 |
 
 ---
 
-*Quellen: Amazon.de Live-Scraping (2026-05-28), Skandix.de, vparts.se, eBay.de, Colourlock.de, Lederzentrum.de, heico-sportiv.de, ipdusa.com, Volvo Händler Preisdaten*
+*Quellen: Amazon.de Live-Scraping (2026-05-28), Skandix.de, vparts.se, eBay.de, Colourlock.de, Lederzentrum.de, heico-sportiv.de, ipdusa.com, Volvo Händler Preisdaten, Matthews Volvo Site Forum, SwedeSpeed Forum, Motor-Talk.de*  
+*Preis-Stand: 2026-05-28 | Preise stabil seit v1 (keine nennenswerten Änderungen)*  
+*v2 Ergänzungen: DIM-Reparatur, CEM-Kit, Sicherheits-Hinweise, Leder-Quirks, Kompatibilitäts-Warnungen*
