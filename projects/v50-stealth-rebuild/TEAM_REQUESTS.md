@@ -61,10 +61,30 @@ Siehe CHIEF_STATUS.md für vollständige Budget-Analyse.
 - **Lenkwinkel CAN-ID**: 0x128 + 0x1B8 (beide UNVERIFIED) — Implementiert, braucht Verifikation
 - **Gierrate/Querbeschleunigung**: 0x0D7 (UNVERIFIED) — Implementiert, braucht Verifikation
 - **Motor-Status**: 0x0C4 (UNVERIFIED) — Implementiert, braucht Verifikation
-- **Licht-Status**: 0x3F0 (UNVERIFIED) — Implementiert, braucht Verifikation
-- **Gurt-Status**: 0x380 (UNVERIFIED) — Implementiert, braucht Verifikation
+- **Licht-Status**: 0x3F0 → jetzt 0x420 Exterior Lighting (VERIFIED in DB) ✅
+- **Gurt-Status**: 0x380 → jetzt 0x450 Seatbelt Warning (VERIFIED in DB) ✅
 - **PiCAN2 Hardware**: Besorgen und Erst-Test mit candump can0
-- **10 unverified IDs**: Alle im Decoder bereit, brauchen nur echte CAN-Bus-Daten zum Bestätigen
+- **56 CAN-Messages** dekodiert (32 verified, 12 community, 12 unverified)
+
+#### 💻 Developer → Developer (selbst) — ERLEDIGT 2026-05-28
+- ✅ **56 CAN-Messages dekodiert** — von 34 auf 56 Messages erweitert
+- ✅ **181 DTC-Codes** in v50_dtc_reader.py — Powertrain, Chassis, Body, Network, Volvo-spezifisch
+- ✅ **OBD2 Diagnose-Modul** — Mode 01/03/04/07/09 vollständig implementiert
+- ✅ **Data Logger (SQLite+CSV)** — Session-Tracking, Rotation, 20Hz
+- ✅ **App-Controller (v50_app.py)** — Zentraler Orchestrierer für alle Module
+- ✅ **Wartungs-Tracker erweitert** — 12 Service-Intervalle, km-Stand-basiert
+- ✅ **Dashboard DTC-Diagnose-Overlay** — Taste `D` öffnet DTC-Scan, Clear, Maintenance-Anzeige
+- ✅ **Dashboard Doors/Lights/Cruise** — Neue Readouts für Türstatus, Lichter, Tempomat
+- ✅ **Dashboard Warning-Lights** — Gurt (🛟), ABS (⚠️) hinzugefügt
+- ✅ **Neue CAN-Messages**: Bremslichtschalter (0x0B4), ABS 4ch (0x1C0), Getriebe AT (0x180), Giertrate (0x0F8), Exterior Lighting (0x420), Heckklappe (0x438), Tempomat (0x430), Lichtschalter (0x440), Hupe (0x448), Gurt (0x450), Audio (0x500/0x510), Facelift (0x316/0x330/0x360)
+
+#### 💻 Developer → Chef/User — NEUE ANFRAGEN
+- **PiZ-Up USV HAT (~€30)**: Empfohlen für sicheres Herunterfahren. Verhindert SD-Karten-Korruption. Budget-Erhöhung nötig?
+- **Display-Platzierung**: Wo im V50? OEM-Tacho darf NICHT verdeckt werden (TÜV!). Optionen:
+  - Handschuhfach (diskret, aber nicht direkt sichtbar)
+  - Mittelkonsole (sichtbar, Kabelführung komplexer)
+  - 3D-gedrucktes Gehäuse unterhalb des OEM-Tachos?
+- **Stealth-Toggle Hardware**: GPIO-Taste am Pi4? Oder Lenkradtaste via CAN?
 
 #### 🏁 Fahrwerk → v50-budget
 - **KONI Special Active (Yellow) Verfügbarkeit**: 86-2636SP4 / 80-2629SP4

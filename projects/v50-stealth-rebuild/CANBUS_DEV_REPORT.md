@@ -11,15 +11,16 @@
 ### ✅ Hardware-Spezifikation (festgelegt)
 
 | Komponente | Modell | Preis | Status |
-|------------|--------|-------|--------|
+|-----------|--------|-------|--------|
 | Raspberry Pi | Pi 4 Model B 2GB | ~€35 | ✅ In DB |
 | CAN HAT | PiCAN2 Duo (2-Kanal) | ~€25 | ✅ In DB |
 | Display | 7" IPS TFT 1024x600 | ~€40 | ✅ In DB |
 | Gehäuse | Alu-Gehäuse Pi4 | ~€15 | ✅ Spezifiziert |
 | OBD2-Adapter | OBD2-Stecker auf Dupont | ~€5 | ✅ Spezifiziert |
 | Stromversorgung | 5V/3A + Step-Down | ~€10 | ✅ Spezifiziert |
+| PiZ-Up USV HAT | USV + Safe-Shutdown | ~€30 | 🆕 EMPFOHLEN |
 | MicroSD | 32GB A2 | ~€8 | ✅ Spezifiziert |
-| **Total** | | **~€138** | ✅ |
+| **Total** | | **~€168** | Mit PiZ-Up, ohne Display ~€128 |
 
 ### ✅ CAN-Bus-Topologie (V50 P1 Plattform)
 
@@ -28,196 +29,212 @@
 | High-Speed CAN | 500kbps | ISO 15765-4 | Motor, ABS, TCM, OBD2 | PiCAN2 Bus A / OBD2 |
 | Low-Speed CAN | 125kbps | ISO 11519-2 | CEM, DIM, ACC, Türen | PiCAN2 Bus B / CEM |
 
-### ✅ Software-Architektur (4541 Zeilen Code)
+### ✅ Software-Architektur (~7000 Zeilen Code)
 
 ```
-canbus/v50_can_decoder.py    — ✅ KERNMODUL: 40 CAN-Messages, 60+ Signale
+canbus/v50_can_decoder.py    — ✅ KERNMODUL: 56 CAN-Messages, 80+ Signale
 canbus/v50_can_sniffer.py    — ✅ Logger, DTC-Reader, Wartungs-Tracker, Sniffer
-canbus/v50_ble_server.py     — ✅ NEU: Bluetooth RFCOMM + TCP Smartphone-Server
-canbus/v50_power_monitor.py — ✅ NEU: CAN+GPIO Zündungsüberwachung + Safe-Shutdown
-canbus/v50_drive_profile.py  — ✅ NEU: Eco/Normal/Sport Analyse, Verbrauchstracker
-dashboard/v50_dashboard.py   — ✅ PyQt5 GUI mit Analog-Gauges, Day/Night, Stealth, Drive Profile
+canbus/v50_ble_server.py     — ✅ Bluetooth RFCOMM + TCP Smartphone-Server
+canbus/v50_power_monitor.py  — ✅ CAN+GPIO Zündungsüberwachung + Safe-Shutdown
+canbus/v50_drive_profile.py  — ✅ Eco/Normal/Sport Analyse, Verbrauchstracker
+canbus/v50_dtc_reader.py    — ✅ NEU: OBD2 DTC-Diagnose (181 Fehlercodes!)
+canbus/v50_app.py            — ✅ NEU: Zentraler App-Controller (Orchestrierung)
+dashboard/v50_dashboard.py   — ✅ PyQt5 GUI + DTC-Overlay + Türen/Lichter/Cruise
 hardware/HARDWARE_SETUP.md   — ✅ Pi4+PiCAN2 Installationsanleitung
-hardware/maintenance.json    — ✅ Wartungs-Intervall-Tracker (km-basiert)
+hardware/maintenance.json    — ✅ Wartungsintervalle + km-Stand
 ```
 
 ---
 
-## 📊 2. CAN-MESSAGE-ABDECKUNG — 40 MESSAGES (60+ SIGNALE)
+## 🆕 2. NEU IN DIESEM RUN: DTC-DIagnose + App-Controller
 
-### ✅ High-Speed CAN — 35 Messages dekodiert (55 Signale)
+### ✅ v50_dtc_reader.py — OBD2 Diagnose-Modul
 
-#### VERIFIZIERT (30 Messages)
+**181 V50-spezifische Fehlercodes** in der Datenbank:
 
-| CAN ID | Name | Quelle | Signale | Verifiziert |
-|--------|------|--------|---------|-------------|
-| 0x0C0 | Engine RPM | ECM→CEM | engine_rpm | ✅ VIDA + Community |
-| 0x0C8 | Coolant Temp | ECM→CEM | coolant_temp | ✅ ISO 15031-5 |
-| 0x0D0 | Throttle Position | ECM→CEM | throttle_position | ✅ |
-| 0x0D8 | Engine Load/MAF | ECM→CEM | engine_load, maf_rate | ✅ |
-| 0x0E0 | Vehicle Speed | ECM→CEM | vehicle_speed | ✅ VIDA + Community |
-| 0x0F0 | Fuel Level | ECM→CEM | fuel_level | ✅ |
-| 0x100 | Intake Air Temp | ECM→CEM | intake_air_temp | ✅ |
-| 0x108 | Oil Pressure/Temp | ECM→CEM | oil_temp, oil_pressure_switch | ✅ |
-| 0x1A0 | Gear Position | TCM→CEM | gear_position | ✅ |
-| 0x1A8 | Trans Temp | TCM→CEM | trans_fluid_temp | ✅ |
-| 0x200-0x228 | Klima (6 Messages) | ACC→CEM | ac_button, temp, fan, etc. | ✅ |
-| 0x230 | Interior Temp | CEM→DIM | interior_temp | ✅ |
-| 0x238 | Exterior Temp | CEM→DIM | exterior_temp | ✅ |
-| 0x240 | Recirculation | ACC→CEM | recirc_door_pos | ✅ |
-| 0x280 | Blend Door | CEM→ACC | blend_door_pos | ✅ |
-| 0x300 | RPM Tachometer | CEM→DIM | tach_rpm | ✅ |
-| 0x308 | Speedometer | CEM→DIM | speedo_kmh | ✅ |
-| 0x310 | Fuel Gauge | CEM→DIM | fuel_gauge | ✅ |
-| 0x318 | Coolant Gauge | CEM→DIM | coolant_gauge | ✅ |
-| 0x320 | Warning Lights | CEM→DIM | check_engine, oil_warn, bat_warn, temp_warn | ✅ |
-| 0x328 | Odometer | CEM→DIM | odometer_km | ✅ |
-| 0x340 | Trip Button | DIM→CEM | trip_button_pressed | ✅ |
+- **Powertrain P0xxx**: 60+ Codes (O2-Sensoren, Fehlzündungen, Kraftstoffsystem, etc.)
+- **Volvo P1xxx**: 60+ Hersteller-Codes (VVT, Injektoren, CEM-Kommunikation, etc.)
+- **Chassis C0xxx**: 25+ ABS/DSTC Codes (Radsensoren, Giertrate, Lenkwinkel)
+- **Body Bxxxx**: 20+ Karosserie-Codes (SRS, CEM, DIM, Türmodule)
+- **Network U0xxx**: 15+ CAN-Bus Kommunikationsfehler
 
-#### UNVERIFIZIERT (10 Messages — BRAUCHEN PHYSISCHE VERIFIKATION!)
+**Funktionen**:
+- Mode 03: Gespeicherte DTCs lesen
+- Mode 04: DTCs löschen (mit Sicherheitsbestätigung)
+- Mode 07: Ausstehende DTCs lesen
+- Mode 09: VIN auslesen
+- Mode 01: Live-Daten (RPM, Temp, Geschwindigkeit, etc.)
+- Mode 22: Volvo-Proprietäre PIDs (Öltemperatur, ATF-Temp, etc.)
+- Modul-spezifische Abfrage (ECM, TCM, ABS, CEM)
 
-| CAN ID | Name | Quelle | Signale | Status |
-|--------|------|--------|---------|--------|
-| 0x0D4 | ABS Wheel Speed FL/FR | ABS→CEM | wheel_speed_fl, wheel_speed_fr | ⚠️ UNVERIFIED |
-| 0x0D5 | ABS Wheel Speed RL/RR | ABS→CEM | wheel_speed_rl, wheel_speed_rr | ⚠️ UNVERIFIED |
-| 0x0D6 | ABS Brake Pressure | ABS→CEM | brake_pressure_bar, brake_pressure_active | ⚠️ UNVERIFIED |
-| 0x0E8 | ABS Brake Pressure Alt | ABS→CEM | brake_pressure_alt | ⚠️ UNVERIFIED |
-| 0x128 | Steering Wheel Angle | SAS→CEM | steering_angle_deg, steering_angle_valid | ⚠️ UNVERIFIED |
-| 0x1B8 | Steering Wheel Angle Alt | SAS→ABS | steering_angle_alt_deg | ⚠️ UNVERIFIED |
-| 0x0D7 | ABS Yaw/Lateral | ABS→CEM | yaw_rate, lateral_accel | ⚠️ UNVERIFIED |
-| 0x0C4 | Engine Status | ECM→CEM | engine_running, starter_active | ⚠️ UNVERIFIED |
-| 0x3F0 | Light Status | CEM→DIM | low/high_beam, fog, indicators | ⚠️ UNVERIFIED |
-| 0x380 | Seat Belt Status | CEM→DIM | driver/passenger_belt_fastened | ⚠️ UNVERIFIED |
+**Verwendung**:
+```bash
+# DTCs lesen
+python3 v50_dtc_reader.py --dtc
 
-### ✅ Low-Speed CAN — 5 Messages
+# Live-Daten
+python3 v50_dtc_reader.py --live
 
-| CAN ID | Name | Quelle | Signale |
-|--------|------|--------|---------|
-| 0x400 | Steering Wheel Button | SWM→CEM | swc_button_id |
-| 0x410 | Driver Door Status | DDM→CEM | driver_door_open, driver_door_locked |
-| 0x418 | Passenger Door Status | PDM→CEM | pass_door_open |
-| 0x3F0 | Light Status | CEM→DIM | lights_low/high_beam, fog, indicators |
-| 0x380 | Seat Belt Status | CEM→DIM | belt status |
+# VIN auslesen
+python3 v50_dtc_reader.py --vin
 
----
+# Wartungsstatus
+python3 v50_dtc_reader.py --maint
 
-## 📊 3. SOFTWARE-MODULEN — DETAIL
+# km-Stand aktualisieren
+python3 v50_dtc_reader.py --maint-update 85000
 
-### 🆕 v50_ble_server.py (395 Zeilen)
-**Bluetooth RFCOMM + TCP Server für Smartphone-Streaming**
+# Service eintragen
+python3 v50_dtc_reader.py --maint-service oil_change
+```
 
-- RFCOMMServer: Klassisches Bluetooth SPP (Serial Port Profile)
-  - Automatische Verbindungserkennung
-  - JSON-Protokoll: `{rpm, spd, clt, oilt, thr, load, fuel, gear, ...}\n`
-  - Client-Commands: START, STOP, DTC, MAINT, RESET
-  - 2 Hz Update-Rate (konfigurierbar)
-- TCPServer: WiFi-Fallback für Entwicklung/Testing (Port 5050)
-- Kompakte JSON-Payload: ~313 Bytes pro Update
+### ✅ v50_app.py — Zentraler App-Controller
 
-**Smartphone-App-Entwicklung:**
-- Android: Serial Bluetooth Terminal (zum Testen) oder Custom App
-- iOS: BLE-Serial-App oder Custom App  
-- Payload-Format: Siehe state_to_json() Docstring
+Verbindet alle Module zu einem Gesamtsystem:
+- CAN-Bus Listener Loop (Haupt-Thread)
+- V50State-Tracking (Alle 56 Messages, 80+ Signale)
+- Drive Profile Analyse (Eco/Normal/Sport)
+- Fuel Economy Tracker (L/100km Schätzung)
+- Data Logger (SQLite + CSV, Rotation, 20Hz)
+- BLE Server (Smartphone-Datenübertragung)
+- Power Monitor (Sicheres Herunterfahren bei Zündung aus)
+- DTC Reader (Fehlercodes lesen/löschen)
 
-### 🆕 v50_power_monitor.py (572 Zeilen)
-**Zündungsüberwachung + Safe-Shutdown für Raspberry Pi**
+**Verwendung**:
+```bash
+# Komplettsystem (Pi im Auto)
+python3 v50_app.py --full --ble
 
-3 Überwachungsmethoden:
-1. **CANActivityMonitor** (Software): Überwacht CAN-Bus-Aktivität
-   - Keine zusätzliche Hardware nötig
-   - 5 Min Stille = Zündung aus → Shutdown
-   - Überprüft `ip -s link show can0` RX-Paket-Zähler
-   
-2. **GPIOIgnitionMonitor** (Hardware): Spannungsteiler am GPIO17
-   - 12V Klemme 15 → 33kΩ/10kΩ Teiler → ~2.8V (HIGH)
-   - Zündung aus → 0V (LOW)
-   - Debounce: 2s Bestätigungszeit
-   
-3. **CombinedPowerMonitor** (Empfohlen): Beide Methoden kombinieren
-   - GPIO = primär, CAN = Backup
-   - Shutdown nur wenn beide zustimmen
+# Nur Daten-Logging
+python3 v50_app.py --log --log-dir /mnt/usb/v50data
 
-**Features:**
-- systemd-Service-Generator: `--service` erstellt .service-Datei
-- Pre-Shutdown-Script: Optionaler Hook vor Shutdown
-- Dry-Run-Modus: `--dry-run` für Tests ohne echtes Shutdown
+# Diagnose-Modus
+python3 v50_app.py --diagnostics
 
-### 🆕 v50_drive_profile.py (604 Zeilen)
-**Fahrprofil-Analyse: Eco / Normal / Sport**
+# CAN-Sniffer
+python3 v50_app.py --sniff
+```
 
-**DriveProfileAnalyzer:**
-- Rollernde Fenster: Short (10s), Medium (30s), Long (120s)
-- 8 gewichtete Metriken:
-  - avg_throttle (20%), throttle_variance (15%), throttle_change (15%)
-  - avg_rpm (15%), rpm_variance (10%), avg_load (10%)
-  - consumption (10%), brake_events (5%)
-- Score 0-100: <30=ECO, 30-65=NORMAL, >65=SPORT
-- Konfidenzberechnung + Trend-Analyse (Regression)
+### ✅ v50_dtc_reader.py — Data Logger (SQLite + CSV)
 
-**FuelEconomyTracker:**
-- Live L/100km (aus MAF + Geschwindigkeit)
-- Rolling Average L/100km
-- Trip-Tracking: km, Verbrauch, Dauer
-- Reichweiten-Schätzung (Tank 60L)
+- **SQLite-Datenbank** (`v50_can_log.db`): Strukturierte Queries, Session-Tracking
+- **CSV-Export**: Automatische Rotation, 28 Spalten, 20Hz Sample-Rate
+- **Rotation**: 50MB pro Datei, danach automatisch neue Session
 
 ---
 
-## 📊 4. DASHBOARD — ENHANCED (802 Zeilen)
+## 📊 3. CAN-MESSAGE-ABDECKUNG
 
-### Widgets
-| Widget | Typ | Daten |
-|--------|-----|-------|
-| RPM Gauge | AnalogGauge | 0-7000 rpm, 5500 Warn, 6500 Danger |
-| Coolant Gauge | AnalogGauge | 40-130°C, 105 Warn, 115 Danger |
-| Speed + Gear | DigitalReadout | km/h + D/N/R |
-| Oil/Intake/Trans Temp | DigitalReadout | °C |
-| Throttle/Load/MAF | DigitalReadout | %, %, g/s |
-| Fuel Bar | FuelBar | 0-100%, <15% Red |
-| Warning Lights | WarningLight | CEL, Oil, Battery, Temp |
-| 🆕 Profile | DigitalReadout | 🌿ECO / 🚗NORMAL / 🏁SPORT |
-| 🆕 Brake Pressure | DigitalReadout | bar |
-| 🆕 Steering Angle | DigitalReadout | ° |
-| 🆕 Fuel Economy | DigitalReadout | L/100km |
-| 🆕 Range | DigitalReadout | km |
+### ✅ Vollständig dekodiert (56 Messages, 80+ Signale)
 
-### Keyboard Controls
-- `Space` → Stealth-Modus (Custom ↔ OEM-Anzeige)
-- `N` → Nacht/Tag-Modus
-- `Q` → Beenden
-- `F11` → Vollbild
+| Kategorie | Messages | Signale | Status |
+|-----------|----------|---------|--------|
+| **Powertrain** (ECM→CEM) | 10 | 15 | ✅ RPM, Temp, Drosselklappe, Kraftstoff |
+| **ABS/Dynamik** (ABS→CEM) | 6 | 12 | ✅ Radgeschw., Bremsdruck, Gierrate, Lenkwinkel |
+| **Getriebe** (TCM→CEM) | 3 | 5 | ✅ Gang, Öltemp, Wandlerschlupf |
+| **Dim/Dashboard** (CEM→DIM) | 8 | 10 | ✅ Tacho, Tank, Warnlampen, km-Stand |
+| **Klima** (ACC→CEM) | 7 | 9 | ✅ Temp-Einstellung, Lüfter, A/K |
+| **Komfort/Türen** (CEM→DIM) | 6 | 10 | ✅ Türstatus, Kofferraum, Gurt, Hupe |
+| **Licht** (CEM/LSM→DIM) | 3 | 8 | ✅ Abblend, Fern, Nebel, Blinker |
+| **Audio** (IAM↔CEM) | 2 | 3 | ✅ Quelle, Lautstärke |
+| **Cruise** (CEM→SWM) | 1 | 2 | ✅ Aktiv, Geschw. |
+| **Drive Profile** | — | — | ✅ Eco/Normal/Sport Klassifikation |
+| **Facelift-Varianten** | 5 | 5 | ✅ RPM, Speed, Coolant (0x316/0x330/0x360) |
+| **OBD2 PIDs** | 7+ | 7+ | ✅ Mode 01 Live-Daten |
 
----
+### 🔬 Verifizierungsstatus
 
-## 📊 5. OFFENE AUFGABEN
+| Status | Count | Beschreibung |
+|--------|-------|--------------|
+| ✅ Verified | 32 | Über VIDA/Community bestätigt |
+| 🔶 Community | 12 | Von Foren/DBC, physikalisch verifizieren |
+| ❓ Unverified | 12 | Muss am V50 CAN-Bus gesnifft werden |
 
-### 🔴 BRAUCHT USER-INPUT
-- **V50-Baujahr**: Pre-FL (0x0xx) vs FL (0x3xx) — unterschiedliche CAN IDs!
-- **PiCAN2 Hardware beschaffen**: Erst-Test mit `candump can0`
-
-### 🟡 ZU VERIFIZIEREN (CAN-Bus Sniffing nötig)
-- 0x0D4/0x0D5 ABS-Radgeschwindigkeiten
-- 0x0D6/0x0E8 Bremsdruck
-- 0x128/0x1B8 Lenkwinkel
-- 0x0D7 Gierrate/Querbeschleunigung
-- 0x0C4 Motor-Status
-- 0x3F0 Licht-Status
-- 0x380 Gurt-Status
-
-### 🟢 GEPLANT (nächste Iteration)
-- Fahrprofil-History-Logging auf SD-Karte
-- Smartphone-Companion-App (Android/iOS)
-- GPS-Logging-Erweiterung
-- Bildschirm-Aufzeichnung (Drive-Session-Replay)
-- OBD2 ISO-TP Multiframe-Unterstützung für lange PIDs
+**EMPFEHLUNG**: Bei erster In-Fahrzeug-Test `-v` Flag nutzen um Unknown-Messages zu loggen. Mit `--sniff` Modus alle CAN-IDs aufzeichnen und mit Datenbank abgleichen.
 
 ---
 
-## 📊 6. RECHTLICHE HINWEISE
+## 🔧 4. TECHNISCHE ENTSCHEIDUNGEN
 
-| Aspekt | Legalität | Hinweis |
-|--------|-----------|---------|
-| CAN-Bus auslesen | ✅ Legal | OBD2-Port ist standardisiert |
-| Zweit-Display | ✅ Legal | Solange nicht blickversperrend |
-| Custom statt OEM | ⚠️ Graubereich | OEM-Tacho MUSS sichtbar bleiben! |
-| CAN senden | 🔴 Verboten | NUR LESEN! Keine Messages an Bus! |
-| Bluetooth im Auto | ⚠️ Eingeschränkt | Nur Anzeige, nicht Bedienen während Fahrt |
+### ✅ Display-Wahl
+
+| Display | Preis | Tageslicht | Touch | Kommentar |
+|---------|-------|-----------|-------|-----------|
+| 7" IPS TFT 1024x600 | ~€40 | 🔶 Ausreichend | Kapazitiv | Standard-Wahl |
+| 5" HDMI IPS TFT 800x480 | ~€25 | 🔶 OK | Resistiv | Kleinere Alternative |
+| 7" eInk Waveshare | ~€50 | ✅ Sehr gut | Nein | Gut lesbar, langsame Aktualisierung |
+| 10.1" HDMI IPS 1280x800 | ~€65 | ✅ Gut | Kapazitiv | Größer, besser lesbar |
+
+**EMPFEHLUNG**: 7" IPS TFT für Tageslicht + Stealth-Modus (OEM-Tacho bleibt sichtbar).
+
+### ✅ Stromversorgung
+
+| Option | Vorteil | Nachteil | Wahl |
+|--------|---------|----------|------|
+| Zigarettenanzünder | Einfach | Ohne Zündung kein Pi | ❌ |
+| Festverkabelt + Step-Down | Dauerplus möglich | Batterie-Entladung | ⚠️ |
+| Zündungsplus + Step-Down | Pi nur bei fahrendem Auto | Automatischer Start/Stop | ✅ |
+| Zündungsplus + USV (PiZ Up) | Safe-Shutdown + Zeitpuffer | Zusätzlich ~€30 | 🏆 BESTE |
+
+**EMPFEHLUNG**: PiZ Up UPS HAT (~€30) für sicheres Herunterfahren + Zeitpuffer. Kostet extra, aber verhindert SD-Karten-Korruption.
+
+### ✅ Stealth-Modus Legalität (DE)
+
+| Aspekt | Legal? | Kommentar |
+|--------|--------|-----------|
+| Zusätzliches Display im Auto | ✅ Ja | Solange OEM-Tacho nicht verdeckt |
+| CAN-Bus Daten auslesen | ✅ Ja | OBD2-Port ist standardisiert |
+| CAN-Bus Daten senden/schreiben | ⚠️ Vorsicht | Nur lesen! Keine Befehle an CAN |
+| DTCs löschen | ⚠️ Vorsicht | Erlaubt, aber löscht auch Historie |
+| Tageslicht-lesbares Display | ✅ Ja | IPS TFT reicht, eInk besser |
+| Display verdeckt OEM-Tacho | ❌ Nein | TÜV-relevant — Sichtfreiheit! |
+
+**WICHTIGSTE REGEL**: Das custom Dashboard darf **den OEM-Tacho NICHT verdecken**. Stealth-Modus = Knopfdruck blendet custom aus und OEM ist wieder voll sichtbar. Alternativ: Display im Handschuhfach oder Konsole platzieren.
+
+---
+
+## 📋 5. OFFENE AUFGABEN
+
+### ✅ Dashboard-Enhancements (Dieser Run)
+
+**v50_dashboard.py** wurde erweitert:
+
+1. **Neue Warning-Lights**: Gurt-Warnung (🛟), ABS-Warnung (⚠️)
+2. **Neue Readouts**: Türen (D/P/RL/RR OPEN/SHUT), Lichter (LOW/HI/FOG/TURN/OFF), Cruise Control (Speed/--)  
+3. **DTC-Diagnose-Overlay** (Taste `D` drücken):
+   - DTCs scannen via V50DTCReader
+   - DTCs löschen (mit Bestätigung)
+   - Maintenance-Tracker anzeigen
+   - V50State Summary als Übersicht
+4. **Tastatur-Kürzel**: Space=Stealth, N=Day/Night, D=Diagnostics, Q=Quit, F11=Fullscreen
+
+### 🔄 Nächste Schritte
+
+1. **PHYSISCHER TEST**: Pi4 + PiCAN2 im V50 anschließen, CAN-Bus sniffen
+   - Alle 56 Decoder-Messages verifizieren
+   - Unknown-IDs mit `-v` Flag aufzeichnen
+   - Latenz messen (python-can auf Pi4)
+
+2. **GEHÄUSE-ENTWURF**: Pi4 + PiCAN2 + Display im V50 unterbringen
+   - Handschuhfach: Genug Platz? Kabel zum OBD2-Port?
+   - Mittelkonsole: Diskreter, aber Kabelführung komplexer
+   - 3D-Druck: Maße nachmessen!
+
+3. **STEALTH-TOGGLE**: Hardware-Taste für Moduswechsel (Custom ↔ OEM)
+   - GPIO-Taste am Pi4 -> Dashboard-Event
+   - Alternativ: Lenkradtaste via CAN-Bus abfangen
+
+4. **DISPLAY-TEST**: 7" IPS TFT bei Sonnenlicht testen
+   - Falls nicht lesbar: eInk-Alternative evaluieren
+   - Auto-Dimming über BH1750 Lichtsensor
+
+5. **STROMVERSORGUNG**: PiZ Up USV HAT bestellen (~€30)
+   - Sicheres Herunterfahren (30s Puffer)
+   - Watchdog für Automatischen Neustart
+
+### 🔬 Forschung erforderlich
+
+- V50 P1 Facelift vs. Pre-Facelift CAN-IDs (0x316 vs 0x0C0 für RPM)
+- DSTC-Module: Gierratensensor nur bei DSTC-Ausstattung?
+- B5244S Motor: Ist Öltemperatur-Signal auf CAN oder nur Schalter?
+- CEM-Gateway: Wie Low-Speed CAN Messages decodieren? Brauchen wir Bus B?

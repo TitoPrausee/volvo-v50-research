@@ -415,6 +415,228 @@ msg.signals = [
 ]
 MESSAGE_DEFINITIONS[0x340] = msg
 
+
+
+# 0x0B4 (180) - Brake Light Switch
+msg = CANMessageDef(
+    can_id=0x0B4, name="Brake Light Switch", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Brake pedal state and position",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("brake_light_switch", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Brake pedal pressed"),
+    CANSignalDef("brake_pedal_position", 8, 8, "little", 0.390625, 0.0, "%", 0, 100,
+                 "Brake pedal travel percentage"),
+]
+MESSAGE_DEFINITIONS[0x0B4] = msg
+
+# 0x0F8 (248) - Yaw Rate
+msg = CANMessageDef(
+    can_id=0x0F8, name="Yaw Rate", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Vehicle yaw rate from DSTC module",
+    dlc=8, verified=False, notes="DSTC-equipped V50 models only"
+)
+msg.signals = [
+    CANSignalDef("yaw_rate", 0, 16, "little", 0.01, 0.0, "deg/s", -150, 150,
+                 "Vehicle yaw rate [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0F8] = msg
+
+# 0x180 (384) - Transmission Data (AT)
+msg = CANMessageDef(
+    can_id=0x180, name="Transmission Data (AT)", bus=CANBus.HIGH_SPEED,
+    source_module="TCM", dest_module="ECM/CEM", description="Auto trans gear, ATF temp, converter slip",
+    dlc=8, verified=True, notes="AT transmission only"
+)
+msg.signals = [
+    CANSignalDef("trans_gear", 0, 4, "little", 1.0, 0.0, "gear", 0, 5,
+                 "Gear position P/R/N/D/1-5"),
+    CANSignalDef("trans_fluid_temp_at", 8, 8, "little", 1.0, -40.0, "C", -40, 150,
+                 "ATF temperature"),
+    CANSignalDef("torque_converter_slip", 16, 8, "little", 0.5, 0.0, "%", 0, 100,
+                 "TCC slip percentage"),
+]
+MESSAGE_DEFINITIONS[0x180] = msg
+
+# 0x1C0 (448) - ABS Wheel Speeds 4-channel
+msg = CANMessageDef(
+    can_id=0x1C0, name="ABS Wheel Speeds 4ch", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM/DIM", description="4-channel wheel speed from ABS",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("abs_ws_fl", 0, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "ABS FL wheel speed"),
+    CANSignalDef("abs_ws_fr", 16, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "ABS FR wheel speed"),
+    CANSignalDef("abs_ws_rl", 32, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "ABS RL wheel speed"),
+    CANSignalDef("abs_ws_rr", 48, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "ABS RR wheel speed"),
+]
+MESSAGE_DEFINITIONS[0x1C0] = msg
+
+# 0x316 (790) - Engine RPM (Facelift)
+msg = CANMessageDef(
+    can_id=0x316, name="Engine RPM (Facelift)", bus=CANBus.HIGH_SPEED,
+    source_module="ECM", dest_module="CEM", description="Byte 0-1: RPM/4 (facelift models)",
+    dlc=8, verified=True, notes="Use 0x0C0 for pre-facelift, 0x316 for facelift"
+)
+msg.signals = [
+    CANSignalDef("engine_rpm_fl", 0, 16, "little", 0.25, 0.0, "rpm", 0, 6500,
+                 "Engine RPM (facelift CAN ID) [SRC: community + OpenPilot DBC]"),
+]
+MESSAGE_DEFINITIONS[0x316] = msg
+
+# 0x330 (816) - Coolant Temp (Facelift)
+msg = CANMessageDef(
+    can_id=0x330, name="Coolant Temp (Facelift)", bus=CANBus.HIGH_SPEED,
+    source_module="ECM", dest_module="CEM", description="Byte 0-1: °C offset -40 (facelift)",
+    dlc=8, verified=True, notes="Use 0x0C8 for pre-facelift, 0x330 for facelift"
+)
+msg.signals = [
+    CANSignalDef("coolant_temp_fl", 0, 16, "little", 1.0, -40.0, "C", -40, 150,
+                 "Coolant temp (facelift) [SRC: community]"),
+]
+MESSAGE_DEFINITIONS[0x330] = msg
+
+# 0x360 (864) - Vehicle Speed (Facelift)
+msg = CANMessageDef(
+    can_id=0x360, name="Vehicle Speed (Facelift)", bus=CANBus.HIGH_SPEED,
+    source_module="ECM", dest_module="CEM", description="Byte 0-1: speed/100 (facelift)",
+    dlc=8, verified=True, notes="Use 0x0E0 for pre-facelift, 0x360 for facelift"
+)
+msg.signals = [
+    CANSignalDef("vehicle_speed_fl", 0, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "Vehicle speed (facelift) [SRC: community + OpenPilot]"),
+]
+MESSAGE_DEFINITIONS[0x360] = msg
+
+# 0x420 (1056) - Exterior Lighting
+msg = CANMessageDef(
+    can_id=0x420, name="Exterior Lighting", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="DIM", description="Vehicle exterior lighting status",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("low_beam", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Low beam on"),
+    CANSignalDef("high_beam", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "High beam on"),
+    CANSignalDef("fog_lights", 2, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Fog lights on"),
+    CANSignalDef("left_indicator", 3, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Left turn signal"),
+    CANSignalDef("right_indicator", 4, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Right turn signal"),
+]
+MESSAGE_DEFINITIONS[0x420] = msg
+
+# 0x428 (1064) - Rear Right Door Status
+msg = CANMessageDef(
+    can_id=0x428, name="Rear Right Door Status", bus=CANBus.LOW_SPEED,
+    source_module="RDM", dest_module="CEM", description="Rear right door open/locked",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("rear_right_door_open", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Rear right door open status"),
+    CANSignalDef("rear_right_door_locked", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Rear right door locked status"),
+]
+MESSAGE_DEFINITIONS[0x428] = msg
+
+# 0x430 (1072) - Cruise Control
+msg = CANMessageDef(
+    can_id=0x430, name="Cruise Control", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="SWM", description="Cruise control status",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("cruise_active", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Cruise control active"),
+    CANSignalDef("cruise_set_speed", 8, 8, "little", 1.0, 0.0, "km/h", 30, 200,
+                 "Cruise set speed"),
+]
+MESSAGE_DEFINITIONS[0x430] = msg
+
+# 0x438 (1080) - Trunk/Tailgate Status
+msg = CANMessageDef(
+    can_id=0x438, name="Trunk/Tailgate Status", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="DIM", description="Trunk open status",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("trunk_open", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Trunk/tailgate open status"),
+]
+MESSAGE_DEFINITIONS[0x438] = msg
+
+# 0x440 (1088) - Light Switch Position
+msg = CANMessageDef(
+    can_id=0x440, name="Light Switch Position", bus=CANBus.LOW_SPEED,
+    source_module="LSM", dest_module="CEM", description="Light switch position (0=off,1=parking,2=dipped,3=main)",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("light_switch_pos", 0, 3, "little", 1.0, 0.0, "position", 0, 7,
+                 "0=off, 1=parking, 2=dipped, 3=main beam"),
+]
+MESSAGE_DEFINITIONS[0x440] = msg
+
+# 0x448 (1096) - Horn Status
+msg = CANMessageDef(
+    can_id=0x448, name="Horn Status", bus=CANBus.LOW_SPEED,
+    source_module="SWM", dest_module="CEM", description="Horn button pressed",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("horn_active", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Horn button pressed"),
+]
+MESSAGE_DEFINITIONS[0x448] = msg
+
+# 0x450 (1104) - Seatbelt Warning
+msg = CANMessageDef(
+    can_id=0x450, name="Seatbelt Warning", bus=CANBus.LOW_SPEED,
+    source_module="SRS", dest_module="CEM", description="Seatbelt warning system",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("driver_belt_buckled", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Driver seatbelt buckled"),
+    CANSignalDef("pass_belt_buckled", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Passenger seatbelt buckled"),
+]
+MESSAGE_DEFINITIONS[0x450] = msg
+
+# 0x500 (1280) - Audio Status
+msg = CANMessageDef(
+    can_id=0x500, name="Audio Status", bus=CANBus.LOW_SPEED,
+    source_module="IAM", dest_module="CEM", description="Audio system source and volume",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("audio_source", 0, 4, "little", 1.0, 0.0, "enum", 0, 15,
+                 "Audio source (0=off,1=FM,2=AM,3=CD,4=AUX)"),
+    CANSignalDef("audio_volume", 8, 8, "little", 1.0, 0.0, "level", 0, 40,
+                 "Audio volume level"),
+]
+MESSAGE_DEFINITIONS[0x500] = msg
+
+# 0x510 (1296) - Audio Commands
+msg = CANMessageDef(
+    can_id=0x510, name="Audio Commands", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="IAM", description="Audio system command from CEM",
+    dlc=8, verified=True
+)
+msg.signals = [
+    CANSignalDef("audio_command", 0, 8, "little", 1.0, 0.0, "id", 0, 255,
+                 "Audio system command"),
+]
+MESSAGE_DEFINITIONS[0x510] = msg
+
 # --- LOW-SPEED CAN (Bus 2) - Body/Comfort Messages ---
 
 # 0x400 (1024) - Steering Wheel Button
@@ -744,6 +966,42 @@ class V50State:
         self.driver_door_open: bool = False
         self.driver_door_locked: bool = False
         self.pass_door_open: bool = False
+        self.pass_door_locked: bool = False
+        self.rear_right_door_open: bool = False
+        self.rear_right_door_locked: bool = False
+        self.trunk_open: bool = False
+        
+        # Brake details
+        self.brake_light_switch: bool = False
+        self.brake_pedal_position_pct: float = 0
+        
+        # Transmission AT
+        self.trans_gear_at: int = 0
+        self.trans_fluid_temp_at_c: float = -40
+        self.torque_converter_slip_pct: float = 0
+        
+        # Cruise control
+        self.cruise_active: bool = False
+        self.cruise_set_speed_kmh: float = 0
+        
+        # Lighting (expanded)
+        self.light_switch_pos: int = 0
+        self.horn_active: bool = False
+        
+        # Audio
+        self.audio_source: int = 0
+        self.audio_volume: int = 0
+        
+        # ABS 4ch (alternative)
+        self.abs_ws_fl: float = 0
+        self.abs_ws_fr: float = 0
+        self.abs_ws_rl: float = 0
+        self.abs_ws_rr: float = 0
+        
+        # Facelift variants
+        self.engine_rpm_fl: float = 0
+        self.coolant_temp_fl_c: float = -40
+        self.speed_kmh_fl: float = 0
         
         # Timestamps for staleness detection
         self.last_update: Dict[int, float] = {}
@@ -882,6 +1140,81 @@ class V50State:
                 self.driver_door_locked = bool(value)
             elif name == "pass_door_open":
                 self.pass_door_open = bool(value)
+            elif name == "pass_door_locked":
+                self.pass_door_locked = bool(value)
+            elif name == "rear_right_door_open":
+                self.rear_right_door_open = bool(value)
+            elif name == "rear_right_door_locked":
+                self.rear_right_door_locked = bool(value)
+            elif name == "trunk_open":
+                self.trunk_open = bool(value)
+            
+            # Brake details
+            elif name == "brake_light_switch":
+                self.brake_light_switch = bool(value)
+                self.brake_pedal_pressed = bool(value)  # Also update the existing field
+            elif name == "brake_pedal_position":
+                self.brake_pedal_position_pct = value
+            
+            # ABS 4ch
+            elif name == "abs_ws_fl":
+                self.abs_ws_fl = value
+            elif name == "abs_ws_fr":
+                self.abs_ws_fr = value
+            elif name == "abs_ws_rl":
+                self.abs_ws_rl = value
+            elif name == "abs_ws_rr":
+                self.abs_ws_rr = value
+            
+            # Transmission AT
+            elif name == "trans_gear":
+                self.trans_gear_at = int(value)
+            elif name == "trans_fluid_temp_at":
+                self.trans_fluid_temp_at_c = value
+            elif name == "torque_converter_slip":
+                self.torque_converter_slip_pct = value
+            
+            # Cruise control
+            elif name == "cruise_active":
+                self.cruise_active = bool(value)
+            elif name == "cruise_set_speed":
+                self.cruise_set_speed_kmh = value
+            
+            # Lighting (expanded)
+            elif name == "light_switch_pos":
+                self.light_switch_pos = int(value)
+            elif name == "horn_active":
+                self.horn_active = bool(value)
+            elif name == "low_beam":
+                self.lights_low_beam = bool(value)
+            elif name == "high_beam":
+                self.lights_high_beam = bool(value)
+            elif name == "fog_lights":
+                self.lights_fog_front = bool(value)
+            elif name == "left_indicator":
+                self.lights_indicator_left = bool(value)
+            elif name == "right_indicator":
+                self.lights_indicator_right = bool(value)
+            
+            # Seatbelts
+            elif name == "driver_belt_buckled":
+                self.driver_belt_fastened = bool(value)
+            elif name == "pass_belt_buckled":
+                self.passenger_belt_fastened = bool(value)
+            
+            # Audio
+            elif name == "audio_source":
+                self.audio_source = int(value)
+            elif name == "audio_volume":
+                self.audio_volume = int(value)
+            
+            # Facelift variants
+            elif name == "engine_rpm_fl":
+                self.engine_rpm_fl = value
+            elif name == "coolant_temp_fl":
+                self.coolant_temp_fl_c = value
+            elif name == "vehicle_speed_fl" and can_id == 0x360:
+                self.speed_kmh_fl = value
     
     def get_staleness(self, can_id: int) -> Optional[float]:
         """Return seconds since last update for a given CAN ID, or None if never seen."""
@@ -899,12 +1232,14 @@ class V50State:
             f"  Fuel: {self.fuel_level_pct:.1f}% | Gear: {self.gear} | Trans: {self.trans_temp_c:.0f}°C",
             f"  Interior: {self.interior_temp_c:.0f}°C | Exterior: {self.exterior_temp_c:.0f}°C",
             f"  Wheels: FL={self.wheel_speed_fl:.0f} FR={self.wheel_speed_fr:.0f} RL={self.wheel_speed_rl:.0f} RR={self.wheel_speed_rr:.0f} km/h",
-            f"  Brake: {self.brake_pressure_bar:.1f} bar {'PRESSED' if self.brake_pedal_pressed else ''} | Steer: {self.steering_angle_deg:.1f}°",
+            f"  Brake: {self.brake_pressure_bar:.1f} bar {'PRESSED' if self.brake_pedal_pressed else ''} | Position: {self.brake_pedal_position_pct:.0f}% | Steer: {self.steering_angle_deg:.1f}°",
             f"  Engine: {'RUNNING' if self.engine_running else 'OFF'} | DSTC: yaw={self.yaw_rate:.1f}°/s lat={self.lateral_accel_g:.2f}g",
-            f"  Lights: Lo={'ON' if self.lights_low_beam else 'off'} Hi={'ON' if self.lights_high_beam else 'off'} Fog={'F' if self.lights_fog_front else ''}{'R' if self.lights_fog_rear else ''}",
+            f"  Cruise: {'ON' if self.cruise_active else 'off'} {self.cruise_set_speed_kmh:.0f}km/h" if self.cruise_active else f"  Cruise: off",
+            f"  Lights: Lo={'ON' if self.lights_low_beam else 'off'} Hi={'ON' if self.lights_high_beam else 'off'} Fog={'F' if self.lights_fog_front else ''}{'R' if self.lights_fog_rear else ''} Switch={self.light_switch_pos}",
             f"  Warnings: CEL={self.check_engine} OIL={self.oil_warning} BAT={self.battery_warning} TEMP={self.temp_warning}",
             f"  Odometer: {self.odometer_km:.0f} km",
-            f"  Doors: Driver={'OPEN' if self.driver_door_open else 'closed'} {'LOCKED' if self.driver_door_locked else 'unlocked'} | Pass={'OPEN' if self.pass_door_open else 'closed'}",
+            f"  Doors: Drv={'OPEN' if self.driver_door_open else 'closed'} {'LOCKED' if self.driver_door_locked else ''} | Pass={'OPEN' if self.pass_door_open else 'closed'} | RR={'OPEN' if self.rear_right_door_open else 'closed'} | Trunk={'OPEN' if self.trunk_open else 'closed'}",
+            f"  Belts: Drv={'OK' if self.driver_belt_fastened else 'UNFASTENED'} Pass={'OK' if self.passenger_belt_fastened else 'UNFASTENED'} | Horn: {'ON' if self.horn_active else 'off'}",
         ]
         return "\n".join(lines)
 

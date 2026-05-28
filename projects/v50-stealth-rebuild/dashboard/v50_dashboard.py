@@ -494,7 +494,7 @@ if HAS_PYQT5:
             self.fuel_bar.set_theme(current_theme)
             main_layout.addWidget(self.fuel_bar, 1)
             
-            # === BOTTOM BAR: Warnings + Climate ===
+            # === BOTTOM BAR: Warnings + Climate + Vehicle Status ===
             bottom_frame = QFrame()
             bottom_frame.setFrameStyle(QFrame.Box | QFrame.Raised)
             bottom_layout = QHBoxLayout(bottom_frame)
@@ -505,8 +505,11 @@ if HAS_PYQT5:
             self.oil_light = WarningLight("🛢️", "OIL")
             self.bat_light = WarningLight("🔋", "BAT")
             self.temp_light = WarningLight("🌡️", "TEMP")
+            self.belt_light = WarningLight("🎗️", "BELT")
+            self.abs_light = WarningLight("⚠️", "ABS")
             
-            for w in [self.cel_light, self.oil_light, self.bat_light, self.temp_light]:
+            for w in [self.cel_light, self.oil_light, self.bat_light, 
+                       self.temp_light, self.belt_light, self.abs_light]:
                 w.set_theme(current_theme)
                 bottom_layout.addWidget(w)
             
@@ -514,8 +517,12 @@ if HAS_PYQT5:
             self.ext_temp_readout = DigitalReadout("OUTSIDE", "°C")
             self.int_temp_readout = DigitalReadout("INSIDE", "°C")
             self.odo_readout = DigitalReadout("ODO", "km")
+            self.lights_readout = DigitalReadout("LIGHTS", "")
+            self.doors_readout = DigitalReadout("DOORS", "")
+            self.cruise_readout = DigitalReadout("CRUISE", "km/h")
             
-            for w in [self.ext_temp_readout, self.int_temp_readout, self.odo_readout]:
+            for w in [self.ext_temp_readout, self.int_temp_readout, self.odo_readout,
+                       self.lights_readout, self.doors_readout, self.cruise_readout]:
                 w.set_theme(current_theme)
                 bottom_layout.addWidget(w)
             
@@ -596,11 +603,43 @@ if HAS_PYQT5:
             self.oil_light.set_active(s.oil_warning)
             self.bat_light.set_active(s.battery_warning)
             self.temp_light.set_active(s.temp_warning)
+            self.belt_light.set_active(s.seatbelt_warning)
+            self.abs_light.set_active(s.abs_active if hasattr(s, 'abs_active') else False)
             
             # Climate
             self.ext_temp_readout.set_value(s.exterior_temp_c, ".0f")
             self.int_temp_readout.set_value(s.interior_temp_c, ".0f")
             self.odo_readout.set_value(s.odometer_km, ".0f")
+            
+            # Vehicle Status — Doors & Lights
+            door_str = ""
+            doors = {}
+            for attr, abbrev in [('driver_door_open', 'D'), ('pass_door_open', 'P'),
+                                  ('rl_door_open', 'RL'), ('rr_door_open', 'RR')]:
+                # rr_door_open doesn't exist — use rear_right_door_open
+                actual_attr = 'rear_right_door_open' if attr == 'rr_door_open' else attr
+                doors[abbrev] = getattr(s, actual_attr, None)
+            if any(v for v in doors.values() if v):
+                open_doors = [k for k, v in doors.items() if v]
+                door_str = " ".join(open_doors) + " OPEN"
+            else:
+                door_str = "ALL SHUT"
+            self.doors_readout.set_value(door_str)
+            
+            # Exterior lights summary
+            lights = []
+            if getattr(s, 'lights_low_beam', False): lights.append("LOW")
+            if getattr(s, 'lights_high_beam', False): lights.append("HI")
+            if getattr(s, 'lights_fog_front', False): lights.append("FOG")
+            if getattr(s, 'lights_indicator_left', False) or getattr(s, 'lights_indicator_right', False):
+                lights.append("TURN")
+            self.lights_readout.set_value(" ".join(lights) if lights else "OFF")
+            
+            # Cruise control
+            if getattr(s, 'cruise_active', False):
+                self.cruise_readout.set_value(getattr(s, 'cruise_set_speed_kmh', 0), ".0f")
+            else:
+                self.cruise_readout.set_value("--")
             
             # Drive Profile & Dynamics
             if self.drive_analyzer:
@@ -657,7 +696,119 @@ if HAS_PYQT5:
                     self.showNormal()
                 else:
                     self.showFullScreen()
+            elif event.key() == Qt.Key_D:
+                self.toggle_diagnostics()
             super().keyPressEvent(event)
+        
+        def toggle_diagnostics(self):
+            """Toggle DTC/diagnostics overlay panel."""
+            if hasattr(self, 'diag_panel') and self.diag_panel.isVisible():
+                self.diag_panel.hide()
+                # Restore main widgets
+                for child in self.findChildren(QWidget):
+                    if hasattr(child, '_hidden_by_diag'):
+                        child.show()
+                        del child._hidden_by_diag
+            else:
+                if not hasattr(self, 'diag_panel'):
+                    self._create_diag_panel()
+                self.diag_panel.show()
+                # We overlay, don't hide main widgets
+        
+        def _create_diag_panel(self):
+            """Create diagnostics overlay panel for DTC codes and maintenance."""
+            from PyQt5.QtWidgets import QTextEdit, QPushButton, QVBoxLayout, QDialog
+            
+            self.diag_panel = QDialog(self)
+            self.diag_panel.setWindowTitle("V50 Diagnostics")
+            self.diag_panel.setMinimumSize(600, 400)
+            self.diag_panel.setWindowFlags(Qt.Tool | Qt.WindowStaysOnTopHint)
+            
+            layout = QVBoxLayout(self.diag_panel)
+            
+            # DTC Status
+            self.diag_text = QTextEdit()
+            self.diag_text.setReadOnly(True)
+            self.diag_text.setStyleSheet("font-family: monospace; font-size: 14px;")
+            layout.addWidget(self.diag_text)
+            
+            # Buttons
+            btn_layout = QHBoxLayout()
+            scan_btn = QPushButton("Scan DTCs")
+            scan_btn.clicked.connect(self._scan_dtcs)
+            btn_layout.addWidget(scan_btn)
+            
+            clear_btn = QPushButton("Clear DTCs")
+            clear_btn.clicked.connect(self._clear_dtcs)
+            btn_layout.addWidget(clear_btn)
+            
+            maint_btn = QPushButton("Maintenance")
+            maint_btn.clicked.connect(self._show_maintenance)
+            btn_layout.addWidget(maint_btn)
+            
+            close_btn = QPushButton("Close")
+            close_btn.clicked.connect(self.diag_panel.hide)
+            btn_layout.addWidget(close_btn)
+            
+            layout.addLayout(btn_layout)
+            self._update_diag_text()
+        
+        def _scan_dtcs(self):
+            """Scan for DTC codes via OBD2."""
+            try:
+                sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'canbus'))
+                from v50_dtc_reader import V50DTCReader
+                dtc_reader = V50DTCReader()
+                codes = dtc_reader.scan_all()
+                self._dtc_cache = codes
+                self._update_diag_text()
+            except Exception as e:
+                self.diag_text.setText(f"DTC scan error:\n{e}")
+        
+        def _clear_dtcs(self):
+            """Clear all DTC codes."""
+            try:
+                sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'canbus'))
+                from v50_dtc_reader import V50DTCReader
+                dtc_reader = V50DTCReader()
+                result = dtc_reader.clear_codes()
+                self._dtc_cache = []
+                self._update_diag_text()
+                self.diag_text.append(f"\n✓ Codes cleared: {result}")
+            except Exception as e:
+                self.diag_text.setText(f"DTC clear error:\n{e}")
+        
+        def _show_maintenance(self):
+            """Show maintenance tracker."""
+            try:
+                sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'canbus'))
+                from v50_dtc_reader import V50MaintenanceTracker
+                tracker = V50MaintenanceTracker()
+                tracker.update_odometer(self.state.odometer_km)
+                text = "=== MAINTENANCE SCHEDULE ===\n\n"
+                for name, info in tracker.get_all_status().items():
+                    status = info.get('status', '?')
+                    icon = '✅' if status == 'OK' else ('⚠️' if status == 'DUE_SOON' else '🔴')
+                    remaining = info.get('remaining_km', '?')
+                    text += f"{icon} {name}: {remaining} km remaining\n"
+                self.diag_text.setText(text)
+            except Exception as e:
+                self.diag_text.setText(f"Maintenance error:\n{e}")
+        
+        def _update_diag_text(self):
+            """Update diagnostics text display."""
+            dtc_count = getattr(self, '_dtc_cache', None)
+            lines = ["=== V50 DIAGNOSTICS ===", ""]
+            lines.append(f"State summary:\n{self.state.summary()}")
+            lines.append("")
+            if dtc_count is not None:
+                lines.append(f"DTC Codes found: {len(dtc_count)}")
+                for dtc in dtc_count:
+                    lines.append(f"  {dtc.code}: {dtc.description}")
+            else:
+                lines.append("Press 'Scan DTCs' to check for codes")
+                lines.append("Press 'Maintenance' to see service schedule")
+            self.diag_text.setText("\n".join(lines))
 
 
     # =========================================================================

@@ -11,10 +11,11 @@
 | Display | 7" IPS TFT 1024x600 | ~€40 | HDMI, Kapazitiv Touch |
 | Gehäuse | Alu-Gehäuse für Pi4 | ~€15 | Kühlkörper für Dauerbetrieb |
 | OBD2 Adapter | OBD2 Stecker auf Dupont | ~€5 | Pin 6=CAN-H, Pin 14=CAN-L |
-| Stromversorgung | 5V/3A USB-C + Step-Down | ~€10 | Zündungsplus gesteurt |
-| MicroSD | 32GB A2 Class 10 | ~€8 | Für OS + Logging |
+| Stromversorgung | 5V/3A + Step-Down | ~€10 | ✅ Spezifiziert |
+| PiZ-Up USV HAT | USV + Safe-Shutdown | ~€30 | 🆕 EMPFOHLEN |
+| MicroSD | 32GB A2 | ~€8 | ✅ Spezifiziert |
 | Kabel | Dupont + Schrumpfschlauch | ~€5 | Verschiedene Farben |
-| **Total** | | **~€143** | Ohne Display ~€103 |
+| **Total** | | **~€168** | Mit PiZ-Up USV, ohne Display ~€138 |
 
 ### 2. PiCAN2 Duo HAT Setup
 
@@ -310,10 +311,47 @@ sudo rfcomm listen /dev/rfcomm0 1 &
 | Custom-Dashboard statt OEM | ⚠️ Graubereich | OEM-Tacho MUSS sichtbar bleiben! |
 | CAN-Bus senden/schreiben | 🔴 Verboten | Nur lesen! Keine Messages an Bus senden! |
 | Bluetooth im Auto | ⚠️ eingeschränkt | Nur als Anzeige, nicht zum Bedienen während Fahrt |
+| DTCs löschen | ⚠️ Vorsicht | Erlaubt, aber löscht auch Fehler-Historie! |
+| PiZ-Up USV im Auto | ✅ Legal | Verhindert SD-Korruption bei Stromverlust |
 
-**WICHTIGE REGEL:**
-Der originale Tacho/DIM DARF nicht ersetzt werden! Das Custom-Display ist eine 
-ZUSATZANZEIGE, kein Ersatz. Der OEM-Tacho muss jederzeit sichtbar und funktionsfähig bleiben.
+**WICHTIGE REGELN:**
+1. Der originale Tacho/DIM DARF nicht ersetzt werden! Das Custom-Display ist eine 
+   ZUSATZANZEIGE, kein Ersatz. Der OEM-Tacho muss jederzeit sichtbar und funktionsfähig bleiben.
+2. NIEMALS CAN-Messages SENDEN — nur lesen! Schreibzugriffe können Fahrzeugsysteme stören.
+3. Display-Montage MUSS so erfolgen, dass es den Blick nach vorn nicht einschränkt (§23 StVO).
+4. Nach §23 StVO: Eine zusätzliche Anzeige im Sichtfeld ist erlaubt, solange sie nicht 
+   ablenkt und keine sicherheitsrelevanten Anzeigen verdeckt.
+5. Stealth-Modus (Knopfdruck → Display schwarz) ist die sicherste Lösung für TÜV-Konformität.
+
+### 9.5 PiZ-Up UPS HAT (EMPFOHLEN)
+
+**Problem:** Wenn die Zündung ausgeschaltet wird, verliert der Pi sofort den Strom. 
+Das kann zu SD-Karten-Korruption führen (besonders bei SQLite-Logging).
+
+**Lösung:** PiZ-Up UPS HAT (~€30)
+
+| Feature | Beschreibung |
+|---------|-------------|
+| USV-Batterie | Li-Ion Akku, 30-60s Puffer |
+| Safe-Shutdown | Erkennt Stromverlust → `shutdown -h now` |
+| Watchdog | Automatischer Neustart bei Stromwiederkehr |
+| GPIO-Status | GPIO4 = Power-Status (HIGH = externer Strom) |
+| Preis | ~€30 (Amazon/factory-forward.de) |
+
+**Installation:**
+```bash
+# PiZ-Up auf Pi4 stecken (GPIO-Pins)
+# Batterie anschließen
+# I2C aktivieren: sudo raspi-config → Interfacing → I2C → Enable
+
+# Safe-Shutdown Script installieren
+git clone https://github.com/uhrm/piz-up.git
+cd piz-up
+sudo ./install.sh
+
+# systemd-Service wird automatisch erstellt
+# Pi überwacht GPIO4 für Stromstatus
+```
 
 ### 9. Ersteinrichtung Checklist
 
@@ -329,13 +367,16 @@ ZUSATZANZEIGE, kein Ersatz. Der OEM-Tacho muss jederzeit sichtbar und funktionsf
 □ OBD2-Adapter an Bus A angeschlossen
 □ candump can0 — Test: Werden CAN-Messages empfangen?
 □ V50 Zündung AN → CAN-Aktivität auf can0 sichtbar
-□ v50_can_decoder.py --list-messages → 34 Messages gelistet
+□ v50_can_decoder.py — 56 CAN-Messages gelistet (von 34 erweitert!)
 □ v50_can_sniffer.py --simulate → Simulations-Modus OK
 □ v50_can_sniffer.py --monitor → Live-Daten vom V50 sichtbar
+□ v50_app.py --full → Komplettsystem-Test
+□ v50_dtc_reader.py --dtc → Fehlercodes auslesen
 □ Display angeschlossen und lesbar
 □ Auto-Dimming (LDR) getestet
 □ Abschaltautomatik konfiguriert (power_monitor.py als Service)
 □ Systemd-Service für Dashboard erstellt
+□ PiZ-Up USV HAT getestet (Safe-Shutdown 30s Puffer)
 ```
 
 ### 10. Systemd-Services
