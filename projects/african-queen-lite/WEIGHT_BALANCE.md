@@ -1,6 +1,6 @@
 # 🏍️ African Queen Lite — Gewichtsbilanz
 
-**Letztes Update:** 2026-05-27 | **Chefingenieur-Runde**
+**Letztes Update:** 2026-05-28 | **Chefingenieur-Runde**
 **Basis:** Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 **Ziel:** ~175-180kg voll ausgerüstet (Africa Twin CRF1000L = 232kg)
 
@@ -83,7 +83,7 @@
 | Leo Vince SBK Slip-on | — | 2.0 (ersetzt OEM 5.5) | -1.0 | Leo Vince |
 | SS Header (Collector-Delete) | — | — | -2.0 | Delkevic |
 | UNI NU-4050 Luftfilter | — | — | ±0 | UNI |
-| Koso RX-22 7" LED + DRL | 2.5 | 1.5 | -1.0 | Koso |
+| Koso RX-22 7\" LED + DRL | 2.5 | 1.5 | -1.0 | Koso |
 | LED Blinker 4er + Rücklicht | 1.0 | 0.3 | -0.7 | LED Mini E9 |
 | Sitzbank Umpolsterung | — | — | ±0 | Sattler |
 | Heckträger + Tail Tidy | 0 | +1.7 | +1.7 | Universal |
@@ -112,6 +112,18 @@
 
 ---
 
+## DB-Verifizierung (Chefingenieur 2026-05-28)
+
+| Metric | Wert |
+|--------|------|
+| NX650-fitment Teile in DB | 137 |
+| AQL-relevante Teile (Option A) | 28 |
+| DB SUM(price_avg) alle NX650 | €12,105 (inkl. Alternativen) |
+| Option A Build-Kosten | €2,228 |
+| NX650 Known Issues in DB | 54 (4 critical, 2 high) |
+
+---
+
 ## TODO vom Chefingenieur
 
 - [x] Exakte Gewichte für jeden Teile-Vorschlag verifiziert ✅
@@ -119,5 +131,7 @@
 - [x] Styling-Gewichtsbilanz erstellt ✅
 - [x] Gewichtsverteilung vorne/hinten berechnet (vorne: ~54%, hinten: ~46%) ✅
 - [x] Tank voll/leer Einfluss auf Handling berechnet ✅
+- [x] DB-Verifizierung: Teilzahlen und Preis-Summen abgeglichen ✅ (2026-05-28)
 - [ ] Messung der tatsächlichen Gewichte nach Umbau (validieren)
 - [ ] Achslast-Messung auf Prüfstand (TÜV)
+- [ ] Fahrgewichts-Messung auf Waage (validieren)

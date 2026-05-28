@@ -20,54 +20,74 @@ Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar 
 
 ---
 
-## CHEFINGENIEUR UPDATE — 2026-05-27
+## CHEFINGENIEUR UPDATE — 2026-05-28
 
-### Budget-Guard Status (UPDATED 2026-05-27 — Preis-Check)
-✅ **KEINE Phase überschritten!**
+### DB-Verifizierung (2026-05-28)
+- **137 NX650-fitment Teile** in DB (inkl. alle Alternativen)
+- **DB SUM(price_avg):** EUR12.105 fuer alle NX650-Teile (NICHT Build-Budget — enthaelt alle Alternativen + Optionen)
+- **Option A Build-Kosten:** EUR2.228 (28 Teile)
+- **54 NX650 Known Issues:** 4 critical (Stator, Regler), 2 high (Verkabelung, CDI)
+- **27 neue NX650-Ersatzteile** (IDs 303-329) von Research-Agenten hinzugefuegt — Dichtungen, OEM-Ersatzteile, Motorinternas
+- Wichtige neue Teile: Neutral-Schalter (EUR14), Regler-Verbinder-Kit (EUR8), Kraftstoffhahn (EUR55) — bekannte Schwachstellen
+- **Keine Performance-Teile** in DB fuer NX650 eingefuegt
+- **Kleinere Duplikate** in Issues (Stator/Regler mehrfach) — Cleanup empfohlen
 
-|| Phase | Geplant | Budget | Reserve | Status |
+### Budget-Guard Status (VERIFIZIERT 2026-05-28)
+KEINE Phase ueberschritten!
+
+| Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
-| 1: Zuverlässigkeit | €409 | €800 | +€391 (49%) | ✅ Verbessert von +€320 |
-| 2: Fahrwerk | €944 | €1.200 | +€256 (21%) | ⚠️ Mitas E-07+ Dakar teurer |
-| 3: Africa Twin Look | €688 | €1.000 | +€312 (31%) | ✅ Stark verbessert von +€118! |
-| 4: Touring-Komfort | €187 | €800 | +€613 (77%) | ✅ Verbessert |
-| 5: Reserve | — | €500 | +€500 | 🔵 Puffer |
-| **Total** | **€2.228** | **€4.300** | **+€2.072** | ✅ |
+| 1: Zuverlaessigkeit | EUR409 | EUR800 | +EUR391 (49%) | OK |
+| 2: Fahrwerk | EUR944 | EUR1.200 | +EUR256 (21%) | OK |
+| 3: Africa Twin Look | EUR688 | EUR1.000 | +EUR312 (31%) | OK |
+| 4: Touring-Komfort | EUR187 | EUR800 | +EUR613 (77%) | OK |
+| 5: Reserve | — | EUR500 | +EUR500 | Puffer |
+| **Total** | **EUR2.228** | **EUR4.300** | **+EUR2.072** | OK |
 
 ### Gewicht-Bilanz
-- **Trockengewicht nach Bau:** ~155.4 kg (OEM: 161 kg) → **-5.6 kg**
-- **Fahrfertig:** ~170-171 kg → **UNTER dem 175 kg Ziel!** ✅
-- Größte Ersparnis: Auspuff (-3 kg), Batterie (-2 kg), LED (-1.7 kg), YSS (-1.3 kg)
+- **Trockengewicht nach Bau:** ~155.4 kg (OEM: 161 kg) = -5.6 kg
+- **Fahrfertig:** ~170-171 kg = UNTER dem 175 kg Ziel!
+- Groesste Ersparnis: Auspuff (-3 kg), Batterie (-2 kg), LED (-1.7 kg), YSS (-1.3 kg)
 - Gewichtsverteilung: vorne ~54%, hinten ~46% (ausgewogen)
 
-### Kompatibilitäts-Checks ✅
+### Kompatibilitaets-Checks
 Alle 12 Hauptkomponenten verifiziert kompatibel mit NX650 Dominator.
 
-### Performance-Teile: KEINE ✅
+### Performance-Teile: KEINE
 Kein Big Bore, kein CDI-Upgrade, kein Leistungs-Auspuff im Build-Plan.
 
-### Kürzungs-Vorschläge (falls Budget überschritten)
+### Kuerzungs-Vorschlaege (falls Budget ueberschritten)
 
-**Phase 3 (jetzt 31% Reserve — nicht mehr knapp!):**
-1. Koso RX-22 (€100) → generischer 7" H4 LED (€25) = **€75 gespart**
-2. Sitzbank Sattler (€150) → DIY Umpolstern (€40) = **€110 gespart**
-3. Leo Vince SBK Slip-on (€215 gebraucht) → OEM Muffler behalten (€0) = **€215 gespart** → Budget-Option
-4. Highsider Blinker (€55) → E9 generisch (€19) = **€36 gespart**
-5. Heckträger (€30) → DIY Alu-Profil (€25) = **€5 gespart**
+**Phase 3 (31% Reserve):**
+1. Koso RX-22 (EUR100) -> generischer 7" H4 LED (EUR25) = EUR75 gespart
+2. Sitzbank Sattler (EUR150) -> DIY Umpolstern (EUR40) = EUR110 gespart
+3. Leo Vince SBK Slip-on (EUR215 gebraucht) -> OEM Muffler behalten (EUR0) = EUR215 gespart
+4. Highsider Blinker (EUR55) -> E9 generisch (EUR19) = EUR36 gespart
+5. Hecktraeger (EUR30) -> DIY Alu-Profil (EUR25) = EUR5 gespart
 
 **Phase 2 (21% Reserve — etwas weniger Puffer):**
-1. YSS Mono (€339) → Hagon Twins (€175) = **€164 gespart**, aber weniger Einstellbarkeit
-2. Mitas E-07+ Dakar (€189) → Shinko 804/805 (€156) = **€33 gespart**, kürzere Haltbarkeit
-3. Race Tech Emulator + Wirth (€260) → Wirth Federn allein (€83) = **€177 gespart**, nur ~40% der Wirkung
-4. Acerbis Handguards (€35) → BBB MX-1 (€22) = **€13 gespart**
+1. YSS Mono (EUR339) -> Hagon Twins (EUR175) = EUR164 gespart, aber weniger Einstellbarkeit
+2. Mitas E-07+ Dakar (EUR189) -> Shinko 804/805 (EUR156) = EUR33 gespart, kuerzere Haltbarkeit
+3. Race Tech Emulator + Wirth (EUR260) -> Wirth Federn allein (EUR83) = EUR177 gespart, nur ~40% der Wirkung
+4. Acerbis Handguards (EUR35) -> BBB MX-1 (EUR22) = EUR13 gespart
 
 **Phase 4 (77% Reserve — hier ist maximaler Spielraum):**
-- Mögliche Upgrades aus Reserve:
-  - Seat Concepts Kit statt Sattler (+€60, bessere Qualität)
-  - Antigravity Batterie statt JMT (+€60, mehr CCA, Restart-Funktion)
-  - Kriega US-20 Drybag statt Budget-Panniers (+€80, besser wetterfest)
-  - Heidenau K60 statt Mitas E-07 (+€73, bessere Haltbarkeit)
-  - MRA Touring Windschild statt DIY (+€65, besserer Windschutz)
+- Moegliche Upgrades aus Reserve:
+  - Seat Concepts Kit statt Sattler (+EUR60, bessere Qualitaet)
+  - Antigravity Batterie statt JMT (+EUR60, mehr CCA, Restart-Funktion)
+  - Kriega US-20 Drybag statt Budget-Panniers (+EUR80, besser wetterfest)
+  - Heidenau K60 statt Mitas E-07 (+EUR73, bessere Haltbarkeit)
+  - MRA Touring Windschild statt DIY (+EUR65, besserer Windschutz)
+
+### Empfohlene Wartungs-Reserve-Nutzung (neu 2026-05-28)
+Aus der EUR500 Reserve sollten folgende Ersatzteile vorgehalten werden:
+1. **Regler-Verbinder-Kit** (EUR8) — bekanntes Schmelz-Problem bei NX650
+2. **Neutral-Schalter** (EUR14) — haeufiger Ausfall
+3. **Kraftstoffhahn** (EUR55) — Leckage haeufig bei >20j alten NX650
+4. **Stator 3-Pin Verbinder-Set** (EUR9) — LOETEN statt stecken!
+5. **Dichtungs-Set** (Athena, EUR89) — falls Motor geoeffnet werden muss
+6. **Fork Seal Kit** (EUR16) — falls Undichtigkeit
+- **Subtotal Wartungs-Ersatz:** ~EUR191 — bleibt innerhalb Reserve
 
 ---
 

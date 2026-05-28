@@ -15,7 +15,7 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 ## Budget: 5.000€ HARD CAP — So viel erreichen wie möglich, kein Cent verschwenden!
 
-|| Phase | Fokus | Budget | Priorität |
+| Phase | Fokus | Budget | Priorität |
 |-------|-------|--------|----------|
 | 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch |
 | 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch |
@@ -24,9 +24,9 @@ Siehe Cron-Jobs: `aql-*` Präfix
 | 5 | Reserve | €200-500 | 🔵 Puffer |
 | **Total** | | **€5.000 MAX** | |
 
-## Budget-Stand (Budget-Jäger 2026-05-27 — PREIS-CHECK AKTUALISIERT)
+## Budget-Stand (Chefingenieur 2026-05-28 — DB-Verifizierung)
 
-|| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
+| Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
 |-------|------------|-----------|------------|--------|
 | 1: Zuverlässigkeit | 409 | 800 | +391 (49%) | ✅ Stark |
 | 2: Fahrwerk | 944 | 1.200 | +256 (21%) | ✅ OK |
@@ -35,16 +35,33 @@ Siehe Cron-Jobs: `aql-*` Präfix
 | 5: Reserve | — | 500 | +500 | 🔵 Puffer |
 | **Total** | **2.228** | **4.300** | **+2.072** | ✅ |
 
-> **Ergebnis:** Option A (Optimal) kostet €2.228 + €500 Reserve = €2.728. Unter dem €5.000 Hard Cap mit **€2.272 Reserve** (45%) — €277 gespart vs. vorherige Schätzung!
+> **Ergebnis:** Option A (Optimal) kostet €2.228 + €500 Reserve = €2.728. Unter dem €5.000 Hard Cap mit **€2.272 Reserve** (45%).
 
 ### Budget-Guard: KEINE Phase überschritten ✅
-- Phase 1: €409 / €800 → **€391 Reserve** (49%) ← verbessert von €320
-- Phase 2: €944 / €1.200 → **€256 Reserve** (21%) ← Mitas E-07+ Dakar teurer
-- Phase 3: €688 / €1.000 → **€312 Reserve** (31%) ← stark verbessert von €118!
-- Phase 4: €187 / €800 → **€613 Reserve** (77%) ← verbessert
+- Phase 1: €409 / €800 → **€391 Reserve** (49%)
+- Phase 2: €944 / €1.200 → **€256 Reserve** (21%) — Mitas E-07+ Dakar teurer
+- Phase 3: €688 / €1.000 → **€312 Reserve** (31%)
+- Phase 4: €187 / €800 → **€613 Reserve** (77%)
 
-### Budget-Update: Phase 3 entschärft ✅
-Phase 3 (Africa Twin Look) hat jetzt **€312 Reserve** (31%) — verbessert von €118! Koso RX-22 bei €99.90 (nicht €200+ wie ursprünglich geschätzt), Leo Vince gebraucht ab €215. Generischer 7" H4 LED als Budget-Alternative für nur €25 verfügbar.
+### DB-Verifizierung (2026-05-28)
+- **137 NX650-fitment Teile** in DB (inkl. alle Alternativen)
+- **DB SUM(price_avg) alle NX650:** €12.105 (nicht AQL-Budget — enthält Alternativen!)
+- **28 Teile in Option A Build-Plan:** €2.228
+- **54 NX650 Known Issues:** 4 critical (Stator, Regler), 2 high (Verkabelung, CDI)
+- **Neu hinzugefügte NX650-Teile (IDs 303-329):** 27 Teile — Dichtungen, OEM-Ersatzteile, Motorinternas — nicht im Build-Kostenplan, aber wichtig für Wartung/Ersatz
+
+### Neue NX650-Ersatzteile in DB (nicht im Build-Budget)
+Folgenden Teile wurden von Research-Agenten hinzugefügt — wichtig als Referenz für Wartung, aber **NICHT** im AQL-Build-Budget enthalten:
+
+| ID | Teil | € (avg) | Typ | Relevanz |
+|----|------|---------|-----|----------|
+| 313 | Zylinderkopfdichtung | 38 | Engine | Wartungs-Ersatz |
+| 314 | Steuerkette OEM | 65 | Engine | Falls APE MCCT nicht reicht |
+| 318 | APE MCCT | 79 | Engine | Empfohlen bei Kettengeräuschen |
+| 319 | Komplette Dichtungs-Set Athena | 89 | Engine | Komplett-Überholung |
+| 322 | Neutral-Schalter | 14 | Elektrik | Bekanntes Problem |
+| 323 | Regler-Verbinder-Kit | 8 | Elektrik | Verbrennt oft! |
+| 329 | Kraftstoffhahn | 55 | Fuel | Leckt häufig |
 
 ## Gewichtsbilanz
 
@@ -146,5 +163,6 @@ african-queen-lite/
 ## DB
 Alle Daten in: `research/vehicle_database.db`
 - Variant ID: 5 (NX650 Dominator RFVC)
-- Build Guide: "African Queen Lite"
-- 72 Teile in DB (dedupliziert), SUM(price_avg) = €5.480,50
+- 137 NX650-fitment Teile in DB
+- 54 NX650 Known Issues (4 critical)
+- Build Guide #8: African Queen Lite Styling (active)
