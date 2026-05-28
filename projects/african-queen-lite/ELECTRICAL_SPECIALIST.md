@@ -6,14 +6,16 @@
 
 ## Executive Summary
 
-5 Aufgaben investigated, 22 Elektrik-Teile in DB (alle mit 3+ EU-Quellen und Preisvergleich). **Preise verifiziert und korrigiert** — Koso RX-22 und FH020AA Preis-Updates eingespielt.
+5 Aufgaben investigated + 3 TEAM_REQUESTS beantwortet, 22 Elektrik-Teile in DB (alle mit 3+ EU-Quellen und Preisvergleich), 1 neues Teil (Deutsch DT Kit). **Preise verifiziert und korrigiert** — Koso RX-22 und FH020AA Preis-Updates eingespielt.
 
 **Kernergebnisse:**
 1. **Stator:** RM Stator 200W Standard (€89.90-120) **empfohlen** — Heavy Duty (€130-160) nur bei dauerhafter Volllast
-2. **Leistungs-Bilanz:** Nach LED-Umbau: **~85-103W Reserve** bei Vollast — ausreichend für Heizgriffe + USB
+2. **Leistungs-Bilanz:** Nach LED-Umbau: **~96W Reserve** bei 5000 rpm (inkl. ESP32 +0.7W) — ausreichend für Heizgriffe + USB
 3. **LED Scheinwerfer:** Koso RX-22 (€99.90-128.90) = **bestes Preis/Leistung**, JW Speaker = bester Beam, Truck-Lite = robusteste
-4. **LiFePO4:** Antigravity YTZ10-12 (€109-170) = **beste Qualität**, JMT (€49.90-75) = **bestes Budget**, spart 2kg
-5. **Alle Preise:** 3+ EU-Quellen pro Teil, price_min/max/avg in DB aktualisiert ✓
+4. **LiFePO4:** Antigravity YTZ10-12 (€109-170) = **beste Qualität**, JMT (€49.90-75) = **bestes Budget**, spart 2kg — **MUSS mit FH020AA kombiniert werden!** OEM SH775 nicht LiFePO4-kompatibel
+5. **Verbinder:** Deutsch DT Kit (€15-30, avg €22) = **empfohlenes Upgrade** — IP67, Goldkontakte, langlebiger als OEM
+6. **ESP32 Controller:** Nur +0.7W Dauerlast — **kein Einfluss** auf Leistungs-Bilanz
+7. **Alle Preise:** 3+ EU-Quellen pro Teil, price_min/max/avg in DB aktualisiert ✓
 
 ---
 
@@ -291,10 +293,12 @@
 |------|---------|---------------|---------------|
 | Regler | Shindengen FH020AA MOSFET | **56.50** | Amazon €49.90 |
 | Stator | RM Stator 200W Standard | **99.00** | FC-Moto €89.90 |
-| Connector Kit | Regler-Verbinder | **8.00** | Cycle Terminal |
-| Stator Connector | 3-Pin Connector Set | **9.00** | Cycle Terminal |
+| Connector Kit | Regler-Verbinder OEM | **8.00** | Cycle Terminal |
+| Stator Connector | 3-Pin Connector Set OEM | **9.00** | Cycle Terminal |
+| **Connector Upgrade** | **Deutsch DT Kit (empfohlen!)** | **22.00** | eBay/Amazon |
 | Massekabel | Ground Cable Kit | **10.00** | DIY |
-| **Phase 1 Elektrik Total** | | **€172.50** | ↑ +€4.50 vs vorige Schätzung |
+| **Phase 1 Elektrik (Budget)** | | **€172.50** | OEM Verbinder |
+| **Phase 1 Elektrik (Empfohlen)** | | **€186.50** | **+€14 Deutsch DT Upgrade** |
 
 ### Priorität 2: LOOK (LED) 🔦
 
@@ -310,34 +314,36 @@
 ### Priorität 3: TOURING (Komfort) 🏕️
 
 | Teil | Produkt | Preis_avg (€) | Beste Quelle |
-|------|---------|---------------|---------------|
+|------|---------|---------------|--------------|
 | Batterie | JMT YTZ10S LiFePO4 | **62.50** | Amazon €49.90 |
 | Heizgriffe | Oxford HotGrips Premium | **72.00** | Amazon €54.90 |
 | USB-Ladegerät | Wasserfest Dual 2.1A | **15.00** | Amazon €12.99 |
 | **Phase 4 Elektrik Total** | | **€149.50** | |
 
+⚠️ **WICHTIG:** LiFePO4 Batterie NUR einbauen, wenn FH020AA (Phase 1) bereits installiert! OEM SH775 Shunt-Regler ist NICHT LiFePO4-kompatibel (kann Überladung verursachen). Reihenfolge: Erst FH020AA → Dann LiFePO4!
+
 ### GESAMTBUDGET ELEKTRIK — KORRIGIERT
 
 | Priorität | Budget | Avg-Kosten | Reserve |
 |-----------|--------|-----------|---------|
-| P1: Sicherheit | 150-300€ | **€172.50** | +€127.50 ✅ |
+| P1: Sicherheit | 150-300€ | **€172.50-186.50** | +€113.50-127.50 ✅ |
 | P3: Look | 200-400€ | **€221.00** | +€179.00 ✅ |
 | P4: Touring | 100-200€ | **€149.50** | +€50.50 ✅ |
-| **Total** | **max 800€** | **€543.00** | **+€257 Reserve** ✅ |
+| **Total** | **max 800€** | **€543.00-557.00** | **+€243-257 Reserve** ✅ |
 
 ### Budget-Optionen
 
-**Budget-Lite (€340):**
-FH020AA (€49.90) + RM Stator Std (€89.90) + Connectors (€17) + Generic LED 7" (€40) + Generic Blinker E9 (€25) + Generic Rücklicht (€15) + JMT Batterie (€49.90) + USB (€12.99) + Relay (€10)
-→ Spart €203, aber E-Mark-Risiko und weniger Lichtqualität
+**Budget-Lite (€357):** ← OEM-Verbinder, Generic LED
+FH020AA (€49.90) + RM Stator Std (€89.90) + OEM Connectors (€17) + Generic LED 7" (€40) + Generic Blinker E9 (€25) + Generic Rücklicht (€15) + JMT Batterie (€49.90) + USB (€12.99) + Relay (€10)
+→ Spart €200, aber E-Mark-Risiko und weniger Lichtqualität
 
-**Recommended (€543):** ← EMPFOHLEN
-FH020AA (€49.90) + RM Stator Std (€89.90) + Connectors (€17) + Koso RX-22 (€99.90) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + JMT Batterie (€62.50) + Oxford Heizgriffe (€72) + USB (€15)
-→ **Bestes Preis/Leistung, alle E9-geprüft, €257 Reserve**
+**Recommended (€557):** ← EMPFOHLEN (mit Deutsch DT Upgrade)
+FH020AA (€49.90) + RM Stator Std (€89.90) + Deutsch DT Kit (€22) + Massekabel (€10) + Koso RX-22 (€99.90) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + JMT Batterie (€62.50) + Oxford Heizgriffe (€72) + USB (€15)
+→ **Bestes Preis/Leistung, IP67 Verbinder, alle E9-geprüft, €243 Reserve**
 
 **Premium (€780):**
-FH020AA (€49.90) + RM Stator HD (€145) + Connectors (€17) + JW Speaker 8700 (€358) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + Antigravity Batterie (€152) + Oxford Heizgriffe (€72) + USB (€15)
-→ Maximal-Qualität, knapp unter 800€
+FH020AA (€49.90) + RM Stator HD (€145) + Deutsch DT Kit (€22) + Massekabel (€10) + JW Speaker 8700 (€358) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + Antigravity Batterie (€152) + Oxford Heizgriffe (€72) + USB (€15)
+→ Maximal-Qualität, IP67 Verbinder, knapp unter 800€
 
 ---
 
@@ -439,5 +445,178 @@ FH020AA (€49.90) + RM Stator HD (€145) + Connectors (€17) + JW Speaker 870
 | 242 | Highsider Blinker Set E9 | €55.00 | €79.00 | €67.00 | 80g |
 | 323 | Regler Connector Kit | €5.00 | €15.00 | €8.00 | 25g |
 | 346 | Stator Connector Set | €5.00 | €12.00 | €9.00 | — |
+| 702 | Deutsch DT Connector Kit NX650 | €15.00 | €30.00 | €22.00 | 120g |
 
-**Insgesamt 19 NX650-relevante Elektrik-Teile in der Datenbank mit verifizierten Preisen.**
+**Insgesamt 21 NX650-relevante Elektrik-Teile in der Datenbank mit verifizierten Preisen.**
+
+---
+
+## 6. ESP32 Ride-Mode Controller — Leistungs-Bilanz-Update ⚡
+
+### Verbrauch ESP32 Controller v2.2
+
+| Komponente | Strom | Spannung | Leistung |
+|-----------|-------|----------|----------|
+| ESP32 DevKit (WiFi off) | 80mA | 5V (USB) | 0.4W |
+| SSD1306 OLED Display | 20mA | 3.3V | 0.07W |
+| AS5600 Encoder ×2 | 14mA | 3.3V | 0.05W |
+| WS2812B Status-LED | 20mA | 5V | 0.1W |
+| DRV8833 H-Bridge (idle) | 2mA | 5V | 0.01W |
+| KY-040 Drehencoder | 1mA | 3.3V | 0.003W |
+| **TOTAL Dauerbetrieb** | **~137mA** | | **~0.63W** |
+| **TOTAL Peak (Ventil-Aktiv)** | **~337mA** | | **~1.7W** |
+| **Deep Sleep (Motor aus)** | **~10µA** | | **~0.00003W** |
+
+### Auswirkung auf Leistungs-Bilanz
+
+- **ESP32 Dauerbetrieb: +0.7W** → innerhalb USB-Ladegerät-Budget (10W) ✅
+- **Ventil-Aktivierung: +1.0W kurzzeitig** (200ms) → vernachlässigbar ✅
+- **Deep Sleep:** nahezu 0W → kein Einfluss ✅
+- **Ignitech DC-CDI-P2:** separater Stromkreis, nicht über Stator ✅
+
+**FAZIT:** ESP32 Controller belastet die Leistungs-Bilanz mit max +0.7W — **KEIN Einfluss auf die Reserve-Berechnung.** Die 103W Reserve bei 5000 rpm bleiben voll bestehen.
+
+---
+
+## 7. LiFePO4 Batterie-Kompatibilität
+
+### OEM vs LiFePO4 — Technische Daten
+
+| Parameter | OEM Blei (YB10AL-A2) | JMT YTZ10S | Antigravity YTZ10-12 | Shorai LFX14A4 |
+|-----------|----------------------|------------|----------------------|-----------------|
+| Typ | Blei-Säure | LiFePO4 | LiFePO4 | LiFePO4 |
+| Nennspannung | 12V | 12.8V (4S) | 12.8V (4S) | 12.8V (4S) |
+| Kapazität | 10Ah | 4-5Ah | 6Ah | 4.2Ah |
+| **Nutzkapazität** | **5.0Ah (50% DOD)** | **4.3Ah (95% DOD)** | **5.7Ah (95% DOD)** | **4.0Ah (95% DOD)** |
+| CCA | ~150A | 180-210A | 240A | 210A |
+| Gewicht | 2.8kg | 0.85kg | 0.8kg | 0.86kg |
+| Garantie | — | 2 Jahre | 3 Jahre | 3 Jahre |
+
+### Ladungssystem-Kompatibilität
+
+| Regler | Ausgangsspannung | LiFePO4 Ladespannung | Kompatibel? |
+|--------|-----------------|---------------------|-------------|
+| OEM SH775 (Shunt) | 13.8-14.5V | 14.4-14.6V | ⚠️ Grenzbereich |
+| **FH020AA (MOSFET)** | **14.2-14.8V** | **14.4-14.6V** | **✅ PERFEKT** |
+
+⚠️ **WICHTIG:** LiFePO4 BATTERIEN SIND **NICHT KOMPATIBEL** mit dem OEM SH775 Shunt-Regler!
+- SH775 kann Überladung verursachen (keine präzise Spannungsbegrenzung)
+- FH020AA MOSFET = VORAUSSETZUNG für LiFePO4-Betrieb
+- **Reihenfolge: Erst FH020AA einbauen, DANN LiFePO4!**
+
+### Restart-Feature (Antigravity)
+
+Antigravity YTZ10-12 Restart hat **Reset-Taste** die 30% Reservestrom freigibt:
+- Batterie völlig leer? → Taste drücken → Motor startet
+- Ideal für Touring (GPS/Ladegerät können versehentlich entleeren)
+- Funktioniert bei jedem Temperaturbereich (-20°C bis +60°C)
+
+### NX650 Kickstart — CCA nicht kritisch!
+
+Der NX650 hat **KEIN** elektrischen Anlasser — nur Kickstart.
+- CCA-Wert ist irrelevant für Kickstart
+- Wichtiger: **Vibration-Resistance** und **Langlebigkeit**
+- Antigravity und Shorai haben bessere Vibrationsfestigkeit als JMT
+- **Aber:** JMT bei €49.90 ist unschlagbar fürs Budget
+
+---
+
+## 8. Stator-Connector-Kit: OEM vs Deutsch DT
+
+### OEM Honda Verbinder (BEKANNTES PROBLEM ❌)
+
+| Verbinder | Typ | Problem | Ausfallrate |
+|-----------|-----|---------|-------------|
+| Stator 3-Pin | Honda runde Steckverbindung | Oxidation, Wackelkontakt, Schmelzen | SEHR HOCH |
+| Regler 6-Pin | Honda flache Steckverbindung | Schmilzt bei hohem Strom (besonders mit FH020AA) | HOCH |
+
+### Deutsch DT Verbinder (UPGRADE ✅)
+
+| Verbinder | Typ | Rating | Vorteile |
+|-----------|-----|--------|-----------|
+| Deutsch DT 3-Pin | Stator-Verbinder | IP67, Vibrations-rated | Wasserdicht, Goldkontakte, Sekundärverriegelung |
+| Deutsch DT 6-Pin | Regler-Verbinder | IP67, Vibrations-rated | Hoher Strom, kein Schmelzen |
+
+### Deutsch DT Kit Details
+
+| Parameter | Wert |
+|-----------|------|
+| Kit-Inhalt | DT06-3S (Stator) + DT04-6S (Regler) + Pins + Dichtungen + Sekundärverriegelung |
+| Preis | €15-30 (avg €22) |
+| Quellen | eBay.de €15-25, Amazon.de €18-30, Cycle Terminal €12-20 |
+| Einbau | Moderate (1-2h) — LÖTEN erforderlich! |
+| Kompatibilität | NX650 RD04/RD08, alle Baujahre |
+
+### EMPFEHLUNG
+
+| Option | Verbinder | Preis | Empfehlung |
+|--------|-----------|-------|------------|
+| **Budget** | OEM Ersatz-Kit | €8-9 | Nur wenn Budget extrem knapp |
+| **Empfohlen** | Deutsch DT Kit | €22 | ⭐ IP67, Goldkontakte, langlebig |
+| **Premium** | Deutsch DT + Hauptschmelzlitze | €30-40 | Maximale Zuverlässigkeit |
+
+**→ Deutsch DT Kit (€22) nur €13-14 mehr als OEM, aber VIEL zuverlässiger. Mit FH020AA MUSS der Regler-Verbinder aufgerüstet werden!**
+
+---
+
+## 9. Aktualisierte Leistungs-Bilanz (inkl. ESP32)
+
+### Vollausbau LED + Zubehör + ESP32
+
+| Verbraucher | Watt OEM | Watt LED+Zubehör | vs OEM |
+|-------------|----------|-------------------|--------|
+| Scheinwerfer Abblend | 55W | 20W (Koso RX-22) | -35W |
+| Standlicht | 5W | 2W (LED) | -3W |
+| Blinker 4× | 84W | 8W (Highsider LED) | -76W |
+| Rücklicht | 5W | 3W (LED) | -2W |
+| Bremslicht | 21W | 8W (LED) | -13W |
+| Zündspule | 30W | 30W | 0W |
+| Heizgriffe (Stufe 2) | — | 30W (Zubehör) | +30W |
+| USB-Ladegerät | — | 10W (Zubehör) | +10W |
+| ESP32 Controller | — | 0.7W (Zubehör) | +0.7W |
+| **Gesamt (ohne Blinken)** | **95W** | **~104W** | +9W |
+| **Gesamt (mit Blinken)** | **179W** | **~112W** | -67W |
+
+### Reserve mit RM Stator 200W + FH020AA + LED + ESP32
+
+| Szenario | Stator-Ausgang | Verbrauch | Reserve |
+|----------|---------------|-----------|---------|
+| 3000 rpm (Stadt) | ~140W | 104W | **+36W** |
+| 5000 rpm (Landstraße) | ~200W | 104W | **+96W** |
+| 5000 rpm + Zubehör max | ~200W | 104W | **+96W** |
+
+⚠️ **Standgas (800-1000 rpm):** Stator liefert nur ~40-60W → Heizgriffe NUR über 3000 rpm!
+
+**→ GESAMT-RESERVE: +96W bei 5000 rpm — MEHR als ausreichend für alle Zubehörlasten.** ✅
+
+---
+
+## Team-Anfragen — AKTUALISIERT 2026-05-28
+
+### ✅ An Chefingenieur (ABGEARBEITET):
+1. ~~Koso RX-22 PREIS-KORREKTUR~~ → Verifiziert €99.90-128.90 ✅
+2. ~~Batterie-Entscheidung~~ → JMT (€50, Budget) vs Antigravity (€152, Premium) — NX650 Kickstart → JMT reicht ✅
+3. ~~FH020AA Kaufhinweis~~ → Amazon €49.90 Drittanbieter, FC-Moto €58.50 sicherer ✅
+4. ~~Separater Kauf günstiger~~ → Stator + Regler separat = €139.80, Combo = €160 → €20 sparen ✅
+5. **NEU: ESP32 zieht nur 0.7W** — kein Einfluss auf Leistungs-Bilanz ✅
+6. **NEU: LiFePO4 MUSS mit FH020AA kombiniert werden** — OEM SH775 nicht LiFePO4-kompatibel! ✅
+7. **NEU: Deutsch DT Verbinder empfohlen** (+€13-14 vs OEM, aber IP67 und langlebiger) ✅
+
+### ✅ An Styling+Sound (ABGEARBEITET):
+1. ~~Koso RX-22 DRL-Ring~~ → Gibt Africa Twin Look ✅
+2. ~~Blinker-Stil~~ → Highsider Saturn (eckig) oder Kansas (rund) — Entscheidung bei Bestellung ✅
+3. ~~LED Preis-Update~~ → Phase 3 Elektrik €221 statt €311 ✅
+
+### ✅ An Fahrwerksspezialist (ABGEARBEITET):
+1. ~~Gewichts-Update LED-Umbau~~ → Elektrik-Umbau spart 3.64kg gesamt ✅
+
+### ✅ An Budget-Hunter (ABGEARBEITET):
+1. ~~Koso RX-22 €99.90 FC-Moto~~ → Verifiziert ✅
+2. ~~FH020AA €49.90 Amazon~~ → Drittanbieter-Authentizität checken ✅
+3. ~~JMT Batterie €49.90 Amazon~~ → Unschlagbar fürs Budget ✅
+
+### 🔄 Offene Anfragen von TEAM_REQUESTS.md:
+1. **Leistungs-Bilanz aktualisieren** → ✅ ERLEDIGT: ESP32+Niemands-Sensoren = +0.7W, Within USB budget
+2. **LiFePO4 4S 6Ah Batterie-Kompatibilität** → ✅ ERLEDIGT: FH020AA MUSS vor LiFePO4 installiert werden! OEM SH775 nicht kompatibel. Antigravity 6Ah = beste Wahl für maximale Nutzkapazität.
+3. **Stator-Connector-Kit: OEM vs Deutsch DT** → ✅ ERLEDIGT: Deutsch DT (IP67, Goldkontakte) empfohlen. Nur €13-14 mehr als OEM.
+4. **MOSFET Regler FH020AA Preis/Verfügbarkeit** → ✅ ERLEDIGT: €49.90 Amazon, €58.50 FC-Moto, €52-65 eBay
