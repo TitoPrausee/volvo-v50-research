@@ -283,9 +283,73 @@ DASHBOARD_HTML = """
   </div>
   {% endif %}
 
+  <!-- Valve Curve Comparison Chart -->
+  <div class="card" style="margin-bottom: 16px;">
+    <div class="card-title">📈 Valve Position Comparison (All Modes)</div>
+    <div id="comparison-chart">
+      <canvas id="comparison-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- Fuel Estimation & Gear Detection -->
+  <div class="card" style="margin-bottom: 16px;">
+    <div class="card-title">⛽ Fuel Estimation by Mode</div>
+    <table class="spec-table">
+      <tr><th>Mode</th><th>Consumption</th><th>Range (16L)</th><th>Reserve Warn</th></tr>
+      {% for mode, params in ride_modes.items() %}
+      <tr>
+        <td style="color: {{ params.color }}">{{ mode }}</td>
+        <td>{{ params.fuel_ml_per_100km // 10 }}L/100km</td>
+        <td>{{ (16000 / params.fuel_ml_per_100km * 100) | round(0) | int }}km</td>
+        <td>{{ params.reserve_liters }}L</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 8px;">
+      NX650 tank: 16L total, 3.4L reserve. Range estimated at mode-specific consumption rates.
+    </div>
+  </div>
+
+  <!-- Gear Estimation Reference -->
+  <div class="card" style="margin-bottom: 16px;">
+    <div class="card-title">⚙️ Gear Ratios — NX650</div>
+    <table class="spec-table">
+      <tr><th>Gear</th><th>Ratio</th><th>Speed @ 5000 RPM</th><th>Speed @ 7000 RPM</th></tr>
+      {% for ratio in nx_data.gear_ratios %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ ratio }}</td>
+        <td>{{ ((5000 * 2.04) / (2.176 * ratio * 2.833 * 60) * 3.6) | round(1) }} km/h</td>
+        <td>{{ ((7000 * 2.04) / (2.176 * ratio * 2.833 * 60) * 3.6) | round(1) }} km/h</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 8px;">
+      tire_circ=2.04m, primary_ratio={{ nx_data.primary_ratio }}, final_ratio={{ nx_data.final_drive }}
+    </div>
+  </div>
+
+  <!-- OTA Update Section -->
+  <div class="card" style="margin-bottom: 16px; border-color: #f59e0b;">
+    <div class="card-title">📡 OTA Firmware Update</div>
+    <div style="font-size: 0.85rem;">
+      <p><strong>How to update firmware wirelessly:</strong></p>
+      <ol style="margin-left: 1.2rem; color: var(--text-dim);">
+        <li>Power off the ESP32 controller</li>
+        <li>Hold the encoder button and power on</li>
+        <li>Connect to WiFi <code style="color: #22d3ee;">AQL-OTA</code> (password: <code style="color: #22d3ee;">aql2026</code>)</li>
+        <li>Open <code style="color: #22d3ee;">http://192.168.4.1</code> in browser</li>
+        <li>Upload the <code>.bin</code> firmware file</li>
+        <li>ESP32 reboots automatically with new firmware</li>
+      </ol>
+      <p style="font-size: 0.75rem; color: var(--warning);">⚠️ OTA mode only activates when encoder is held during boot. Cannot be triggered while riding.</p>
+    </div>
+  </div>
+
   <footer>
     African Queen Lite v2.2 — ESP32 Ride-Mode Controller — Honda NX650 Dominator RFVC<br>
-    Auto-RPM Valve • Fuel Estimation • Gear Detection • Deep Sleep • Config Mode
+    Auto-RPM Valve • Fuel Estimation • Gear Detection • Deep Sleep • Config Mode • OTA Update<br>
+    <span style="font-size: 0.7rem; color: var(--text-dim);">Last updated: 2026-05-28</span>
   </footer>
 </div>
 
@@ -295,11 +359,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const canvases = document.querySelectorAll('.curve-chart');
   canvases.forEach(canvas => {
     const points = JSON.parse(canvas.dataset.points);
-    drawCurve(canvas, points);
+    const modeColor = canvas.closest('.mode-card')?.dataset.mode;
+    drawCurve(canvas, points, modeColor);
   });
+  drawComparisonChart();
 });
 
-function drawCurve(canvas, points) {
+const MODE_COLORS_MAP = {
+  'STRASSE': '#00FF00', 'STADT': '#0064FF', 'GELÄNDE': '#FF3232',
+  'SPORT': '#FFA500', 'COMFORT': '#9400FF', 'SOUND': '#00FFFF'
+};
+
+function drawCurve(canvas, points, modeName) {
   const ctx = canvas.getContext('2d');
   const w = canvas.width = canvas.offsetWidth * 2;
   const h = canvas.height = canvas.offsetHeight * 2;
@@ -331,12 +402,13 @@ function drawCurve(canvas, points) {
   ctx.fillText(points[0][0] + 'RPM', 4, ch - 12);
   ctx.fillText(points[points.length-1][0] + 'RPM', cw - 40, ch - 12);
 
+  const color = MODE_COLORS_MAP[modeName] || '#22d3ee';
   // Curve
   const rpmMin = points[0][0];
   const rpmMax = points[points.length - 1][0];
   const rpmRange = rpmMax - rpmMin;
 
-  ctx.strokeStyle = '#22d3ee';
+  ctx.strokeStyle = color;
   ctx.lineWidth = 2;
   ctx.beginPath();
   points.forEach((p, i) => {
@@ -351,7 +423,11 @@ function drawCurve(canvas, points) {
   ctx.lineTo(cw, ch);
   ctx.lineTo(0, ch);
   ctx.closePath();
-  ctx.fillStyle = 'rgba(34,211,238,0.1)';
+  // Parse hex color to rgba with 10% opacity
+  const r = parseInt(color.slice(1,3), 16);
+  const g = parseInt(color.slice(3,5), 16);
+  const b = parseInt(color.slice(5,7), 16);
+  ctx.fillStyle = `rgba(${r},${g},${b},0.15)`;
   ctx.fill();
 
   // Points
@@ -360,8 +436,78 @@ function drawCurve(canvas, points) {
     const y = ch - (p[1] / 100) * (ch - 10) - 5;
     ctx.beginPath();
     ctx.arc(x, y, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#22d3ee';
+    ctx.fillStyle = color;
     ctx.fill();
+  });
+}
+
+// Draw combined comparison chart of all valve curves
+function drawComparisonChart() {
+  const container = document.getElementById('comparison-chart');
+  if (!container) return;
+  const canvas = document.getElementById('comparison-canvas');
+  if (!canvas) return;
+
+  const canvases = document.querySelectorAll('.curve-chart');
+  if (canvases.length === 0) return;
+
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const cw = container.offsetWidth;
+  const ch = 200;
+  canvas.width = cw * dpr;
+  canvas.height = ch * dpr;
+  canvas.style.width = cw + 'px';
+  canvas.style.height = ch + 'px';
+  ctx.scale(dpr, dpr);
+
+  // Background
+  ctx.fillStyle = '#111827';
+  ctx.fillRect(0, 0, cw, ch);
+
+  // Axis labels
+  ctx.fillStyle = '#64748b';
+  ctx.font = '10px monospace';
+  ctx.fillText('Valve Position Comparison', 10, 15);
+  ctx.fillText('100%', 2, 30);
+  ctx.fillText('0%', 2, ch - 10);
+  ctx.fillText('RPM →', cw - 40, ch - 10);
+
+  // Grid
+  ctx.strokeStyle = '#1e293b';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i <= 4; i++) {
+    const y = 20 + (ch - 40) * i / 4;
+    ctx.beginPath(); ctx.moveTo(30, y); ctx.lineTo(cw - 10, y); ctx.stroke();
+  }
+
+  // Draw each mode's curve
+  const modes = ['STRASSE', 'STADT', 'GELÄNDE', 'SPORT', 'COMFORT', 'SOUND'];
+  canvases.forEach((c, idx) => {
+    const points = JSON.parse(c.dataset.points);
+    const modeName = modes[idx] || '';
+    const color = MODE_COLORS_MAP[modeName] || '#22d3ee';
+    const rpmMin = 1000;
+    const rpmMax = 7500;
+    const plotW = cw - 40;
+    const plotH = ch - 50;
+    const plotY = 20;
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    points.forEach((p, i) => {
+      const x = 30 + ((p[0] - rpmMin) / (rpmMax - rpmMin)) * plotW;
+      const y = plotY + plotH - (p[1] / 100) * plotH;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Legend
+    ctx.fillStyle = color;
+    ctx.font = '9px monospace';
+    ctx.fillText(modeName, cw - 70, 25 + idx * 12);
   });
 }
 </script>

@@ -40,6 +40,7 @@
 #include "gear_estimator.h"
 #include "sleep_manager.h"
 #include "config_mode.h"
+#include "ota_update.h"
 
 // ---- Global Objects ----
 Sensors         sensors;
@@ -56,6 +57,7 @@ FuelEstimator   fuelEstimator;
 GearEstimator   gearEstimator;
 SleepManager    sleepManager;
 ConfigMode      configMode;
+OTAUpdate       otaUpdate;
 
 // ---- State ----
 RideMode currentMode = MODE_STRASSE;
@@ -108,6 +110,20 @@ void setup() {
     Serial.println(F("  Honda NX650 Dominator RFVC           "));
     Serial.println(F("========================================"));
     Serial.println();
+
+    // ---- Check for OTA update mode (encoder held during boot) ----
+    if (OTAUpdate::shouldEnterOTA()) {
+        Serial.println(F("[OTA] Encoder held at boot — entering OTA mode"));
+        Serial.println(F("[OTA] Connect to WiFi 'AQL-OTA' (pass: aql2026)"));
+        Serial.println(F("[OTA] Open http://192.168.4.1 to upload firmware"));
+        otaUpdate.begin();
+        // Stay in OTA mode — loop just services the web server
+        while (otaUpdate.isActive()) {
+            delay(100);
+            esp_task_wdt_reset();
+        }
+        // If OTA ends without reboot, continue normal boot
+    }
 
     // ---- Check wake from deep sleep ----
     if (SleepManager::wokeFromDeepSleep()) {
@@ -303,7 +319,11 @@ void loop() {
             cdi.getCurrentMap(),
             alert_temp,
             alert_volt,
-            longevity
+            longevity,
+            gearEstimator.getGear(),        // v2.2: gear indicator
+            gearEstimator.isValid(),         // v2.2: gear valid
+            fuelEstimator.getFuelLiters(),   // v2.2: fuel level
+            fuelEstimator.getFuelPercent()   // v2.2: fuel percentage
         );
         last_display_ms = now;
     }

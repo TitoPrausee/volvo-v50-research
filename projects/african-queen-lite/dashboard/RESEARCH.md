@@ -148,8 +148,8 @@ The v2.2 firmware already tracks:
 
 ## 8. v2.2 Component Price List (New/Changed)
 
-| Component | Qty | Price | Notes |
-|-----------|-----|-------|-------|
+|| Component | Qty | Price | Notes |
+||-----------|-----|-------|-------|
 | ESP32-WROOM-32 DevKit | 1 | €6 | Main controller |
 | SSD1306 OLED 128x64 I2C | 1 | €3 | Display (0.96") |
 | KY-040 Rotary Encoder | 1 | €2 | Mode switching |
@@ -167,6 +167,12 @@ The v2.2 firmware already tracks:
 | 3D printed case (PETG) | 1 | €15 | IP67 handlebar mount |
 | Sealed buttons (IP67) | 2 | €6 | Mode+ and Mode- |
 | **Total** | | **~€205** | |
+
+### v2.2 Additions:
+- OTA WiFi update module (no hardware cost — uses ESP32 built-in WiFi)
+- Gear estimator (software only — no new hardware)
+- Fuel estimator (software only — uses existing ADC)
+- Deep sleep (software only — ESP32 built-in)
 
 ## 9. Stator Health Monitoring — Critical for NX650
 
@@ -186,3 +192,47 @@ The NX650 stator is a **known weak point**. Common failure modes:
 1. Replace OEM stator connector with a better one (bullet connectors or Deutsch DT)
 2. Replace OEM regulator/rectifier with a MOSFET type (Shindengen SH775 or FH020AA)
 3. Monitor regularly via BLE data logging
+
+## 10. OTA WiFi Update — ESP32 Firmware Upload v2.2
+
+The v2.2 firmware includes an OTA (Over-The-Air) update capability:
+
+### How it works:
+- **Activation:** Hold encoder button during ESP32 boot → enters OTA mode
+- **WiFi AP:** ESP32 creates "AQL-OTA" network (password: aql2026)
+- **Web Interface:** http://192.168.4.1 — upload .bin firmware file
+- **Security:** Only activates on boot with encoder held — cannot be triggered while riding
+- **Power:** ESP32 AP mode draws ~80mA — acceptable for short update sessions
+
+### Build & Upload process:
+```
+# Build firmware
+cd projects/african-queen-lite/dashboard
+pio run -e esp32dev
+
+# The .bin file is at:
+# .pio/build/esp32dev/firmware.bin
+
+# OTA upload: hold encoder, power on, connect to AQL-OTA WiFi, upload .bin
+```
+
+### Recovery:
+- If OTA fails, flash via USB: `pio run -t upload`
+- Deep sleep wake: ignition pulse or MODE_UP button wakes ESP32
+- Factory reset: hold both buttons during boot
+
+## 11. Display UX — v2.2 Layout
+
+SSD1306 128x64 OLED (4 auto-cycling pages):
+
+**Page 0 (RIDE):**
+- Line 1: Mode name (3 chars) + Gear indicator + RPM (big)
+- Line 2: Temperature + Voltage
+- Line 3: Valve % + Airbox %
+- Line 4: Oil pressure + CDI map
+- Line 5: Throttle curve + Fuel remaining (L)
+- Bottom: Fuel bar [=====.........]
+
+**Page 1 (HEALTH):** Stator status, battery SOC, runtime
+**Page 2 (MAINT):** Maintenance items with overdue warnings
+**Page 3 (TRIP):** Odometer, trip, peak temp, stator/battery summary

@@ -60,6 +60,7 @@ Ein ESP32-basierter Ride-Mode Controller der WÄHREND DER FAHRT zwischen 6 Modi 
 | **Gear Estimator** | `gear_estimator.h` | Gang-Erkennung aus RPM/Speed |
 | **Deep Sleep** | `sleep_manager.h` | 5 Min Motor aus → 10µA (Wake an Taste/Zündung) |
 | **Config Mode** | `config_mode.h` | Long-Press Encoder → Einstellungen |
+| **OTA Update** | `ota_update.h` | WiFi-basiertes Firmware-Update (Encoder beim Boot) |
 
 ### Verzeichnisstruktur
 ```
@@ -82,7 +83,8 @@ dashboard/
 │   ├── fuel_estimator.h     # v2.2: Verbrauchsschätzung
 │   ├── gear_estimator.h     # v2.2: Gang-Erkennung
 │   ├── sleep_manager.h      # v2.2: Deep Sleep
-│   └── config_mode.h        # v2.2: Konfigurations-Menü
+│   ├── config_mode.h        # v2.2: Konfigurations-Menü
+│   └── ota_update.h          # v2.2: OTA WiFi Firmware Update
 └── hardware/
     ├── WIRING.md             # Schaltplan & Pin-Belegung
     ├── wiring_diagram.py     # SVG/ASCII Generator
