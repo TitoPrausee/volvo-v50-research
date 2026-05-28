@@ -1,0 +1,112 @@
+==============================================================================
+  AQL RIDE-MODE CONTROLLER — WIRING DIAGRAM (ASCII)
+  Honda NX650 Dominator  •  ESP32 DevKit V1  •  v2.0
+==============================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            POWER CONDITIONING                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  12V Battery ──┬── [5A Fuse] ── 1N5408 (reverse-protect) ──┬── TVS SMAJ28A │
+│                │                                            │  (28V clamp)   │
+│                │                                            │                │
+│                ├── 470µF Electrolytic ── 100nF Ceramic ────┤                │
+│                │                                                           │
+│                └── 7805 Regulator (heatsink req'd) ── 5V/1A ── ESP32 VIN   │
+│                                                                             │
+│  Fuses:  5A main  |  3A servo  |  500mA ESP32 (polyfuse)                   │
+│  Wire:   18 AWG (power)  |  22-24 AWG (signal)  |  26 AWG (I2C)            │
+│  Connectors:  Deutsch DT / Superseal  IP67 (all external)                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      VOLTAGE DIVIDER SPECIFICATION                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  12V Sense ─── R1 = 100 kΩ (¼W) ──┬── To ESP32 GPIO 35/36 (ADC)           │
+│                                    │                                        │
+│                                 R2 = 33 kΩ (¼W)                            │
+│                                    │                                        │
+│                                  GND                                        │
+│                                                                             │
+│  Vout = Vin × R2/(R1+R2) = Vin × 0.248                                     │
+│  Max sense: 14.6V → 3.62V  (safe for 3.3V ADC w/attenuation)               │
+│  Two identical dividers: GPIO 35 = battery, GPIO 36 = stator/regulator      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           ESP32 PIN MAPPING                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                         ESP32 DevKit V1                               │  │
+│  │                                                                       │  │
+│  │  INPUTS:                          OUTPUTS:                            │  │
+│  │    GPIO  0  ← ENCODER_BTN (pullup)   GPIO 25 → EXHAUST_VALVE (PWM)   │  │
+│  │    GPIO  4  ← MODE_UP  (pullup)      GPIO 26 → AIRBOX_FLAP  (PWM)    │  │
+│  │    GPIO  5  ← MODE_DOWN (pullup)      GPIO 27 → CDI_MAP_SEL (DIG)    │  │
+│  │    GPIO 16  ← ENCODER_A (int)         GPIO 33 → CDI_MAP_B (DIG new)  │  │
+│  │    GPIO 17  ← ENCODER_B               GPIO 32 → WS2812_LED (DATA)    │  │
+│  │    GPIO 18  ← IGNITION_PULSE (int)                                     │  │
+│  │    GPIO 19  ← OIL_PRESSURE_SWITCH     I2C:                            │  │
+│  │    GPIO 34  ← THERMISTOR (ADC)        GPIO 21 → OLED_SDA             │  │
+│  │    GPIO 35  ← VOLTAGE_DIVIDER (ADC)   GPIO 22 → OLED_SCL             │  │
+│  │    GPIO 36  ← STATOR_SENSE (ADC)                                      │  │
+│  │                                                                       │  │
+│  │  POWER:  VIN ← 5V (7805)  │  3V3 → sensors  │  GND ← common ground   │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌────── SENSORS ──────┐         ┌────── ACTUATORS ──────┐
+│                      │         │                        │
+│  THERMISTOR          │         │  EXHAUST VALVE SERVO   │
+│    GPIO 34           │◄───────►│    GPIO 25 (PWM)       │
+│    NTC 10kΩ + pullup │         │    DRV8833/MG996R      │
+│                      │         │                        │
+│  VOLTAGE DIVIDER     │         │  AIRBOX FLAP SERVO     │
+│    GPIO 35           │◄───────►│    GPIO 26 (PWM)       │
+│    R1=100k R2=33k    │         │    DRV8833/MG996R      │
+│                      │         │                        │
+│  STATOR SENSE        │         │  CDI MAP SELECT A      │
+│    GPIO 36           │◄───────►│    GPIO 27 (DIG)       │
+│    R1=100k R2=33k    │         │    Ignitech DC-CDI-P2  │
+│                      │         │                        │
+│  OIL PRESSURE SWITCH │         │  CDI MAP SELECT B      │
+│    GPIO 19           │◄───────►│    GPIO 33 (DIG new)   │
+│    LOW = pressure OK │         │                        │
+│                      │         │  WS2812 RGB LED        │
+│  IGNITION PULSE COIL │         │    GPIO 32 (DATA)      │
+│    GPIO 18 (INT)     │◄───────►│    470Ω series R       │
+│    PC817 optocoupler │         │    5V / GND            │
+└──────────────────────┘         └────────────────────────┘
+
+┌──────── UI COMPONENTS ─────────┐
+│                                 │
+│  OLED SSD1306 (I2C)             │
+│    GPIO 21 (SDA)  •  22 (SCL)  │
+│    128×64  •  3.3V  •  GND     │
+│    4.7kΩ pullups to 3.3V       │
+│                                 │
+│  ROTARY ENCODER (KY-040)        │
+│    GPIO 16 (CLK)  •  17 (DT)   │
+│    GPIO  0 (SW/button)          │
+│    10kΩ pullups  •  3.3V  GND  │
+│                                 │
+│  MODE BUTTONS (handlebar)        │
+│    GPIO  4 (MODE_UP)            │
+│    GPIO  5 (MODE_DOWN)          │
+│    Pullup to 3.3V  •  GND      │
+│                                 │
+└─────────────────────────────────┘
+
+──────────────────────────────────────────────────────────────────────────────
+  WIRE COLOR CODE:  Red = Power  |  Blue = Signal  |  Green = Ground  |  Orange = PWM
+  TVS DIODE:  SMAJ28A (28V clamp, bidirectional) on 12V input line
+  ALL EXTERNAL CONNECTIONS:  Deutsch DT or Superseal (IP67)
+  ENCLOSURE:  3D-printed PETG/ABS  •  IP67  •  22mm handlebar clamp
+──────────────────────────────────────────────────────────────────────────────
+
+  Generated by wiring_diagram.py  •  Pin definitions from src/modes.h
+  African Queen Lite  •  Nous Research  •  May 2026
+==============================================================================
