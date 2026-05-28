@@ -1,23 +1,108 @@
 {
   "current_odometer_km": 0,
   "intervals": {
-    "oil_change": {"interval_km": 15000, "interval_months": 12, "last_km": 0, "last_date": ""},
-    "oil_filter": {"interval_km": 15000, "interval_months": 12, "last_km": 0, "last_date": ""},
-    "air_filter": {"interval_km": 30000, "interval_months": 24, "last_km": 0, "last_date": ""},
-    "cabin_filter": {"interval_km": 30000, "interval_months": 24, "last_km": 0, "last_date": ""},
-    "brake_fluid": {"interval_km": 60000, "interval_months": 24, "last_km": 0, "last_date": ""},
-    "spark_plugs": {"interval_km": 60000, "interval_months": 48, "last_km": 0, "last_date": ""},
-    "timing_belt": {"interval_km": 120000, "interval_months": 120, "last_km": 0, "last_date": ""},
-    "coolant": {"interval_km": 60000, "interval_months": 36, "last_km": 0, "last_date": ""},
-    "transmission_fluid": {"interval_km": 60000, "interval_months": 48, "last_km": 0, "last_date": ""},
-    "brake_pads_front": {"interval_km": 40000, "interval_months": 36, "last_km": 0, "last_date": ""},
-    "brake_pads_rear": {"interval_km": 50000, "interval_months": 36, "last_km": 0, "last_date": ""},
-    "tire_rotation": {"interval_km": 10000, "interval_months": 12, "last_km": 0, "last_date": ""}
+    "oil_change": {
+      "interval_km": 15000,
+      "interval_months": 12,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "oil_filter": {
+      "interval_km": 15000,
+      "interval_months": 12,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "air_filter": {
+      "interval_km": 40000,
+      "interval_months": 24,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "cabin_filter": {
+      "interval_km": 15000,
+      "interval_months": 12,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "brake_fluid": {
+      "interval_km": 60000,
+      "interval_months": 24,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "spark_plugs": {
+      "interval_km": 30000,
+      "interval_months": 36,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "timing_belt": {
+      "interval_km": 80000,
+      "interval_months": 96,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "coolant": {
+      "interval_km": 60000,
+      "interval_months": 36,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "transmission_fluid": {
+      "interval_km": 60000,
+      "interval_months": 48,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "fuel_filter": {
+      "interval_km": 60000,
+      "interval_months": 48,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "brake_pads_front": {
+      "interval_km": 40000,
+      "interval_months": 36,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "brake_pads_rear": {
+      "interval_km": 50000,
+      "interval_months": 36,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "brake_discs_front": {
+      "interval_km": 80000,
+      "interval_months": 60,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "brake_discs_rear": {
+      "interval_km": 80000,
+      "interval_months": 60,
+      "last_km": 0,
+      "last_date": ""
+    },
+    "tire_rotation": {
+      "interval_km": 10000,
+      "interval_months": 12,
+      "last_km": 0,
+      "last_date": ""
+    }
   },
   "notes": [
-    "Initial setup — fill in current odometer reading and last service dates",
-    "B5244S timing belt interval: 120,000 km or 10 years (whichever first)",
-    "AW55-51 transmission: use ONLY Volvo T-IV fluid",
-    "Oil: 5W-30 or 5W-40 (full synthetic), 5.2L capacity"
+    "Initial setup \u2014 fill in current odometer reading and last service dates",
+    "B5244S timing belt interval: 80,000 km or 8 years (whichever first) \u2014 CRITICAL!",
+    "AW55-51 automatic: NO separate fuel filter (integral with pump)",
+    "M56 manual: External fuel filter under vehicle (Mann WK 823 / Mahle KL 147)",
+    "Oil: 5W-30 ACEA A5/B5 ONLY (Volvo VCC RBS0-2A5) \u2014 wrong oil = engine damage!",
+    "5 spark plugs (5-cylinder!) \u2014 Bosch FR7KPP33+ OEM",
+    "Transmission: AW55-51 takes T-IV (JWS3309) only \u2014 NOT Dexron!",
+    "Timing belt job: Change cam seal + thermostat housing at same time",
+    "Mann C 25 107 air filter: VIN-Check required (C 27 107 or C 28 110 may be correct)",
+    "Mann CUK 27 003 cabin filter: VIN-Check required (CUK 24 013 may be correct)",
+    "Updated 2026-05-28: Amazon.de live price verification"
   ]
 }

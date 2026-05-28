@@ -1,0 +1,44 @@
+[Unit]
+Description=Volvo V50 Power Monitor (ignition detection + safe shutdown)
+After=network.target
+DefaultDependencies=yes
+Before=v50-canbus.service
+Before=v50-dashboard.service
+
+[Service]
+Type=notify
+NotifyAccess=all
+User=root
+WorkingDirectory=/opt/v50/canbus
+ExecStart=/usr/bin/python3 /opt/v50/canbus/v50_power_monitor.py --gpio --can-timeout 300
+Restart=on-failure
+RestartSec=10
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+# This service monitors:
+# 1. GPIO17 for ignition detection (via voltage divider)
+# 2. CAN bus activity timeout (300s = 5min of silence = ignition off)
+# When ignition is off, it signals other V50 services to shut down gracefully,
+# then initiates a system poweroff after 30s grace period.
+
+# Power monitor must not be killed during shutdown
+KillMode=process
+KillSignal=SIGTERM
+TimeoutStopSec=45
+FinalKillSignal=SIGKILL
+
+# Must run as root for GPIO access
+# If running as non-root user, add to gpio group:
+#   sudo usermod -aG gpio pi
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=v50-power-monitor
+
+# Watchdog — if monitor itself hangs, systemd restarts it
+WatchdogSec=120
+
+[Install]
+WantedBy=multi-user.target

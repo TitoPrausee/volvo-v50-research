@@ -1,0 +1,58 @@
+# V50 CAN-Bus Systemd Service Files
+# ====================================
+# These services auto-start the V50 dashboard system on Pi boot.
+# 
+# Installation:
+#   sudo cp v50-*.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable v50-canbus v50-dashboard v50-power-monitor
+#   sudo systemctl start v50-canbus
+#
+# Start order: v50-power-monitor → v50-canbus → v50-dashboard
+# All services depend on can0 (SocketCAN) being up first.
+#
+# SocketCAN setup (add to /etc/rc.local or create separate service):
+#   sudo ip link set can0 type can bitrate 500000
+#   sudo ip link set can0 up
+#
+# For PiCAN2 Duo with Low-Speed CAN on can1:
+#   sudo ip link set can1 type can bitrate 125000
+#   sudo ip link set can1 up
+
+[Unit]
+Description=Volvo V50 CAN Bus Interface (SocketCAN + decoder)
+After=network.target v50-power-monitor.service
+Wants=v50-power-monitor.service
+Requires=sysfs.service
+
+[Service]
+Type=notify
+NotifyAccess=all
+User=pi
+Group=pi
+WorkingDirectory=/opt/v50/canbus
+ExecStartPre=/bin/sleep 3
+ExecStart=/usr/bin/python3 /opt/v50/canbus/v50_app.py --full --log /var/log/v50/can_session
+Restart=on-failure
+RestartSec=5
+StartLimitBurst=3
+StartLimitIntervalSec=60
+
+# CAN bus interface must be up before starting
+ExecStartPre=/sbin/ip link set can0 up 2>/dev/null || true
+
+# Watchdog — if no CAN activity for 10 min, restart
+WatchdogSec=600
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=v50-canbus
+
+# Resource limits
+LimitNOFILE=65536
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=50
+
+[Install]
+WantedBy=multi-user.target

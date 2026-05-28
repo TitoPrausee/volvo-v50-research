@@ -1,0 +1,39 @@
+[Unit]
+Description=Volvo V50 Custom Dashboard (PyQt5 on 7" TFT)
+After=v50-canbus.service
+BindsTo=v50-canbus.service
+Requires=v50-canbus.service
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/opt/v50/dashboard
+Environment=DISPLAY=:0
+Environment=QT_QPA_PLATFORM=linuxfb
+Environment=QT_QPA_EGLFS_FORCE888=1
+Environment=QT_FB_DRM=1
+
+ExecStart=/usr/bin/python3 /opt/v50/dashboard/v50_dashboard.py --fullscreen --no-cursor
+Restart=on-failure
+RestartSec=3
+StartLimitBurst=5
+StartLimitIntervalSec=30
+
+# Display setup — ensure framebuffer exists
+ExecStartPre=/bin/sh -c 'test -e /dev/fb0 || echo "Warning: No framebuffer device"'
+
+# Give dashboard real-time priority for smooth rendering
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=40
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=v50-dashboard
+
+# Auto-restart on X/display crashes
+RestartForceExitStatus=1 2
+
+[Install]
+WantedBy=multi-user.target
