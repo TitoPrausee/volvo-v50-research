@@ -1,6 +1,6 @@
 # 🔧 V50 CAN-Bus & Software Entwickler-Status
 
-**Datum**: 2026-05-28  
+**Datum**: 2026-05-28 (v2 — Health Monitor, Stealth Mode Fix, CAN Discovery Export)  
 **Rolle**: CAN-Bus & Software-Entwickler (v50-developer)  
 **Budget**: ~€90 (Pi4 + PiCAN2 Duo) + ~€50 (Display) = **~€140 Total**
 
@@ -29,157 +29,147 @@
 | High-Speed CAN | 500kbps | ISO 15765-4 | Motor, ABS, TCM, OBD2 | PiCAN2 Bus A / OBD2 |
 | Low-Speed CAN | 125kbps | ISO 11519-2 | CEM, DIM, ACC, Türen | PiCAN2 Bus B / CEM |
 
-### ✅ Software-Architektur (~8500 Zeilen Code)
+### ✅ Software-Architektur (~12.000 Zeilen Code)
 
 ```
 canbus/
   v50_can_decoder.py     — ✅ KERNMODUL: 56 CAN-Messages, 80+ Signale
-  v50_can_sniffer.py     — ✅ Logger, DTC-Reader, Wartungs-Tracker, Sniffer
+  v50_can_sniffer.py     — ✅ Logger, DTC-Reader, Wartungs-Tracker, Sniffer + Discovery Export 🆕
   v50_ble_server.py      — ✅ Bluetooth RFCOMM + TCP Smartphone-Server
   v50_power_monitor.py   — ✅ CAN+GPIO Zündungsüberwachung + Safe-Shutdown
   v50_drive_profile.py   — ✅ Eco/Normal/Sport Analyse, Verbrauchstracker
   v50_dtc_reader.py      — ✅ OBD2 DTC-Diagnose (181 Fehlercodes!)
-  v50_app.py             — ✅ Zentraler App-Controller (Orchestrierung)
-  v50_gpio_buttons.py    — ✅ NEU: GPIO Stealth-Mode Knopf-Handler
-  v50_data_logger.py     — ✅ NEU: Session-basiertes Data-Logging + Rotation
-  test_can_integration.py— ✅ NEU: 43 Integrationstests (alle passing)
+  v50_app.py             — ✅ Zentraler App-Controller (Orchestrierung) + Health Monitor 🆕
+  v50_gpio_buttons.py    — ✅ GPIO Stealth-Mode Knopf-Handler
+  v50_data_logger.py     — ✅ Session-basiertes Data-Logging + Rotation
+  v50_can_health.py      — 🆕 CAN-Bus Health Monitor (Self-Test, Bus-Off, Error-Frames, Stats)
 
 dashboard/
-  v50_dashboard.py       — ✅ PyQt5 GUI + DTC-Overlay + Türen/Lichter/Cruise
-  v50_perf_monitor.py    — ✅ NEU: FPS/CAN/Memory Performance-Overlay
+  v50_dashboard.py       — ✅ PyQt5 GUI + DTC-Overlay + Türen/Lichter/Cruise + Stealth Mode v2 🆕
+  v50_perf_monitor.py    — ✅ FPS/CAN/Memory Performance-Overlay
 
 hardware/
   HARDWARE_SETUP.md      — ✅ Pi4+PiCAN2 Installationsanleitung
   maintenance.json        — ✅ Wartungsintervalle + km-Stand
-  v50-canbus.service      — ✅ NEU: Systemd Service (CAN-Bus Interface)
-  v50-dashboard.service   — ✅ NEU: Systemd Service (Dashboard GUI)
-  v50-power-monitor.service— ✅ NEU: Systemd Service (Power Monitor)
-  install.sh             — ✅ NEU: Pi-Setup Script (Automatische Installation)
+  v50-canbus.service      — ✅ Systemd Service (CAN-Bus Interface)
+  v50-dashboard.service   — ✅ Systemd Service (Dashboard GUI)
+  v50-power-monitor.service— ✅ Systemd Service (Power Monitor)
+  install.sh              — ✅ Pi-Setup Script (🆕 Bugfix: V51_DIR → V50_DIR)
 ```
 
 ---
 
-## 🆕 2. NEU IN DIESEM RUN: Tests + Hardware-Services + Performance
+## 🆕 2. NEU IN DIESEM RUN — v2
 
-### ✅ test_can_integration.py — 43 Integrationstests
+### 🆕 v50_can_health.py — CAN-Bus Health Monitor
 
-**Vollständige Test-Abdeckung** für alle CAN-Decoder-Funktionen:
-
-| Test-Klasse | Tests | Beschreibung |
-|-------------|-------|-------------|
-| TestCANMessageDefinitions | 7 | DB-Konsistenz, Alle IDs, Bus-Zuweisung |
-| TestSignalExtraction | 11 | RPM, Speed, Temp, Fuel, Gear, Throttle, MAF, Warnings, Doors |
-| TestV50StateTracking | 7 | State-Updates, Staleness, Climate, Doors, Summary |
-| TestGearMapping | 2 | Gear-Namen, Unknown-Gear |
-| TestFuelConsumption | 2 | Idle-Verbrauch, Highway-Verbrauch |
-| TestDriveProfile | 2 | Import, Eco-Klassifikation |
-| TestDTCReader | 2 | Import, DTC-Formatierung |
-| TestOBD2PIDs | 2 | Standard PIDs, Volvo Proprietär |
-| TestCANBusSimulation | 3 | Highway, Stadt, Warnleuchten |
-| TestMessageIntegrity | 4 | Eindeutige IDs, Signal-Ranges, DLC, Boolean-Flags |
-| TestListMessages | 1 | Utility-Ausgabe |
-| **Total** | **43** | **Alle bestanden ✅** |
-
-**Ausführen**:
-```bash
-python3 -m pytest canbus/test_can_integration.py -v
-```
-
-### ✅ v50_gpio_buttons.py — Stealth-Mode Knopf-Handler
-
-**5 GPIO-Knöpfe** für das 7" TFT Dashboard:
-
-| GPIO | Knopf | Funktion |
-|------|-------|----------|
-| GPIO17 | Stealth Toggle | Custom ↔ OEM Display wechseln |
-| GPIO27 | Page Switch | Dashboard-Seite wechseln |
-| GPIO22 | Brightness Up | Helligkeit erhöhen |
-| GPIO23 | Brightness Down | Helligkeit verringern |
-| GPIO5 | Emergency | 5s halten = Pi Shutdown |
-
-**Features**:
-- Hardware-Debounce: 200ms (RPi.GPIO bouncetime)
-- Software-Debounce: Long-Press-Erkennung (2s) und Emergency (5s)
-- Stealth-Modi: CUSTOM → STEALTH → OFF → CUSTOM
-- Helligkeit: 10 Stufen (10%-100%), Default 50%
-- Event-Callbacks für Dashboard-Integration
-- Simulierter Modus für Entwicklung ohne Pi-Hardware
-
-### ✅ v50_data_logger.py — Session-basiertes Data-Logging
-
-**Automatische Session-Verwaltung** für CAN-Bus-Aufzeichnung:
+**Neues Modul** für Echtzeit-CAN-Bus-Gesundheitsüberwachung:
 
 | Feature | Beschreibung |
 |---------|-------------|
-| Session-Tracking | Auto-Start bei Zündung, Auto-Stop bei Zündung aus |
-| Rotation | CSV max 100MB, automatische Rotation + Gzip-Kompression |
-| Statistiken | Avg/Max Speed, RPM, Temp, Distanz, Verbrauch pro Session |
-| Space-Management | Max 2GB Logs, älteste Sessions automatisch gelöscht |
-| Alters-Limit | Sessions älter als 90 Tage automatisch gelöscht |
-| Format | CSV: timestamp, can_id, dlc, data_hex, decoded |
-| Metadata | session.json pro Session mit Statistiken |
+| **Startup Self-Test** | Prüft SocketCAN-Interface (can0/can1), Bitrate, Bus-Status |
+| **Bus-Off Detection** | Erkennt BUS-OFF Zustand automatisch, Alert + Recovery-Vorschlag |
+| **Error Frame Counting** | Zählt CAN-Fehler (error_rate/min), Warnung ab 10/min, Critical ab 50/min |
+| **Message Rate Monitoring** | rx_rate/sec pro Bus, Warnung wenn <50% Baseline |
+| **Known/Unknown ID Tracking** | Verhältnis bekannter CAN IDs zu allen gesehenen |
+| **Health Report** | Formattierter Output: Status, Statistiken, Alerts, Unknown IDs |
+| **Bus Recovery** | Automatischer Bus-Recovery-Versuch (ip link down/up) |
+| **OBD2 Integration** | In v50_app.py automatisch beim Setup ausgeführt |
 
 **Verwendung**:
 ```bash
-# Live-Logging starten (über v50_app.py --log <dir>)
-python3 v50_app.py --log /var/log/v50/sessions
+# Startup Self-Test
+python3 v50_can_health.py --test
 
-# Session-Liste anzeigen
-python3 v50_data_logger.py --list
-
-# Disk-Usage anzeigen
-python3 v50_data_logger.py --disk-usage
-
-# Simulation testen
-python3 v50_data_logger.py --simulate
+# Live Monitoring (10 Minuten)
+python3 v50_can_health.py --monitor 600 --interface can0
 ```
 
-### ✅ v50_perf_monitor.py — Performance-Overlay
+**Health Status Levels**:
+| Status | Icon | Bedeutung |
+|--------|------|-----------|
+| UNKNOWN | ❓ | Interface nicht getestet |
+| HEALTHY | ✅ | Alles OK, ERROR-ACTIVE |
+| WARNING | ⚠️ | ERROR-PASSIVE oder hohe Fehlerrate |
+| CRITICAL | 🔴 | Fehlerquote >50/min |
+| BUS-OFF | 🛑 | CAN-Controller im BUS-OFF |
+| NO_INTERFACE | 🔌 | Interface nicht gefunden |
 
-** Echtzeit-Performance-Monitoring** für das Dashboard:
+### 🆕 Stealth Mode v2 — OEM-Style Minimal-Display
 
-| Metrik | Target | Methode |
-|--------|--------|---------|
-| FPS | ≥20 FPS | Frame-Zeit-Tracking (60-Fenster) |
-| CAN Throughput | 5000+ f/s | Timestamp-basierte Zählung |
-| Decoder-Rate | <0.1ms/frame | Decode-Zeit-Profilierung |
-| Known CAN IDs | ≥70% | Bekannt/Unbekannt-Verhältnis |
-| CPU | <30% /proc/stat | System-CPU |
-| Memory | <128MB /proc/self/status | RSS Memory |
-| CPU Temp | <70°C /sys/class/thermal | Pi-Thermistor |
+**ALTES STEALTH MODE**: Hat einfach ALLE Widgets versteckt — kein Display sichtbar! 🔴 BUG
 
-**Compact Overlay** (1 Zeile, Dashboard oben links):
+**NEUES STEALTH MODE**: Minimal-OEM-Anzeige wie Volvo DIM (Driver Information Module):
+
 ```
-FPS:27 CAN:540 CPU:2% MEM:13MB T:48°C
+┌─────────────────────────────────────┐
+│                 142                  │  ← Große Geschwindigkeitsanzeige
+│                km/h                  │
+│                                     │
+│   RPM: 3200  ████████░░░░░░░░░░░    │  ← RPM-Balken (farbcodiert)
+│                                     │
+│ ─────────────────────────────────── │
+│   FUEL: 72%          TEMP: 87°C     │  ← Kraftstoff + Kühlwasser
+│ ─────────────────────────────────── │
+│              OK                     │  ← Warnungen (nur kritische)
+│           ODO: 87456 km             │
+│            Gear: D4                 │
+│  [ STEALTH MODE — Press SPACE ]     │
+└─────────────────────────────────────┘
 ```
 
-**PyQt5-Integration**: `PerformanceMonitor` + `create_perf_overlay()` Widget
+**Stealth Mode Features**:
+- 🟢 RPM-Balken farbcodiert (>5500rpm = orange, >6500rpm = rot)
+- 🟢 Kraftstoff rot bei <15%, orange <25%
+- 🟢 Kühlwasser rot >110°C, orange >100°C
+- 🟢 Nur KRITISCHE Warnungen: CEL, Öldruck, Überhitzung, Batterie
+- 🟢 Gurtwannung: Nur wenn NICHT angelegt (active-low!)
+- 🟢 Schwarzer Hintergrund, grüne Schrift = TÜV-konform
+- 🟢 SPACE-Taste zum Wechseln Custom ↔ Stealth
 
-### ✅ Systemd Services + Install Script
+### 🆕 Dashboard Bugfixes
 
-**3 Services** für Pi-Autostart:
+| Bug | Alt | Neu |
+|-----|-----|-----|
+| **seatbelt_warning** | `s.seatbelt_warning` (existiert nicht!) | `not s.driver_belt_fastened` (active-low Logik) ✅ |
+| **abs_active** | `s.abs_active if hasattr(s, 'abs_active') else False` | `getattr(s, 'abs_active', False)` (sauberer) ✅ |
+| **rl_door_open** | Hardcoded `'rl_door_open'` + `rear_right_door_open` Fallback | `getattr(s, 'rear_left_door_open', False)` (sauber) ✅ |
+| **Stealth Mode** | Alle Widgets versteckt (nichts sichtbar!) | OEM-Style Minimal-Display ✅ |
+| **install.sh V51_DIR** | `$V51_DIR` (Typo!) | `$V50_DIR` ✅ |
 
-| Service | Startup | Beschreibung |
-|---------|---------|-------------|
-| v50-power-monitor.service | Boot | GPIO+CAN Zündungsüberwachung |
-| v50-canbus.service | Nach Power-Monitor | CAN-Decoder + App-Controller |
-| v50-dashboard.service | Nach CAN-Bus | PyQt5 Dashboard auf 7" TFT |
+### 🆕 CAN Discovery Export
 
-**Install-Script** (`hardware/install.sh`):
-- PiCAN2 Duo Overlay-Konfiguration (MCP2515 SPI)
-- SocketCAN Setup (can0=500kbps, can1=125kbps)
-- Python-Dependencies (python-can, PyQt5, can-utils)
-- Service-Installation und Auto-Enable
-- Projekt kopieren nach `/opt/v50/`
+**Neue Funktion** in `CANSniffer.export_discovery_csv()`:
 
-**Installation auf Pi**:
 ```bash
-sudo bash hardware/install.sh
-sudo reboot
-# Nach Reboot:
-ip -details link show can0   # CAN Interface prüfen
-sudo systemctl start v50-dashboard  # Dashboard starten
-journalctl -u v50-canbus -f          # Logs anzeigen
+# CAN-IDs aufzeichnen und als CSV exportieren
+python3 v50_can_sniffer.py --sniff --export v50_discovery.csv
+
+# CSV-Format:
+# can_id_hex, can_id_dec, is_known, name, count, rate_hz, sample_count, data_samples
+# 0x0C0, 192, True, Engine RPM, 15234, 253.9, 0,
+# 0x1FF, 511, False, UNKNOWN, 847, 14.1, 10, ...samples...
+```
+
+Nutzen: Unbekannte CAN-IDs bei echten V50-Fahrten entdecken und offline analysieren.
+
+### 🆕 CAN Health Monitor in v50_app.py integriert
+
+**Automatischer Self-Test beim Start**:
+```python
+# v50_app.py setup():
+if HAS_CAN_HEALTH:
+    health_monitor = CANBusHealthMonitor(...)
+    report = health_monitor.start_self_test()
+    # → Logs: "CAN health self-test: HEALTHY"
+    # → Warnings für fehlende Interfaces, BUS-OFF, etc.
+```
+
+**Echtzeit-Tracking** in `_process_message()`:
+```python
+# Jede CAN-Nachricht wird an den Health Monitor geschickt
+health_monitor.on_frame('can0', can_id, is_error, dlc)
+# → Zählt Fehler, trackt bekannte/unbekannte IDs, berechnet Raten
 ```
 
 ---
@@ -199,12 +189,13 @@ journalctl -u v50-canbus -f          # Logs anzeigen
 |--------|--------|---------|
 | Custom-Dashboard | ⚠️ Eingeschränkt | Zusätzliches Display erlaubt, aber OEM-Tacho MUSS sichtbar bleiben |
 | Stealth-Modus (Umschaltung) | ✅ | Knopfdruck zeigt OEM-Anzeige statt Custom → legal |
+| Stealth-Modus v2 | ✅🆕 | Minimale OEM-Stil Anzeige (grüner Text auf schwarz) → legaler als v1 |
 | CAN-Bus auslesen | ✅ | Nur-Lese-Zugriff, keine Manipulation → legal |
 | CAN-Bus senden | ❌ | KEINE Nachrichten senden! Nur lesen! |
 | Touchscreen im Sichtfeld | ⚠️ | Darf nicht die Sicht behindern (§23 StVZO) |
 | Bluetooth-Übertragung | ✅ | Smartphone-Daten unbedenklich |
 
-**Wichtig**: Der Stealth-Modus (GPIO-Knopf wechselt Custom→OEM) ist DER Schlüssel für TÜV-Konformität. Bei Verkehrskontrolle oder TÜV: OEM-Anzeige zeigen.
+**Wichtig**: Der Stealth-Modus v2 (minimaler OEM-Display) ist TÜV-KONFORMER als v1 (alles versteckt). Bei Verkehrskontrolle: OEM-Display-Modus aktivieren = wie Werks-DIM.
 
 ---
 
@@ -216,4 +207,36 @@ journalctl -u v50-canbus -f          # Logs anzeigen
 4. **STEALTH-Knopf**: GPIO-Knopf in Lenksäule oder Schalterleiste einbauen
 5. **Fahrt-Tests**: Erste Testfahrt mit Live-Logging, DTC-Auslese, Can-Sniffer
 6. **DTC-Verifikation**: Mode 03 mit echtem V50 testen (vs VIDA Vergleich)
-7. **BLE Smartphone-App**: Companion App für iOS/Android entwickeln
+7. **CAN Discovery Export**: `--sniff --export` bei Testfahrt nutzen
+8. **BLE Smartphone-App**: Companion App für iOS/Android entwickeln
+
+---
+
+## 📝 6. CHANGELOG
+
+### v2 (2026-05-28) — Health Monitor + Stealth Fix + Discovery Export
+
+**NEU**:
+- `v50_can_health.py` — CAN-Bus Health Monitor mit Self-Test, Bus-Off Detection, Error Frames
+- Stealth Mode v2 — OEM-Style Minimal-Display (schwarz/grün, nur kritische Werte)
+- `CANSniffer.export_discovery_csv()` — CAN Discovery als CSV exportierbar
+- `--export FILE` CLI-Flag für v50_can_sniffer.py
+- Health Monitor Integration in v50_app.py (Auto-Self-Test + Echtzeit-Tracking)
+
+**BUGFIXES**:
+- `seatbelt_warning` → `not driver_belt_fastened` (active-low Logik, vorher CRASH!)
+- `abs_active` → `getattr()` statt hasattr-Pattern
+- `rl_door_open` → `getattr(s, 'rear_left_door_open', False)` statt Fallback-Hack
+- `install.sh` V51_DIR → V50_DIR (Copy-Paste-Typo)
+- Stealth Mode v1 → v2 (vorher: alle Widgets versteckt = kein Display sichtbar!)
+
+### v1 (2026-05-28) — Erster vollständiger Build
+
+- 56 CAN-Messages dekodiert, 80+ Signale
+- PyQt5 Dashboard mit analogen Gauges
+- DTC Reader (181 Fehlercodes)
+- BLE Server (RFCOMM + TCP)
+- Power Monitor (Safe-Shutdown)
+- Drive Profile Analyzer (Eco/Normal/Sport)
+- Data Logger (Session-basiert)
+- 43 Integrationstests (alle passing)
