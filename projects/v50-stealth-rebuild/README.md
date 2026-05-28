@@ -30,24 +30,25 @@
 | 5 | Reserve | €200-400 | 🔵 Puffer |
 | **Total** | | **€3.500-5.000 MAX** | |
 
-### 📊 Budget-Stand (Preis-Jäger + TÜV-Experte Update 2026-05-27)
+### 📊 Budget-Stand (Chief Update 2026-05-28)
 
-| | Minimum | STEALTH-Balance | Vollausstattung |
-|---|---|---|---|
-| Bremsen komplett | €300 | €350 | €400 |
-| Zahnriemen-Kit | €125 | €140 | €160 |
-| Service-Teile | €80 | €90 | €110 |
-| Fahrwerk | €490 | €625 | €880 |
-| Optik/Politur | €200 | €300 | €470 |
-| Auspuff | — | €520 | €950 |
-| Interior | €50 | €130 | €200 |
-| TÜV | €150 | €200 | €350 |
-| **TOTAL** | **€1.395** | **€2.355** | **€3.520** |
-| **+ Reserve** | **€2.105-3.605** | **€1.145-2.645** | **€0-1.480** |
+| | Minimum | Realistisch (Max) | Budget-Spot |
+|---|---:|---:|---:|
+| **Phase 1: Sicherheit** | €478 | €653 | €500-800 ✅ |
+| **Phase 2: Fahrwerk** | €680 | €930 | €800-1.200 ✅ |
+| **Phase 3: Optik** | €350 | €695 | €800-1.200 ✅ |
+| **Phase 4: Motor (o. Auspuff)** | €108 | €257 | €400-600 ✅ |
+| **Phase 4: Motor (m. Auspuff)** | €558 | €907 | — ⚠️ |
+| **Phase 5: Reserve** | €133 | €246 | €200-400 ✅ |
+| **TÜV Sammel-Termin** | €260 | €520 | — |
+| **GESAMT (o. Auspuff)** | **€2.009** | **€3.301** | **€3.500-5.000 ✅** |
+| **GESAMT (m. Auspuff)** | **€2.459** | **€3.951** | **€3.500-5.000 ✅** |
 
-> ✅ **Alle 3 Szenarien INNERHALB Budget (€3.500-5.000)!** Siehe BUDGET_TUV_REPORT.md für Details.
+> ✅ **Beide Szenarien KOMFORTABEL INNERHALB Budget!**
 
-> 💡 **Empfehlung**: Szenario B (STEALTH-Balance) = ~€2.355, lässt €1.145-2.645 Reserve!
+> 💡 **Empfehlung**: Szenario MIT Ferrita Auspuff = €2.459-3.951 → Reserve €550-2.050!
+
+> ⭐ **STEALTH-Tipp**: Osram Night Breaker LASER H7 (Halogen) statt LED = eintragungsfrei!
 
 > Siehe CHIEF_STATUS.md für vollständige Analyse.
 
@@ -61,13 +62,15 @@
 - ❌ Kein Chiptuning über 170PS (würde auffallen)
 - ❌ Kein IPD Intake (kein DE-Gutachten)
 - ❌ Keine Polestar-Optimierung (nur für T5 bestätigt, nicht B5244S)
+- ❌ Keine T5-spezifischen Teile (Turbo, Intercooler, Downpipe etc.)
 
 ## Was GEMACHT wird
 - ✅ Neuer Zahnriemen + Wasserpumpe (Sicherheit)
 - ✅ Bremsen komplett neu (Scheiben+Beläge+Leitungen vorne/hinten)
-- ✅ Eibach Pro-Kit -30mm (eintragbar, sportlich aber dezent)
-- ✅ KONI Special (RED) oder Special Active (Yellow) Dämpfer
-- ✅ LED Scheinwerfer-Bulbs (schon verbaut!)
+- ✅ Eibach Pro-Kit -30mm [E10-41-001-05-22] (eintragbar, sportlich aber dezent)
+- ✅ KONI Special (RED) Dämpfer [86-2636SP3/80-2629SP3]
+- ✅ Osram Night Breaker LASER H7 (eintragungsfrei! STEALTH > LED)
+- ✅ LED Scheinwerfer-Bulbs FERN+ABBLEND (schon verbaut!)
 - ✅ Facelift-Scheinwerfer H7 gebraucht (beste Optik-Upgrade!)
 - ✅ Facelift-Rücklichter OEM gebraucht (STEALTH > Aftermarket LED)
 - ✅ Neuer Grill schwarz OEM 30782612
@@ -77,15 +80,19 @@
 - ✅ Kotflügel-Rost reparieren VOR Polierung
 - ✅ Innenraum: Schaltknauf R-Design, Pedalerie, Lederpflege
 
-## DB-Inventur (2026-05-27 aktualisiert)
-77 V50-Teileingänge in der Datenbank (57 eindeutige Teile nach Dedup)
-- ✅ Bremsen: Vollständig (7 Teile) + 3+ Quellen pro Teil
-- ✅ Fahrwerk: Vollständig (8 Teile inkl. Eibach+Vogtland+KONI+Bilstein)
-- ✅ Motor: Vollständig (19 Teile inkl. Timing Belt, VVT, CEM)
+## DB-Inventur (2026-05-28 aktualisiert)
+105 eindeutige 2.4i-fitment Teile in der Datenbank (381 gesamt)
+- ✅ Bremsen: 10 Teile — Vollständig + 3+ Quellen pro Teil
+- ✅ Fahrwerk: 16 Teile — Vollständig inkl. Eibach+Vogtland+KONI+Bilstein
+- ✅ Motor: 19 Teile — Vollständig inkl. Timing Belt, VVT, CEM, PCV
 - ✅ Auspuff: 3 Optionen (Ferrita, Eisenmann, Heico) mit TÜV-Status
-- ✅ Optik: 5 Teile (Grill, LED, Lippe, Rücklichter, Polierung)
-- ✅ Interior: 3 Teile (Knauf, Pedale, Lederpflege)
+- ✅ Zahnriemen: 5 Kits (Gates, Contitech, Dayco) + WP
+- ✅ Kühlung: 5 Teile (Kühlmittel, Thermostat, Ausgleichsbehälter)
+- ⚠️ Optik: 4 Teile (Grill, LED, Lippe, Rücklichter) — FEHLT: Facelift-SW, Spiegelkappen
+- ⚠️ Interior: 5 Teile — FEHLT: Fußmatten
 - ✅ TÜV: Jedes Teil geprüft auf E-Nummer/ABE/Eintragungspflicht
+- 🚫 25 T5-only Teile identifiziert und ausgeschlossen
+- ⚠️ Eibach T5 [E10-85-003-01-22] vs 2.4i [E10-41-001-05-22] — VERWECHSLUNGS-GEFAHR!
 
 ## Team (Cron-Agenten)
 Siehe TEAM_REQUESTS.md
@@ -93,12 +100,13 @@ Siehe TEAM_REQUESTS.md
 ## Weight & Performance Targets
 - Gewicht: OEM ~1.450kg → kein signifikanter Unterschied (kein Gewichts-Reduktion nötig)
 - Leistung: 140PS OEM → max ~170PS (Polestar + Intake + Auspuff) = Sahnehaube
+  - ⚠️ Polestar SKIP für STEALTH! 140PS bleiben.
 - Fahrwerk: -30mm, sportlicher aber comfortabel
 - Bremsen: OEM-Größe aber HH-Beläge + SS-Leitungen = deutlich besserer Pedaldruck
 
-## 🔧 CAN-Bus & Digital (NEU 2026-05-27)
-- ✅ Pi4 + PiCAN2 Duo HAT (~€90) — 2-Kanal CAN-Bus
-- ✅ 34+12 CAN-Messages dekodiert (46 total, 67 Signale)
+## 🔧 CAN-Bus & Digital
+- ✅ Pi4 + PiCAN2 Duo HAT (~€138) — 2-Kanal CAN-Bus
+- ✅ 27+3 CAN-Messages dekodiert (30 total, 55 Signale)
 - ✅ High-Speed CAN (500kbps): Motor, ABS, TCM, OBD2
 - ✅ Low-Speed CAN (125kbps): CEM, DIM, Türen, Klima
 - ✅ Custom Dashboard (PyQt5): RPM, km/h, Temp, Tank, Warnungen
@@ -108,14 +116,15 @@ Siehe TEAM_REQUESTS.md
 - ✅ Day/Night Auto-Dimming (LDR-Option)
 - ⚠️ Bremsdruck, ABS, Lenkwinkel CAN-IDs noch UNVERIFIED
 - ⚠️ V50-Baujahr muss identifiziert werden (Pre-FL vs FL → andere CAN-IDs!)
+  - Pre-FL: 0x0xx IDs | FL: 0x3xx IDs — komplett verschieden!
 - Siehe `CANBUS_DEV_REPORT.md` — vollständiger Entwickler-Status
 - Siehe `hardware/HARDWARE_SETUP.md` — PiCAN2 Installationsanleitung
 
 ## Berichte
+- `CHIEF_STATUS.md` — Chef-Update Budget+Kompatibilität+TÜV (NEU 2026-05-28)
 - `BUDGET_TUV_REPORT.md` — Preise + TÜV-Analyse (vollständig)
 - `ENGINE_REPORT.md` — Motor-Analyse (vollständig)
 - `EXTERIOR_OPTICS_REPORT.md` — Optik & Detail (vollständig)
 - `FRONT_LIP_SEARCH.md` — Frontstoßfänger-Lippe Suche
-- `CHIEF_STATUS.md` — Chef-Update mit Kompatibilität + Budget-Status (NEU 2026-05-27)
-- `CANBUS_DEV_REPORT.md` — CAN-Bus & Software Entwickler-Status (NEU 2026-05-27)
-- `hardware/HARDWARE_SETUP.md` — Pi4+PiCAN2 Hardware-Installation (NEU 2026-05-27)
+- `CANBUS_DEV_REPORT.md` — CAN-Bus & Software Entwickler-Status
+- `hardware/HARDWARE_SETUP.md` — Pi4+PiCAN2 Hardware-Installation

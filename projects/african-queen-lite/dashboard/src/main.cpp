@@ -1,14 +1,14 @@
 // ============================================================
-// African Queen Lite — Main Program v2.0
+// African Queen Lite — Main Program v2.1
 // ESP32 Ride-Mode Controller for Honda NX650 Dominator RFVC
 // ============================================================
 //
-// v2.0 Changes:
-//   - EEPROM persistence: remembers last ride mode
-//   - Longevity monitoring: stator health, battery SOC, maintenance
-//   - Rotary encoder: one-handed operation while riding
-//   - Display pages: auto-cycle through ride/health/maint/trip
-//   - Configurable servo sweep rates per mode
+// v2.1 Changes:
+//   - CDI 3-map control (Map A/B/C via GPIO27 + GPIO33)
+//   - Engine runtime counter (minutes actually incremented now)
+//   - BLE longevity data now transmitted every BLE_UPDATE_MS
+//   - CDI emergency fallback to Map C
+//   - Fixed: NX650_FINAL_RATIO naming consistency
 //
 // 6 Ride Modes: STRASSE, STADT, GELÄNDE, SPORT, COMFORT, SOUND
 // Controls: Exhaust valve, Airbox flap, CDI map select, LED indicator
@@ -23,6 +23,7 @@
 //   - Oil pressure warning with auto-alert
 //   - Temperature shutdown protection
 //   - Stator health monitoring (detects failing stator BEFORE breakdown)
+//   - CDI fallback to Map C (standard timing) on emergency
 
 #include <Arduino.h>
 #include "modes.h"
@@ -91,7 +92,7 @@ void setup() {
     Serial.println();
     Serial.println(F("========================================"));
     Serial.println(F("  African Queen Lite — Ride Mode Ctrl  "));
-    Serial.println(F("  v2.0 — LONGEVITY + Encoder + EEPROM  "));
+    Serial.println(F("  v2.1 — 3-Map CDI + Runtime + BLE Fix "));
     Serial.println(F("  Honda NX650 Dominator RFVC           "));
     Serial.println(F("========================================"));
     Serial.println();
@@ -108,12 +109,12 @@ void setup() {
     pinMode(Pin::MODE_UP, INPUT_PULLUP);
     pinMode(Pin::MODE_DOWN, INPUT_PULLUP);
 
+    // ---- Initialize CDI Controller (3-map: GPIO27 + GPIO33) ----
+    cdi.begin();
+
     // ---- Initialize Sensors ----
     sensors.setInstance();
     sensors.begin();
-
-    // ---- Initialize CDI Controller ----
-    cdi.begin();
 
     // ---- Initialize Exhaust Valve ----
     exhaustValve.begin();
@@ -145,7 +146,10 @@ void setup() {
     applyMode(currentMode);
 
     Serial.println();
-    Serial.printf("[INIT] Mode: %s (restored from EEPROM)\n", MODE_NAMES[currentMode]);
+    Serial.printf("[INIT] Mode: %s (restored from EEPROM)\\n", MODE_NAMES[currentMode]);
+    Serial.printf("[INIT] CDI: Map %c (GPIO%d + GPIO%d)\\n",
+        cdi.getCurrentMap() == CDI_MAP_A ? 'A' : (cdi.getCurrentMap() == CDI_MAP_B ? 'B' : 'C'),
+        Pin::CDI_MAP_A, Pin::CDI_MAP_B);
     Serial.println(F("[INIT] Ready — ride safe!"));
     Serial.println();
 
@@ -173,7 +177,7 @@ void loop() {
         sensors.update();
         last_sensor_ms = now;
 
-        // Update longevity monitor
+        // Update longevity monitor (includes runtime counter v2.1)
         longevity.update(
             sensors.getVoltage(),
             sensors.getRPM(),
@@ -210,7 +214,7 @@ void loop() {
         last_display_ms = now;
     }
 
-    // ---- Update BLE (every 1s) ----
+    // ---- Update BLE (every 1s) — v2.1: includes longevity data ----
     if (now - last_ble_ms >= BLE_UPDATE_MS) {
         ble.update(
             currentMode,
@@ -222,6 +226,15 @@ void loop() {
             sensors.getOilPressureOK(),
             cdi.getCurrentMap()
         );
+
+        // v2.1: Also send longevity data via BLE
+        ble.updateLongevity(
+            (uint8_t)longevity.getStatorStatus(),
+            longevity.getBatteryPercent(),
+            longevity.getTotalOdometerKm(),
+            longevity.getMaintenanceBitmap()
+        );
+
         last_ble_ms = now;
     }
 }
@@ -238,7 +251,6 @@ void handleButtons() {
     if ((millis() - btn_mode_up.last_debounce) > DEBOUNCE_MS) {
         if (state_up == LOW && !btn_mode_up.pressed) {
             btn_mode_up.pressed = true;
-            // Double function: if encoder is in page mode, Mode+ = next page
             if (!encoder.isModeSelect()) {
                 display.nextPage();
             } else {
@@ -282,13 +294,13 @@ void handleEncoder() {
         case ACTION_MODE_UP:
             currentMode = nextMode(currentMode);
             applyMode(currentMode);
-            Serial.printf("[ENCODER] Mode → %s\n", MODE_NAMES[currentMode]);
+            Serial.printf("[ENCODER] Mode → %s\\n", MODE_NAMES[currentMode]);
             break;
 
         case ACTION_MODE_DOWN:
             currentMode = prevMode(currentMode);
             applyMode(currentMode);
-            Serial.printf("[ENCODER] Mode → %s\n", MODE_NAMES[currentMode]);
+            Serial.printf("[ENCODER] Mode → %s\\n", MODE_NAMES[currentMode]);
             break;
 
         case ACTION_PAGE_UP:
@@ -354,7 +366,7 @@ void checkAlerts() {
     alert_volt = sensors.isVoltageLow() || sensors.isVoltageHigh();
 
     if (alert_volt && !prev_volt) {
-        Serial.printf("[ALERT] Voltage warning: %.1fV\n", sensors.getVoltage());
+        Serial.printf("[ALERT] Voltage warning: %.1fV\\n", sensors.getVoltage());
         if (!alert_temp) led.setAlert(true);
     }
 
@@ -372,13 +384,13 @@ void checkAlerts() {
     alert_rpm = sensors.isRPMRedline();
 
     if (alert_rpm && !prev_rpm) {
-        Serial.printf("[ALERT] Redline: %d RPM!\n", sensors.getRPM());
+        Serial.printf("[ALERT] Redline: %d RPM!\\n", sensors.getRPM());
     }
 
     // Stator health warning
     StatorStatus stator = longevity.getStatorStatus();
     if (stator >= STATOR_DEGRADED) {
-        Serial.printf("[ALERT] Stator: %s (%.1fV)\n",
+        Serial.printf("[ALERT] Stator: %s (%.1fV)\\n",
             longevity.getStatorStatusText(), longevity.getStatorVoltage());
         if (!alert_temp) led.setAlert(true);
     }
@@ -392,12 +404,14 @@ void checkAlerts() {
 void emergencyShutdown() {
     Serial.println(F("[EMERGENCY] Switching to STADT (safe) mode"));
     Serial.println(F("[EMERGENCY] Exhaust valve forced OPEN for maximum cooling"));
+    Serial.println(F("[EMERGENCY] CDI fallback to Map C (standard timing)"));
 
     exhaustValve.emergencyOpen();
     airboxFlap.emergencyOpen();
+    cdi.emergencyFallback();  // v2.1: CDI Map C for safest timing
 
     currentMode = MODE_STADT;
-    cdi.setMode(currentMode);
+    cdi.setMode(currentMode);  // Apply STADT CDI map after fallback clears emergency
     led.setAlert(true);
     ModeStorage::saveMode(currentMode);
 }

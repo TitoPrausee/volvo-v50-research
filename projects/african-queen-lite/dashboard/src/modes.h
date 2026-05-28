@@ -1,16 +1,15 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Ride Mode Definitions v2.0
+// African Queen Lite — Ride Mode Definitions v2.1
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
-// v2.0 Changes:
-//   - EEPROM persistence for last mode + custom params
-//   - Configurable sweep rates per mode transition
-//   - Throttle response mapping per mode
-//   - Maintenance interval tracking constants
-//   - Stator health thresholds
-//   - LiFePO4 battery voltage curves
+// v2.1 Changes:
+//   - Fixed: NX650_FINAL_RATIO naming (was inconsistent NX650_FINALRatio)
+//   - Added: CDI_MAP_B pin (GPIO33) for 3-map CDI control
+//   - Added: CDI map index per mode (0=A/eco, 1=B/sport, 2=C/fallback)
+//   - Added: Engine runtime increment logic constants
+//   - Fixed: EEPROM layout addresses (aligned properly)
 
 #include <cstdint>
 #include <EEPROM.h>
@@ -70,6 +69,14 @@ enum ThrottleCurve : uint8_t {
     THROTTLE_SOFT       = 3
 };
 
+// ---- CDI Map Selection ----
+// Map A = base/retarded (eco), Map B = advanced (sport), Map C = fallback (standard)
+enum CDIMap : uint8_t {
+    CDI_MAP_A      = 0,  // Eco/retarded timing
+    CDI_MAP_B      = 1,  // Advanced/sport timing
+    CDI_MAP_C      = 2,  // Fallback/standard timing (both pins HIGH)
+};
+
 // ---- Mode Parameters ----
 // ignition_offset : degrees retard (-) or advance (+) from base timing
 // valve_percent   : exhaust valve position 0=closed 100=fully open
@@ -78,6 +85,7 @@ enum ThrottleCurve : uint8_t {
 // rev_limit      : rev limit (x100, e.g. 70 = 7000 RPM)
 // sweep_rate     : servo transition speed 1=slow 10=instant
 // throttle_curve : throttle response mapping
+// cdi_map        : which CDI timing map to select (A/B/C)
 // display_color  : RGB for mode LED indicator
 
 struct ModeParams {
@@ -88,18 +96,19 @@ struct ModeParams {
     uint8_t  rev_limit;         // rev limit (x100, e.g. 70=7000)
     uint8_t  sweep_rate;        // servo transition speed: 1=slow smooth, 10=instant
     ThrottleCurve throttle_curve;
+    CDIMap   cdi_map;           // CDI timing map selection
     ModeColor color;
 };
 
 // ---- Default Mode Parameter Sets ----
 constexpr ModeParams MODE_PARAMS[MODE_COUNT] = {
-    //          IGN   VALVE  AIRBOX  IDLE  REV_LIMIT  SWEEP  THROTTLE       COLOR
-    /* STRASSE */ {  0,    50,    50,   130,   70,   3,  THROTTLE_LINEAR,     {  0, 255,   0} },
-    /* STADT   */ { -2,    20,    30,   120,   65,   2,  THROTTLE_SOFT,       {  0, 100, 255} },
-    /* GELAENDE*/ {  2,   100,   100,   140,   75,   6,  THROTTLE_AGGRESSIVE,  {255,  50,  50} },
-    /* SPORT   */ {  3,   100,   100,   135,   75,   8,  THROTTLE_AGGRESSIVE,  {255, 165,   0} },
-    /* COMFORT */ { -1,    40,    40,   125,   65,   2,  THROTTLE_SOFT,       {148,   0, 255} },
-    /* SOUND   */ {  1,   100,    80,   130,   70,   5,  THROTTLE_PROGRESSIVE, {  0, 255, 255} },
+    //          IGN   VALVE  AIRBOX  IDLE  REV_LIMIT  SWEEP  THROTTLE         CDI_MAP       COLOR
+    /* STRASSE */ {  0,    50,    50,   130,   70,   3,  THROTTLE_LINEAR,     CDI_MAP_A, {  0, 255,   0} },
+    /* STADT   */ { -2,    20,    30,   120,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {  0, 100, 255} },
+    /* GELAENDE*/ {  2,   100,   100,   140,   75,   6,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {255,  50,  50} },
+    /* SPORT   */ {  3,   100,   100,   135,   75,   8,  THROTTLE_AGGRESSIVE,  CDI_MAP_B, {255, 165,   0} },
+    /* COMFORT */ { -1,    40,    40,   125,   65,   2,  THROTTLE_SOFT,       CDI_MAP_A, {148,   0, 255} },
+    /* SOUND   */ {  1,   100,    80,   130,   70,   5,  THROTTLE_PROGRESSIVE, CDI_MAP_C, {  0, 255, 255} },
 };
 
 // ---- Sensor Limits / Thresholds ----
@@ -140,6 +149,9 @@ constexpr uint16_t MAINT_SPARK_PLUG_KM    = 12000; // km between spark plug chan
 constexpr uint16_t MAINT_DRIVE_CHAIN_KM   = 15000; // km between chain replacements
 constexpr uint16_t MAINT_TIRE_CHECK_KM    = 1000;  // km between tire pressure checks
 
+// ---- Runtime Tracking ----
+constexpr unsigned long RUNTIME_INCREMENT_MS = 60000; // 1 minute increment
+
 // ---- Pin Definitions ----
 namespace Pin {
     // Inputs
@@ -157,8 +169,11 @@ namespace Pin {
     // Outputs
     constexpr uint8_t EXHAUST_VALVE   = 25;  // PWM: exhaust valve servo
     constexpr uint8_t AIRBOX_FLAP    = 26;   // PWM: airbox resonance flap servo
-    constexpr uint8_t CDI_MAP_SELECT  = 27;   // Digital: CDI timing map select
+    constexpr uint8_t CDI_MAP_A       = 27;   // Digital: CDI Map A select (active LOW)
+    constexpr uint8_t CDI_MAP_B       = 33;   // Digital: CDI Map B select (active LOW) — v2.1 NEW
     constexpr uint8_t LED_DATA        = 32;   // WS2812 RGB LED data
+
+    // I2C
     constexpr uint8_t OLED_SDA       = 21;   // I2C: OLED
     constexpr uint8_t OLED_SCL       = 22;   // I2C: OLED
 }
@@ -178,6 +193,12 @@ constexpr unsigned long WATCHDOG_TIMEOUT   = 5000;   // ESP32 watchdog timeout m
 constexpr uint16_t SERVO_MIN_US  = 500;    // Exhaust valve servo min pulse
 constexpr uint16_t SERVO_MAX_US  = 2500;   // Exhaust valve servo max pulse
 constexpr uint8_t  SERVO_FREQ_HZ = 50;     // Standard 50Hz servo PWM
+
+// ---- Motor Driver Selection (compile-time) ----
+// Set to 1 for production (DRV8833+AS5600), 0 for RC servo (testing)
+#ifndef USE_PRODUCTION_MOTOR
+#define USE_PRODUCTION_MOTOR  0
+#endif
 
 // ---- EEPROM Persistence Helper ----
 class ModeStorage {

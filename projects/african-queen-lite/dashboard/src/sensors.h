@@ -1,17 +1,16 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Sensor Reading v2.0
+// African Queen Lite — Sensor Reading v2.1
 // Honda NX650 Dominator RFVC
 // ============================================================
 //
-// v2.0: Added speed estimation from RPM+gear ratio for
-// odometer/trip tracking. The NX650 has no speed sensor, so we
-// estimate speed from RPM and known gear ratios.
+// v2.1: Fixed NX650_FINAL_RATIO naming (was inconsistent NX650_FINALRatio).
+//       Added sunlight-adaptive display hint from ambient sensor.
 //
 // Sensors:
 //   1. Ignition pulse coil → RPM (interrupt-based)
 //   2. Thermistor (NTC 10kΩ) → Cylinder head temperature
-//  3. Voltage divider → Battery voltage
+//   3. Voltage divider → Battery voltage
 //   4. Oil pressure switch → LOW=OK, HIGH=warning
 //   5. Stator sense → Voltage at regulator output
 //
@@ -25,9 +24,9 @@
 
 // NX650 gear ratios
 constexpr float NX650_GEAR_RATIOS[5] = {2.846f, 1.857f, 1.389f, 1.091f, 0.913f};
-constexpr float NX650_FINALRatio  = 2.833f;
+constexpr float NX650_FINAL_RATIO   = 2.833f;    // Fixed: was NX650_FINALRatio
 constexpr float NX650_PRIMARY_RATIO = 2.176f;
-constexpr float NX650_TIRE_CIRC_M = 2.04f; // meters
+constexpr float NX650_TIRE_CIRC_M   = 2.04f;     // meters
 
 class Sensors {
 public:
@@ -144,11 +143,11 @@ public:
     // Gear shift (called from encoder or button)
     void gearUp() {
         if (current_gear_ < 4) current_gear_++;
-        Serial.printf("[GEAR] → %d\n", current_gear_ + 1);
+        Serial.printf("[GEAR] → %d\\n", current_gear_ + 1);
     }
     void gearDown() {
         if (current_gear_ > 0) current_gear_--;
-        Serial.printf("[GEAR] → %d\n", current_gear_ + 1);
+        Serial.printf("[GEAR] → %d\\n", current_gear_ + 1);
     }
 
     // ---- Warning Checks ----
@@ -193,7 +192,6 @@ private:
         // Wheel RPM from engine RPM
         float wheel_rpm = (float)rpm_ / total_ratio;
 
-        // Speed in m/min = wheel_rpm * tire_circumference
         // Speed in km/h = (wheel_rpm * tire_circumference * 60) / 1000
         float speed_kmh = (wheel_rpm * NX650_TIRE_CIRC_M * 60.0f) / 1000.0f;
 

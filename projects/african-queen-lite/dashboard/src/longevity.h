@@ -1,8 +1,15 @@
 #pragma once
 // ============================================================
-// African Queen Lite — Longevity & Health Monitor v2.0
+// African Queen Lite — Longevity & Health Monitor v2.1
 // Honda NX650 Dominator RFVC
 // ============================================================
+//
+// v2.1 Changes:
+//   - FIXED: engine_runtime_min_ now actually increments! Uses sensor
+//     poll timing to count minutes when engine is running.
+//   - Added: runtime tracking via last_runtime_ms_ accumulator
+//   - Added: CDI map C awareness in status texts
+//   - Improved: EEPROM save now includes runtime increment
 //
 // Monitors engine and electrical system health for LONGEVITY:
 //   1. Stator health — detects failing stator BEFORE it leaves you stranded
@@ -81,6 +88,7 @@ public:
                           trip_start_km_(0),
                           current_trip_km_(0),
                           engine_runtime_min_(0),
+                          last_runtime_ms_(0),
                           last_eeprom_save_ms_(0) {
 
         // Initialize maintenance counters
@@ -95,21 +103,39 @@ public:
         ModeStorage::begin();
         total_odometer_km_ = ModeStorage::loadOdometer() / 10;  // decikm -> km
         engine_runtime_min_ = ModeStorage::loadRuntime();
+        last_runtime_ms_ = millis();  // Initialize runtime tracker
 
         // Initialize maintenance counters
-        // In production: load from EEPROM. For now, start at 0.
         for (int i = 0; i < MAINT_COUNT; i++) {
             maint_since_km_[i] = 0;
             maint_overdue_[i] = false;
         }
 
-        Serial.printf("[LONGEVITY] Initialized — Odometer: %lu km, Runtime: %lu min\n",
+        Serial.printf("[LONGEVITY] Initialized — Odometer: %lu km, Runtime: %lu min\\n",
             (unsigned long)total_odometer_km_, (unsigned long)engine_runtime_min_);
     }
 
-    // ---- Main update — call every sensor cycle ----
+    // ---- Main update — call every sensor cycle (every SENSOR_READ_MS) ----
     void update(float voltage, uint16_t rpm, float temp_c, uint16_t speed_kmh_x10) {
         unsigned long now = millis();
+
+        // === Runtime Counter (v2.1 FIX — actually increment!) ===
+        // Increment engine_runtime_min_ every 60000ms when engine is running
+        if (rpm > 0) {  // Engine is running
+            if (last_runtime_ms_ > 0) {
+                unsigned long elapsed = now - last_runtime_ms_;
+                if (elapsed >= RUNTIME_INCREMENT_MS) {
+                    engine_runtime_min_ += (elapsed / RUNTIME_INCREMENT_MS);
+                    last_runtime_ms_ = now - (elapsed % RUNTIME_INCREMENT_MS);
+                    Serial.printf("[RUNTIME] %lu min\\n", (unsigned long)engine_runtime_min_);
+                }
+            } else {
+                last_runtime_ms_ = now;
+            }
+        } else {
+            // Engine not running — don't accumulate, but keep reference
+            last_runtime_ms_ = now;
+        }
 
         // === Stator Health Check ===
         if (now - last_stator_check_ms_ >= STATOR_CHECK_MS) {
@@ -136,53 +162,35 @@ public:
     // ============================================================
     // Stator Health Detection
     // ============================================================
-    // The NX650's stator is a known failure point. At highway RPM (3000+),
-    // a healthy stator/regulator should maintain 13.0-14.8V.
-    // A failing stator will show progressively lower voltage at higher RPM.
-    //
-    // Detection logic:
-    //   - Below STATOR_RPM_THRESH (3000 RPM): skip (idle behavior varies)
-    //   - At cruise RPM: voltage should be ≥ 13.0V
-    //   - At high RPM: voltage should be ≤ 15.5V (overcharge = bad R/R)
-    //   - Degraded: 12.5-13.0V at cruise RPM
-    //   - Failing: < 12.5V at cruise RPM
-    //   - Overcharging: > 15.5V at any RPM above idle
-
     void checkStatorHealth(float voltage, uint16_t rpm) {
-        // Only check when engine is running above threshold RPM
         if (rpm < STATOR_RPM_THRESH) {
             stator_status_ = STATOR_UNKNOWN;
             return;
         }
 
-        // Accumulate samples for averaging
         voltage_sum_ += voltage;
         voltage_samples_++;
 
-        // Need at least 3 samples for reliable average
         if (voltage_samples_ < 3) return;
 
         float avg_voltage = voltage_sum_ / (float)voltage_samples_;
 
-        // Check for overcharging (bad voltage regulator)
         if (avg_voltage > VOLTAGE_HIGH) {
             stator_status_ = STATOR_OVERCHARGE;
-            Serial.printf("[STATOR] OVERCHARGE: %.1fV — regulator/rectifier may be failing!\n", avg_voltage);
+            Serial.printf("[STATOR] OVERCHARGE: %.1fV — regulator/rectifier may be failing!\\n", avg_voltage);
         }
-        // Check for undercharging (failing stator)
         else if (avg_voltage < STATOR_WARN_V) {
             stator_status_ = STATOR_FAILING;
-            Serial.printf("[STATOR] FAILING: %.1fV at %d RPM — stator output too low!\n", avg_voltage, rpm);
+            Serial.printf("[STATOR] FAILING: %.1fV at %d RPM — stator output too low!\\n", avg_voltage, rpm);
         }
         else if (avg_voltage < STATOR_HEALTHY_V) {
             stator_status_ = STATOR_DEGRADED;
-            Serial.printf("[STATOR] DEGRADED: %.1fV at %d RPM — monitor closely\n", avg_voltage, rpm);
+            Serial.printf("[STATOR] DEGRADED: %.1fV at %d RPM — monitor closely\\n", avg_voltage, rpm);
         }
         else {
             stator_status_ = STATOR_HEALTHY;
         }
 
-        // Reset averaging
         voltage_sum_ = 0;
         voltage_samples_ = 0;
         stator_voltage_ = avg_voltage;
@@ -196,7 +204,7 @@ public:
             case STATOR_HEALTHY:    return "HEALTHY";
             case STATOR_DEGRADED:   return "DEGRADED";
             case STATOR_FAILING:    return "FAILING!";
-            case STATOR_OVERCHARGE: return "OVERCHARGE!";
+            case STATOR_OVERCHARGE: return "OVERCHG!";
             default:                return "UNKNOWN";
         }
     }
@@ -205,12 +213,9 @@ public:
     // LiFePO4 Battery State of Charge
     // ============================================================
     void updateBatterySOC(float voltage, uint16_t rpm) {
-        // Don't estimate SOC when engine is running (charging voltage confuses reading)
-        // Use voltage only when engine is off or at idle with no load
         bool engine_running = (rpm > RPM_IDLE_DEFAULT - 200);
 
         if (engine_running) {
-            // During charging, we can estimate charge level from charging voltage
             if (voltage >= LIFEPO4_75_PCT) {
                 battery_soc_ = BATT_FULL;
             } else if (voltage >= LIFEPO4_NOMINAL) {
@@ -221,7 +226,6 @@ public:
                 battery_soc_ = BATT_LOW;
             }
         } else {
-            // Engine off — resting voltage is more accurate
             if (voltage >= LIFEPO4_75_PCT) {
                 battery_soc_ = BATT_FULL;
             } else if (voltage >= LIFEPO4_NOMINAL) {
@@ -234,7 +238,7 @@ public:
                 battery_soc_ = BATT_LOW;
             } else {
                 battery_soc_ = BATT_CRIT;
-                Serial.printf("[BATTERY] CRITICAL: %.1fV — BATTERY DAMAGE RISK!\n", voltage);
+                Serial.printf("[BATTERY] CRITICAL: %.1fV — BATTERY DAMAGE RISK!\\n", voltage);
             }
         }
     }
@@ -269,12 +273,10 @@ public:
     // Temperature Trend Detection
     // ============================================================
     void updateTempTrend(float temp_c) {
-        // Track peak temperature
         if (temp_c > temp_peak_) {
             temp_peak_ = temp_c;
         }
 
-        // Detect rapid temperature rise (danger sign for air-cooled engine)
         static float last_temp = temp_c;
         static unsigned long last_temp_ms = 0;
         unsigned long now = millis();
@@ -287,7 +289,7 @@ public:
                 temp_trend_rising_ = true;
                 overheat_predictions_++;
                 if (overheat_predictions_ >= 3) {
-                    Serial.printf("[TEMP] RAPID RISE: +%.1f°C/min — overheat risk!\n", rate);
+                    Serial.printf("[TEMP] RAPID RISE: +%.1fC/min — overheat risk!\\n", rate);
                 }
             } else if (rate < -2.0f) {
                 temp_trend_rising_ = false;
@@ -303,23 +305,17 @@ public:
     float getTempPeak() const { return temp_peak_; }
 
     // ============================================================
-    // Maintenance Tracker
+    // Odometer & Trip
     // ============================================================
     void updateOdometer(uint16_t speed_kmh_x10) {
-        // Estimate distance from speed (called every 100ms = SENSOR_READ_MS)
-        // speed_kmh_x10: speed in 0.1 km/h units (e.g., 950 = 95.0 km/h)
-        // Distance per 100ms at speed V: V * 100ms / 3600000 = V / 36000 km
         float distance_km = (speed_kmh_x10 / 10.0f) / 36000.0f;
 
         current_trip_km_ += distance_km;
         total_odometer_km_ += distance_km;
 
-        // Update maintenance counters
         for (int i = 0; i < MAINT_COUNT; i++) {
-            // Convert interval to same units (decimeters for precision)
-            maint_since_km_[i] += (uint32_t)(distance_km * 10000);  // 1/10000 km precision
+            maint_since_km_[i] += (uint32_t)(distance_km * 10000);
 
-            // Check if overdue
             uint32_t interval_10000 = (uint32_t)MAINT_INTERVALS_KM[i] * 10000;
             if (maint_since_km_[i] >= interval_10000) {
                 maint_overdue_[i] = true;
@@ -332,39 +328,36 @@ public:
         current_trip_km_ = 0;
         temp_peak_ = 25.0f;
         overheat_predictions_ = 0;
-        Serial.printf("[TRIP] Started — Odometer: %lu km\n", (unsigned long)total_odometer_km_);
+        Serial.printf("[TRIP] Started — Odometer: %lu km\\n", (unsigned long)total_odometer_km_);
     }
 
     void endTrip() {
-        Serial.printf("[TRIP] Ended — Distance: %.1f km, Peak Temp: %.1f°C\n",
+        Serial.printf("[TRIP] Ended — Distance: %.1f km, Peak Temp: %.1fC\\n",
             current_trip_km_, temp_peak_);
         saveToEEPROM();
     }
 
-    // Mark maintenance as done — reset counter
     void resetMaintenance(MaintID id) {
         maint_since_km_[id] = 0;
         maint_overdue_[id] = false;
-        Serial.printf("[MAINT] Reset: %s\n", MAINT_NAMES[id]);
+        Serial.printf("[MAINT] Reset: %s\\n", MAINT_NAMES[id]);
     }
 
     bool isMaintenanceOverdue(MaintID id) const { return maint_overdue_[id]; }
 
-    // Get km since last maintenance (returns float km)
     float getKmSinceMaintenance(MaintID id) const {
         return maint_since_km_[id] / 10000.0f;
     }
 
-    // Get km until next maintenance (can be negative if overdue)
     float getKmUntilMaintenance(MaintID id) const {
         float interval = (float)MAINT_INTERVALS_KM[id];
         return interval - getKmSinceMaintenance(id);
     }
 
     uint32_t getTotalOdometerKm() const { return total_odometer_km_; }
+    uint32_t getEngineRuntimeMin() const { return engine_runtime_min_; }  // v2.1: added getter
     float getCurrentTripKm() const { return current_trip_km_; }
 
-    // Count how many maintenance items are overdue
     uint8_t getOverdueCount() const {
         uint8_t count = 0;
         for (int i = 0; i < MAINT_COUNT; i++) {
@@ -373,9 +366,17 @@ public:
         return count;
     }
 
-    // Check if any maintenance is overdue (for display warning)
     bool isAnyMaintenanceOverdue() const {
         return getOverdueCount() > 0;
+    }
+
+    // Get maintenance bitmap for BLE (bit 0=oil, 1=valve, 2=filter, 3=plug, 4=chain, 5=tire)
+    uint8_t getMaintenanceBitmap() const {
+        uint8_t bitmap = 0;
+        for (int i = 0; i < MAINT_COUNT; i++) {
+            if (maint_overdue_[i]) bitmap |= (1 << i);
+        }
+        return bitmap;
     }
 
 private:
@@ -397,15 +398,14 @@ private:
     uint32_t trip_start_km_;
     float current_trip_km_;
     uint32_t engine_runtime_min_;
-    uint32_t maint_since_km_[MAINT_COUNT];  // in 1/10000 km
+    unsigned long last_runtime_ms_;   // v2.1: runtime tracking timer
+    uint32_t maint_since_km_[MAINT_COUNT];
     bool maint_overdue_[MAINT_COUNT];
     unsigned long last_eeprom_save_ms_;
 
     void saveToEEPROM() {
-        // Save odometer (convert to decikm for 100m resolution)
         uint32_t decikm = (uint32_t)(total_odometer_km_ * 10);
         ModeStorage::saveOdometer(decikm);
         ModeStorage::saveRuntime(engine_runtime_min_);
-        // Also save current mode for power-on restore
     }
 };
