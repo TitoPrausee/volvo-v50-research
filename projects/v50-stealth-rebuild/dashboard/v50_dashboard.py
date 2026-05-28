@@ -29,6 +29,7 @@ import sys
 import time
 import math
 import signal
+import logging
 import threading
 from pathlib import Path
 from typing import Optional
@@ -46,6 +47,9 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'canbus'))
 from v50_can_decoder import V50State, CANBus, MESSAGE_DEFINITIONS, get_gear_name
+
+logger = logging.getLogger('v50.dashboard')
+
 try:
     from v50_drive_profile import DriveProfileAnalyzer, FuelEconomyTracker
     HAS_DRIVE_PROFILE = True
@@ -579,6 +583,11 @@ if HAS_PYQT5:
             """Update all gauges and readouts from V50State."""
             s = self.state
             
+            # In stealth mode, update the minimal display instead
+            if self.is_stealth:
+                self._update_stealth_display(s)
+                return
+            
             # Powertrain
             self.rpm_gauge.set_value(s.rpm)
             self.speed_readout.set_value(s.speed_kmh, ".0f")
@@ -603,8 +612,12 @@ if HAS_PYQT5:
             self.oil_light.set_active(s.oil_warning)
             self.bat_light.set_active(s.battery_warning)
             self.temp_light.set_active(s.temp_warning)
-            self.belt_light.set_active(s.seatbelt_warning)
-            self.abs_light.set_active(s.abs_active if hasattr(s, 'abs_active') else False)
+            # Belt warning = ON when belt NOT fastened (active-low logic)
+            any_belt_unfastened = not (getattr(s, 'driver_belt_fastened', True) and
+                                       getattr(s, 'passenger_belt_fastened', True))
+            self.belt_light.set_active(any_belt_unfastened)
+            # ABS active — V50State doesn't have this yet, default to False
+            self.abs_light.set_active(getattr(s, 'abs_active', False))
             
             # Climate
             self.ext_temp_readout.set_value(s.exterior_temp_c, ".0f")
@@ -615,10 +628,10 @@ if HAS_PYQT5:
             door_str = ""
             doors = {}
             for attr, abbrev in [('driver_door_open', 'D'), ('pass_door_open', 'P'),
-                                  ('rl_door_open', 'RL'), ('rr_door_open', 'RR')]:
-                # rr_door_open doesn't exist — use rear_right_door_open
-                actual_attr = 'rear_right_door_open' if attr == 'rr_door_open' else attr
-                doors[abbrev] = getattr(s, actual_attr, None)
+                                  ('rear_left_door_open', 'RL'), ('rear_right_door_open', 'RR')]:
+                # rear_left_door_open not in V50State — skip gracefully
+                val = getattr(s, attr, False)
+                doors[abbrev] = val
             if any(v for v in doors.values() if v):
                 open_doors = [k for k, v in doors.items() if v]
                 door_str = " ".join(open_doors) + " OPEN"
@@ -657,23 +670,264 @@ if HAS_PYQT5:
             self.steer_readout.set_value(s.steering_angle_deg, ".0f")
         
         def toggle_stealth(self):
-            """Toggle between custom dashboard and OEM-like minimal display."""
+            """Toggle between custom dashboard and OEM-like minimal display.
+            
+            Stealth mode shows a minimal OEM-driver-information-module-style display:
+            - Large speed readout (centered)
+            - RPM bar (simple)
+            - Fuel level (simple bar)
+            - Only critical warnings (CEL, oil, temp)
+            - Odometer
+            Everything else is hidden — like the factory DIM display.
+            """
             self.is_stealth = not self.is_stealth
+            s = self.state
+            
             if self.is_stealth:
-                # Show minimal OEM-style display
-                self.setStyleSheet(f"background-color: #000000; color: #00FF00;")
-                for child in self.findChildren(QWidget):
-                    child.hide()
-                # Show only speed and fuel (like OEM DIM)
-                # Minimal display mode
-                self.setWindowTitle("V50 Stealth Dashboard — STEALTH MODE")
+                # Switch to minimal OEM-style display
+                # Background: dark green on black (mimics Volvo DIM)
+                stealth_bg = "#000000"
+                stealth_fg = "#00DD00"
+                stealth_warn = "#FF6600"
+                stealth_danger = "#FF0000"
+                self.setStyleSheet(f"""
+                    QMainWindow {{ background-color: {stealth_bg}; }}
+                    QWidget {{ background-color: {stealth_bg}; color: {stealth_fg}; 
+                              font-family: 'Courier New', monospace; }}
+                """)
+                
+                # Hide ALL main layout widgets first
+                central = self.centralWidget()
+                if central:
+                    main_layout = central.layout()
+                    if main_layout:
+                        for i in range(main_layout.count()):
+                            item = main_layout.itemAt(i)
+                            widget = item.widget() if item else None
+                            if widget:
+                                widget.hide()
+                
+                # Remove old stealth widget if it exists
+                if hasattr(self, '_stealth_widget') and self._stealth_widget:
+                    self._stealth_widget.setParent(None)
+                    self._stealth_widget.deleteLater()
+                
+                # Create minimal OEM-style display
+                self._stealth_widget = QWidget()
+                self._stealth_widget.setStyleSheet(f"""
+                    QWidget {{ background-color: {stealth_bg}; color: {stealth_fg}; 
+                              font-family: 'Courier New', monospace; }}
+                    QLabel {{ background-color: {stealth_bg}; color: {stealth_fg}; 
+                             font-family: 'Courier New', monospace; border: none; }}
+                """)
+                stealth_layout = QVBoxLayout(self._stealth_widget)
+                stealth_layout.setSpacing(2)
+                stealth_layout.setContentsMargins(20, 10, 20, 10)
+                
+                # Speed — large centered display
+                self._stealth_speed = QLabel("--")
+                self._stealth_speed.setStyleSheet(f"""
+                    QLabel {{ font-size: 96px; font-weight: bold; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_speed.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_speed)
+                
+                # Speed unit label
+                self._stealth_speed_unit = QLabel("km/h")
+                self._stealth_speed_unit.setStyleSheet(f"""
+                    QLabel {{ font-size: 24px; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_speed_unit.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_speed_unit)
+                
+                # RPM bar (horizontal)
+                self._stealth_rpm_label = QLabel("RPM: --")
+                self._stealth_rpm_label.setStyleSheet(f"""
+                    QLabel {{ font-size: 20px; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_rpm_label.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_rpm_label)
+                
+                # Separator
+                sep1 = QFrame()
+                sep1.setFrameShape(QFrame.HLine)
+                sep1.setStyleSheet(f"color: {stealth_fg}; background-color: {stealth_bg};")
+                stealth_layout.addWidget(sep1)
+                
+                # Fuel + Temperature row
+                info_row = QHBoxLayout()
+                
+                self._stealth_fuel_label = QLabel("FUEL: --%")
+                self._stealth_fuel_label.setStyleSheet(f"""
+                    QLabel {{ font-size: 18px; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                info_row.addWidget(self._stealth_fuel_label)
+                
+                self._stealth_coolant_label = QLabel("TEMP: --°C")
+                self._stealth_coolant_label.setStyleSheet(f"""
+                    QLabel {{ font-size: 18px; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                info_row.addWidget(self._stealth_coolant_label)
+                
+                stealth_layout.addLayout(info_row)
+                
+                # Separator
+                sep2 = QFrame()
+                sep2.setFrameShape(QFrame.HLine)
+                sep2.setStyleSheet(f"color: {stealth_fg}; background-color: {stealth_bg};")
+                stealth_layout.addWidget(sep2)
+                
+                # Warnings row (only critical ones)
+                self._stealth_warnings = QLabel("")
+                self._stealth_warnings.setStyleSheet(f"""
+                    QLabel {{ font-size: 16px; color: {stealth_warn};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_warnings.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_warnings)
+                
+                # Odometer
+                self._stealth_odo = QLabel("ODO: -- km")
+                self._stealth_odo.setStyleSheet(f"""
+                    QLabel {{ font-size: 14px; color: #008800;
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_odo.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_odo)
+                
+                # Gear
+                self._stealth_gear = QLabel("Gear: --")
+                self._stealth_gear.setStyleSheet(f"""
+                    QLabel {{ font-size: 16px; color: {stealth_fg};
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                self._stealth_gear.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(self._stealth_gear)
+                
+                # STEALTH indicator
+                stealth_label = QLabel("[ STEALTH MODE — Press SPACE to exit ]")
+                stealth_label.setStyleSheet(f"""
+                    QLabel {{ font-size: 12px; color: #333333;
+                             background-color: {stealth_bg}; border: none; }}
+                """)
+                stealth_label.setAlignment(Qt.AlignCenter)
+                stealth_layout.addWidget(stealth_label)
+                
+                # Set stealth widget as central
+                self.setCentralWidget(self._stealth_widget)
+                
+                # Update stealth display immediately
+                self._update_stealth_display(s)
+                
+                self.setWindowTitle("V50 — STEALTH MODE")
+                logger.info("Stealth mode activated — OEM-style minimal display")
             else:
-                # Show full custom dashboard
+                # Restore full custom dashboard
+                # Remove stealth widget
+                if hasattr(self, '_stealth_widget') and self._stealth_widget:
+                    self._stealth_widget.setParent(None)
+                    self._stealth_widget.deleteLater()
+                    self._stealth_widget = None
+                
+                # Restore original central widget
+                central = QWidget()
+                self.setCentralWidget(central)
+                main_layout = QVBoxLayout(central)
+                main_layout.setSpacing(4)
+                main_layout.setContentsMargins(8, 4, 8, 4)
+                
+                # Re-initialize the UI — call init_ui to recreate all widgets
+                self.init_ui()
+                
+                # Restore theme
                 self.setStyleSheet("")
-                for child in self.findChildren(QWidget):
-                    child.show()
+                theme = Theme.NIGHT if self.is_night_mode else Theme.DAY
+                for child in self.findChildren((AnalogGauge, DigitalReadout, FuelBar, WarningLight)):
+                    child.set_theme(theme)
+                
                 self.setWindowTitle("V50 Stealth Dashboard")
+                logger.info("Stealth mode deactivated — full custom dashboard restored")
+            
             self.stealth_mode.emit(self.is_stealth)
+        
+        def _update_stealth_display(self, s):
+            """Update the stealth mode OEM-style display with current values."""
+            if not self.is_stealth or not hasattr(self, '_stealth_speed'):
+                return
+            
+            # Speed — large centered
+            self._stealth_speed.setText(f"{s.speed_kmh:.0f}")
+            
+            # RPM bar (visual bar representation)
+            rpm_pct = min(s.rpm / 7000.0, 1.0)
+            bar_len = 40
+            filled = int(rpm_pct * bar_len)
+            bar = '█' * filled + '░' * (bar_len - filled)
+            # Color-code RPM bar
+            if s.rpm > 6500:
+                rpm_color = "#FF0000"
+            elif s.rpm > 5500:
+                rpm_color = "#FF6600"
+            else:
+                rpm_color = "#00DD00"
+            self._stealth_rpm_label.setStyleSheet(f"""
+                QLabel {{ font-size: 18px; color: {rpm_color};
+                         background-color: #000000; border: none; font-family: monospace; }}
+            """)
+            self._stealth_rpm_label.setText(f"RPM: {s.rpm:.0f}  {bar}")
+            
+            # Fuel + Temperature
+            fuel_color = "#FF0000" if s.fuel_level_pct < 15 else "#FFAA00" if s.fuel_level_pct < 25 else "#00DD00"
+            self._stealth_fuel_label.setText(f"FUEL: {s.fuel_level_pct:.0f}%")
+            self._stealth_fuel_label.setStyleSheet(f"""
+                QLabel {{ font-size: 18px; color: {fuel_color};
+                         background-color: #000000; border: none; }}
+            """)
+            
+            temp_color = "#FF0000" if s.coolant_temp_c > 110 else "#FF6600" if s.coolant_temp_c > 100 else "#00DD00"
+            self._stealth_coolant_label.setText(f"TEMP: {s.coolant_temp_c:.0f}°C")
+            self._stealth_coolant_label.setStyleSheet(f"""
+                QLabel {{ font-size: 18px; color: {temp_color};
+                         background-color: #000000; border: none; }}
+            """)
+            
+            # Warnings (only critical ones)
+            warnings = []
+            if s.check_engine:
+                warnings.append("⚠ CHECK ENGINE")
+            if s.oil_warning:
+                warnings.append("⚠ OIL PRESSURE")
+            if s.temp_warning:
+                warnings.append("⚠ OVERHEATING")
+            if s.battery_warning:
+                warnings.append("⚠ BATTERY")
+            if not s.driver_belt_fastened:
+                warnings.append("🔔 BELT")
+            
+            if warnings:
+                self._stealth_warnings.setText(" | ".join(warnings))
+                self._stealth_warnings.setStyleSheet("""
+                    QLabel { font-size: 16px; color: #FF6600;
+                             background-color: #000000; border: none; }
+                """)
+            else:
+                self._stealth_warnings.setText("OK")
+                self._stealth_warnings.setStyleSheet("""
+                    QLabel { font-size: 16px; color: #008800;
+                             background-color: #000000; border: none; }
+                """)
+            
+            # Odometer
+            if s.odometer_km > 0:
+                self._stealth_odo.setText(f"ODO: {s.odometer_km:.0f} km")
+            
+            # Gear
+            self._stealth_gear.setText(f"Gear: {get_gear_name(s.gear)}")
         
         def toggle_night_day(self):
             """Toggle between night (dark) and day (bright) themes."""

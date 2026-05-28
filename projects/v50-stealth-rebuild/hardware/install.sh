@@ -121,7 +121,7 @@ if [ -d "$PROJECT_DIR" ]; then
     cp "$PROJECT_DIR/canbus/"*.py "$V50_DIR/canbus/"
     cp "$PROJECT_DIR/dashboard/"*.py "$V50_DIR/dashboard/"
     cp "$PROJECT_DIR/hardware/maintenance.json" "$V50_DIR/"
-    echo "  Copied V50 Python files to $V51_DIR"
+    echo "  Copied V50 Python files to $V50_DIR"
 fi
 
 # Create log directory

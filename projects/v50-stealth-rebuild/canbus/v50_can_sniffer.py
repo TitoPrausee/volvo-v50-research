@@ -675,6 +675,48 @@ class CANSniffer:
                     lines.append(f"    sample {i+1}: {sample.hex()}")
         
         return "\n".join(lines)
+    
+    def export_discovery_csv(self, filepath: str = None) -> str:
+        """Export unknown CAN ID discovery data to CSV for analysis.
+        
+        Writes a CSV file with unknown CAN IDs, their frequencies, and data
+        samples. Useful for offline investigation of new V50 P1 CAN messages.
+        
+        Args:
+            filepath: Path to write CSV. If None, auto-generates a timestamped path.
+        
+        Returns:
+            Path to the written CSV file.
+        """
+        import csv
+        from datetime import datetime
+        
+        if not filepath:
+            filepath = f"/var/log/v50/can_discovery_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        
+        Path(filepath).parent.mkdir(parents=True, exist_ok=True)
+        
+        duration = time.time() - self.start_time
+        
+        with open(filepath, 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['can_id_hex', 'can_id_dec', 'is_known', 'name',
+                           'count', 'rate_hz', 'sample_count', 'data_samples'])
+            
+            for can_id, count in sorted(self.seen_ids.items(), key=lambda x: -x[1]):
+                is_known = can_id in self.known_ids
+                name = MESSAGE_DEFINITIONS[can_id].name if is_known else "UNKNOWN"
+                rate = count / duration if duration > 0 else 0
+                samples_hex = " | ".join(s.hex() for s in self.unknown_ids.get(can_id, []))
+                sample_count = len(self.unknown_ids.get(can_id, []))
+                
+                writer.writerow([
+                    f"0x{can_id:03X}", can_id, is_known, name,
+                    count, f"{rate:.1f}", sample_count, samples_hex
+                ])
+        
+        logger.info(f"CAN discovery data exported to {filepath}")
+        return filepath
 
 
 # =============================================================================
@@ -779,6 +821,8 @@ def main():
     parser.add_argument('--maintenance', action='store_true', help='Show maintenance status')
     parser.add_argument('--record-service', type=str, help='Record service: item_name')
     parser.add_argument('--sniff', action='store_true', help='Sniff for unknown CAN messages')
+    parser.add_argument('--export', type=str, metavar='FILE',
+                        help='Export CAN discovery data to CSV (used with --sniff)')
     parser.add_argument('--interface', type=str, default='can0', help='CAN interface')
     parser.add_argument('--bitrate', type=int, default=500000, help='CAN bitrate')
     parser.add_argument('--list-messages', action='store_true', help='List all known CAN messages')
@@ -955,6 +999,9 @@ def main():
                 logger_obj.close()
             if sniffer:
                 print(sniffer.report())
+                if args.export:
+                    csv_path = sniffer.export_discovery_csv(args.export)
+                    print(f"\nCAN discovery data exported to: {csv_path}")
             bus.shutdown()
         
         return 0

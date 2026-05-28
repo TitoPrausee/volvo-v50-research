@@ -68,6 +68,12 @@ except ImportError:
     HAS_POWER_MONITOR = False
 
 try:
+    from v50_can_health import CANBusHealthMonitor
+    HAS_CAN_HEALTH = True
+except ImportError:
+    HAS_CAN_HEALTH = False
+
+try:
     from v50_ble_server import BLEDataServer
     HAS_BLE = True
 except ImportError:
@@ -144,6 +150,7 @@ class V50CANBusApp:
         self.maintenance = V50MaintenanceTracker() if HAS_DTC else None
         self.dtc_reader = V50DTCReader(interface=interface) if HAS_DTC else None
         self.data_logger = V50DataLogger(log_dir=log_dir) if HAS_DTC else None
+        self.health_monitor: Optional[CANBusHealthMonitor] = None
         self.ble_server: Optional[BLEDataServer] = None
         self.power_monitor: Optional[PowerMonitor] = None
         
@@ -217,6 +224,22 @@ class V50CANBusApp:
                 logger.warning(f"Power monitor failed: {e}")
                 self.power_monitor = None
         
+        # Setup CAN health monitor
+        if HAS_CAN_HEALTH:
+            try:
+                self.health_monitor = CANBusHealthMonitor(
+                    hs_interface=self.interface,
+                    ls_interface='can1'
+                )
+                health_report = self.health_monitor.start_self_test()
+                logger.info(f"CAN health self-test: {health_report.overall_status.label}")
+                if health_report.alerts:
+                    for alert in health_report.alerts:
+                        logger.warning(f"  CAN alert: {alert}")
+            except Exception as e:
+                logger.warning(f"CAN health monitor failed: {e}")
+                self.health_monitor = None
+        
         self._start_time = time.time()
         self.running = True
         return True
@@ -277,6 +300,12 @@ class V50CANBusApp:
         can_id = msg.arbitration_id
         data = msg.data
         timestamp = msg.timestamp
+        is_error = msg.is_error_frame
+        
+        # Update health monitor
+        if self.health_monitor:
+            intf = 'can0' if self.interface == 'can0' else self.interface
+            self.health_monitor.on_frame(intf, can_id, is_error, msg.dlc)
         
         self._msg_count += 1
         
@@ -363,6 +392,7 @@ class V50CANBusApp:
             f"  Data Logger:    {'✓' if self.data_logger else '✗'}",
             f"  BLE Server:     {'✓' if self.ble_server else '✗'}",
             f"  Power Monitor:  {'✓' if self.power_monitor else '✗'}",
+            f"  Health Monitor: {'✓' if self.health_monitor else '✗'}",
             "=" * 60,
             "",
             self.state.summary(),
@@ -373,6 +403,10 @@ class V50CANBusApp:
         
         if self.fuel_tracker:
             lines.append(str(self.fuel_tracker))
+        
+        if self.health_monitor:
+            lines.append("")
+            lines.append(self.health_monitor.format_report())
         
         return "\n".join(lines)
 
