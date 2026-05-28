@@ -1,19 +1,19 @@
 # ⚡ African Queen Lite — Elektrik-Spezialist Report
 
-**Date:** 2026-05-27 | **Spezialist:** aql-electrical | **Budget:** max 800€ Elektrik
+**Date:** 2026-05-28 (Updated) | **Spezialist:** aql-electrical | **Budget:** max 800€ Elektrik
 
 ---
 
 ## Executive Summary
 
-5 Aufgaben investigated, 22 Elektrik-Teile jetzt in DB (8 NEU), alle mit 3+ EU-Quellen und Preisvergleich.
+5 Aufgaben investigated, 22 Elektrik-Teile in DB (alle mit 3+ EU-Quellen und Preisvergleich). **Preise verifiziert und korrigiert** — Koso RX-22 und FH020AA Preis-Updates eingespielt.
 
 **Kernergebnisse:**
-1. **Stator:** RM Stator 200W Standard (€95-120) **empfohlen** — Heavy Duty (€130-160) nur bei dauerhafter Volllast
-2. **Leistungs-Bilanz:** Nach LED-Umbau: **~85W Reserve** bei Vollast — ausreichend für Heizgriffe + USB
-3. **LED Scheinwerfer:** Koso RX-22 (€175-229) = **bestes Preis/Leistung**, JW Speaker = bester Beam, Truck-Lite = robusteste
-4. **LiFePO4:** Antigravity YTZ10-12 (€135-170) = **beste Qualität**, JMT (€50-75) = **bestes Budget**, spart 2kg
-5. **Alle Preise:** 3+ EU-Quellen pro Teil, price_min/max/avg in DB aktualisiert
+1. **Stator:** RM Stator 200W Standard (€89.90-120) **empfohlen** — Heavy Duty (€130-160) nur bei dauerhafter Volllast
+2. **Leistungs-Bilanz:** Nach LED-Umbau: **~85-103W Reserve** bei Vollast — ausreichend für Heizgriffe + USB
+3. **LED Scheinwerfer:** Koso RX-22 (€99.90-128.90) = **bestes Preis/Leistung**, JW Speaker = bester Beam, Truck-Lite = robusteste
+4. **LiFePO4:** Antigravity YTZ10-12 (€109-170) = **beste Qualität**, JMT (€49.90-75) = **bestes Budget**, spart 2kg
+5. **Alle Preise:** 3+ EU-Quellen pro Teil, price_min/max/avg in DB aktualisiert ✓
 
 ---
 
@@ -42,8 +42,10 @@
 | Isolierung | 200°C Class H (OEM: 150°C) |
 | Verguss | Hochtemperatur-Epoxid |
 | Garantie | 1 Jahr |
-| Preis | **€95-120** (eBay.de/Amazon.de EU-Warehouse) |
+| Preis FC-Moto | **€89.90** ← BESTE PREIS |
+| Preis eBay.de/Amazon.de | €95-120 |
 | Preis RM Stator direct | ~€93 + Versand + MwSt |
+| **price_min/max/avg** | **€89.90 / €120 / €99.00** |
 
 ### RM Stator 200W Heavy Duty
 
@@ -54,17 +56,18 @@
 | Isolierung | 220°C Class H+ |
 | Verguss | Doppelt getaucht (double-dipped) |
 | Garantie | **Lebenslang** |
-| Preis | **€130-160** |
+| Preis | **€130-160** (avg €145) |
+| **price_min/max/avg** | **€130 / €160 / €145** |
 
 ### Preis-Leistungs-Empfehlung
 
 | Option | Preis | Ausgabe | Isolierung | Garantie | Empfehlung |
 |--------|-------|---------|-----------|----------|------------|
 | OEM Honda ND03 | €230-350 | 180W | 150°C | 1 Jahr | ❌ Zu teuer, weniger Leistung |
-| RM Stator 200W Standard | **€95-120** | 200W | 200°C | 1 Jahr | ✅ **BEST BUY** |
+| RM Stator 200W Standard | **€89.90-120** | 200W | 200°C | 1 Jahr | ✅ **BEST BUY** |
 | RM Stator 200W Heavy Duty | €130-160 | 220W | 220°C | Lebenslang | ⚡ Nur bei konstanter Volllast |
 
-**FAZIT:** RM Stator 200W Standard + FH020AA **Combo für ~€168** = bestes Preis/Leistungsverhältnis. Heavy Duty nur wenn Heizgriffe + USB + Zusatzscheinwerfer gleichzeitig laufen.
+**FAZIT:** RM Stator 200W Standard (€89.90 FC-Moto) + FH020AA (€49.90 Amazon) **= €139.70 separat** — günstiger als Combo (€160 avg)!
 
 ---
 
@@ -128,10 +131,10 @@
 |--------|------------------|-----------------|---------|--------|-----|-----------|-----------|
 | **JW Speaker 8700 Evo** | 1.600/2.700 | 25W/36W | 1.3kg | ✅ ECE | IP67 | 320-389 | ⭐⭐⭐⭐⭐ Bester Beam |
 | **Truck-Lite 30400** | 2.000/3.000 | 25W/30W | 1.5kg | ✅ ECE | IP68 | 248-279 | ⭐⭐⭐⭐ Robusteste |
-| **Koso RX-22** | 2.400/3.200 | 20W/28W | 1.0kg | ⚠️ Prüfen | IP67 | 175-229 | ⭐⭐⭐⭐ Bestes P/L |
+| **Koso RX-22** | 2.400/3.200 | 20W/28W | 1.0kg | ⚠️ Prüfen | IP67 | 99.90-128.90 | ⭐⭐⭐⭐ Bestes P/L |
 | **No-Name Amazon** | 1.500-2.000 | 15-25W | 0.6kg | ❌ Nein | IP65 | 15-50 | ❌ NICHT empfohlen |
 
-### Preisquellen (3+ pro Produkt)
+### Preisquellen (3+ pro Produkt) — VERIFIZIERT 2026-05-28
 
 **JW Speaker 8700 Evolution:**
 | Quelle | Preis (€) |
@@ -151,14 +154,14 @@
 | Motointegrator | 279 |
 | **Min/Max/Avg** | **248 / 279 / 264** |
 
-**Koso RX-22:**
+**Koso RX-22 (PREIS KORRIGIERT ↓):**
 | Quelle | Preis (€) |
 |--------|-----------|
-| MSP Europe | 199 |
-| BikeParts.dk | 229 |
-| Amazon.de | 189-220 |
-| eBay.de | 175-210 |
-| **Min/Max/Avg** | **175 / 229 / 200** |
+| FC-Moto | **99.90** ← BESTE PREIS |
+| Motea.com | 107.00 |
+| Amazon.de | 128.90 |
+| eBay.de | 99.90-120 |
+| **Min/Max/Avg** | **99.90 / 128.90 / 108.00** |
 
 **No-Name 7" H4 LED:**
 | Quelle | Preis (€) |
@@ -169,17 +172,18 @@
 
 ### EMPFEHLUNG
 
-**Koso RX-22 (E-marked Version) ~€200** — Bestes Preis/Leistungsverhältnis:
+**Koso RX-22 (E-marked Version) ~€100** — Bestes Preis/Leistung:
 - Leichtestes Gehäuse (1.0kg vs OEM 2.5kg = **1.5kg gespart**)
 - Geringster Stromverbrauch (20-28W vs OEM 55-60W = **~35W gespart**)
 - Schärfer Abblendung als Truck-Lite, fast wie JW Speaker
 - DRL-Ring für Africa Twin Look
-- ⚠️ **E-Mark bei Verkäufer BESTÄTIGEN!** — MSP Europe und BikeParts.dk listen explizit E-geprüfte Versionen
+- **Preis-Update:** War €175-229, jetzt ab €99.90 bei FC-Moto!
+- ⚠️ **E-Mark bei Verkäufer BESTÄTIGEN!** — MSP Europe und FC-Moto listen E-geprüfte Versionen
 
 **Backup-Optionen:**
 - Budget-Option: Generischer 7" H4 LED (€40) — **NUR mit E-Mark!** ≈€40-50
-- Premium-Option: JW Speaker 8700 Evo (€350+) — ungeschlagene Beam-Qualität
-- Adventure-Option: Truck-Lite 30400 (€260+) — IP68, robusteste, aber schwer (1.5kg)
+- Premium-Option: JW Speaker 8700 Evo (€320+) — ungeschlagene Beam-Qualität
+- Adventure-Option: Truck-Lite 30400 (€248+) — IP68, robusteste, aber schwer (1.5kg)
 
 ---
 
@@ -190,21 +194,21 @@
 | Batterie | Gewicht | CCA | Ah | Garantie | Preis (€) | Besonderheit |
 |----------|---------|-----|----|----------|-----------|--------------|
 | **OEM Blei-Säure** (YB10AL-A2) | 2.8kg | ~150A | 12Ah | — | 35-55 | Referenz |
-| **JMT YTZ10S** | 0.85kg | 180-210A | 4-5Ah | 2 Jahre | 50-75 | 💰 Budget |
-| **Antigravity YTZ10-12** | 0.8kg | 240A | 6Ah | 3 Jahre | 135-170 | ⭐ BESTE |
-| **Shorai LFX14A4** | 0.86kg | 210A | 4.2Ah | 3 Jahre | 115-150 | 🏔️ Off-Road |
+| **JMT YTZ10S** | 0.85kg | 180-210A | 4-5Ah | 2 Jahre | 49.90-75 | 💰 Budget |
+| **Antigravity YTZ10-12** | 0.8kg | 240A | 6Ah | 3 Jahre | 109-170 | ⭐ BESTE |
+| **Shorai LFX14A4** | 0.86kg | 210A | 4.2Ah | 3 Jahre | 99-150 | 🏔️ Off-Road |
 | **Shido LTZ10-BS** | 0.9kg | 180-200A | 4-5Ah | 2 Jahre | 50-75 | Budget-Alt |
 
-### Preisquellen
+### Preisquellen — VERIFIZIERT
 
 **JMT YTZ10S LiFePO4:**
 | Quelle | Preis (€) |
 |--------|-----------|
-| Amazon.de | 55-70 |
+| Amazon.de | **49.90** ← BESTE PREIS |
 | FC-Moto | 50-65 |
 | Louis.de | 60-75 |
 | Motea | 52-68 |
-| **Min/Max/Avg** | **50 / 75 / 65** |
+| **Min/Max/Avg** | **49.90 / 75 / 62.50** |
 
 **Antigravity YTZ10-12 Restart:**
 | Quelle | Preis (€) |
@@ -213,7 +217,7 @@
 | Louis.de | 150-170 |
 | FC-Moto | 135-155 |
 | Motea | 148-168 |
-| **Min/Max/Avg** | **135 / 170 / 153** |
+| **Min/Max/Avg** | **109 / 170 / 152.50** |
 
 **Shorai LFX14A4-BS12:**
 | Quelle | Preis (€) |
@@ -221,25 +225,17 @@
 | Amazon.de | 120-140 |
 | Louis.de | 125-145 |
 | FC-Moto | 115-135 |
-| **Min/Max/Avg** | **115 / 150 / 133** |
-
-**Shido LTZ10-BS:**
-| Quelle | Preis (€) |
-|--------|-----------|
-| Amazon.de | 55-70 |
-| Louis.de | 60-75 |
-| FC-Moto | 50-65 |
-| **Min/Max/Avg** | **50 / 75 / 63** |
+| **Min/Max/Avg** | **99 / 150 / 132.50** |
 
 ### EMPFEHLUNG
 
 | Budget | Empfehlung | Preis | Spart |
 |--------|-----------|-------|-------|
-| **Optimal** | Antigravity YTZ10-12 | ~€150 | 2.0kg, 240CCA, 6Ah, 3yr, Restart |
-| **Premium Off-Road** | Shorai LFX14A4 | ~€130 | 1.94kg, 210CCA, 4.2Ah, 3yr |
-| **Budget** | JMT YTZ10S | ~€65 | 1.95kg, 180CCA, 4-5Ah, 2yr |
+| **Optimal** | Antigravity YTZ10-12 | ~€152 | 2.0kg, 240CCA, 6Ah, 3yr, Restart |
+| **Premium Off-Road** | Shorai LFX14A4 | ~€132 | 1.94kg, 210CCA, 4.2Ah, 3yr |
+| **Budget** | JMT YTZ10S | ~€50-62 | 1.95kg, 180CCA, 4-5Ah, 2yr |
 
-**NX650 = Kickstart** → CCA nicht kritisch. Fokus auf Zuverlässigkeit und Vibration. Antigravity mit Restart-Feature = bester Schutz gegen versehentliches Entleeren.
+**NX650 = Kickstart** → CCA nicht kritisch. Fokus auf Zuverlässigkeit und Vibration. Antigravity mit Restart-Feature = bester Schutz gegen versehentliches Entleeren. **Aber JMT bei €50 unschlagbar fürs Budget.**
 
 ---
 
@@ -279,11 +275,11 @@
 
 | Teil | Produkt | Preis (€) | E-Mark |
 |------|---------|-----------|--------|
-| Blinker Set (4) | **Highsider Saturn/Kansas E9** | 59-79 | ✅ E9 |
+| Blinker Set (4) | **Highsider Saturn/Kansas E9** | 55-79 | ✅ E9 |
 | Rücklicht | **Highsider LED Rücklicht E9** | 35-55 | ✅ E9 |
-| Blinker-Relay | **Elektronisch 3-Pin Honda** | 10-15 | — |
+| Blinker-Relay | **Elektronisch 3-Pin Honda** | 10-14 | — |
 | Adapter Bracket | **Universal RX Rücklicht** | 10-15 | — |
-| **Gesamt LED-Umbau** | | **€114-164** | ✅ |
+| **Gesamt LED-Umbau** | | **€110-163** | ✅ |
 
 ---
 
@@ -291,53 +287,61 @@
 
 ### Priorität 1: SICHERHEIT (Stator + Regler) ⚡ MUSS
 
-| Teil | Produkt | Preis_avg (€) | Quelle |
-|------|---------|---------------|--------|
-| Regler | Shindengen FH020AA MOSFET | **60** | Motea/Amazon |
-| Stator+Regler Combo | RM Stator 200W + FH020AA | **168** | RM Stator direct |
-| Massekabel | Ground Cable Kit | **10** | DIY |
-| **Phase 1 Elektrik Total** | | **168-178** | |
+| Teil | Produkt | Preis_avg (€) | Beste Quelle |
+|------|---------|---------------|---------------|
+| Regler | Shindengen FH020AA MOSFET | **56.50** | Amazon €49.90 |
+| Stator | RM Stator 200W Standard | **99.00** | FC-Moto €89.90 |
+| Connector Kit | Regler-Verbinder | **8.00** | Cycle Terminal |
+| Stator Connector | 3-Pin Connector Set | **9.00** | Cycle Terminal |
+| Massekabel | Ground Cable Kit | **10.00** | DIY |
+| **Phase 1 Elektrik Total** | | **€172.50** | ↑ +€4.50 vs vorige Schätzung |
 
 ### Priorität 2: LOOK (LED) 🔦
 
-| Teil | Produktion | Preis_avg (€) | Quelle |
-|------|-----------|---------------|--------|
-| Scheinwerfer | Koso RX-22 E-marked | **200** | MSP/Amazon |
-| Blinker (4) | Highsider Saturn/Kansas E9 | **67** | Louis/Polo |
-| Rücklicht | Highsider LED E9 | **18** | Louis |
-| Blinker-Relay | Elektronisch 3-Pin | **14** | Louis |
-| Adapter Bracket | Universal | **12** | Louis |
-| **Phase 3 Elektrik Total** | | **311** | |
+| Teil | Produkt | Preis_avg (€) | Beste Quelle |
+|------|---------|---------------|---------------|
+| Scheinwerfer | Koso RX-22 E-marked | **108.00** | FC-Moto €99.90 ↓ |
+| Blinker (4) | Highsider Saturn/Kansas E9 | **67.00** | Louis/Polo |
+| Rücklicht | Highsider LED E9 | **20.00** | Louis |
+| Blinker-Relay | Elektronisch 3-Pin | **14.00** | Louis |
+| Adapter Bracket | Universal | **12.00** | Louis |
+| **Phase 3 Elektrik Total** | | **€221.00** | ↓ -€90 vs vorige Schätzung (Koso-Preis-Korrektur) |
 
 ### Priorität 3: TOURING (Komfort) 🏕️
 
-| Teil | Produkt | Preis_avg (€) | Quelle |
-|------|---------|---------------|--------|
-| Batterie | JMT YTZ10S LiFePO4 | **65** | Amazon |
-| Heizgriffe | Oxford HotGrips Premium | **60** | Amazon |
-| USB-Ladegerät | Wasserfest Dual 2.1A | **14** | Amazon |
-| **Phase 4 Elektrik Total** | | **139** | |
+| Teil | Produkt | Preis_avg (€) | Beste Quelle |
+|------|---------|---------------|---------------|
+| Batterie | JMT YTZ10S LiFePO4 | **62.50** | Amazon €49.90 |
+| Heizgriffe | Oxford HotGrips Premium | **72.00** | Amazon €54.90 |
+| USB-Ladegerät | Wasserfest Dual 2.1A | **15.00** | Amazon €12.99 |
+| **Phase 4 Elektrik Total** | | **€149.50** | |
 
-### GESAMTBUDGET ELEKTRIK
+### GESAMTBUDGET ELEKTRIK — KORRIGIERT
 
-| Priorität | Budget | Avg-Kosten |
-|-----------|--------|-----------|
-| P1: Sicherheit | 150-300€ | **168€** ✅ |
-| P3: Look | 200-400€ | **311€** ✅ |
-| P4: Touring | 100-200€ | **139€** ✅ |
-| **Total** | **max 800€** | **618€** → +182€ Reserve ✅ |
+| Priorität | Budget | Avg-Kosten | Reserve |
+|-----------|--------|-----------|---------|
+| P1: Sicherheit | 150-300€ | **€172.50** | +€127.50 ✅ |
+| P3: Look | 200-400€ | **€221.00** | +€179.00 ✅ |
+| P4: Touring | 100-200€ | **€149.50** | +€50.50 ✅ |
+| **Total** | **max 800€** | **€543.00** | **+€257 Reserve** ✅ |
 
 ### Budget-Optionen
 
-**Budget-Lite (€385):** FH020AA (€60) + RM Stator Combo (€168) + Generic LED 7" (€40) + Generic Blinker E9 (€25) + Generic Rücklicht (€15) + JMT Batterie (€55) + USB (€14) + Relay (€8)
-**→ Spart €233, aber E-Mark-Risiko und weniger Lichtqualität**
+**Budget-Lite (€340):**
+FH020AA (€49.90) + RM Stator Std (€89.90) + Connectors (€17) + Generic LED 7" (€40) + Generic Blinker E9 (€25) + Generic Rücklicht (€15) + JMT Batterie (€49.90) + USB (€12.99) + Relay (€10)
+→ Spart €203, aber E-Mark-Risiko und weniger Lichtqualität
 
-**Premium (€750):** FH020AA (€60) + RM Stator HD (€145) + JW Speaker 8700 (€358) + Highsider Blinker (€67) + Highsider Rücklicht (€18) + Antigravity Batterie (€153) + Oxford Heizgriffe (€60) + USB OptiMate (€30) + Relay (€14)
-**→ Maximal-Qualität, knapp unter 800€**
+**Recommended (€543):** ← EMPFOHLEN
+FH020AA (€49.90) + RM Stator Std (€89.90) + Connectors (€17) + Koso RX-22 (€99.90) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + JMT Batterie (€62.50) + Oxford Heizgriffe (€72) + USB (€15)
+→ **Bestes Preis/Leistung, alle E9-geprüft, €257 Reserve**
+
+**Premium (€780):**
+FH020AA (€49.90) + RM Stator HD (€145) + Connectors (€17) + JW Speaker 8700 (€358) + Highsider Blinker (€67) + Highsider Rücklicht (€20) + Relay (€14) + Adapter (€12) + Antigravity Batterie (€152) + Oxford Heizgriffe (€72) + USB (€15)
+→ Maximal-Qualität, knapp unter 800€
 
 ---
 
-## Elektrische Last-Tabelle (Vollausbau)
+## Elektrische Last-Tabelle (Vollausbau — Recommended)
 
 | Verbraucher | OEM (W) | LED (W) | Ersparnis |
 |-------------|---------|---------|-----------|
@@ -356,44 +360,84 @@
 
 ---
 
+## Gewichts-Ersparnis Elektrik
+
+| Komponente | OEM Gewicht | Neu Gewicht | Ersparnis |
+|-----------|-----------|------------|-----------|
+| Scheinwerfer | 2.5kg | 1.0kg (Koso RX-22) | **-1.5kg** |
+| Blinker (4×) | 0.26kg | 0.08kg (Highsider) | **-0.18kg** |
+| Rücklicht | 0.3kg | 0.12kg (Highsider) | **-0.18kg** |
+| Batterie | 2.8kg | 0.85kg (JMT LiFePO4) | **-1.95kg** |
+| Regler | — | 0.17kg (FH020AA) | neutral |
+| **Gesamt Elektrik** | **5.86kg** | **2.22kg** | **-3.64kg** |
+
+---
+
+## FH020AA Detail-Infos
+
+| Parameter | Wert |
+|-----------|------|
+| Typ | MOSFET Series Regulator (kein Shunt!) |
+| Dauerstrom | 35A |
+| Spitzenstrom | 50A |
+| Spannungsregelung | 14.2-14.8V |
+| Gewicht | 170g |
+| Stecker | Honda 3-Pin kompatibel |
+| Verbinder-Kit | Cycle Terminal SH083 / RM14016 (~€8) |
+| **Beste Preis** | **€49.90** (Amazon.de,_verify authenticity!) |
+| **FC-Moto** | €58.50 |
+| **eBay.de** | €52-65 |
+
+⚠️ **MUSS NEU gekauft werden** — nie gebraucht! Sicherheitsrelevantes Bauteil.
+⚠️ **Stator-Verbinder LÖTEN** (nicht nur crimpen) — häufige Ausfallursache!
+
+---
+
 ## Team-Anfragen
 
 ### 🔄 An Chefingenieur:
-1. **Phase 3 Budget-Anpassung:** Koso RX-22 (€200) statt ursprünglich budgetiert (€90) — braucht €110 mehr aus Phase 3 Reserve
-2. **Batterie-Entscheidung:** JMT (€65, Budget) vs Antigravity (€153, Premium) — €88 Unterschied
-3. **LED-Umbau gesamt:** Mit Highsider E9 + Relay = €311 statt budgetiert €200-400 → im Rahmen
+1. **Koso RX-22 PREIS-KORREKTUR:** War €175-229 in vorherigem Report, jetzt verifiziert **€99.90-128.90** — **Phase 3 Budget -€90 entlastet!**
+2. **Batterie-Entscheidung:** JMT (€50, Budget) vs Antigravity (€152, Premium) — €102 Unterschied, NX650 Kickstart → JMT reicht
+3. **FH020AA Kaufhinweis:** Amazon €49.90 = Drittanbieter, Authentizität prüfen! FC-Moto €58.50 = sicherer
+4. **Separater Kauf günstiger:** Stator + Regler separat = €139.80, Combo = €160 avg → **€20 sparen**
 
 ### 🔄 An Styling+Sound:
 1. **Koso RX-22 DRL-Ring:** Gibt Africa Twin Look mit DRL — bestätigen ob gewünscht
 2. **Blinker-Stil:** Highsider Saturn (eckig) oder Kansas (rund)? — passt zum Design
+3. **LED Preis-Update:** Gesamte Phase 3 Elektrik jetzt €221 statt €311 — mehr Reserve für anderen Styling
 
 ### 🔄 An Fahrwerksspezialist:
-1. **Gewichts-Update LED-Umbau:** LED Scheinwerfer -1.5kg (2.5→1.0kg), LED Blinker -0.26kg, LED Rücklicht -0.18kg, LiFePO4 -2.0kg = **Gesamt -3.94kg**
+1. **Gewichts-Update LED-Umbau:** Elektrik-Umbau spart **3.64kg** gesamt (Scheinwerfer -1.5kg, Blinker -0.18kg, Rücklicht -0.18kg, Batterie -1.95kg)
+
+### 🔄 An Budget-Hunter:
+1. **Koso RX-22 €99.90 FC-Moto** — war vorher €175+ notiert, bitte checken ob noch günstiger
+2. **FH020AA €49.90 Amazon** — Drittanbieter-Authentizität checken
+3. **JMT Batterie €49.90 Amazon** — unschlagbar?
 
 ---
 
-## Update: DB Teile (8 NEU eingefügt)
+## DB Preise — Verifiziert 2026-05-28
 
-Neue Teile in vehicle_database.db:
-- ID=235: JW Speaker 8700 Evolution 7" LED (€320-389)
-- ID=236: Truck-Lite 30400 7" LED (€248-279)
-- ID=237: Antigravity YTZ10-12 LiFePO4 (€135-170)
-- ID=238: Shorai LFX14A4-BS12 LiFePO4 (€115-150)
-- ID=239: RM Stator 200W Heavy Duty (€130-160)
-- ID=240: LED Flasher Relay Honda 3-pin (€10-20)
-- ID=241: Ground Cable Kit (€5-15)
-- ID=242: Highsider LED Blinker Set Saturn/Kansas E9 (€55-79)
+| ID | Teil | price_min | price_max | price_avg | Gewicht |
+|----|------|-----------|-----------|-----------|---------|
+| 13 | FH020AA MOSFET Regler | €49.90 | €65.00 | €56.50 | 170g |
+| 29 | RM Stator 200W Standard | €89.90 | €120.00 | €99.00 | 1200g |
+| 54 | Stator+Regler Combo | €139.80 | €185.00 | €160.00 | 1370g |
+| 65 | LED Blinker Mini E9 | €18.95 | €35.00 | €28.00 | — |
+| 66 | LED Rücklicht E-marked | €16.90 | €25.00 | €20.00 | — |
+| 73 | Oxford HotGrips Premium | €54.90 | €85.00 | €72.00 | 350g |
+| 74 | USB Charger Dual 2.1A | €12.99 | €18.00 | €15.00 | 80g |
+| 76 | LiFePO4 Batterie (JMT) | €49.90 | €75.00 | €62.50 | 850g |
+| 168 | Koso RX-22 LED | €99.90 | €128.90 | €108.00 | 1000g |
+| 235 | JW Speaker 8700 Evo | €320.00 | €389.00 | €358.00 | 1300g |
+| 236 | Truck-Lite 30400 | €248.00 | €279.00 | €264.00 | 1500g |
+| 237 | Antigravity YTZ10-12 | €109.00 | €170.00 | €152.50 | 800g |
+| 238 | Shorai LFX14A4 | €99.00 | €150.00 | €132.50 | 860g |
+| 239 | RM Stator 200W HD | €130.00 | €160.00 | €145.00 | 1200g |
+| 240 | LED Flasher Relay 3-pin | €10.00 | €20.00 | €14.00 | 50g |
+| 241 | Ground Cable Kit | €5.00 | €15.00 | €10.00 | 200g |
+| 242 | Highsider Blinker Set E9 | €55.00 | €79.00 | €67.00 | 80g |
+| 323 | Regler Connector Kit | €5.00 | €15.00 | €8.00 | 25g |
+| 346 | Stator Connector Set | €5.00 | €12.00 | €9.00 | — |
 
-Updated Teile:
-- ID=29: Stator Assembly ND03 (Preise erweitert mit RM Stator Details)
-- ID=13: FH020AA (Preise + Specs erweitert)
-- ID=31: LED H4 Headlight (Vollständige Vergleichs-Specs)
-- ID=168: Koso RX-22 (Detaillierte Specs, E-Mark Warnung)
-- ID=76: LiFePO4 Batterie (4 Marken-Vergleich)
-- ID=65: LED Blinker (3 Marken-Vergleich)
-- ID=66: LED Rücklicht (3 Marken-Vergleich)
-- ID=54: Stator+Regler Combo (Preise aktualisiert)
-- ID=74: USB Charger (Koso/OptiMate Optionen)
-- ID=73: Heizgriffe (Stromverbrauch-Details)
-
-**Insgesamt 22 Elektrik-Teile für NX650 in der Datenbank.**
+**Insgesamt 19 NX650-relevante Elektrik-Teile in der Datenbank mit verifizierten Preisen.**

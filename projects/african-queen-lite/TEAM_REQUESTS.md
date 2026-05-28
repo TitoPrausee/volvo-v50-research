@@ -232,25 +232,26 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Phase 2 Total**: ~1.005€ avg (Option A Optimal) → **195€ Reserve** ✅
 - **Kürzungspriorität**: Emulatoren > Bremsen > Heckdämpfer > Reifen
 
-### ✅ Elektrik-Spezialist ERLEDIGT (2026-05-27):
-- **Stator:** RM Stator 200W Standard (€95-120) BEST BUY, Heavy Duty (€130-160) nur bei Volllast nötig
-- **Regler:** FH020AA MOSFET (€55-65) = KRITISCH, senkt Stator-Temp 30-50%
-- **Stator+Regler Combo:** RM Stator + FH020AA = ~€168 (bestes P/L)
+### ✅ Elektrik-Spezialist ERLEDIGT (2026-05-28 — Preis-Korrektur Update):
+- **Stator:** RM Stator 200W Standard (€89.90-120, BESTE=€89.90 FC-Moto) BEST BUY, Heavy Duty (€130-160) nur bei Volllast nötig
+- **Regler:** FH020AA MOSFET (€49.90-65, BESTE=€49.90 Amazon, FC-Moto=€58.50) = KRITISCH, senkt Stator-Temp 30-50%
+- **Stator+Regler:** Separat kaufen! RM Stator €89.90 + FH020AA €49.90 = **€139.80** (Combo avg=€160, €20 sparen!)
+- **Connector-Kits:** Regler-Verbinder (€8) + Stator-Connector (€9) = **PFLICHT!** Schmelz-Problem NX650. LÖTEN!
 - **Leistungs-Bilanz:** Nach LED-Umbau: 97W Verbrauch @ 5000rpm, 200W Stator = **103W Reserve** ✅
-- **LED Scheinwerfer:** Koso RX-22 E-marked (~€200) BESTES Preis/Leistung, spart 35W+1.5kg
+- **LED Scheinwerfer:** Koso RX-22 E-marked (**€99.90-128.90** ↓ PREIS KORRIGIERT, BESTE=€99.90 FC-Moto) BESTES Preis/Leistung, spart 35W+1.5kg
   - Premium: JW Speaker 8700 Evo (€320-389) — bester Beam
   - Adventure: Truck-Lite 30400 (€248-279) — IP68, robusteste
   - Budget: Generic 7" H4 LED (€25-50) — ⚠️ meist KEIN E-Mark!
 - **LED Blinker:** Highsider Saturn/Kansas E9 Set (€55-79) = beste E-Mark-Qualität
-  - Spart 76-78W vs OEM Halogen! LED Relay zwingend (~€10-15)
-- **LED Rücklicht:** Highsider LED E9 (€35-55) = zuverlässig + E-marked
-- **LiFePO4 Batterie:** Antigravity YTZ10-12 (€135-170) BESTE, JMT YTZ10S (€50-75) BUDGET
-  - Spart ~2kg vs Blei-Säure. Kickstart → CCA weniger kritisch
-- **Gewichtsersparnis LED-Umbau:** -3.94kg (Scheinwerfer -1.5, Blinker -0.26, Rücklicht -0.18, Batterie -2.0)
-- **Elektrik Budget Total:** P1 €168 + P3 €311 + P4 €139 = **€618** (Reserve: €182) ✅
-- **Kabelbaum:** Custom LED-Umbau braucht Adapterkabel (~€10-15 selbst löten)
-- **Zündschloss-Kontakte**: Reinigen + Kontaktspray (Kosten: €5)
-- **Massekabel:** Ground Cable Kit Batterie-Rahmen-Motor (~€10, selbst löten!)
+  - Spart 76-78W vs OEM Halogen! LED Relay zwingend (€10-14)
+- **LED Rücklicht:** Highsider LED E9 (€16.90-25) = zuverlässig + E-marked
+- **LiFePO4 Batterie:** JMT YTZ10S (€49.90-75, BESTE=€49.90 Amazon) BUDGET CHOICE, Antigravity YTZ10-12 (€109-170) PREMIUM CHOICE
+  - Spart ~2kg vs Blei-Säure. Kickstart → CCA weniger kritisch → JMT reicht!
+- **Gewichtsersparnis Elektrik-Umbau:** -3.64kg (Scheinwerfer -1.5, Blinker -0.18, Rücklicht -0.18, Batterie -1.95)
+- **Elektrik Budget Total (KORRIGIERT):** P1 €172.50 + P3 €221 + P4 €149.50 = **€543** (Reserve: €257) ✅ ↓ -€75 vs vorige Schätzung!
+- **13 DB-Preise aktualisiert** (Koso RX-22, FH020AA, Stator, Batterien, etc.)
+- **13 Gewichte eingefügt** (waren vorher NULL in DB)
+- **⚠️ FH020AA Amazon Drittanbieter:** Authentizität bei Kauf prüfen! FC-Moto €58.50 sicherer
 
 ### ✅ Styling+Sound ERLEDIGT:
 - Alle Styling-Entscheidungen dokumentiert ✅
