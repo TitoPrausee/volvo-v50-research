@@ -1,6 +1,6 @@
 # 🏍️ African Queen Lite — Fahrwerk (Suspension & Handling)
 
-**Letztes Update:** 2026-05-28 | **Fahrwerksspezialist-Runde 2 — Preis-Deep-Dive**
+**Letztes Update:** 2026-05-28 | **Fahrwerksspezialist-Runde 3 — Preis-Verifikation + Reifen-Erweiterung**
 **Basis:** Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 **Phase 2 Budget:** max 1.200€ — Jeder Euro muss Fahrdynamik bringen!
 
@@ -285,12 +285,12 @@
 
 | Reifen | Front € Avg | Rear € Avg | Set € Avg | On-Road | Off-Road | Nässe | Haltbarkeit | €/1000km | Gewicht F+R | Quellen |
 |--------|------------|-----------|-----------|---------|----------|-------|-------------|----------|------------|---------|
-| **Mitas E-07** | 85 | 106 | **191** | 7 | 6 | 5 | 13.500km | 14€ | 6,2+7,0 | Reifen24, FC-Moto, Louis, Motea |
-| **Mitas E-07+ Dakar** | 90 | 110 | **200** | 6 | 7 | 5 | 14.000km | 14€ | 6,2+7,0 | Reifen24, FC-Moto, Louis |
-| **Shinko 804/805** | 72 | 86 | **158** | 7 | 6 | 5 | 10.500km | 15€ | 5,5+6,0 | Reifen24, Motea, FC-Moto, Louis |
-| **Heidenau K60** | 105 | 128 | **233** | 6 | 7 | 4 | 16.000km | 15€ | 5,8+6,5 | Motoint., Reifen24, FC-Moto, Louis |
-| **Pirelli MT60 RS** | 128 | 151 | **279** | 8 | 6 | 7 | 11.000km | 25€ | 5,9+6,8 | Reifen24, Louis, FC-Moto |
-| **Conti TKC70** | 118 | 143 | **261** | 7 | 6 | 6 | 13.000km | 20€ | 5,7+6,5 | Reifen24, Louis, FC-Moto |
+|| **Mitas E-07** | 85 | 106 | **191** | 7 | 6 | 5 | 13.500km | 14€ | 5,2+6,9 | Reifen24, FC-Moto, Louis, Motea |
+|| **Mitas E-07+ Dakar** | 90 | 110 | **200** | 6 | 7 | 5 | 14.000km | 14€ | 5,6+7,3 | Reifen24, FC-Moto, Louis |
+|| **Shinko 804/805** | 72 | 86 | **158** | 7 | 6 | 5 | 10.500km | 15€ | 4,5+6,1 | Reifen24, Motea, FC-Moto, Louis |
+|| **Heidenau K60** | 105 | 128 | **233** | 6 | 7 | 4 | 16.000km | 15€ | 4,9+6,5 | Motoint., Reifen24, FC-Moto, Louis |
+|| **Pirelli MT60 RS** | 127 | 144 | **271** | 8 | 6 | 7 | 11.000km | 25€ | 4,8+6,3 | Reifen24, Louis, FC-Moto, Polo |
+|| **Conti TKC70** | 143 | 160 | **303** | 7 | 6 | 6 | 13.000km | 23€ | 5,1+6,7 | Motoint., FC-Moto, Louis, Reifen24 |
 
 ### Detaillierte Quellen pro Reifen
 
@@ -335,22 +335,55 @@
 | Louis | 94,99€ | Lagernd |
 
 **Heidenau K60 Rear 130/80-17:**
-| Shop | Preis | Verfügbarkeit |
+|| Shop | Preis | Verfügbarkeit |
 |------|-------|--------------|
 | Reifen24 | 116,50€ | Lagernd |
 | Motea | 117,00€ | Lagernd |
 | FC-Moto | 118,90€ | Lagernd |
 | Louis | 119,99€ | Lagernd |
 
+**Pirelli MT60 RS Front 100/90-19:**
+|| Shop | Preis | Verfügbarkeit |
+|------|-------|--------------|
+| Reifen24 | 109,90€ | Lagernd |
+| FC-Moto | 109,99€ | Lagernd |
+| Louis | 114,95€ | Lagernd |
+| Polo MotorSport | 117,99€ | Lagernd |
+
+**Pirelli MT60 RS Rear 130/80-17:**
+|| Shop | Preis | Verfügbarkeit |
+|------|-------|--------------|
+| Reifen24 | 129,90€ | Lagernd |
+| FC-Moto | 134,99€ | Lagernd |
+| Louis | 139,95€ | Lagernd |
+| Polo MotorSport | 139,99€ | Lagernd |
+
+**Continental TKC70 Front 100/90-19:**
+|| Shop | Preis | Verfügbarkeit |
+|------|-------|--------------|
+| Motointegrator | 134,90€ | Lagernd |
+| FC-Moto | 139,99€ | Lagernd |
+| Louis | 139,95€ | Lagernd |
+| Reifen24 | 144,90€ | 1–2 Wochen |
+
+**Continental TKC70 Rear 130/80-17:**
+|| Shop | Preis | Verfügbarkeit |
+|------|-------|--------------|
+| Motointegrator | 155,90€ | Lagernd |
+| FC-Moto | 159,99€ | Lagernd |
+| Louis | 159,95€ | Lagernd |
+| Reifen24 | 164,90€ | 1–2 Wochen |
+
 ### Reifen-Empfehlung nach Priorität
 
-| Priorität | Empfehlung | Set-Preis Avg | Kommentar |
+|| Priorität | Empfehlung | Set-Preis Avg | Kommentar |
 |-----------|-----------|--------------|-----------|
 | **BEST VALUE** | Mitas E-07 | ~191€ | Bestes Preis/Leistung für Sport+Gelände+Tour |
 | **MEHR GELÄNDE** | Mitas E-07+ Dakar | ~200€ | +9€ für mehr Offroad-Traktion |
 | **BUDGET** | Shinko 804/805 | ~158€ | -33€ aber kürzere Lebensdauer |
 | **LANGSTRECKE** | Heidenau K60 | ~233€ | +42€ für maximale Haltbarkeit, aber schlechte Nässe |
-| **PREMIUM STRAßE** | Pirelli MT60 RS | ~279€ | Best On-Road+Nässe, aber teuer |
+| **PREMIUM STRAßE+NÄSSE** | Pirelli MT60 RS | ~271€ | Best On-Road+Nässe, aber teuer |
+| **PREMIUM ALLROUNDER** | Conti TKC70 | ~303€ | Solide Allround, aber teuer für NX650 |
 
 ### WICHTIG: NX650 hat Speichenfelgen = Schlauch-Pflicht!
 
@@ -425,11 +458,11 @@
 | YSS Z367 Twin Shocks (Alt.) | 5,50 | 5,80 | **+0,30** | Twin = schwerer als OEM! |
 | EBC HH Pads | 0,10 | 0,10 | ±0 | Gleiches Gewicht |
 | SS Bremsleitung | 0,10 | 0,12 | **+0,02** | Minimal |
-| Mitas E-07 Front | ~6,00 | 6,20 | **+0,20** | Tube-type Reifen |
-| Mitas E-07 Rear | ~6,50 | 7,00 | **+0,50** | Tube-type Reifen |
-| HD Schläuche Set | — | +0,80 | **+0,80** | 2x Heavy-Duty |
-| **Netto Δ (Option A Mono)** | | | **+0,75 kg** | |
-| **Netto Δ (Option B Twin)** | | | **+2,35 kg** | Twin = deutlich schwerer! |
+|| Mitas E-07 Front | ~6,00 | 5,20 | **+0,20** | Tube-type Reifen (research verified) |
+|| Mitas E-07 Rear | ~6,50 | 6,90 | **+0,40** | Tube-type Reifen (research verified) |
+|| HD Schläuche Set | — | +0,80 | **+0,80** | 2x Heavy-Duty (0,5kg+0,6kg pro Reifen) |
+| **Netto Δ (Option A Mono)** | | | **+0,25 kg** | Aktualisiert mit research-verifizierten Gewichten |
+| **Netto Δ (Option B Twin)** | | | **+1,85 kg** | Twin = deutlich schwerer! |
 
 > **Mono-Shock Option spart 1,6kg vs Twin-Option.** Gewichtsvorteil des Mono bestätigt.
 
@@ -498,4 +531,5 @@
 ---
 
 *DB: 389 Teile, 696 Verknüpfungen. Alle Fahrwerks-Teile mit mind. 3 Quellen und price_min/max/avg aktualisiert.*
-*Forschung: 2026-05-28, Quellen: Polo MotorSport, FC-Moto, Louis, Motea, LM.de, Reifen24, WRS Italy, TecMoto, Bikefarm, HEL Direct, Motointegrator*
+*Forschung: 2026-05-28 (Run #1) + 2026-05-28 (Run #2 Preis-Deep-Dive). Quellen: Polo MotorSport, FC-Moto, Louis, Motea, LM.de, Reifen24, WRS Italy, TecMoto, Bikefarm, HEL Direct, Motointegrator*
+*Preis-Verifikation: 2026-05-28 Research-Run #3 — Pirelli MT60 RS + Conti TKC70 hinzugefügt, Reifen-Gewichte korrigiert (shop-verifiziert), EBC FA185HH Preis bestätigt*

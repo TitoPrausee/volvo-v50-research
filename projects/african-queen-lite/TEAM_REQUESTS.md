@@ -125,6 +125,28 @@ Jeder Mode hat 5 Interpolationspunkte (RPM → Ventilposition %):
 - **6 neue Teile (Run #2):** Bundle-Deals (Ketten-Set, Mitas Set, RT Fork Kit), Schweißarbeiten, Regler-Verbinder-Kit, Stator-Connector
 - **Keine Performance-Teile** in DB fuer NX650 eingefuegt
 
+### FAHRWERK-SPEZIALIST UPDATE — 2026-05-28 (Run #3)
+
+**Neue Erkenntnisse:**
+- **Reifen-Gewichte shop-verifiziert:** Mitas E-07 Front 5.2kg (statt 6.2kg), Rear 6.9kg (statt 7.0kg)
+- **Pirelli MT60 RS + Conti TKC70** zu Vergleich hinzugefügt mit 4 Quellen je
+- **Netto-Gewichtsersparnis korrigiert:** Option A Mono = +0.25kg (statt +0.75kg), Option B Twin = +1.85kg (statt +2.35kg)
+- **EBC FA185HH Preise verifiziert:** Min 21.90€ (FC-Moto), Max 42.60€, Avg 27€
+- **Bremsen-Budget bleibt unschlagbar:** 93€ avg für 30-40% Bremsverbesserung
+- **YSS Z-366 Mono+Blech** bleibt Empfehlung: 379€ avg, bestes Preis/Leistung
+- **Reifen-Tipp:** Conti TKC70 bei 303€ Set-Preis teuer für NX650, Mitas E-07 bleibt Best Value
+
+**Budget-Guard Status (RUN #3 — aktualisiert):**
+
+| Phase | Geplant | Budget | Reserve | Status |
+|-------|---------|--------|---------|--------|
+| 1: Zuverlässigkeit | **EUR470** | EUR800 | **+EUR330 (41%)** | OK |
+| 2: Fahrwerk | **EUR1.005** | **EUR1.200** | **+EUR195 (16%)** | ✅ Verifiziert Run #3 |
+| 3: Africa Twin Look | EUR688 | EUR1.000 | +EUR312 (31%) | OK |
+| 4: Touring-Komfort | EUR187 | EUR800 | +EUR613 (77%) | OK |
+| 5: Reserve | — | EUR500 | +EUR500 | Puffer |
+| **Total** | **EUR2.350** | **EUR4.300** | **+EUR1.950** | OK |
+
 ### Budget-Guard Status (VERIFIZIERT 2026-05-28 — Run #2)
 KEINE Phase ueberschritten!
 
