@@ -1,8 +1,9 @@
-# 🏎️ Volvo V50 2.4i Stealth Rebuild — Fahrwerks-Report
+# 🏎️ Volvo V50 2.4i Stealth Rebuild — Fahrwerks-Report v2
 
-**Datum**: 2026-05-28  
+**Datum**: 2026-05-28 (aktualisiert v2)  
 **Phase 2 Budget**: max 1.200€ für Fahrwerk  
-**STEALTH-Philosophie**: -30mm MAX, TÜV-Pflicht, E-Nummer, komfortabel, unauffällig
+**STEALTH-Philosophie**: -30mm MAX, TÜV-Pflicht, E-Nummer, komfortabel, unauffällig  
+**⚠️ KRITISCHE KORREKTUR**: Ferodo DS2500 = KEIN ECE R90 = STRASSENVERKEHRS-ILLEGAL!
 
 ---
 
@@ -17,6 +18,7 @@
 | ❌ | H&R Sport | 29249-1 | **-40mm** ✗ | ✅ ABE | €200-260 | — | ZU TIEF! |
 | ⚠️ | Weitec | W-21001 | -30mm | ✅ ABE | €150-190 | AUT | H&R-Schwester |
 | ⚠️ | FK Automotive | FK-01001 | -30mm | ✅ ABE | €140-170 | AUT | Billig-TÜV |
+| 🆕 | ST Suspensions ST-X | — | Verstellbar -30 bis -50mm | ✅ ABE | €750-850 | KW/Händler | Coilover-Alternative |
 
 **⚠️ KRITISCHE INFO EIBACH TEILENUMMER**:
 - **2.4i NA**: `E10-41-001-05-22` (SOFTER Feder, leichterer Motor)
@@ -24,6 +26,13 @@
 - **NIEMALS T5-Federn auf 2.4i** = zu hohe Sitzhöhe, falsche Rate!
 
 **AMZ €149 Warnung**: Preis deutlich unter Eibach.de Listenpreis (~€280). Originalverpackung + Teilegutachten verlangen!
+
+**🆕 NEU: ST Suspensions ST-X Coilover**:
+- KW-Tochtermarke, verstellbare Höhe (-30 bis -50mm einstellbar)
+- ABE inklusive, kann auf -30mm eingestellt werden
+- Preis: €750-850 — ÜBER Budget für Phase 2 allein
+- Vorteil: Wenn später mehr Tieferlegung gewünscht, einstellbar
+- Nachteil: Teurer als Feder+Dämpfer-Kombi, komfortabel aber nicht ganz Eibach-Niveau
 
 **Einbau-Hinweise V50 2.4i**:
 - Federspanner VORNE erforderlich (enge Federbrüche)
@@ -39,9 +48,9 @@
 
 | # | Teil | Teilenummer | Typ | TÜV | Preis 4er-Set | Komfort | Sport | Urteil |
 |---|------|-------------|-----|-----|--------------|---------|-------|--------|
-| 🥇 | **KONI Spec.Active (Gelb)** | 86-2636SP4 / 80-2629SP4 | Frequenz-selektiv | ✅ | **€520-650** | 9/10 | 8/10 | BEST für Eibach + Komfort |
-| 🥈 | **Bilstein B6 Sport** | 35-132577/578 + 24-132579 | Monotube HP-Gas | ✅ | **€440-570** | 7/10 | 9/10 | In Budget, sportlicher |
-| 3 | **KONI Special (Rot)** | 86-2636SP3 / 80-2629SP3 | Manuell einstellbar | ✅ | **€300-420** | 6/10 | 8/10 | Budget, muss eingestellt werden |
+| 🥇 | **KONI Spec.Active (Gelb)** | 86-2636SP4 / 80-2629SP4 | Frequenz-selektiv | ✅ Teilegutachten | **€520-650** | 9/10 | 8/10 | BEST für Eibach + Komfort |
+| 🥈 | **Bilstein B6 Sport** | 35-132577/578 + 24-132579 | Monotube HP-Gas | ✅ Teilegutachten | **€440-570** | 7/10 | 9/10 | In Budget, sportlicher |
+| 3 | **KONI Special (Rot)** | 86-2636SP3 / 80-2629SP3 | Manuell einstellbar | ✅ Teilegutachten | **€300-420** | 6/10 | 8/10 | Budget, muss eingestellt werden |
 | ❌ | Bilstein B4 | 19-132575/576/580 | OEM-Ersatz | ✅ | €250-350 | 2/10* | 1/10* | **FALSCH für -30mm!** |
 | ❌ | Sachs OEM | 110 116/117, 170 561 | OEM-Ersatz | — | €180-300 | 2/10* | 1/10* | **FALSCH für -30mm!** |
 
@@ -56,10 +65,14 @@
 | Mit Eibach -30mm | Perfekt abgestimmt | Explizit für Sportfedern bis -40mm |
 | Preis | €520-650 ⚠️ über Budget | €440-570 ⚠️ grenzwertig |
 | Stealth-Faktor | Höher (weicher Alltags-Fahrwerk) | Mittel (sportlich-fest) |
+| TÜV-Eintragung | Teilegutachten liegt bei → Routine | Teilegutachten liegt bei → Routine |
+| **⚠️ TÜV-IMPORTANT** | Muss mit Federn zusammen eingetragen werden (§19.3) | Muss mit Federn zusammen eingetragen werden (§19.3) |
 
 **EMPFEHLUNG**: KONI Yellow wenn Budget ~€550 möglich → bester Komfort. Bilstein B6 bei striktem Budget → sportlicher, aber immer noch gut.
 
 **⚠️ B6 ist NICHT für Standardhöhe!** B6 entwickelt sich für Sportfedern -30 bis -40mm. Mit Originalfedern => zu hart.
+
+**TÜV-TIPP**: Eibach + KONI/Bilstein PAKET eintragen = 1x Prüfung = €80-150 gesamt. Einzeln = €50-100 pro Achse extra!
 
 ---
 
@@ -82,24 +95,35 @@
 
 ---
 
-### 4. BREMSBELÄGE — HH-Compound
+### 4. BREMSBELÄGE — ECE R90 KONFORM (KEIN DS2500!)
+
+**⚠️ KRITISCHE KORREKTUR**: Ferodo DS2500 hat **KEIN ECE R90** und ist **STRASSENVERKEHRS-ILLEGAL** in Deutschland! Nicht eintragbar ohne teure Einzelabnahme (§21). Für STEALTH = NUR ECE R90 Beläge!
 
 | # | Teil | Compound | Staub | Kaltbiss | TÜV | Preis v+h | Urteil |
 |---|------|---------|-------|---------|-----|----------|--------|
-| 🥇 | **Ferodo DS2500** | Sintered HH | Mittel-Hoch | **Exzellent** | ✅ ABE | €165-215 (v+h) | BEST für Straße |
-| 🥈 | **ATE Ceramic** | Ceramic HH | **Sehr Niedrig** | Mittel (Aufwärmphase) | ✅ ABE | €85-106 (v+h) | Low-Dust-Wahl |
-| 3 | TRW GDB1805/1840 | OE-Qualität | Niedrig | Gut | ✅ | €65-85 (v+h) | Budget OK |
-| 4 | EBC Greenstuff | Aramid/Kevlar | Mittel | Gut | ❌ Kein TÜV | €100-120 | Vermeiden in DE |
-| 5 | Brembo P85042 | Ceramic | Mittel | Gut | ✅ | €64-100 | OK Alternative |
+| 🥇 | **ATE Ceramic** | Ceramic HH | **Sehr Niedrig** | Mittel (Aufwärmphase) | ✅ ECE R90 | €85-106 (v+h) | **Low-Dust + Legal + Komfort** |
+| 🥈 | **TRW GDB1805/1840** | OE-Qualität | Niedrig | Gut | ✅ ECE R90 | €65-85 (v+h) | **Beste Preis-Leistung** |
+| 3 | Brembo P85042 | Ceramic | Mittel | Gut | ✅ ECE R90 | €64-100 (v) | OK Alternative |
+| ❌ | **Ferodo DS2500** | Sintered HH | Mittel-Hoch | Exzellent | ❌ **KEIN ECE R90** | €165-215 (v+h) | **ILLEGAL auf Straße!** |
+| ❌ | EBC Greenstuff | Aramid/Kevlar | Mittel | Gut | ❌ Kein TÜV | €100-120 | Vermeiden in DE |
 
 **Teilenummern V50 2.4i**:
 
-| Position | Ferodo | ATE Ceramic | TRW | Brembo |
-|----------|--------|------------|-----|--------|
-| Vorne (316mm) | FCP1859H | 13.0460-7213.2 | GDB1805 | P85042 |
-| Hinten (302mm) | FCP1883H | 13.0460-7222.2 | GDB1840 | — |
+| Position | ATE Ceramic | TRW | Brembo | Ferodo (NUR RENNSTRECKE!) |
+|----------|------------|-----|--------|--------------------------|
+| Vorne (316mm) | 13.0460-7213.2 | GDB1805 | P85042 | FCP1859H ❌ |
+| Hinten (302mm) | 13.0460-7222.2 | GDB1840 | — | FCP1883H ❌ |
 
-**Ferodo DS2500 = EMPFEHLUNG**: Bester Kaltbiss (sofort Bremskraft von Haus auf), TÜV legal. Staub wird toleriert — 17" Felgen sind einfach zu reinigen.
+**EMPFEHLUNG**:
+- **Komfort-STEALTH**: ATE Ceramic = wenig Staub, ECE R90 legal, guter Alltagsbiss
+- **Budget-STEALTH**: TRW GDB1805/1840 = ECE R90, eintragungsfrei, bester Preis
+- **❌ Ferodo DS2500**: Rennsport-belag, KEIN ECE R90 = ILLEGAL bei AU/TÜV → sofortiger Mangel!
+
+**Warum ECE R90 wichtig**:
+- ECE R90 = UN-ECE Regulation No. 90 = europäischer Standard
+- ECE R90 Beläge = eintragungsfrei in DE = kein TÜV-Aufwand
+- Rennsport-Beläge (DS2500, EBC Yellowstuff) = §19.3 Eintragung nötig = €80-150 TÜV
+- **STEALTH-Konsequenz**: Rennsport-Beläge bei AU/TÜV = sofortiger Mangel wenn nicht eingetragen!
 
 ---
 
@@ -117,11 +141,11 @@
 | 3 | TRW | DF6504S (v) / DF6505S (h) | Glatt | ✅ | €45-60 / €35-48 | €160-216 | Günstigste Option |
 | 4 | Brembo | 09.A825.11 (v) / 08.A825.11 (h) | Glatt | ✅ | €65-85 / €50-65 | €230-300 | Teuer, OK |
 
-**Gebohrt vs. Geriffelt — TÜV**:
-- ✅ **Geriffelt (Slotted)**: TÜV-legal bei gleicher OEM-Größe — Zimmermann Sport hat Gutachten
-- ✅ **Gerippt (Ribbed)**: Zimmermann Sportribbel = umlaufende Rillen — **TÜV legal**
+**⚠️ Gebohrt vs. Geriffelt — TÜV-KLÄRUNG**:
+- ✅ **Geriffelt (Slotted/Ribbed)**: TÜV-legal bei gleicher OEM-Größe — Zimmermann Sportribbel hat Gutachten
 - ❌ **Gebohrt (Cross-drilled)**: Meistens **NICHT TÜV-legal** auf P1, keine ABE. Risiko: Rissbildung an Löchern!
-- **Zimmermann Sportribbel ist die STEALTH-Lösung**: Beschichtet gegen Rost, dezente Rillen, OEM-Durchmesser, TÜV ABE
+- **Zimmermann Sportribbel = STEALTH-Lösung**: Beschichtet gegen Rost, dezente Rillen, OEM-Durchmesser, TÜV ABE
+- **Zimmermann Coat Z (nur beschichtet, keine Rillen)**: Alternative wenn komplett unauffällig gewünscht
 
 ---
 
@@ -147,6 +171,7 @@
 | 🥇 | **SKF Vorne** | VKBA 6813 | Volvo 30742277 | OEM-Niveau | €52-72 | KAUFEN — safety-critical! |
 | 🥇 | **SKF Hinten** | VKBA 6819 | Volvo 30742278 | OEM-Niveau | €38-52 | KAUFEN |
 | ✅ | FAG Vorne | 713 6273 30 | Volvo 30742277 | = SKF | €48-65 | Alternative OK |
+| ✅ | FAG Hinten | 713 6274 30 | Volvo 30742278 | = SKF | €35-45 | Alternative OK |
 | ❌ | Febi | 27896/27910 | — | Mittel | €25-35 | Nur bei knapper Kasse |
 | ❌❌ | Meyle/RIDEX/AUGROS | — | — | **Schlecht** | €15-25 | **NIEMALS!** Ausfall vor 50tkm |
 
@@ -155,6 +180,11 @@
 **SKF+FAG Gesamt vorne+hinten = €180-248 (4 Stück)**
 
 ⚠️ Vorne: McPherson-Federbeinlast → hoher Druck auf Lager. Billiglager fallen VORNE schneller aus! Nur SKF/FAG.
+
+**🆕 Preis-Update (Mai 2026)**:
+- SKF VKBA 6813: AMZ €23-47 ⚠️ (Versandkosten prüfen!), AUT €52-65, Fachhandel €55-72
+- SKF VKBA 6819: AMZ €20-35 ⚠️ (Versandkosten prüfen!), AUT €38-48, Fachhandel €38-52
+- FAG Alternativen: ~€5-8 günstiger pro Stück als SKF
 
 ---
 
@@ -173,29 +203,39 @@
 
 **TÜV-Poly-Regel**: SuperPro = einzige TÜV-zertifizierte Poly-Buschmarke für P1. Powerflex = keine ABE → Einzelabnahme erforderlich (€200-400).
 
+**🆕 Lemförder Preis-Update (Mai 2026)**:
+- Lemförder 37472 01 (links): AMZ ~€27-40 ⚠️ (prüfen ob komplettarm!), AUT €95-130, Fachhandel €90-140
+- Lemförder 37473 01 (rechts): AMZ ~€28-47 ⚠️, AUT €95-130, Fachhandel €90-140
+- ⚠️ AMZ zeigt oft nur Buchsen, nicht Komplettarme! Teilenummer verifizieren!
+
+**🆕 SuperPro SPF3332K Preis-Update**:
+- AMZ: €88-220 (Preis schwankt stark je nach Verkäufer)
+- Fachhandel: €110-150
+- TÜV ABE: ✅ Bestätigt für P1 Plattform
+
 ---
 
-## 💰 BUDGET-KALKULATION Phase 2 Fahrwerk
+## 💰 BUDGET-KALKULATION Phase 2 Fahrwerk (Aktualisiert Mai 2026)
 
 ### Option A: KOMFORT-STEALTH (maximale Qualität, über Budget)
 
 | Komponente | Teil | Preis (avg) |
 |-----------|------|-----------|
 | Federn | Eibach Pro-Kit E10-41-001-05-22 | €210 |
-| Dämpfer | KONI Special Active (Gelb) | €520 |
+| Dämpfer | KONI Spec.Active (Gelb) | €520 |
 | Domlager | Febi 37389 (Paar) | €76 |
 | Stabilager | TRW JTS1330 (Paar) | €44 |
 | Stabi-Links | Meyle HD + Febi (v+h) | €53 |
-| Bremsbeläge | Ferodo DS2500 vorne + hinten | €180 |
+| Bremsbeläge | ATE Ceramic vorne + hinten | €104 |
 | Bremsscheiben | Zimmermann Sportribbel v+h (4 St.) | €236 |
 | SS-Leitungen | HEL Performance 4-Leitung | €100 |
 | Radlager | SKF vorne + hinten (4 St.) | €214 |
 | Querlenker | Lemförder Komplettarme (Paar) | €230 |
 | Bremsflüssigkeit | ATE TYP200 DOT4 | €12 |
 | Achseinstellung | 4-Rad | €100 |
-| **TOTAL** | | **€1.975** |
+| **TOTAL** | | **€1.899** |
 
-> ⚠️ Überschreitet Phase 2 Budget (€1.200) um ~€775!
+> ⚠️ Überschreitet Phase 2 Budget (€1.200) um ~€699!
 
 ### Option B: BUDGET-STEALTH (im Budget, gute Qualität)
 
@@ -236,6 +276,34 @@
 
 > Immer noch knapp über Phase 2. Dämpfer können ggf. auf Phase 3 verschoben werden wenn aktuelle OK sind.
 
+### 🆕 Option D: PHASEN-SPLIT (Empfehlung für striktes €1.200 Budget)
+
+**Phase 2a — Safety First (€600-800)**: Bremsen + Radlager + SS-Leitungen
+| Komponente | Teil | Preis |
+|-----------|------|-------|
+| Bremsbeläge | TRW GDB1805/1840 v+h | €75 |
+| Bremsscheiben | TRW v+h (4 St.) | €160 |
+| SS-Leitungen | HEL Performance 4-Leitung | €100 |
+| Radlager | SKF vorne+hinten (4 St.) | €214 |
+| Bremsflüssigkeit | ATE TYP200 DOT4 | €12 |
+| Achseinstellung | 4-Rad | €100 |
+| **Phase 2a TOTAL** | | **€661** |
+
+**Phase 2b — Fahrwerk (€500-600)**: Federn + Dämpfer + Domlager
+| Komponente | Teil | Preis |
+|-----------|------|-------|
+| Federn | Eibach Pro-Kit E10-41-001-05-22 | €210 |
+| Dämpfer | KONI Special Active (Gelb) | €520 |
+| Domlager | Febi 37389 (Paar) | €76 |
+| Stabilager | TRW JTS1330 (Paar) | €44 |
+| Stabi-Links | Meyle HD + Febi (v+h) | €53 |
+| Achseinstellung | 4-Rad (nach Federn) | €100 |
+| **Phase 2b TOTAL** | | **€1.003** |
+
+> ⚠️ Phase 2a + 2b = €1.664 — wenn an einem Stück gemacht, KONI Yellow evtl. auf Phase 3 schieben.
+> 💡 Mit Vogtland + Bilstein B6 statt Eibach + KONI: Phase 2b = ~€950, Gesamt = ~€1.611
+> 💡 Dämpfer aufschieben wenn aktuelle noch OK: Phase 2a + Federn + Kleinteile = ~€1.050
+
 ---
 
 ## 🔧 EINBAU-HINWEISE V50 2.4i
@@ -250,6 +318,7 @@
 8. **4-Rad-Achseinstellung NACH Einbau**: €80-120, V50 Multilink hinten justierbar
 9. **Settling**: 2-4 Wochen bis Endhöhe erreicht, dann erneut messen
 10. **TÜV-Anmeldung**: ABE-Dokumente von Eibach/Vogtland + HEL mitnehmen → Eintragung ohne Einzelprüfung
+11. **KONI + Eibach zusammen eintragen**: Spart €50-100 TÜV-Kosten!
 
 ---
 
@@ -262,10 +331,12 @@
 | Dämpfer KONI/Bilstein | Teilegutachten | ✅ |
 | Bremsscheiben Zimmermann | ABE | ✅ |
 | SS-Leitungen HEL | TÜV-Zertifikat | ✅ |
-| Bremsbeläge Ferodo | ECE R90 | ✅ |
+| Bremsbeläge TRW/ATE | ECE R90 | ✅ eintragungsfrei! |
+| **Bremsbeläge Ferodo DS2500** | **❌ KEIN ECE R90** | **❌ ILLEGAL!** |
 | Radlager SKF | E-Kennzeichnung | ✅ |
 | Stabis Estoni | ABE (falls installiert) | ✅ |
 | Querlenker Lemförder | OEM-Teilenummer | ✅ |
+| SuperPro Poly-Buchsen | ABE SPF3332K | ✅ |
 
 ---
 
@@ -278,8 +349,25 @@
 | Gebohrte Bremsscheiben | Kein TÜV auf P1, Rissgefahr |
 | Powerflex Poly-Buchsen | Keine ABE = Einzelabnahme €200-400 |
 | IPD Stabis (rot) | Kein TÜV für DE, rote Pulverbeschichtung |
+| **Ferodo DS2500** | **KEIN ECE R90 = STRASSENVERKEHRS-ILLEGAL!** |
 | EBC Greenstuff | Kein TÜV in EU |
 | Billig-Radlager (Meyle/RIDEX) | Ausfall vor 50tkm |
 | Sachs OEM Dämpfer | Nicht für -30mm geeignet |
 | Bilstein B4 | Nicht für -30mm geeignet |
 | T5-Federn auf 2.4i | Falsche Federkonstante + Sitzhöhe |
+| KONI/Bilstein ohne Federn | B6 mit OEM-Härte = zu hart, B4 gar nicht |
+
+---
+
+## 📝 ÄNDERUNGEN v1 → v2
+
+1. **⚠️ KRITISCH**: Ferodo DS2500 als STRASSENVERKEHRS-ILLEGAL markiert (kein ECE R90)
+2. **Neu**: ATE Ceramic als Empfehlung #1 (low-dust, ECE R90, legal, komfortabel)
+3. **Neu**: TRW GDB1805/1840 als Budget-Empfehlung (ECE R90, eintragungsfrei)
+4. **Neu**: ST Suspensions ST-X Coilover als Alternative erwähnt
+5. **Neu**: Phase 2a/2b Split-Option für striktes Budget
+6. **Neu**: Lemförder AMZ-Preiswarnung (oft nur Buchsen, nicht Komplettarme)
+7. **Neu**: SuperPro SPF3332K Preis-Update und TÜV ABE Bestätigung
+8. **Neu**: Radlager AMZ-Preiswarnung (Versandkosten prüfen!)
+9. **Korrektur**: Zimmermann Sportribbel TÜV-Klärung (geriffelt = TÜV OK, gebohrt = nicht OK)
+10. **Korrektur**: Bilstein B6 Teilegutachten-Status ( Routine-Eintragung, Einzelabnahme nicht nötig wenn mit Federn zusammen angemeldet)
