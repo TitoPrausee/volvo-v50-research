@@ -455,6 +455,155 @@ msg.signals = [
 ]
 MESSAGE_DEFINITIONS[0x418] = msg
 
+# --- UNVERIFIED CAN Messages (from community sources — NEED PHYSICAL VERIFICATION) ---
+# These IDs were found in Volvo P1 community forums and need to be confirmed
+# with actual CAN bus sniffing on a V50 2.4i.
+# DO NOT rely on these until verified! Use --sniff mode to validate.
+
+# 0x0D4 (212) - ABS Wheel Speed FL/FR (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0D4, name="ABS Wheel Speed FL/FR", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Byte 0-1: FL, Byte 2-3: FR (km/h×100)",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION — community source"
+)
+msg.signals = [
+    CANSignalDef("wheel_speed_fl", 0, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "Front-left wheel speed [UNVERIFIED]"),
+    CANSignalDef("wheel_speed_fr", 16, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "Front-right wheel speed [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0D4] = msg
+
+# 0x0D5 (213) - ABS Wheel Speed RL/RR (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0D5, name="ABS Wheel Speed RL/RR", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Byte 0-1: RL, Byte 2-3: RR (km/h×100)",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION — community source"
+)
+msg.signals = [
+    CANSignalDef("wheel_speed_rl", 0, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "Rear-left wheel speed [UNVERIFIED]"),
+    CANSignalDef("wheel_speed_rr", 16, 16, "little", 0.01, 0.0, "km/h", 0, 300,
+                 "Rear-right wheel speed [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0D5] = msg
+
+# 0x0D6 (214) - ABS Brake Pressure (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0D6, name="ABS Brake Pressure", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Byte 0-1: pressure (bar×10)",
+    dlc=8, verified=False, notes="0x0E8 on some P1 models — NEEDS VERIFICATION"
+)
+msg.signals = [
+    CANSignalDef("brake_pressure_bar", 0, 16, "little", 0.1, 0.0, "bar", 0, 200,
+                 "Brake system pressure [UNVERIFIED]"),
+    CANSignalDef("brake_pressure_active", 16, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Brake pedal pressed [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0D6] = msg
+
+# 0x0E8 (232) - ABS Status (ALTERNATIVE brake pressure ID, UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0E8, name="ABS Brake Pressure Alt", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Alternative brake pressure ID",
+    dlc=8, verified=False, notes="Some P1 models use 0x0D6, others 0x0E8 — VERIFY which"
+)
+msg.signals = [
+    CANSignalDef("brake_pressure_alt", 0, 16, "little", 0.01, 0.0, "bar", 0, 200,
+                 "Brake pressure (alternative ID) [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0E8] = msg
+
+# 0x128 (296) - Steering Wheel Angle (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x128, name="Steering Wheel Angle", bus=CANBus.HIGH_SPEED,
+    source_module="SAS", dest_module="CEM", description="Byte 0-1: angle (0.1°/bit, 0=center)",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION — may be 0x1B8 on some models"
+)
+msg.signals = [
+    CANSignalDef("steering_angle_deg", 0, 16, "little", 0.1, -720.0, "°", -720, 720,
+                 "Steering wheel angle (centered=0, left=neg, right=pos) [UNVERIFIED]"),
+    CANSignalDef("steering_angle_valid", 16, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Steering angle sensor valid [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x128] = msg
+
+# 0x1B8 (440) - Steering Wheel Angle Alt (UNVERIFIED — alternative ID)
+msg = CANMessageDef(
+    can_id=0x1B8, name="Steering Wheel Angle Alt", bus=CANBus.HIGH_SPEED,
+    source_module="SAS", dest_module="ABS", description="Alternative steering angle (for DSTC)",
+    dlc=8, verified=False, notes="May appear on DSTC-equipped V50 models"
+)
+msg.signals = [
+    CANSignalDef("steering_angle_alt_deg", 0, 16, "little", 0.1, -720.0, "°", -720, 720,
+                 "Alternative steering angle [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x1B8] = msg
+
+# 0x0D7 (215) - ABS Yaw Rate / Lateral Accel (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0D7, name="ABS Yaw/Lateral", bus=CANBus.HIGH_SPEED,
+    source_module="ABS", dest_module="CEM", description="Yaw rate and lateral acceleration",
+    dlc=8, verified=False, notes="DSTC models only? NEEDS VERIFICATION"
+)
+msg.signals = [
+    CANSignalDef("yaw_rate", 0, 16, "little", 0.01, 0.0, "°/s", -100, 100,
+                 "Vehicle yaw rate [UNVERIFIED]"),
+    CANSignalDef("lateral_accel", 16, 16, "little", 0.01, 0.0, "g", -2, 2,
+                 "Lateral acceleration [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0D7] = msg
+
+# 0x0C4 (196) - Engine Status / Running (UNVERIFIED)
+msg = CANMessageDef(
+    can_id=0x0C4, name="Engine Status", bus=CANBus.HIGH_SPEED,
+    source_module="ECM", dest_module="CEM", description="Engine running status bits",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION"
+)
+msg.signals = [
+    CANSignalDef("engine_running", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Engine running status [UNVERIFIED]"),
+    CANSignalDef("starter_active", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Starter motor engaged [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x0C4] = msg
+
+# 0x3F0 (1008) - Light Status (UNVERIFIED — Low-Speed CAN)
+msg = CANMessageDef(
+    can_id=0x3F0, name="Light Status", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="DIM", description="Vehicle light states",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION — light switch position"
+)
+msg.signals = [
+    CANSignalDef("lights_low_beam", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Low beam on [UNVERIFIED]"),
+    CANSignalDef("lights_high_beam", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "High beam on [UNVERIFIED]"),
+    CANSignalDef("lights_fog_front", 2, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Front fog lights [UNVERIFIED]"),
+    CANSignalDef("lights_fog_rear", 3, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Rear fog lights [UNVERIFIED]"),
+    CANSignalDef("lights_indicator_left", 4, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Left indicator [UNVERIFIED]"),
+    CANSignalDef("lights_indicator_right", 5, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Right indicator [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x3F0] = msg
+
+# 0x380 (896) - Seat Belt Status (UNVERIFIED — Low-Speed CAN)
+msg = CANMessageDef(
+    can_id=0x380, name="Seat Belt Status", bus=CANBus.LOW_SPEED,
+    source_module="CEM", dest_module="DIM", description="Seatbelt warning system",
+    dlc=8, verified=False, notes="NEEDS VERIFICATION"
+)
+msg.signals = [
+    CANSignalDef("driver_belt_fastened", 0, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Driver seatbelt fastened [UNVERIFIED]"),
+    CANSignalDef("passenger_belt_fastened", 1, 1, "little", 1.0, 0.0, "boolean", 0, 1,
+                 "Passenger seatbelt fastened [UNVERIFIED]"),
+]
+MESSAGE_DEFINITIONS[0x380] = msg
+
 
 # =============================================================================
 # Decoder Engine
@@ -565,6 +714,32 @@ class V50State:
         self.fan_speed: int = 0
         self.recirc_active: bool = False
         
+        # ABS/Dynamics (UNVERIFIED — needs CAN bus verification)
+        self.wheel_speed_fl: float = 0
+        self.wheel_speed_fr: float = 0
+        self.wheel_speed_rl: float = 0
+        self.wheel_speed_rr: float = 0
+        self.brake_pressure_bar: float = 0
+        self.brake_pedal_pressed: bool = False
+        self.steering_angle_deg: float = 0
+        self.steering_angle_valid: bool = False
+        self.yaw_rate: float = 0
+        self.lateral_accel_g: float = 0
+        self.engine_running: bool = False
+        self.starter_active: bool = False
+        
+        # Lights (UNVERIFIED)
+        self.lights_low_beam: bool = False
+        self.lights_high_beam: bool = False
+        self.lights_fog_front: bool = False
+        self.lights_fog_rear: bool = False
+        self.lights_indicator_left: bool = False
+        self.lights_indicator_right: bool = False
+        
+        # Seatbelts (UNVERIFIED)
+        self.driver_belt_fastened: bool = True
+        self.passenger_belt_fastened: bool = True
+        
         # Doors
         self.driver_door_open: bool = False
         self.driver_door_locked: bool = False
@@ -652,6 +827,54 @@ class V50State:
             elif name == "recirc_door_pos":
                 self.recirc_active = value > 50
             
+            # ABS/Dynamics (UNVERIFIED)
+            elif name == "wheel_speed_fl":
+                self.wheel_speed_fl = value
+            elif name == "wheel_speed_fr":
+                self.wheel_speed_fr = value
+            elif name == "wheel_speed_rl":
+                self.wheel_speed_rl = value
+            elif name == "wheel_speed_rr":
+                self.wheel_speed_rr = value
+            elif name == "brake_pressure_bar":
+                self.brake_pressure_bar = value
+            elif name == "brake_pressure_alt":
+                self.brake_pressure_bar = value  # Alternative ID maps to same field
+            elif name == "brake_pressure_active":
+                self.brake_pedal_pressed = bool(value)
+            elif name == "steering_angle_deg" or name == "steering_angle_alt_deg":
+                self.steering_angle_deg = value
+            elif name == "steering_angle_valid":
+                self.steering_angle_valid = bool(value)
+            elif name == "yaw_rate":
+                self.yaw_rate = value
+            elif name == "lateral_accel":
+                self.lateral_accel_g = value
+            elif name == "engine_running":
+                self.engine_running = bool(value)
+            elif name == "starter_active":
+                self.starter_active = bool(value)
+            
+            # Lights (UNVERIFIED)
+            elif name == "lights_low_beam":
+                self.lights_low_beam = bool(value)
+            elif name == "lights_high_beam":
+                self.lights_high_beam = bool(value)
+            elif name == "lights_fog_front":
+                self.lights_fog_front = bool(value)
+            elif name == "lights_fog_rear":
+                self.lights_fog_rear = bool(value)
+            elif name == "lights_indicator_left":
+                self.lights_indicator_left = bool(value)
+            elif name == "lights_indicator_right":
+                self.lights_indicator_right = bool(value)
+            
+            # Seatbelts (UNVERIFIED)
+            elif name == "driver_belt_fastened":
+                self.driver_belt_fastened = bool(value)
+            elif name == "passenger_belt_fastened":
+                self.passenger_belt_fastened = bool(value)
+            
             # Doors
             elif name == "driver_door_open":
                 self.driver_door_open = bool(value)
@@ -675,6 +898,10 @@ class V50State:
             f"  Throttle: {self.throttle_pct:.1f}% | Load: {self.engine_load_pct:.1f}% | MAF: {self.maf_g_per_s:.1f} g/s",
             f"  Fuel: {self.fuel_level_pct:.1f}% | Gear: {self.gear} | Trans: {self.trans_temp_c:.0f}°C",
             f"  Interior: {self.interior_temp_c:.0f}°C | Exterior: {self.exterior_temp_c:.0f}°C",
+            f"  Wheels: FL={self.wheel_speed_fl:.0f} FR={self.wheel_speed_fr:.0f} RL={self.wheel_speed_rl:.0f} RR={self.wheel_speed_rr:.0f} km/h",
+            f"  Brake: {self.brake_pressure_bar:.1f} bar {'PRESSED' if self.brake_pedal_pressed else ''} | Steer: {self.steering_angle_deg:.1f}°",
+            f"  Engine: {'RUNNING' if self.engine_running else 'OFF'} | DSTC: yaw={self.yaw_rate:.1f}°/s lat={self.lateral_accel_g:.2f}g",
+            f"  Lights: Lo={'ON' if self.lights_low_beam else 'off'} Hi={'ON' if self.lights_high_beam else 'off'} Fog={'F' if self.lights_fog_front else ''}{'R' if self.lights_fog_rear else ''}",
             f"  Warnings: CEL={self.check_engine} OIL={self.oil_warning} BAT={self.battery_warning} TEMP={self.temp_warning}",
             f"  Odometer: {self.odometer_km:.0f} km",
             f"  Doors: Driver={'OPEN' if self.driver_door_open else 'closed'} {'LOCKED' if self.driver_door_locked else 'unlocked'} | Pass={'OPEN' if self.pass_door_open else 'closed'}",

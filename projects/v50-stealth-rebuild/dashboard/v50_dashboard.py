@@ -43,6 +43,11 @@ except ImportError:
     HAS_PYQT5 = False
 
 from v50_can_decoder import V50State, CANBus, MESSAGE_DEFINITIONS, get_gear_name
+try:
+    from v50_drive_profile import DriveProfileAnalyzer, FuelEconomyTracker
+    HAS_DRIVE_PROFILE = True
+except ImportError:
+    HAS_DRIVE_PROFILE = False
 
 # =============================================================================
 # Theme / Color Definitions
@@ -417,6 +422,14 @@ if HAS_PYQT5:
             main_layout.setSpacing(4)
             main_layout.setContentsMargins(8, 4, 8, 4)
             
+            # Drive profile analyzer (if available)
+            if HAS_DRIVE_PROFILE:
+                self.drive_analyzer = DriveProfileAnalyzer()
+                self.fuel_tracker = FuelEconomyTracker()
+            else:
+                self.drive_analyzer = None
+                self.fuel_tracker = None
+            
             current_theme = Theme.NIGHT if self.is_night_mode else Theme.DAY
             
             # === TOP BAR: Speed + RPM + Gear ===
@@ -504,6 +517,39 @@ if HAS_PYQT5:
                 bottom_layout.addWidget(w)
             
             main_layout.addWidget(bottom_frame, 2)
+            
+            # === DRIVE PROFILE + DYNAMICS BAR ===
+            dynamics_frame = QFrame()
+            dynamics_frame.setFrameStyle(QFrame.Box | QFrame.Raised)
+            dynamics_layout = QHBoxLayout(dynamics_frame)
+            dynamics_layout.setSpacing(4)
+            
+            # Drive Profile
+            self.profile_readout = DigitalReadout("PROFILE", "")
+            self.profile_readout.set_theme(current_theme)
+            dynamics_layout.addWidget(self.profile_readout)
+            
+            # Brake Pressure
+            self.brake_readout = DigitalReadout("BRAKE", "bar")
+            self.brake_readout.set_theme(current_theme)
+            dynamics_layout.addWidget(self.brake_readout)
+            
+            # Steering Angle
+            self.steer_readout = DigitalReadout("STEER", "°")
+            self.steer_readout.set_theme(current_theme)
+            dynamics_layout.addWidget(self.steer_readout)
+            
+            # Fuel Economy
+            self.fuel_econ_readout = DigitalReadout("L/100KM", "L")
+            self.fuel_econ_readout.set_theme(current_theme)
+            dynamics_layout.addWidget(self.fuel_econ_readout)
+            
+            # Range
+            self.range_readout = DigitalReadout("RANGE", "km")
+            self.range_readout.set_theme(current_theme)
+            dynamics_layout.addWidget(self.range_readout)
+            
+            main_layout.addWidget(dynamics_frame, 2)
         
         def init_timer(self):
             """Set up update timer at ~15 FPS."""
@@ -552,6 +598,21 @@ if HAS_PYQT5:
             self.ext_temp_readout.set_value(s.exterior_temp_c, ".0f")
             self.int_temp_readout.set_value(s.interior_temp_c, ".0f")
             self.odo_readout.set_value(s.odometer_km, ".0f")
+            
+            # Drive Profile & Dynamics
+            if self.drive_analyzer:
+                metrics = self.drive_analyzer.update(s)
+                self.profile_readout.set_value(metrics.profile.display_name)
+            
+            if self.fuel_tracker:
+                self.fuel_tracker.update(s)
+                fuel_stats = self.fuel_tracker.get_stats()
+                self.fuel_econ_readout.set_value(fuel_stats['avg_l100km'], ".1f")
+                self.range_readout.set_value(fuel_stats['estimated_range_km'], ".0f")
+            
+            # ABS/Dynamics (UNVERIFIED — may show 0 until CAN IDs verified)
+            self.brake_readout.set_value(s.brake_pressure_bar, ".1f")
+            self.steer_readout.set_value(s.steering_angle_deg, ".0f")
         
         def toggle_stealth(self):
             """Toggle between custom dashboard and OEM-like minimal display."""
