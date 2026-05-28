@@ -1,8 +1,9 @@
 # 🏍️ African Queen Lite — Gewichtsbilanz
 
-**Letztes Update:** 2026-05-28 | **Chefingenieur-Runde**
+**Letztes Update:** 2026-05-28 | **Chefingenieur-Runde (Run #4)**
 **Basis:** Honda NX650 Dominator (161kg trocken, 44PS/32kW)
 **Ziel:** ~175-180kg voll ausgerüstet (Africa Twin CRF1000L = 232kg)
+**Aktueller Stand:** Option A = 155.4kg trocken / ~171kg fahrfertig → ✅ ZIEL ERREICHT
 
 ## Gewichts-Philosophie
 - Jedes Gramm zählt — aber nicht um jeden Preis
@@ -112,15 +113,19 @@
 
 ---
 
-## DB-Verifizierung (Chefingenieur 2026-05-28)
+## DB-Verifizierung (Chefingenieur Run #4 — 2026-05-28)
 
 | Metric | Wert |
 |--------|------|
-| NX650-fitment Teile in DB | 137 |
+| NX650-fitment Teile in DB | 185 |
 | AQL-relevante Teile (Option A) | 28 |
-| DB SUM(price_avg) alle NX650 | €12,105 (inkl. Alternativen) |
-| Option A Build-Kosten | €2,228 |
+| DB SUM(price_avg) alle NX650 | €15,059.91 (inkl. Alternativen) |
+| Option A Build-Kosten (Best-Price) | €2,196 |
+| Option A Budget-Guard | ✅ Alle Phasen unter Budget |
 | NX650 Known Issues in DB | 54 (4 critical, 2 high) |
+| Gewichts-Ersparnis Option A | -5.6 kg trocken |
+| Fahrfertig leer (Option A) | ~171 kg |
+| Performance-Teile gestrichen | ✅ 7 Teile entfernt |
 
 ---
 
@@ -132,6 +137,9 @@
 - [x] Gewichtsverteilung vorne/hinten berechnet (vorne: ~54%, hinten: ~46%) ✅
 - [x] Tank voll/leer Einfluss auf Handling berechnet ✅
 - [x] DB-Verifizierung: Teilzahlen und Preis-Summen abgeglichen ✅ (2026-05-28)
+- [x] Budget-Guard: Alle 4 Phasen unter Budget ✅ (Run #4, 2026-05-28)
+- [x] Kompatibilitäts-Check: 15 Hauptteile NX650-kompatibel ✅ (Run #4)
+- [x] Performance-Teile-Check: KEINE Leistungssteigerung ✅ (7 Teile gestrichen)
 - [ ] Messung der tatsächlichen Gewichte nach Umbau (validieren)
 - [ ] Achslast-Messung auf Prüfstand (TÜV)
 - [ ] Fahrgewichts-Messung auf Waage (validieren)

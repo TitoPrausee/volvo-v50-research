@@ -1,6 +1,37 @@
-# 🏍️ African Queen Lite — ESP32 Ride-Mode Controller
+# 🏍️ African Queen Lite — Projekt-Status & ESP32 Ride-Mode Controller
 
-**Honda NX650 Dominator RFVC** — LangLeben durch Software
+**Honda NX650 Dominator RFVC** — Zuverlässigkeit + Fahrwerk + Optik + Touring (44PS OEM, KEIN Performance-Tuning)
+
+## Projekt-Status (Chefingenieur Run #4 — 2026-05-28)
+
+| Metric | Wert |
+|--------|------|
+| **Budget Hard Cap** | €5.000 |
+| **Option A Best-Price** | €2.196 |
+| **Option A + Reserve** | €2.696 |
+| **Freie Reserve** | €2.304 (46%) |
+| **Gewicht Ziel** | 175-180 kg fahrfertig |
+| **Gewicht Ist (Option A)** | ~171 kg fahrfertig ✅ |
+| **DB Teile (NX650)** | 185 |
+| **Kompatibilität** | 15/15 Hauptteile ✅ |
+| **Performance-Teile** | 0 (7 gestrichen) ✅ |
+
+### Budget-Guard Status
+
+| Phase | Geplant | Budget | Reserve | Status |
+|-------|---------|--------|---------|--------|
+| 1: Zuverlässigkeit | €429 | €800 | +€371 (46%) | ✅ |
+| 2: Fahrwerk | €892 | €1.200 | +€308 (26%) | ✅ |
+| 3: Africa Twin Look | €688 | €1.000 | +€312 (31%) | ✅ |
+| 4: Touring-Komfort | €187 | €800 | +€613 (77%) | ✅ |
+| 5: Reserve | — | €500 | +€500 | 🔵 |
+
+### ⚠️ Kompatibilitäts-Hinweise
+1. YSS Z-366 Mono: Bracket muss geschweißt werden (€65 extra)
+2. DID 520VX3: 520 pitch ersetzt OEM 525 — Sprockets MUSS 520 sein
+3. FH020AA Regler: Adapter-Verkabelung nötig (Connector-Kit €8)
+4. Stator-Connector: MUSS gelötet werden (kein Stecker!)
+5. JMT YTZ10F: Geringe Batteriebox-Modifikation nötig
 
 ## Version: v2.2
 

@@ -14,6 +14,21 @@
 
 + 3 generische Forschungs-Agenten (vehicle-research, -community, -specs)
 
+## Chefingenieur-Empfehlungen für Team-Erweiterung (Run #4 — 2026-05-28)
+
+### Neue Agenten vorgeschlagen:
+
+| Agent | Rolle | Intervall | Fokus | Begründung |
+|-------|------|-----------|-------|------------|
+| `aql-tuv-expert` | TÜV/Zulassung | 24h | Eintragung, StVZO, ABE, Gutachten | Phase 3 Änderungen (Auspuff, LED) brauchen TÜV-Eintragung |
+| `aql-ergonomics` | Ergonomie/Comfort | 24h | Sitzposition, Lenker, Fußrasten | Langstrecke-Tauglichkeit, Lenkerhöhe, Sitzbank |
+| `aql-wrench` | Werkstatt-Planer | 12h | Einbau-Reihenfolge, Werkzeuge, Zeitschätzungen | Von Phase 1→4: Welche Teile zuerst, Arbeitszeit pro Phase |
+
+### Begründung:
+1. **TÜV-Experte:** Phase 3 Änderungen (Auspuff, LED-Scheinwerfer, Blinker) brauchen StVZO-Konformität. Leo Vince hat ECE R92 (ABE), aber Delkevic Header und generische LED brauchen Eintragung. Kosten: €100-200 für Gutachten + Eintragung.
+2. **Ergonomie-Experte:** Der NX650 hat eine relativ aufrechte Sitzposition. Für Touring sollten Lenkerhöhe, Sitzbank-Form und Fußrasten-Position optimiert werden — das beeinflusst Phase 4 (Touring-Komfort).
+3. **Werkstatt-Planer:** Mit 4 Phasen und ~30 Teilen braucht's eine klare Einbau-Reihenfolge. Some jobs hängen voneinander ab (z.B. Gabel zerlegen → Federn+Emulatoren einbauen → Öl einfüllen). Schätzungen: Phase 1 ~6h, Phase 2 ~8h, Phase 3 ~4h, Phase 4 ~2h.
+
 ## Skill
 Dieses Team basiert auf dem **mechanic-tuning-team** Skill — wiederverwendbar für jedes Fahrzeug-Projekt.
 `skill_view(name='mechanic-tuning-team')`
