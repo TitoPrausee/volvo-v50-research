@@ -1,9 +1,9 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Chief Engineer Status Report
 
-**Datum**: 2026-05-28 (v8 — Chief Consolidation, Budget Audit, DB-Refresh)  
+**Datum**: 2026-05-28 (v9 — Fahrwerksspezialist Audit, Bremsengröße geklärt, Domlager korrigiert)  
 **Rolle**: Chefingenieur & Projektleitung  
 **Budget**: 3.500-5.000€ HARD CAP  
-**DB-STAND**: 668 Teile, 1.061 Fitments, 415 Quellen, 194 V50 2.4i unique Parts, 76 verified  
+**DB-STAND**: 674 Teile, 1.075 Fitments, 440 Quellen, 200 V50 2.4i unique Parts, 78 verified  
 
 ---
 
@@ -26,13 +26,13 @@
 | ❄️ Kühlung | 6 | 6 | Kühlwasser, Ausgleichsbehälter, Thermostat, WP | ✅ |
 | 🔩 Getriebe | 5 | 4 | ATF Filter+Kit, Valve Body, Solenoid, ATF Flush | ✅ |
 | 💎 Stabilisatoren | (in Fahrwerk) | — | Lemförder Links, Do88+Estoni 24/22mm, IPD 25mm | ✅ |
-| 🛞 Lager | 5 | 2 | SKF+ FAG Radlager v+h | ✅ |
+| 🛞 Lager | 5+6 | 2+6 | SKF+ FAG Radlager v+h, 280mm Standard + 316/302mm T5 Bremsen | ✅ v3 |
 | 🔌 CAN-Bus | 9 | 8 | Pi4+PiCAN2, ESP32, Displays, CAN-HAT, OBD2 | ✅ |
 | 📟 Displays | 4 | 0 | OLED, TFT 2.4", TFT 3.5", HDMI 7" | ⚠️ Kein verified |
 | 🛠️ Tools | 0+2 | 0 | (NX650-only: D5 Glow Plug Socket, Compression Tester) | ❌ V50 leer |
 | 🛞 Reifen | 0 | 0 | 17" BLEIBEN, kein Eintrag nötig | ✅ |
 
-### ⚠️ KRITISCHE KORREKTUREN (Stand v8)
+### ⚠️ KRITISCHE KORREKTUREN (Stand v9)
 
 | Detail | ALT | NEU | Status |
 |--------|-----|-----|--------|
@@ -49,6 +49,10 @@
 | **Motorlager Lemförder** | €28-40 | **€45-64** ⬆️ | 🔴 PREIS-UPDATE v3! |
 | **Ferodo DS2500** | Sport-Beläge | **KEIN ECE R90 → ILLEGAL!** | 🔴 Korrigiert → TRW/ATE |
 | **HEL SS-Leitungen** | Goodridge | **HEL = BESTE OPTION** (TÜV-Zert inklusive) | ✅ Bestätigt |
+| **🆕 BREMSEN-GRÖßE** | 316/302mm alle | **V50 2.4i Standard = 280/280mm!** 316/302mm = T5 | 🔴 KRITISCH v9! |
+| **🆕 BREMSEN-BELÄGE** | GDB1805/1840 alle | **280mm = GDB1359/58, 316/302mm = GDB1805/40** | 🔴 KRITISCH v9! |
+| **🆕 BREMSEN-SCHEIBEN** | 316/302mm alle | **280mm Standard = DF4206/07, 316/302mm = T5** | 🔴 KRITISCH v9! |
+| **🆕 DOMLAGER** | Febi 37389 = Domlager | **Febi 37389 = Stabi-Link, NICHT Domlager!** → Lemförder 37706 01 | 🔴 Korrigiert v9! |
 
 ---
 
@@ -218,16 +222,21 @@
 | Facelift-SW Verfügbarkeit | 🟡 MITTEL | Gebraucht ~€250-290/paar auf Kleinanzeigen |
 | Ferrita Lieferzeit | 🟡 MITTEL | 3-5 Wochen Lieferzeit ab Schweden |
 
-### 🆕 NEU in v8
-- **V50-Tools-Kategorie leer** — braucht: Federspanner, Bremsentlüfter, Torx-Set
-- **Dayco KTB481 Warnung** — manche Angebote OHNE Wasserpumpe!
-- **Ferodo DS2500 korrekt als ILLEGAL markiert** in DB
-- **HEL Performance SS-Leitungen** als BESTE OPTION bestätigt (TÜV-Zert inklusive)
+### 🆕 NEU in v9
+
+- 🚨 **BREMSEN-GRÖßE geklärt**: V50 2.4i Standard = 280/280mm, T5 = 316/302mm! ALLE Teilenummern doppelt in DB
+- 🚨 **DOMLAGER korrigiert**: Febi 37389 = Stabi-Link, NICHT Domlager! Richtiges Domlager = Lemförder 37706 01
+- 📦 **DB: 6 neue 280mm Bremsen-Teile** hinzugefügt (Zimmermann Coat Z, TRW GDB1359/58, ATE Ceramic 280mm)
+- 📦 **DB: Alle 316/302mm T5-Teile** mit Warnung markiert: "For T5 SPORT brakes only!"
+- ❌ **Ferodo DS2500** korrekt als STRASSENVERKEHRS-ILLEGAL markiert in DB
+- 🔧 **V50-Tools-Kategorie leer** — braucht: Federspanner, Bremsentlüfter, Torx-Set
+- **Hel Performance SS-Leitungen** als BESTE OPTION bestätigt (TÜV-Zert inklusive)
 - **SuperPro Poly** hat ABE — im Gegensatz zu Powerflex!
 
 ---
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁  
-**DB-STAND**: 668 Teile, 381 V50 Fitments, 76 V50 verified, 415 Quellen | 160 CAN-Messages, 218 Signals, 176 Issues  
+**DB-STAND**: 674 Teile, 1.075 Fitments, 78+ V50 verified, 440 Quellen | 160 CAN-Messages, 218 Signals, 176 Issues  
 **BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Realistisch €3.023 (mit Auspuff), Reserve €574-2.811  
-**BUDGET-STATUS**: 🟢 GRÜN — Alle Phasen innerhalb Budget-Spots.
+**BUDGET-STATUS**: 🟢 GRÜN — Alle Phasen innerhalb Budget-Spots.  
+**🚨 NEU v9**: BREMSEN-GRÖßE geklärt (280mm Standard vs 316/302mm T5), DOMLAGER korrigiert, 6 neue 280mm-Teile in DB
