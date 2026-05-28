@@ -1,15 +1,15 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Chief Engineer Status Report
 
-**Datum**: 2026-05-28 (v5 — Chief Engineer Konsolidierung)  
+**Datum**: 2026-05-28 (v6 — Preis-Jäger + TÜV-Experte Update)  
 **Rolle**: Chefingenieur & Projektleitung  
 **Budget**: 3.500-5.000€ HARD CAP  
-**DB-Stand**: 585 Teile, 185+ V50 2.4i Fitments, 962 Total Fitments
+**DB-Stand**: 650 Teile, 189 V50 2.4i Fitments, 391 Quellen
 
 ---
 
 ## 📊 1. DATENBANK-INVENTUR — Was gibt es schon?
 
-### DB-Stand: 585 Teile, 21 Kategorien, 185 V50 2.4i Fitments
+### DB-Stand: 650 Teile, 21 Kategorien, 189 V50 2.4i Fitments
 
 | Kategorie | V50 2.4i Teile | Status | Lücken |
 |-----------|---------------:|--------|--------|
