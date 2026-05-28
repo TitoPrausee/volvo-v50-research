@@ -21,20 +21,20 @@
 4. **LED schon verbaut** — Fern+Abblend, Rücklichter optional falls OEM-quality
 5. **Kein Ricer** — kein Spoiler, keine Schürzen, kein Chip über 170PS
 
-## 📊 Budget-Stand 2026-05-28 v5
+## 📊 Budget-Stand 2026-05-28 v8
 
-**GESAMT (mit Auspuff): €1.805-4.268 — ✅ INNERHALB €3.500-5.000 HARD CAP**
+**GESAMT (mit Auspuff): €2.189-3.926 — ✅ INNERHALB €3.500-5.000 HARD CAP**
 
-| Phase | Min (€) | Realistisch (€) | Budget-Spot | Status |
-|-------|--------:|----------------:|------------:|--------|
-| 1: Sicherheit | 350 | 530 | 500-800 | ✅ |
-| 2: Fahrwerk | 490 | 780 | 800-1.200 | ✅ |
-| 3: Optik | 200 | 350 | 800-1.200 | ✅ |
-| 4: Motor (o. Auspuff) | 70 | 175 | 400-600 | ✅ |
-| 4: Motor (m. Auspuff) | 540 | 870 | — | ⚠️ |
-| 5: Reserve | 75 | 145 | 200-400 | ✅ |
-| TÜV | 150 | 200 | — | — |
-| **GESAMT (m. Auspuff)** | **1.805** | **2.875** | **3.500-5.000** | ✅ |
+| Phase | Min (€) | Realistisch (€) | Max (€) | Budget-Spot | Status |
+|-------|--------:|----------------:|--------:|------------:|--------|
+| 1: Sicherheit | 355 | 470 | 594 | 500-800 | ✅ |
+| 2: Fahrwerk | 673 | 897 | 1.127 | 800-1.200 | ✅ |
+| 3: Optik | 365 | 644 | 925 | 800-1.200 | ✅ |
+| 4: Motor (m. Auspuff) | 514 | 636 | 759 | 400-600 | ⚠️ |
+| 5: Reserve | 132 | 176 | 221 | 200-400 | ✅ |
+| TÜV | 150 | 200 | 300 | — | — |
+| **GESAMT (m. Auspuff)** | **2.189** | **3.023** | **3.926** | **3.500-5.000** | ✅ |
+| **GESAMT (o. Auspuff)** | **1.639** | **2.453** | **3.155** | **3.500-5.000** | ✅ |
 
 Siehe CHIEF_STATUS.md für vollständige Budget-Analyse.
 
@@ -96,3 +96,6 @@ Siehe CHIEF_STATUS.md für vollständige Budget-Analyse.
 | 2026-05-28 | Ferodo DS2500 → ILLEGAL markiert | KEIN ECE R90! TRW statt! |
 | 2026-05-28 | Dayco KTB481 Warnung | Manche Angebote OHNE Wasserpumpe! |
 | 2026-05-28 | HEL > Goodridge TÜV-Eintragung | HEL inkl. Zertifikat, Goodridge braucht Einzelabnahme |
+| 2026-05-28 | Budget v5→v8 Konsolidierung | Realistische Positionen addiert, Min/Real/Max kalkuliert |
+| 2026-05-28 | SuperPro ABE bestätigt | Powerflex = keine ABE → SuperPro SPF3091K/SPF3332K statt! |
+| 2026-05-28 | Dayco KTB481 OHNE WP Warnung | Manche Angebote enthalten KEINE Wasserpumpe! |

@@ -1,38 +1,38 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Chief Engineer Status Report
 
-**Datum**: 2026-05-28 (v7 — Motor Preis-Update v3 + Amazon.de Live-Preise)  
+**Datum**: 2026-05-28 (v8 — Chief Consolidation, Budget Audit, DB-Refresh)  
 **Rolle**: Chefingenieur & Projektleitung  
 **Budget**: 3.500-5.000€ HARD CAP  
-**DB-STAND**: 663 Teile, 321 V50 2.4i Fitments, 391 Quellen | ⚡ v3 Preis-Updates: 20 Teile aktualisiert
+**DB-STAND**: 668 Teile, 1.061 Fitments, 415 Quellen, 194 V50 2.4i unique Parts, 76 verified  
 
 ---
 
 ## 📊 1. DATENBANK-INVENTUR — Was gibt es schon?
 
-### DB-Stand: 650 Teile, 21 Kategorien, 189 V50 2.4i Fitments
+### DB-Stand: 668 Teile, 21 Kategorien, 381 V50 2.4i Fitments (Pre-FL + FL)
 
-| Kategorie | V50 2.4i Teile | Status | Lücken |
-|-----------|---------------:|--------|--------|
-| 🔧 Bremsen | 19 | ✅ Vollständig — TRW+ATE+Brembo+Textar+Goodridge+HEL+Zimmermann | — |
-| 🏁 Fahrwerk | 23 | ✅ Vollständig — Eibach+Vogtland, KONI RED+Active+Bilstein B6, Stabis, Domlager, Poly-Buchsen | — |
-| ⚡ Motor | 19 | ✅ Vollständig — Zahnriemen, Zündkerzen, Öl, VVT, ETM, Thermostat, Motorlager, PCV | — |
-| 🔥 Auspuff | 3 | ✅ Gut — Ferrita (€420-650), Eisenmann (€800-1100), Heico (€750-950) | — |
-| 🛢️ Fluide | 9 | ✅ — Öl, ATF T-IV, Bremsflüssigkeit DOT4, Lenkflüssigkeit, Kühlwasser | — |
-| 🎨 Optik/Exterior | 24 | ✅ Erweitert — Grill, LED H7, LED Rücklichter, Heico Lippe, Facelift-SW, Polierung, Keramik, Ecklichter, Kotflügel | — |
-| 🛋️ Innenraum | 18 | ✅ v2 Erweitert — Lederpflege, Schaltknauf R-Design, Pedale Alu, Lenkrad R-Design, Fußmatten, LED Warmweiß, DIM Cluster, Sonnenblende, +DIM-Kit, +CEM-Löt-Kit, +Kupplungspedal, +Schaltmanschette, +Sonnenblende LED | — |
-| 🕹️ Elektrik | 17 | ✅ Erweitert — ABS-Sensor, Batterie, CEM-Relay, ETM, Anlasser, Lichtmaschine, Bluetooth, Ecklichter FL, Facelift-SW | — |
-| ⛽ Ansaugung | 2 | ✅ — **K&N 33-2873** (korrigiert!) / Mann C 25 107, MAF Sensor | — |
-| ⏱️ Zahnriemen | 5 | ✅ — Gates+Contitech+Dayco Kit, WP, Keilriemen, Nockenwellendichtung | — |
-| ❄️ Kühlung | 6 | ✅ — Kühlmittel, Ausgleichsbehälter, Thermostat, WP | — |
-| 🔩 Getriebe | 5 | ✅ — ATF Filter+Kit, Valve Body, Solenoid, ATF Flush | — |
-| 💎 Stabilisatoren | 4 | ✅ — Lemförder Links, Do88+Estoni 24/22mm Sets, IPD 25mm | — |
-| 🛞 Lager | 4 | ✅ — SKF+ FAG Radlager v+h | — |
-| 🔌 CAN-Bus | 18 | ✅ — Pi4+PiCAN2, ESP32, Displays, CAN-HAT, OBD2 | — |
-| 📟 Displays | 4 | ✅ — OLED, TFT 2.4", TFT 3.5", HDMI 7" | — |
-| 🛠️ Tools | 0 | ⚠️ LEER — Braucht: Federspanner, Bremsentlüfter, Torx-Set | — |
-| 🛞 Reifen | 0 | ⚠️ LEER — 17" BLEIBEN, kein Eintrag nötig | — |
+| Kategorie | Unique Parts | Verified | Top-Teile | Lücken |
+|-----------|-------------:|:--------:|-----------|--------|
+| 🔧 Bremsen | 20 | 14 | TRW GDB1359/58, HEL SS, ATE Ceramic, Zimmermann Sportribbel | ✅ Vollständig |
+| 🏁 Fahrwerk | 25 | 16 | Eibach Pro-Kit, KONI RED/Active, Lemförder Links, SuperPro | ✅ Vollständig |
+| ⚡ Motor | 19 | 14 | Gates K015615XS, ETM, Thermostat, Motorlager, PCV | ✅ Vollständig |
+| 🔥 Auspuff | 3 | 3 | Ferrita F-V50-01 (ABE!), Eisenmann, Heico | ✅ Gut — 3 Optionen |
+| 🛢️ Fluide | 5 | 2 | Öl 5W-30 A5, ATF T-IV, DOT4, CHF 11S, Kühlwasser | ✅ |
+| 🎨 Optik/Exterior | 12 | 8 | Grill, LED H7 LASER, FL-Scheinwerfer, FL-Ecklichter, PPF | ✅ |
+| 🛋️ Innenraum | 14 | 14 | DIM-Kit, CEM-Löt-Kit, Schaltknauf, Pedale, Lederpflege | ✅ v2 |
+| ⚡ Elektrik | 22 | 11 | ABS-Sensor, Batterie, CEM-Relay, FL-Scheinwerfer, BCM | ✅ |
+| ⛽ Ansaugung | 2 | 2 | **K&N 33-2873** (korrigiert!) / Mann C 25 107 | ✅ |
+| ⏱️ Zahnriemen | 5 | 5 | Gates+Contitech+Dayco Kit, WP, Keilriemen, Nockenwellendichtung | ✅ |
+| ❄️ Kühlung | 6 | 6 | Kühlwasser, Ausgleichsbehälter, Thermostat, WP | ✅ |
+| 🔩 Getriebe | 5 | 4 | ATF Filter+Kit, Valve Body, Solenoid, ATF Flush | ✅ |
+| 💎 Stabilisatoren | (in Fahrwerk) | — | Lemförder Links, Do88+Estoni 24/22mm, IPD 25mm | ✅ |
+| 🛞 Lager | 5 | 2 | SKF+ FAG Radlager v+h | ✅ |
+| 🔌 CAN-Bus | 9 | 8 | Pi4+PiCAN2, ESP32, Displays, CAN-HAT, OBD2 | ✅ |
+| 📟 Displays | 4 | 0 | OLED, TFT 2.4", TFT 3.5", HDMI 7" | ⚠️ Kein verified |
+| 🛠️ Tools | 0+2 | 0 | (NX650-only: D5 Glow Plug Socket, Compression Tester) | ❌ V50 leer |
+| 🛞 Reifen | 0 | 0 | 17" BLEIBEN, kein Eintrag nötig | ✅ |
 
-### ⚠️ KRITISCHE KORREKTUREN (Stand v5)
+### ⚠️ KRITISCHE KORREKTUREN (Stand v8)
 
 | Detail | ALT | NEU | Status |
 |--------|-----|-----|--------|
@@ -40,7 +40,7 @@
 | **Mann Luftfilter** | C 25 107 | **VIN-Check vor Kauf!** → C 27 107 / C 28 110 möglich | 🟡 Unklar |
 | **Mann Innenraumfilter** | CUK 27 003 | **VIN-Check vor Kauf!** → CUK 24 013 möglich | 🟡 Unklar |
 | **Facelift-SW Teilenummern** | 30796020-23 ❌ | **31265914/31265915** ✅ (H7 Halogen) | 🔴 Korrigiert in DB |
-| **Dayco KTB481** | Komplett-Kit | **NUR Riemen, kein Kit!** ⚠️ | 🟡 Warnung |
+| **Dayco KTB481** | Komplett-Kit | **NUR Riemen, kein Kit!** ⚠️ Manche OHNE WP! | 🟡 Warnung |
 | **Thermostat-Gehäuse MAHLE** | €15-35 | **€37-41** ⬆️ | 🔴 PREIS-UPDATE v3! |
 | **Castrol EDGE 5W-30** | €37-48/5L | **€48-58/5L** ⬆️ | 🔴 PREIS-UPDATE v3! |
 | **SKF VKMC 02142** | €105-140 | **€60-90** ⬇️ | 🟢 VIEL GÜNSTIGER v3! |
@@ -48,47 +48,47 @@
 | **Keilriemen 5PK1130** | €14-17 | **€4-10** ⬇️ | 🟢 HALBPREIS v3! |
 | **Motorlager Lemförder** | €28-40 | **€45-64** ⬆️ | 🔴 PREIS-UPDATE v3! |
 | **Ferodo DS2500** | Sport-Beläge | **KEIN ECE R90 → ILLEGAL!** | 🔴 Korrigiert → TRW/ATE |
+| **HEL SS-Leitungen** | Goodridge | **HEL = BESTE OPTION** (TÜV-Zert inklusive) | ✅ Bestätigt |
 
 ---
 
-## 💰 2. GESAMTKOSTEN-BERECHNUNG (v5 — Konsolidiert)
+## 💰 2. GESAMTKOSTEN-BERECHNUNG (v8 — Konsolidiert & Auditiert)
 
 ### Budget-Komplettübersicht
 
-| Phase | Posten | Min (€) | Realistisch (€) | Max (€) | Budget-Spot | Status |
-|-------|--------|--------:|----------------:|--------:|------------|--------|
-| **1: Sicherheit** | Zahnriemen+WP, Keilriemen, Bremsen, Zündkerzen, Öl, Filter, Nockenwellendichtung, DOT4, ATF | 397 | 494 | 580 | €500-800 | ✅ ⬆️ v3 |
-| **2: Fahrwerk** | Eibach Pro-Kit, KONI RED, Stabi-Links, Domlager, Stabi-Buchsen, SS-Leitungen, Keramik | 490 | 780 | 1.200 | €800-1.200 | ✅ |
-| **3: Optik** | Polierung DIY, Keramik, Grill, Osram LASER H7, Facelift-SW, Facelift-RL, Spiegelkappen, Rost | 200 | 350 | 695 | €800-1.200 | ✅ |
-| **4: Motor (o. Auspuff)** | Mann Luftfilter, Schaltknauf, Pedale, ETM-Clean, PCV-Kit | 70 | 175 | 257 | €400-600 | ✅ |
-| **4+ (optional)** | + Ferrita Auspuff F-V50-01 + TÜV | +470 | +695 | +770 | — | ⚠️ |
-| **5: Reserve** | Lederpflege, Fußmatten, CEM-Lötkit, Thermostatgehäuse, VVT, Ausgleichsbehälter | 75 | 145 | 246 | €200-400 | ✅ |
-| **TÜV** | Sammel-Eintragung (Eibach+KONI+HEL+Ferrita+SW+LED) | 150 | 200 | 520 | — | — |
+| Phase | Posten | Min (€) | Realistisch (€) | Max (€) | Budget-Spot | Risiken |
+|-------|--------|--------:|----------------:|--------:|------------|---------|
+| **1: Sicherheit** | Zahnriemen+WP, Zündkerzen, Öl, Bremsen komplett, ATF, Filter, Keilriemen | 355 | 470 | 594 | €500-800 ✅ | Dayco ohne WP ⚠️ |
+| **2: Fahrwerk** | Eibach -30mm, KONI RED, Stabi-Links, Domlager, Poly-Buchsen, SS-Leitungen | 673 | 897 | 1.127 | €800-1.200 ✅ | Eibach AMZ Preis ⚠️ |
+| **3: Optik** | Polierung+Keramik, LASER H7, Grill, FL-Scheinwerfer, Ecklichter, Rost | 365 | 644 | 925 | €800-1.200 ✅ | Kotflügelrost 🔴 |
+| **4: Motor sanft** | Mann Filter, Ferrita Auspuff (ABE), Schaltknauf, ETM-Clean, PCV | 514 | 636 | 759 | €400-600 ⚠️ | Ferrita 3-5 Wo Liefer ⚠️ |
+| **5: Reserve** | Lederpflege, Fußmatten, CEM-Kit, Thermostat, Motorlager | 132 | 176 | 221 | €200-400 ✅ | — |
+| **TÜV** | Sammel-Eintragung (Eibach+KONI+HEL+Ferrita+FL-SW) | 150 | 200 | 300 | — | FL-SW braucht Baumuster ⚠️ |
 | | | | | | | |
-| **TOTAL (o. Auspuff)** | | **€1.335** | **€2.180** | **€3.498** | **€3.500-5.000** | ✅ |
-| **TOTAL (m. Auspuff)** | | **€1.805** | **€2.875** | **€4.268** | **€3.500-5.000** | ✅ |
+| **TOTAL (m. Auspuff)** | | **€2.189** | **€3.023** | **€3.926** | **€3.500-5.000 ✅** | |
+| **TOTAL (o. Auspuff)** | | **€1.639** | **€2.453** | **€3.155** | **€3.500-5.000 ✅** | |
 
 **🟢 FAZIT**: Beide Szenarien KOMFORTABEL INNERHALB Budget!  
-**💰 Reserve**: €732-3.165 (ohne Auspuff) bzw. €232-2.132 (mit Auspuff)
+**💰 Reserve**: €1.074-3.361 (ohne Auspuff) bzw. €574-2.811 (mit Auspuff)  
+**⚠️ GRÖSSTES RISIKO**: Kotflügelrost (€50-250) + Ferrita Lieferzeit (3-5 Wochen)
 
-### Empfohlenes Szenario: B — STEALTH-Balance (~€2.143)
+### Empfohlenes Szenario: B — STEALTH-Balance (~€2.950)
 
-1. ✅ Bremsen komplett: TRW Beläge+Scheiben + HEL SS-Leitungen = ~€350
-2. ✅ Zahnriemen-Kit Gates K015615XS = **~€57** ⬇️ AMZ SAHNEPREIS! (ASIN B00625NOXM)
-3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = ~€500 (AMZ!)
-4. ✅ Polierung+Keramik DIY = ~€50
+1. ✅ Bremsen komplett: TRW Beläge+Scheiben + HEL SS-Leitungen = ~€280
+2. ✅ Zahnriemen-Kit Gates K015615XS = ~€80
+3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = ~€554
+4. ✅ Polierung+Keramik DIY = ~€60
 5. ✅ Osram Night Breaker LASER H7 = ~€30 (EINTRAGUNGSFREI!)
-6. ✅ Luftfilter Mann C 25 107 = ~€10 (VIN-Check zuerst!)
-7. ✅ Grill schwarz Aftermarket = ~€45
-8. ✅ Schaltknauf Aftermarket = ~€30
-9. ✅ Ferrita Auspuff (mit ABE) = ~€520 (inkl. €80 TÜV)
-10. ✅ Service-Teile (Zündkerzen, Öl, ATF, Filter) = ~€95
-11. ✅ TÜV-Eintragungen (1x Sammel-Termin) = ~€200
-12. ✅ Facelift-SW H7 Paar gebraucht = ~€290 (STEALTH-Upgrade!)
-13. ✅ Facelift-Ecklichter = ~€35
-14. ✅ Facelift-Grill OEM = ~€85
+6. ✅ Luftfilter Mann C 25 107 = ~€14 (VIN-Check zuerst!)
+7. ✅ Grill schwarz Aftermarket = ~€77
+8. ✅ Schaltknauf Aftermarket = ~€35
+9. ✅ Ferrita Auspuff (mit ABE) = ~€550 (inkl. €80 TÜV)
+10. ✅ Service-Teile (Zündkerzen, Öl, ATF, Filter) = ~€175
+11. ✅ Stabi-Links + Domlager + Buchsen = ~€106
+12. ✅ Facelift-Scheinwerfer H7 gebraucht + Ecklichter = ~€327
+13. ✅ CEM-Löt-Kit + DIM-Reparatur-Kit = ~€25
 
-**Gesamt: ~€2.128 + TÜV €200 + SW €325 ≈ €2.653 → KOMFORTABEL IM BUDGET!**
+**Gesamt: ~€2.950 + TÜV €200 + Rost-Reserve €150 ≈ €3.300 → KOMFORTABEL IM BUDGET!**
 
 ---
 
@@ -105,12 +105,14 @@
 | Gates Zahnriemen-Kit | K015615XS | ✅ | B5244S inkl. WP |
 | TRW Bremsbeläge vorn | GDB1359 | ✅ | 280mm B5244S |
 | TRW Bremsbeläge hinten | GDB1358 | ✅ | 280mm B5244S |
-| HEL SS-Leitungen | HEL-V50-P1-4L | ✅ | P1-Plattform V50 |
+| HEL SS-Leitungen | HEL-V50-P1-4L | ✅ | P1-Plattform V50, TÜV-Zert inkl. |
 | Ferrita Auspuff | F-V50-01 | ✅ | V50 2.4i ABE |
 | Mann Luftfilter | C 25 107 | ⚠️ | VIN-Check! C 27 107 möglich |
 | K&N Panel-Filter | 33-2873 | ✅ | Korrigiert von 33-2221! |
 | ATF T-IV | Toyota 08886-01705 | ✅ | AW55-51 Automatik |
 | Osram Night Breaker LASER | 64210NLHCB | ✅ | H7 Halogen, eintragungsfrei |
+| SuperPro SPF3091K | SPF3091K | ✅ | Control Arm Bush, ABE vorhanden |
+| SuperPro SPF3332K | SPF3332K | ✅ | Rear Bush Kit, ABE vorhanden |
 
 ### ⚠️ Kompatibilität — Baujahr-abhängig
 
@@ -208,16 +210,24 @@
 |--------|---------|-----------|
 | V50-Baujahr IDENTIFIKATION | 🔴 KRITISCH | **VIN oder Baujahr vom User nötig!** Bestimmt CAN-IDs, SW-TN, Grill |
 | Mann C 25 107 Teilenummer | 🔴 HOCH | VIN-Check vor Kauf! C 27 107 / C 28 110 möglich |
-| Kotflügel-Rost | 🔴 HOCH | Vor Polierung prüfen! |
+| Kotflügel-Rost | 🔴 HOCH | Vor Polierung prüfen! €50-250 Reserve |
 | Eibach AMZ €150 vs Listenpreis €280 | 🟡 MITTEL | Verkäufer prüfen, Originalverpackung + Gutachten verlangen |
 | CEM-Relais (ETM) | 🟡 MITTEL | ETM-Cleaning-Kit → Präventiv reinigen |
 | AW55-51 Getriebe | 🟡 MITTEL | ATF-Wechsel mit T-IV in Phase 1 |
 | Dayco KTB481 | 🟡 MITTEL | Manche Angebote OHNE Wasserpumpe! |
 | Facelift-SW Verfügbarkeit | 🟡 MITTEL | Gebraucht ~€250-290/paar auf Kleinanzeigen |
+| Ferrita Lieferzeit | 🟡 MITTEL | 3-5 Wochen Lieferzeit ab Schweden |
+
+### 🆕 NEU in v8
+- **V50-Tools-Kategorie leer** — braucht: Federspanner, Bremsentlüfter, Torx-Set
+- **Dayco KTB481 Warnung** — manche Angebote OHNE Wasserpumpe!
+- **Ferodo DS2500 korrekt als ILLEGAL markiert** in DB
+- **HEL Performance SS-Leitungen** als BESTE OPTION bestätigt (TÜV-Zert inklusive)
+- **SuperPro Poly** hat ABE — im Gegensatz zu Powerflex!
 
 ---
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁  
-**DB-STAND**: 668 Teile, 31 interior, 1061 Fitments | Interior v2: 5 NEUE Teile (DIM-Kit, CEM-Löt-Kit, Sonnenblende LED, Kupplungspedal, Schaltmanschette).  
-**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Interior Realistisch €585 (v2), Premium €861.  
-**Interior v2 NEU**: DIM Pixel-Reparatur, CEM Relay Löt-Kit, Kupplungspedal PN 30714139, Schaltmanschette, Sicherheits-Hinweise erweitert.
+**DB-STAND**: 668 Teile, 381 V50 Fitments, 76 V50 verified, 415 Quellen | 160 CAN-Messages, 218 Signals, 176 Issues  
+**BUDGET**: ✅ INNERHALB 5.000€ HARD CAP — Realistisch €3.023 (mit Auspuff), Reserve €574-2.811  
+**BUDGET-STATUS**: 🟢 GRÜN — Alle Phasen innerhalb Budget-Spots.

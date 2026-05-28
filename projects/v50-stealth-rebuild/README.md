@@ -20,6 +20,8 @@
 - ⚠️ **K&N 33-2221 = FALSCH für V50 2.4i!** Richtig: **K&N 33-2873**
 - ⚠️ **Facelift-Scheinwerfer TN = 31265914/31265915 (H7), NICHT 30796020-23!**
 - ⚠️ **Ferodo DS2500 = KEIN ECE R90 = ILLEGAL!** TRW GDB1359/58 statt!
+- ⚠️ **Dayco KTB481 = MANCHE OHNE WASSERPUMPE!** Gates K015615XS statt!
+- ⚠️ **HEL SS-Leitungen = BESTE OPTION** (TÜV-Zert inklusive, Goodridge braucht Einzelabnahme)
 - LED-Rücklichter nur falls OEM-quality verfügbar (kein Alibaba-Look)
 
 ## Budget: ~3.500-5.000€ HARD CAP
@@ -33,27 +35,28 @@
 | 5 | Reserve | €200-400 | 🔵 Puffer |
 | **Total** | | **€3.500-5.000 MAX** | |
 
-### 📊 Budget-Stand (Chief Update 2026-05-28 v5)
+### 📊 Budget-Stand (Chief Update v8, 2026-05-28)
 
 | | Minimum (€) | Realistisch (€) | Maximum (€) | Budget-Spot |
 |---|---:|---:|---:|---:|
-| **Phase 1: Sicherheit** | 350 | 530 | 580 | €500-800 ✅ |
-| **Phase 2: Fahrwerk** | 490 | 780 | 1.200 | €800-1.200 ✅ |
-| **Phase 3: Optik** | 200 | 350 | 695 | €800-1.200 ✅ |
-| **Phase 4: Motor (o. Auspuff)** | 70 | 175 | 257 | €400-600 ✅ |
-| **Phase 4: Motor (m. Auspuff)** | 540 | 870 | 1.027 | — ⚠️ |
-| **Phase 5: Reserve** | 75 | 145 | 246 | €200-400 ✅ |
-| **TÜV Sammel-Termin** | 150 | 200 | 520 | — |
-| **GESAMT (o. Auspuff)** | **€1.335** | **€2.180** | **€3.498** | **€3.500-5.000 ✅** |
-| **GESAMT (m. Auspuff)** | **€1.805** | **€2.875** | **€4.268** | **€3.500-5.000 ✅** |
+| **Phase 1: Sicherheit** | 355 | 470 | 594 | €500-800 ✅ |
+| **Phase 2: Fahrwerk** | 673 | 897 | 1.127 | €800-1.200 ✅ |
+| **Phase 3: Optik** | 365 | 644 | 925 | €800-1.200 ✅ |
+| **Phase 4: Motor (m. Auspuff)** | 514 | 636 | 759 | €400-600 ⚠️ |
+| **Phase 5: Reserve** | 132 | 176 | 221 | €200-400 ✅ |
+| **TÜV Sammel-Termin** | 150 | 200 | 300 | — |
+| **GESAMT (m. Auspuff)** | **€2.189** | **€3.023** | **€3.926** | **€3.500-5.000 ✅** |
+| **GESAMT (o. Auspuff)** | **€1.639** | **€2.453** | **€3.155** | **€3.500-5.000 ✅** |
 
 > ✅ **Beide Szenarien KOMFORTABEL INNERHALB Budget!**
 
-> 💡 **Empfehlung**: Szenario MIT Ferrita Auspuff = €1.805-4.268 → Reserve €732-3.165!
+> 💡 **Empfehlung**: Szenario MIT Ferrita Auspuff = €2.189-3.926 → Reserve €1.074-2.811!
 
 > ⭐ **STEALTH-Tipp**: Osram Night Breaker LASER H7 (Halogen) statt LED = eintragungsfrei!
 
 > 🔴 **KRITISCH**: V50-Baujahr (Pre-FL vs FL) bestätigen! Bestimmt CAN-IDs, Scheinwerfer-TN, Grill.
+
+> ⚠️ **RISIKO**: Kotflügelrost (€50-250) + Ferrita Lieferzeit (3-5 Wochen)
 
 > Siehe CHIEF_STATUS.md für vollständige Analyse.
 
@@ -62,16 +65,16 @@
 - ❌ Kein Chip über 170PS — Polestar für B5244S nicht verfügbar
 - ❌ Kein IPD Intake — kein deutsches Gutachten
 - ❌ Kein Ferodo DS2500 — KEIN ECE R90 = ILLEGAL!
-- ❌ Kein gebohrte Bremsscheiben — kein TÜV für P1
+- ❌ Keine gebohrten Bremsscheiben — kein TÜV für P1
 - ❌ Kein lauter China-Auspuff — illegal ohne ABE
 - ❌ Keine Tieferlegung über -30mm — TÜV-Probleme + auffällig
 - ❌ Kein Powerflex Poly — keine ABE, SuperPro statt!
 
 ## Datenbank-Stand
-- 585 Teile in DB, 185+ V50 2.4i Fitments
+- 668 Teile in DB, 194 unique V50 2.4i Parts, 76 verified
+- 381 V50 2.4i Fitments (Pre-FL + FL), 415 Quellen
+- 160 CAN-Messages, 218 CAN-Signals, 176 Known Issues
 - 21 Kategorien, 2 V50 2.4i Varianten (Pre-FL + FL)
-- CAN-Bus: 56 Messages dekodiert, 181 DTC-Codes
-- Dashboard: PyQt5 GUI mit DTC-Overlay, Echtzeitdaten
 
 ## Reports
 - [CHIEF_STATUS.md](./CHIEF_STATUS.md) — Vollständige Projektübersicht
