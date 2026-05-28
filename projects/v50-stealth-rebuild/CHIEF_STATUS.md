@@ -221,22 +221,24 @@ Eibach + KONI + SS-Leitungen + Auspuff + Scheinwerfer → **1 TÜV-Termin** = �
 
 ---
 
-## 📊 BUDGET-ZUSAMMENFASSUNG (2026-05-28)
+## 📊 BUDGET-ZUSAMMENFASSUNG (2026-05-28 v3 — Preis-Jäger Update)
 
-| | Minimum | Realistisch (Max) | Budget-Spot |
+| | Minimum | Realistisch | Budget-Spot |
 |---|---:|---:|---:|
-| **Phase 1** | €478 | €653 | €500-800 ✅ |
-| **Phase 2** | €680 | €930 | €800-1.200 ✅ |
-| **Phase 3** | €350 | €695 | €800-1.200 ✅ |
-| **Phase 4 (ohne Auspuff)** | €108 | €257 | €400-600 ✅ |
-| **Phase 4 (mit Auspuff)** | €558 | €907 | — ⚠️ |
-| **Phase 5** | €133 | €246 | €200-400 ✅ |
-| **TÜV-Eintragungen** | €260 | €520 | (Sammel-Termin) |
-| **GESAMT (ohne Auspuff)** | **€2.009** | **€3.301** | **€3.500-5.000 ✅** |
-| **GESAMT (mit Auspuff)** | **€2.459** | **€3.951** | **€3.500-5.000 ✅** |
+| **Phase 1** | €350 | €530 | €500-800 ✅ |
+| **Phase 2** | €490 | €780 | €800-1.200 ✅ |
+| **Phase 3** | €200 | €350 | €800-1.200 ✅ |
+| **Phase 4 (ohne Auspuff)** | €70 | €175 | €400-600 ✅ |
+| **Phase 4 (mit Auspuff)** | €520 | €695 | — ⚠️ |
+| **Phase 5** | €75 | €145 | €200-400 ✅ |
+| **TÜV-Eintragungen (Sammel)** | €150 | €300 | (1x Termin) |
+| **GESAMT (ohne Auspuff)** | **€1.335** | **€2.280** | **€3.500-5.000 ✅** |
+| **GESAMT (mit Auspuff)** | **€1.785** | **€2.800** | **€3.500-5.000 ✅** |
 
-**🟢 FAZIT**: Beide Szenarien KOMFORTABEL unter dem 5.000€ HARD CAP.  
-**💡 EMPFEHLUNG**: Szenario MIT Auspuff = €2.459-3.951, Reserve €550-2.050.  
-**🏆 STEALTH-TIPP**: Osram Night Breaker LASER H7 statt LED = eintragungsfrei + fast so hell!
+**🟢 FAZIT**: Beide Szenarien KOMFORTABEL unter dem 5.000€ HARD CAP! Preise stabil/leicht sinkend.  
+**💡 EMPFEHLUNG**: Szenario B (STEALTH-Balance mit Auspuff) = ~€2.143, Reserve €1.357-2.857.  
+**🔥 PREIS-FUND**: Eibach Pro-Kit AMZ €150 (Listenpreis €280) — Verkäufer prüfen!  
+**🏆 STEALTH-TIPP**: Osram Night Breaker LASER H7 statt LED = eintragungsfrei + fast so hell!  
+**📊 DB UPDATE**: 24 Teile-Preise in vehicle_database.db aktualisiert.
 
 **STEALTH-STATUS**: 100% legal, 100% unauffällig, 100% TÜV-konform. 🏁

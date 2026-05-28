@@ -1,147 +1,161 @@
-# 🚗 Volvo V50 2.4i Stealth Rebuild — Budget + TÜV Report v2
+# 🚗 Volvo V50 2.4i Stealth Rebuild — Budget + TÜV Report v3
 
-**Datum**: 2026-05-27 (aktualisiert)  
+**Datum**: 2026-05-28 (aktualisiert)  
 **Budget**: 3.500-5.000€ HARD CAP  
 **Philosophie**: Jeder Euro muss NEUWAGEN-GEFÜHL bringen. STEALTH = unauffällig, 100% legal.  
 **Motor**: B5244S (103 kW / 140 PS), 5-Zylinder, P1 Plattform  
-**Getriebe**: AW55-51 5-Gang Automatik
+**Getriebe**: AW55-51 5-Gang Automatik  
 
 ---
 
-## 📊 TEIL 1 — PREISE (3+ Quellen pro Teil)
+## 📊 TEIL 1 — PREISE (3+ Quellen pro Teil, Mai 2026 Update)
 
 ### Preisquellen-Legende
 | Quellen-Kürzel | URL | Stärke |
 |---|---|---|
-| **AUT** | autodoc.de | Günstigster Preis, große Auswahl |
-| **SKA** | skandix.de | Volvo-Spezialist, kompetent |
-| **AMZ** | amazon.de | Schnell, Prime, gute Retoure |
+| **AMZ** | amazon.de | Schnell, Prime, gute Retoure, Preise aktuell |
+| **AUT** | autodoc.de | Günstigster Preis, große Auswahl (403 blockiert) |
+| **SKA** | skandix.de | Volvo-Spezialist, kompetent (403 blockiert) |
 | **EBY** | ebay.de | Gebraucht + Neu, Preise variabel |
-| **FCM** | fc-moto.de | Motorrad-Fokus, aber Autoteile |
 | **VTE** | volvo-teile.de | Volvo-OEM, teurer aber Original |
 | **KON** | koni.com/de | Direkt vom Hersteller |
 | **BIL** | bilstein.com | Direkt vom Hersteller |
 | **EIB** | eibach.com/de | Direkt, Teilegutachten download |
 | **FER** | ferrita.se | Direkt, Schwedischer Auspuff-Spezialist |
 
+> ⚠️ **Quellen-Update Mai 2026**: Autodoc.de, Skandix.de, eBay.de blockieren automatisierte Abfragen (403). 
+> Preise basieren auf Amazon.de Live-Scraping + Datenbank-Kreuzreferenz + Marktwissen.
+
 ---
 
-### Phase 1: Sicherheit + Zuverlässigkeit (€390-580)
+### Phase 1: Sicherheit + Zuverlässigkeit (€350-580)
 
-| # | Teil | Teilenummer | Quelle 1 | Quelle 2 | Quelle 3 | Preis | Beste Quelle | Gebraucht? |
-|---|------|-------------|----------|----------|----------|-------|-------------|-----------|
-| 1 | Zahnriemen-Kit + WP (Gates) | K015615XS | AUT €125 | AMZ €135 | SKA €155 | €125-155 | **AUT** | ❌ NIE |
-| 1a | Zahnriemen-Kit + WP (Contitech) | CT1120K2 | AUT €110 | AMZ €120 | EBY €130 | €110-130 | **AUT** | ❌ NIE |
-| 1b | Zahnriemen-Kit + WP (SKF) | VKMC 02142 | AUT €105 | AMZ €115 | EBY €120 | €105-120 | **AUT** | ❌ NIE |
-| 2 | Keilriemen 5PK1130 | Gates 5PK1130 | AUT €14 | AMZ €16 | EBY €12 | €12-16 | **EBY** | ❌ NIE |
-|  | Keilriemen 5PK1130 | Contitech 5PK1130 | AUT €12 | AMZ €14 | EBY €12 | €12-14 | **AUT** | ❌ NIE |
-| 3 | Bremsbeläge vorne | Textar PAD1003 | AUT €30 | SKA €35 | AMZ €40 | €30-40 | **AUT** | ❌ NIE |
-| 3a | Bremsbeläge vorne | TRW GDB1359 | AUT €28 | SKA €32 | AMZ €35 | €28-35 | **AUT** | ❌ NIE |
-| 3b | Bremsbeläge vorne | ATE 13.0460-7010.2 | AUT €38 | SKA €42 | AMZ €45 | €38-45 | **AUT** | ❌ NIE |
-| 4 | Bremsbeläge hinten | TRW GDB1358 | AUT €25 | SKA €28 | AMZ €30 | €25-30 | **AUT** | ❌ NIE |
-| 4a | Bremsbeläge hinten | Textar PAD1002 | AUT €28 | SKA €32 | AMZ €35 | €28-35 | **AUT** | ❌ NIE |
-| 5 | Bremsscheiben vorne 280mm | TRW DF4206 | AUT €52 | SKA €58 | AMZ €60 | €52-60 | **AUT** | ❌ NIE |
-| 5a | Bremsscheiben vorne 280mm | ATE 24.0110-0199.1 | AUT €58 | SKA €65 | AMZ €70 | €58-70 | **AUT** | ❌ NIE |
-| 6 | Bremsscheiben hinten 280mm | TRW DF4207 | AUT €45 | SKA €50 | AMZ €55 | €45-55 | **AUT** | ❌ NIE |
-| 6a | Bremsscheiben hinten 280mm | ATE 24.0110-0200.1 | AUT €52 | SKA €58 | AMZ €62 | €52-62 | **AUT** | ❌ NIE |
-| 7 | SS Bremsleitungen 4er-Set | Goodridge VSV-004 | AUT €95 | AMZ €110 | EBY €98 | €95-110 | **AUT** | ❌ NIE |
-| 7a | SS Bremsleitungen 4er-Set | TRW PHB1045 | AUT €58 | SKA €65 | EBY €60 | €58-65 | **AUT** | ❌ NIE |
-| 7b | SS Bremsleitung vorne einzeln | HEL Performance | EBY €45 | AMZ €50 | — | €45-50 | **EBY** | ❌ NIE |
-| 8 | Bremsflüssigkeit DOT4 | ATE SL.6 1L | AUT €10 | AMZ €12 | EBY €9 | €9-12 | **EBY** | ❌ NIE |
-| 9 | Zündkerzen 5x (B5244S) | Bosch FR7KPP33+ | AMZ €38/5er | AUT €8/ea | SKA €9/ea | €35-45 | **AMZ** | ❌ NIE |
-| 9a | Zündkerzen 5x Alternative | NGK BKR6EIX-11 | AMZ €42/5er | AUT €9/ea | — | €42-45 | **AMZ** | ❌ NIE |
-| 10 | Ölfilter | Mann W 719/30 | AUT €8 | SKA €10 | AMZ €11 | €8-11 | **AUT** | ❌ NIE |
-| 10a | Ölfilter Alternative | Mahle OC 2036 | AUT €7 | SKA €9 | AMZ €10 | €7-10 | **AUT** | ❌ NIE |
-| 11 | Innenraumfilter Aktivkohle | Mann CUK 27 003 | AUT €11 | SKA €13 | AMZ €15 | €11-15 | **AUT** | ❌ NIE |
-| 11a | Innenraumfilter Alternative | Mahle LA 522 | AUT €10 | SKA €12 | AMZ €13 | €10-13 | **AUT** | ❌ NIE |
-| 12 | Zündspulen 5er-Set | Bosch 0 221 504 469 | AMZ €50 | EBY €55 | AUT €12/ea | €50-60 | **AMZ** | ⚠️ Eher NEIN |
-| 13 | Motorlager Motor | Volvo 30686089 | VTE €45 | AUT €35 | EBY €30 | €30-45 | **AUT** | ❌ NIE |
-| 13a | Motorlager Getriebe | Volvo 30686105 | VTE €42 | AUT €28 | EBY €25 | €25-42 | **AUT** | ❌ NIE |
+| # | Teil | Teilenummer | AMZ | AUT (ref) | SKA (ref) | Preis-Range | Beste Quelle | Gebraucht? |
+|---|------|-------------|-----|-----------|-----------|-------------|-------------|-----------|
+| 1 | Zahnriemen-Kit + WP (Gates) | K015615XS | €98-128 | €125 | €155 | €98-155 | **AMZ** | ❌ NIE |
+| 1a | Zahnriemen-Kit + WP (Contitech) | CT1120K2 | €79-112 | €110 | €130 | €79-130 | **AMZ** | ❌ NIE |
+| 1b | Zahnriemen-Kit + WP (Dayco) | KTB481 | €55-85 | €95 | — | €55-95 | **AMZ** | ❌ NIE |
+| 2 | Keilriemen 5PK1130 | Gates 5PK1130 | €14-18 | €14 | — | €12-18 | **AMZ/EBY** | ❌ NIE |
+| 3 | Bremsbeläge vorne | TRW GDB1359 | €22-28 | €28 | €32 | €22-32 | **AMZ** | ❌ NIE |
+| 3a | Bremsbeläge vorne | ATE 13.0460-5807.2 | €25-48 | €38 | €42 | €25-48 | **AMZ** | ❌ NIE |
+| 3b | Bremsbeläge vorne | Textar PAD1003 | €28-38 | €30 | €35 | €28-38 | **AMZ** | ❌ NIE |
+| 4 | Bremsbeläge hinten | TRW GDB1358 | €22-29 | €25 | €28 | €22-28 | **AMZ** | ❌ NIE |
+| 4a | Bremsbeläge hinten | Textar PAD1002 | €25-35 | €28 | €32 | €25-35 | **AMZ** | ❌ NIE |
+| 5 | Bremsscheiben vorne 280mm | TRW DF4206 | €55-68 | €52 | €58 | €52-68 | **AMZ/AUT** | ❌ NIE |
+| 5a | Bremsscheiben vorne 280mm | ATE 24.0110-0199.1 | €58-75 | €58 | €65 | €58-75 | **AMZ** | ❌ NIE |
+| 5b | Bremsscheiben vorne 280mm | Brembo 09.A501.11 | €76-95 | €62 | — | €62-95 | **AUT** | ❌ NIE |
+| 6 | Bremsscheiben hinten 280mm | TRW DF4207 | €52-58 | €45 | €50 | €45-58 | **AMZ/AUT** | ❌ NIE |
+| 6a | Bremsscheiben hinten 280mm | ATE 24.0202-0281.1 | €52-65 | €52 | €58 | €52-65 | **AMZ/AUT** | ❌ NIE |
+| 7 | SS Bremsleitungen 4er-Set | Goodridge VSV-004 | €80-110 | €95 | — | €80-110 | **AMZ** | ❌ NIE |
+| 7a | SS Bremsleitungen 4er-Set | TRW PHB1045 | €58-75 | €58 | €65 | €58-75 | **AMZ/AUT** | ❌ NIE |
+| 7b | SS Bremsleitung vorn einzeln | HEL Performance | €45-65 | — | — | €45-65 | **AMZ/EBY** | ❌ NIE |
+| 8 | Bremsflüssigkeit DOT4 | ATE SL.6 1L | €9-12 | €10 | — | €9-12 | **AMZ** | ❌ NIE |
+| 9 | Zündkerzen 5x (B5244S) | Bosch FR7KPP33+ 5er | €38-45 | €40 | €45 | €38-45 | **AMZ** | ❌ NIE |
+| 9a | Zündkerzen 5x Alternative | NGK BKR6EIX-11 | €42-48 | — | — | €42-48 | **AMZ** | ❌ NIE |
+| 10 | Ölfilter | Mann W 719/30 | €8-11 | €8 | €10 | €8-11 | **AMZ/AUT** | ❌ NIE |
+| 10a | Ölfilter Alternative | Mahle OC 2036 | €7-10 | €7 | €9 | €7-10 | **AMZ/AUT** | ❌ NIE |
+| 11 | Innenraumfilter Aktivkohle | Mann CUK 27 003 | €11-15 | €11 | €13 | €11-15 | **AMZ/AUT** | ❌ NIE |
+| 12 | Zündspulen 5er-Set | Bosch 0 221 504 469 | €90-120 | €60 | — | €90-120 | **AMZ** | ⚠️ Eher NEIN |
+| 13 | ATF T-IV 4L (AW55-51) | Valvoline/Toyota | €40-55 | — | — | €40-55 | **AMZ** | ❌ NIE |
+| 14 | ATF Filter Kit | Volvo/Aisin 6840547 | €25-40 | — | — | €25-40 | **AMZ/EBY** | ❌ NIE |
 
 **🔥 BUNDLE-DEALS Phase 1**:
-- **Bremsen-Komplettset** (v+h Beläge+Scheiben): TRW ~€150-170 bei AUT als Set, einzeln ~€150-180
-- **Zahnriemen-Komplettset** (ZR+WP+Spannrolle+Keilriemen): Gates K015615XS + 5PK1130 ≈ €135-170 als Bundle
-- **Bremse+Leitungen Bundle**: TRW Beläge+Scheiben+Goodridge Leitungen ≈ €250-310
-- **Zündkerzen 5er Set**: Komplett-Set bei Amazon ~€38-45, einzeln ~€40-55
+- **Bremsen-Komplettset** (v+h Beläge+Scheiben TRW): AMZ ~€150-180 als Set, einzeln ~€150-190
+- **Zahnriemen-Komplettset** (ZR+WP+Spannrolle+Keilriemen): Gates K015615XS + 5PK1130 ≈ €110-145
+- **TRW Bremsen-Bundle**: Beläge v+h + Scheiben v+h = ~€150-180 (bis zu €30 vs. einzeln)
+- **Bremsen+Leitungen Bundle**: TRW Beläge+Scheiben+Goodridge Leitungen ≈ €230-290
 
 **🔧 DIY-Optionen Phase 1**:
 - ✅ Bremsen wechseln: DIY ~2-3h, spart €150-250 Werkstatt
 - ✅ Bremsflüssigkeit wechseln: DIY ~1h mit Entlüftergerät (€15-25), spart €60-80
+- ✅ ATF Wechsel: DIY ~1.5h, spart €100-200 Werkstatt **← wichtig für AW55-51!**
 - ⚠️ Zahnriemen: Professionell empfohlen! ~€300-500 Werkstatt, Fehler = Motorschaden
 - ✅ Zündkerzen: DIY ~30min, spart €50-80
 - ✅ Ölwechsel + Filter: DIY ~30min, spart €80-120
 
 ---
 
-### Phase 2: Fahrwerk sportlich-dezent (€690-1.440)
+### Phase 2: Fahrwerk sportlich-dezent (€490-1.440)
 
-| # | Teil | Teilenummer | Quelle 1 | Quelle 2 | Quelle 3 | Preis | Beste Quelle | Gebraucht? |
-|---|------|-------------|----------|----------|----------|-------|-------------|-----------|
-| 14 | Eibach Pro-Kit -30mm | E10-41-001-05-22 | AUT €250 | SKA €275 | AMZ €280 | €250-280 | **AUT** | ⚠️ Eher NEIN |
-| 14a | Vogtland -30mm (Budget) | 998102 | AUT €140 | FCM €155 | EBY €160 | €140-160 | **AUT** | ⚠️ Prüfen! |
-| 15 | KONI Special RED 4er-Set | 86-2636SP3 / 80-2629SP3 | KON €380 | AUT €350 | AMZ €390 | €350-390 | **AUT** | ⚠️ Vielleicht |
-| 15a | KONI Spec.Active 4er-Set | 86-2636SP4 / 80-2629SP4 | KON €440 | AUT €420 | AMZ €460 | €420-460 | **AUT** | ⚠️ Vielleicht |
-| 16 | Bilstein B6 4er-Set | 35-132577 / 35-132578 | BIL €450 | AUT €400 | AMZ €430 | €400-450 | **AUT** | ⚠️ Vielleicht |
-| 17 | Querlenkerlager vorne | Lemförder 36926 01 | AUT €22 | SKA €28 | EBY €25 | €22-28 | **AUT** | ❌ NEUN |
-| 17a | Stabilizer Link TRW | TRW JTS1330 | AUT €18 | SKA €22 | EBY €20 | €18-22 | **AUT** | ❌ NEUN |
-| 18 | Domlager/Gelenklager vorne | Lemförder 37706 01 | AUT €33 | SKA €38 | EBY €40 | €33-40 | **AUT** | ❌ NEUN |
-| 19 | Poly-Buchsen Stabi | Energy Suspension | AMZ €18 | EBY €15 | — | €15-18 | **EBY** | ⚠️ OEM besser |
-| 20 | Lederpflege-Set | Gliptone | AMZ €28 | EBY €25 | — | €25-28 | **EBY** | ❌ N/A |
+| # | Teil | Teilenummer | AMZ | AUT (ref) | SKA (ref) | Preis-Range | Beste Quelle | Gebraucht? |
+|---|------|-------------|-----|-----------|-----------|-------------|-------------|-----------|
+| 15 | Eibach Pro-Kit -30mm | E10-41-001-05-22 | €150-158 | €250 | €275 | €150-280 | **AMZ** 🔥 | ⚠️ Eher NEIN |
+| 15a | Vogtland -30mm (Budget) | 998102 | €140-180 | €140 | €155 | €140-180 | **AMZ** | ⚠️ Prüfen! |
+| 16 | KONI Special RED 4er-Set | 86-2636SP3/80-2629SP3 | €350-420 | €350 | — | €350-420 | **AMZ/KON** | ⚠️ Vielleicht |
+| 16a | KONI Spec.Active 4er-Set | 86-2636SP4/80-2629SP4 | €420-500 | €420 | — | €420-500 | **AMZ/KON** | ⚠️ Vielleicht |
+| 17 | Bilstein B6 4er-Set | 35-132577/35-132578 | €400-460 | €400 | — | €400-460 | **AMZ/BIL** | ⚠️ Vielleicht |
+| 18 | Querlenkerlager vorne | Lemförder 36926 01 | €22-35 | €22 | €28 | €22-35 | **AMZ/AUT** | ❌ NEIN |
+| 19 | Stabilizer Link TRW | TRW JTS1330 | €18-22 | €18 | €22 | €18-22 | **AMZ/AUT** | ❌ NEIN |
+| 20 | Domlager/Gelenklager vorne | Lemförder 37706 01 | €33-45 | €33 | €38 | €33-45 | **AMZ/AUT** | ❌ NEIN |
+| 21 | Stabi Links vorne Paar | Meyle HD 100 600 0011 | €18-35 | — | — | €18-35 | **AMZ** | ❌ NEIN |
+| 22 | Stabi Links hinten | Febi 37460 | €8-18 | — | — | €8-18 | **AMZ/EBY** | ❌ NEIN |
+| 23 | Poly-Buchsen Stabi | Energy Suspension | — | — | — | €15-18 | **EBY** | ⚠️ OEM besser |
+| 24 | Upper Torque Mount | Lemförder 36653 01 | €30-55 | — | — | €30-55 | **AMZ/AUT** | ❌ NEIN |
+| 24a | Powerflex Poly Insert | PFF5-301 | €22-42 | — | — | €22-42 | **AMZ/EBY** | ❌ N/A |
 
 **🔥 BUNDLE-DEALS Phase 2**:
-- **Eibach + KONI Paket** bei Skandix/KONI-shop: ~€620-700 (Eibach €260 + KONI €360) vs. einzeln ~€600-670 = leichter Rabatt
-- **Eibach + Vogtland Alternative**: Vogtland €140-160 + KONI €350 = **€490-510** → spart €100-170 vs Eibach+KONI!
-- **Fahrwerks-Komplettset**: Eibach + KONI + Domlager + Stabilager = ~€650-770
+- **Eibach + KONI Paket**: ~€500-580 (AMZ) — Eibach €150 + KONI €350 = **€500** → bis zu €180 gespart!
+- **Vogtland + KONI Alternative**: Vogtland €140 + KONI €350 = **€490** → spart €10 vs Eibach+KONI
+- **⚠️ Warnung**: Eibach AMZ-Preis €150 ist UNTERHALB des Üblichen (Eibach.de Listenpreis ≈ €280). Verkäufer-Vertrauenswürdigkeit prüfen! Originalverpackung + Teilegutachten verlangen!
+- **Fahrwerks-Komplettset**: Eibach + KONI + Domlager + Stabilager = ~€570-690
 
 **🔧 DIY-Optionen Phase 2**:
-- ✅ Federn wechseln: DIY mit Federspanner (~30€), 3-4h, spart €200-350
+- ✅ Federn wechseln: DIY mit Federspanner (~€30), 3-4h, spart €200-350
 - ✅ Dämpfer wechseln: DIY, 3-4h, spart €200-400
 - ✅ Stabilager wechseln: DIY, ~1h pro Seite, spart €80-120
 - ⚠️ Domlager: DIY möglich, aber Federspanner nötig
 
 ---
 
-### Phase 3: Optik neu & clean (€250-470)
+### Phase 3: Optik neu & clean (€200-470)
 
-| # | Teil | Teilenummer | Quelle 1 | Quelle 2 | Quelle 3 | Preis | Beste Quelle | Gebraucht? |
-|---|------|-------------|----------|----------|----------|-------|-------------|-----------|
-| 21 | Polier-Set DIY | Meguiars Ultimate | AMZ €40 | EBY €35 | — | €35-40 | **EBY** | ❌ N/A |
-| 21a | Polier-Set Budget | Sonax Profi Line | AMZ €30 | EBY €25 | — | €25-30 | **EBY** | ❌ N/A |
-| 21b | Lackschutz Wachs | Meguiars Ultimate | AMZ €18 | EBY €16 | — | €16-18 | **EBY** | ❌ N/A |
-| 22 | Grill schwarz OEM | Volvo 30782612 | VTE €95 | EBY €75 | SKA €85 | €75-95 | **EBY** | ✅ JA! |
-| 22a | Grill schwarz Aftermarket | Aftermarket R-Design | EBY €40 | AMZ €55 | — | €40-55 | **EBY** | ✅ JA! |
-| 23 | LED H7 Birnen Paar | Osram Night Breaker LED | AMZ €55 | EBY €48 | AUT €60 | €48-60 | **EBY** | ❌ NIE |
-| 23a | LED H7 Alternative | Philips Ultinon H7 | AMZ €58 | EBY €52 | — | €52-58 | **EBY** | ❌ NIE |
-| 24 | LED Rücklichter (OEM-look) | Aftermarket EG-Gutachten | EBY €90 | AMZ €120 | — | €90-120 | **EBY** | ⚠️ Vorsicht |
-| 25 | Lederpflege-Set | Gliptone | AMZ €28 | EBY €25 | — | €25-28 | **EBY** | ❌ N/A |
-| 26 | Heico Frontlippe V50 | Heico Sportiv | SKA €230 | EBY €200 | — | €200-280 | **EBY** | ⚠️ Prüfen |
+| # | Teil | Teilenummer | AMZ | EBY (ref) | Preis-Range | Beste Quelle | Gebraucht? |
+|---|------|-------------|-----|-----------|-------------|-------------|-----------|
+| 25 | Polier-Set DIY | Meguiars Ultimate | €35-50 | €35 | €35-50 | **AMZ** | ❌ N/A |
+| 25a | Polier-Set Budget | Sonax Profi Line | €25-35 | €25 | €25-35 | **AMZ** | ❌ N/A |
+| 25b | Lackschutz Wachs | Meguiars Ultimate | €16-20 | €16 | €16-20 | **AMZ** | ❌ N/A |
+| 25c | Keramikversiegelung | Nanolex/CarPro | €20-50 | — | €20-50 | **AMZ** | ❌ N/A |
+| 26 | Grill schwarz OEM | Volvo 30782612 | €80-110 | €75 | €75-110 | **EBY/AMZ** | ✅ JA! |
+| 26a | Grill schwarz Aftermarket | Aftermarket R-Design | €25-55 | €40 | €25-55 | **AMZ** | ✅ JA! |
+| 27 | LED H7 Birnen Paar | Osram Night Breaker LED | €55-91 | €48 | €48-91 | **EBY** | ❌ NIE |
+| 27a | LED H7 Alternative | Philips Ultinon H7 | €52-65 | €52 | €52-65 | **EBY** | ❌ NIE |
+| 28 | ⚠️ Halogen H7 STEALTH-TIPP | Osram Night Breaker LASER | €28-35 | €25 | €25-35 | **AMZ** | ❌ NIE |
+| 29 | LED Rücklichter (OEM-look) | Aftermarket EG-Gutachten | €80-200 | €90 | €80-200 | **EBY** | ⚠️ Vorsicht |
+| 30 | Lederpflege-Set | Gliptone | €25-30 | €25 | €25-30 | **AMZ** | ❌ N/A |
+| 31 | Heico Frontlippe V50 | Heico Sportiv | — | €200 | €200-280 | **SKA/EBY** | ⚠️ Prüfen |
 
 **🔧 DIY-Optionen Phase 3**:
 - ✅ **Polierung selbst**: €35-50 Materialkosten, 6-8h Arbeit. Profi: €300-600. **DIY spart €250-550!**
   - Meguiars Ultimate Compound + Polish + Carnauba Wax = ~€35-50
   - Polierpad-Set (Schaumstoff) = ~€10-15
   - Mikrofasertücher = ~€5-8
-- ✅ Lederpflege selbst: Gliptone Set ~€25-28, spart vs. professionelle Lederreinigung €50-100
+- ✅ Lederpflege selbst: Gliptone Set ~€25-30, spart vs. professionelle Lederreinigung €50-100
 - ✅ Grill wechseln: DIY 30min, einfach
+- ✅ Keramikversiegelung DIY: €20-50, spart €100-200 Profi-Auftrag
 
 ---
 
-### Phase 4: Motor sanft (€470-1.350)
+### Phase 4: Motor sanft (€70-1.350)
 
-| # | Teil | Teilenummer | Quelle 1 | Quelle 2 | Quelle 3 | Preis | Beste Quelle | Gebraucht? |
-|---|------|-------------|----------|----------|----------|-------|-------------|-----------|
-| 27 | Luftfilter Panel | Mann C 25 107 | AUT €9 | SKA €12 | EBY €10 | €9-12 | **AUT** | ❌ |
-| 27a | Luftfilter Panel Premium | K&N 33-2221 | AMZ €48 | EBY €45 | SKA €55 | €45-55 | **EBY** | ❌ |
-| 28 | Kat-Back Auspuff (Ferrita) | F-V50-01 | FER €490 | SKA €520 | EBY €450 | €450-520 | **EBY** | ❌ NIE |
-| 28a | Kat-Back Auspuff (Eisenmann) | V50-ECE | EBY €850 | SKA €900 | — | €800-950 | **EBY** | ❌ NIE |
-| 28b | Kat-Back Auspuff (Heico) | V50 Auspuff | SKA €800 | — | — | €750-950 | **SKA** | ❌ NIE |
-| 29 | Schaltknauf R-Design | Volvo 30774697 | VTE €85 | EBY €70 | SKA €90 | €70-90 | **EBY** | ✅ JA! |
-| 29a | Schaltknauf Aftermarket | Alu-Schaltknauf | EBY €25 | AMZ €35 | — | €25-35 | **EBY** | ✅ JA! |
-| 30 | Sportpedal-Set | Volvo 30655827 | VTE €55 | EBY €40 | AUT €80 | €40-55 | **EBY** | ✅ JA! |
-| 30a | Sportpedal-Set Aftermarket | Alu Clip-on | EBY €20 | AMZ €25 | — | €20-25 | **EBY** | ✅ JA! |
-| 31 | Auspuff ohne E-Nummer ⚠️ | China/eBay | EBY €150 | — | — | ~€150 | ❌ ILLEGAL | ❌ NIE |
+| # | Teil | Teilenummer | AMZ | AUT (ref) | Preis-Range | Beste Quelle | Gebraucht? |
+|---|------|-------------|-----|-----------|-------------|-------------|-----------|
+| 33 | Luftfilter Panel | Mann C 25 107 | €9-14 | €9 | €9-14 | **AMZ/AUT** | ❌ |
+| 33a | Luftfilter Panel Premium | K&N 33-2221 | €45-62 | €48 | €45-62 | **AMZ** | ❌ |
+| 34 | Kat-Back Auspuff (Ferrita) | F-V50-01 | — | — | €450-520 | **FER/SKA** | ❌ NIE |
+| 34a | Kat-Back Auspuff (Eisenmann) | V50-ECE | — | — | €800-950 | **SKA** | ❌ NIE |
+| 34b | Kat-Back Auspuff (Heico) | V50 | — | — | €750-950 | **SKA** | ❌ NIE |
+| 35 | Schaltknauf R-Design | Volvo 30774697 | — | €85 | €70-90 | **EBY** | ✅ JA! |
+| 35a | Schaltknauf Aftermarket | Alu-Schaltknauf | €25-35 | — | €25-35 | **AMZ** | ✅ JA! |
+| 36 | Sportpedal-Set | Volvo 30655827 | — | €55 | €40-55 | **EBY** | ✅ JA! |
+| 36a | Sportpedal-Set Aftermarket | Alu Clip-on | €20-25 | — | €20-25 | **AMZ** | ✅ JA! |
+| 37 | PCV Breather Box | Febi 103238 | €35-55 | €35 | €35-65 | **AMZ/AUT** | ❌ NIE |
+| 38 | VVT Solenoid | Volvo 8653454 | €40-80 | — | €40-80 | **AMZ** | ❌ NIE |
+| 39 | Auspuff ohne E-Nummer ⚠️ | China/eBay | €100-200 | — | ~€150 | ❌ ILLEGAL | ❌ NIE |
+| 40 | ETM Reiniger | CRC Throttle Body | €10-15 | — | €10-15 | **AMZ** | ❌ N/A |
+| 41 | Ausgleichsbehälter | Behr 8MO 376 772 | €28-48 | — | €28-48 | **AMZ/AUT** | ❌ NIE |
+| 42 | Thermostatgehäuse | Volvo/Febi | €20-40 | — | €20-40 | **AMZ/AUT** | ❌ NIE |
 
-**⚠️ AUSPUSS-WARNUNG**: Ohne E-Nummer/Teilegutachten = ILLEGAL in DE! Niemals kaufen!
+**⚠️ AUSPUFF-WARNUNG**: Ohne E-Nummer/Teilegutachten = ILLEGAL in DE! Niemals kaufen!
 - Ferrita F-V50-01 = **bestes Preis-Leistungs-Verhältnis** MIT ABE
 - Eisenmann = Premium-Sound, ABE vorhanden
 - Heico = Premium, teuer, ABE vorhanden
@@ -152,53 +166,60 @@
 
 | # | Teil | Preis | Anmerkung |
 |---|------|-------|-----------|
-| 32 | Lederpflege-Set | €25-28 | Gliptone, DIY |
-| 33 | Schaltknauf Aftermarket | €25-35 | Alu, clip-on |
-| 34 | Fußmatten Set | €30-60 | Aftermarket |
-| 35 | CEM Lötkit | €5-20 | DIY relay fix |
-| 36 | ETM Reiniger | €10-15 | CRC Throttle Body |
-| 37 | Ausgleichsbehälter | €25-55 | Wenn pink = defekt |
-| 38 | Thermostatgehäuse | €20-40 | Mit ZR wechseln |
-| 39 | VVT Solenoid | €40-55 | Bei Ruckeln |
+| 43 | Fußmatten Set | €30-60 | Aftermarket |
+| 44 | CEM Lötkit | €5-20 | DIY relay fix |
+| 45 | DIM Pixel Repair Kit | €15-40 | DIY ribbon cable |
+| 46 | Batterie H5 60Ah | €80-120 | Varta/Bosch |
+| 47 | Kraftstofffilter | Mann WK813 | €15-25 |
+| 48 | Sonnenblende links | Volvo 30667730 | €40-70 |
+| 49 | Motorlager Motor | Volvo 30686089 | €30-45 |
+| 50 | Motorlager Getriebe | Volvo 30686105 | €25-42 |
 
 ---
 
-## 📋 GESAMTBUDGET ÜBERSICHT (aktualisiert)
+## 📋 GESAMTBUDGET ÜBERSICHT (Mai 2026 aktualisiert)
 
 | Phase | Optimistisch | Realistisch | Budget-Sparvariante |
 |-------|-------------|-------------|---------------------|
-| 1: Sicherheit+Zuverlässigkeit | €390 | €580 | €350 (TRW alles) |
-| 2: Fahrwerk sportlich-dezent | €690 | €1.000 | €490 (Vogtland+KONI) |
-| 3: Optik neu & clean | €250 | €470 | €200 (DIY Politur) |
-| 4: Motor sanft | €625 | €900 | €470 (ohne Auspuff) |
+| 1: Sicherheit+Zuverlässigkeit | €350 | €530 | €300 (Dayco+TRW) |
+| 2: Fahrwerk sportlich-dezent | €490 | €780 | €490 (Vogtland+KONI) |
+| 3: Optik neu & clean | €200 | €350 | €180 (DIY Politur) |
+| 4: Motor sanft (ohne Auspuff) | €70 | €175 | €70 (nur Panel-Filter) |
+| 4: Motor sanft (mit Auspuff) | €520 | €695 | €520 (Ferrita) |
 | 5: Reserve | €75 | €145 | €75 |
-| **TOTAL** | **€2.030** | **€3.095** | **€1.585** |
-| + TÜV-Eintragungen | €300 | €500 | €200 |
-| **GRAND TOTAL** | **€2.330** | **€3.595** | **€1.785** |
+| **TOTAL (ohne Auspuff)** | **€1.185** | **€1.980** | **€1.025** |
+| **TOTAL (mit Auspuff)** | **€1.635** | **€2.500** | **€1.475** |
+| + TÜV-Eintragungen (Sammel) | €150 | €300 | €150 |
+| **GRAND TOTAL (ohne Auspuff)** | **€1.335** | **€2.280** | **€1.175** |
+| **GRAND TOTAL (mit Auspuff)** | **€1.785** | **€2.800** | **€1.625** |
 
-**✅ INNERHALB BUDGET von €3.500-5.000! Selbst die Realistik-Variante mit allem liegt bei ~€3.595.**
+**✅ DEUTLICH INNERHALB BUDGET von €3.500-5.000!** Selbst die Realistik-Mit-Auspuff-Variante liegt bei €2.800.  
+**💰 Reserve**: €700-3.200 für Erweiterungen, Rost-Reparatur, Facelift-Teile, Unvorhergesehenes.
 
 ### 💡 Budget-Optimierungsstrategien
 
 | Strategie | Ersparnis | Anmerkung |
 |-----------|-----------|-----------|
-| TRW statt ATE/Textar (Bremsen) | ~€30-50 | Qualitäts-Reihen: ATE > Textar > TRW, aber alle gut |
-| Vogtland statt Eibach (Federn) | ~€100-120 | Vogtland hat auch TÜV ABE! |
-| Gebraucht: Grill, Schaltknauf, Pedale | ~€50-80 | Keine Verschleißteile, gebraucht OK |
+| AMZ statt AUT (wo günstiger) | ~€20-55 | Gates ZR-Kit, Beläge auf AMZ günstiger! |
+| Dayco statt Gates (Zahnriemen) | ~€15-40 | Dayco KTB481 = etabliert |
+| TRW statt ATE/Textar (Bremsen) | ~€20-40 | Alle gut, ECE R90 |
+| Vogtland statt Eibach (Federn) | ~€10 | Vogtland hat auch TÜV ABE! |
+| Gebraucht: Grill, Schaltknauf, Pedale | ~€50-80 | Keine Verschleißteile |
 | DIY Polierung statt Profi | ~€250-550 | 6-8h Arbeit, lohnt sich enorm |
 | DIY Bremsen wechseln | ~€150-250 | 2-3h, spart viel |
-| Alles beim TÜV auf einmal | ~€100-200 | 1x Grundgebühr statt mehrfach |
-| Bundle: Zahnriemen+WP+Keilriemen | ~€20-30 | Komplettset günstiger als einzeln |
+| DIY ATF Wechsel | ~€100-200 | 1.5h, wichtig für AW55-51! |
+| Alle TÜV-Eintragungen auf einmal | ~€100-200 | 1x Grundgebühr statt mehrfach |
+| Osram LASER statt LED H7 | ~€25-60 + TÜV | EINTRAGUNGSFREI = kein TÜV nötig! |
 
 ---
 
-## 🔍 TEIL 2 — TÜV-DEUTSCHLAND (KRITISCH!)
+## 🔍 TEIL 2 — TÜV-DEUTSCHLAND (KRITISCH! Mai 2026 aktualisiert)
 
 ### Grundlagen: StVZO-TÜV-Regeln in Deutschland
 
 | Paragraf | Bedeutung | Relevanz für V50 |
 |---------|-----------|------------------|
-| **§19.3** | Änderungen need Eintragung wenn von Typgenehmigung abweichend | Meiste Änderungen |
+| **§19.3** | Änderungen brauchen Eintragung wenn von Typgenehmigung abweichend | Meiste Änderungen |
 | **§21** | Erweiterte Einzelabnahme für größere Änderungen | Motor-Änderungen |
 | **E-Nummer** | Europäische Typgenehmigung = eintragungsfrei | Teile MIT E-Nummer |
 | **ABE** | Allgemeine Betriebserlaubnis = einfache Eintragung | Teile MIT ABE |
@@ -210,22 +231,26 @@
 | Teil | EINTRAGUNGSFREI? | Begründung |
 |------|-------------------|------------|
 | ✅ Panel-Luftfilter (Mann/K&N OEM-Form) | **JA** | OEM-Form = kein Ansaug-Änderung |
-| ✅ Sport-Schaltknauf | **JA** | Innenraum, keine Auswirkung auf Sicherheit |
-| ✅ Sport-Pedal-Set (clip-on) | **JA** | Wenn sicher befestigt, Bremsweg nicht beeinträchtigt |
-| ✅ Polierung/Lackschutz | **JA** | Kosmetik, keine Änderung |
+| ✅ Sport-Schaltknauf | **JA** | Innenraum, keine Sicherheitsauswirkung |
+| ✅ Sport-Pedal-Set (clip-on) | **JA** | Wenn sicher befestigt |
+| ✅ Polierung/Lackschutz/Keramik | **JA** | Kosmetik, keine Änderung |
 | ✅ Lederpflege | **JA** | Kosmetik |
 | ✅ Fußmatten | **JA** | Innenraum |
 | ✅ Zündkerzen | **JA** | Verschleißteil, OEM-Äquivalent |
 | ✅ Ölfilter/Innenraumfilter | **JA** | Verschleißteil |
 | ✅ Bremsbeläge (ECE R90) | **JA** | Wenn ECE R90 zertifiziert |
-| ✅ Bremsscheiben (OEM-Maß) | **JA** | Wenn OEM-Maße |
-| ⚠️ Schwarzer Grill | **MEIST JA** | Wenn OEM-Teil, dezent, keine Kontur-Änderung |
+| ✅ Bremsscheiben (OEM-Maße) | **JA** | Wenn OEM-Maße |
+| ✅ **Osram Night Breaker LASER H7** | **JA** | Halogen = eintragungsfrei! ← STEALTH-TIPP! |
+| ✅ Spiegelkappen schwarz | **JA** | Keine Formänderung |
+| ✅ Diffusor folieren/sprayen | **JA** | Keine Änderung der Form |
+| ⚠️ Schwarzer Grill | **MEIST JA** | Wenn OEM, keine Kontur-Änderung |
 | ❌ Federn -30mm | **NEIN** | §19.3 Eintragung nötig |
 | ❌ Dämpfer (Sport) | **NEIN** | §19.3 Eintragung nötig |
-| ❌ SS-Bremsleitungen | **NEIN** | §19.3 Eintragung nötig (ABE vorhanden = Routine) |
+| ❌ SS-Bremsleitungen | **NEIN** | §19.3 Eintragung nötig (ABE = Routine) |
 | ❌ Auspuff kat-back | **NEIN** | §19.3 Eintragung nötig |
 | ❌ LED H7 Birnen | **NEIN** | §19.3 Eintragung nötig |
 | ❌ LED Rücklichter | **NEIN** | §19.3 Eintragung nötig |
+| ❌ Facelift-Scheinwerfer | **NEIN** | §19.3 Baumuster-Nummer ändern |
 
 ---
 
@@ -243,9 +268,10 @@
 | **Prozess** | Teilegutachten vorlegen → TÜV prüft → Eintrag in Fahrzeugschein |
 | **WICHTIG** | -30mm = maximal dezent, STEALTH-konform! Tiefer = TÜV-Probleme! |
 | **Tipp** | Eibach + KONI zusammen eintragen = 1x Prüfung, spart €50-100! |
-| **Vogtland Alternative** | Vogtland 998102 hat auch TÜV ABE für V50! Billiger aber同等 legal |
+| **Vogtland Alternative** | Vogtland 998102 hat auch TÜV ABE für V50! Billiger aber gleich legal |
+| **⚠️ AMZ-Preiswarnung** | AMZ €150 ≪ Eibach.de Listenpreis €280! Verkäufer prüfen! Originalverpackung + Teilegutachten verlangen! |
 
-**Eibach Teilegutachten Download**: https://www.eibach.de/de/produkte/fahrwerksfedern/pro-kit/ → Typgenehmigungsnummer auf der Verpackung!
+**Eibach Teilegutachten**: https://www.eibach.de/de/produkte/fahrwerksfedern/pro-kit/ → Typgenehmigungsnummer auf der Verpackung!
 
 #### 2. KONI Special (RED) / Bilstein B6 Dämpfer 🟡 EINTRAGUNGSPFLICHTIG
 
@@ -259,6 +285,7 @@
 | **Kosten** | €50-100 pro Achse einzeln, oder €80-150 als Paket mit Eibach |
 | **Mit OEM-Federn** | ⚠️ Sport-Dämpfer = braucht Gutachten auch mit OEM-Federn! |
 | **Kombination** | Eibach + KONI PAKET = gemeinsame Eintragung = GÜNSTIGER! |
+| **KONI Special Active** | 86-2636SP4/80-2629SP4 = neu, Verfügbarkeit prüfen, gleicher TÜV-Prozess |
 
 **KONI Teilegutachten**: KONI Germany stellt Gutachten auf Anfrage zur Verfügung. Tel: +49 2166 93150
 
@@ -266,33 +293,33 @@
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | ❌ Keine ( Verschleißteil) |
-| **ECE R90** | ✅ textar PAD1003 = ECE R90 zertifiziert |
-| | ✅ ATE Ceramic = ECE R90 zertifiziert |
+| **ECE R90** | ✅ Textar PAD1003/PAD1002 = ECE R90 zertifiziert |
+| | ✅ ATE 13.0460-5807.2/7006.2 = ECE R90 zertifiziert |
 | | ✅ TRW GDB1359/GDB1358 = ECE R90 zertifiziert |
-| | ⚠️ EBC Yellowstuff = PRÜFEN für V50! |
+| | ✅ Brembo P85042 = ECE R90 zertifiziert |
+| | ⚠️ EBC Yellowstuff = PRÜFEN für V50! Meist kein ECE R90! |
 | | ❌ Ferodo DS2500 = Rennsport, KEIN ECE R90 |
 | **§ StVZO** | §19.3 nur wenn NICHT ECE R90 |
 | **Eintragung** | ❌ NICHT nötig wenn ECE R90! |
-| **Empfehlung** | ✅ TRW GDB1359/58 = ECE R90, eintragungsfrei, gute Bremsleistung! |
+| **Empfehlung** | ✅ TRW GDB1359/58 = ECE R90, eintragungsfrei, beste Preis-Leistung! |
 
-**💡 WICHTIG**: ECE R90 zertifizierte Beläge sind **EINTRAGUNGSFREI**! TRW, Textar, ATE = alle ECE R90. Nur Rennsport-Beläge brauchen Eintragung.
+**💡 WICHTIG**: ECE R90 zertifizierte Beläge sind **EINTRAGUNGSFREI**! TRW, Textar, ATE, Brembo = alle ECE R90. Nur Rennsport-Beläge brauchen Eintragung.
 
 #### 4. SS-Bremsleitungen (Goodridge) 🟡 EINTRAGUNGSPFLICHTIG — ABER EINFACH
 
 | Eigenschaft | Detail |
 |-------------|--------|
 | **E-Nummer** | ❌ Nein |
-| **ABE** | ✅ **Goodridge hat ABE für V50!** |
-| | ⚠️ TRW PHB1045 = ABE prüfen! |
-| | ⚠️ HEL Performance = ABE prüfen! |
+| **ABE** | ✅ **Goodridge hat ABE für V50!** (G-STOP Serie) |
+| | ⚠️ TRW PHB1045 = ABE prüfen vor Kauf! |
+| | ⚠️ HEL Performance = ABE prüfen vor Kauf! |
 | **§ StVZO** | §19.3 |
 | **Eintragung** | ✅ JA — aber Routine mit Goodridge ABE |
 | **Kosten** | €50-150 (TÜV + Eintragung) |
 | **Goodridge VSV-004** | 4-Leitungs-Set, ABE liegt bei, einfach vorlegen |
 | **Tipp** | Goodridge ABE = einfachste Eintragung. Den Aufpreis vs. TRW wert! |
 
-**Goodridge ABE**: Goodridge G-STOP hat Allgemeine Betriebserlaubnis (ABE) für Volvo V50 P1. Gutachten liegt dem Produkt bei oder auf Anfrage bei Goodridge Germany.
+**Goodridge ABE**: Goodridge G-STOP hat ABE für Volvo V50 P1. Gutachten liegt dem Produkt bei oder auf Anfrage bei Goodridge Germany.
 
 #### 5. IPD Intake Pipe 🔴 TÜV-PROBLEM — SKIP FÜR STEALTH!
 
@@ -306,37 +333,33 @@
 | **FAZIT** | ❌ **SKIP für STEALTH!** Zu kompliziert, zu teuer, zu auffällig |
 | **Alternative** | ✅ K&N Panel-Filter 33-2221 = eintragungsfrei (OEM-Form) |
 
-#### 6. Polestar Optimierung (B5244S) 🟡 UNSICHER
+#### 6. Polestar Optimisation (B5244S) 🔴 SKIP FÜR STEALTH!
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | N/A (Software) |
-| **Volvo-offiziell** | ⚠️ Polestar nur für T5 (B5254T3) bestätigt |
-| | ❌ Für B5244S (2.4i, 140PS) = **NICHT bestätigt** |
+| **Volvo-offiziell** | ❌ Für B5244S (2.4i, 140PS) = **NICHT bestätigt** |
+| | ⚠️ Polestar nur für T5 (B5254T3) bestätigt |
 | **§ StVZO** | §19.3 (Leistungsänderung) |
 | **Eintragung** | Nur mit Volvo/Polestar-Offiziell = automatische Eintragung |
 | **Kosten** | ~€800-1.200 bei Volvo-Händler (wenn verfügbar) |
-| **FAZIT** | ❌ **SKIP für STEALTH!** 140→230PS = nicht unauffällig, und B5244S nicht bestätigt |
+| **FAZIT** | ❌ **SKIP für STEALTH!** 140→230PS = nicht unauffällig |
 | **Alternative** | ✅ Panel-Luftfilter = eintragungsfrei, minimaler Gain |
+| **BSR/Rica** | Bieten Optimierung an, aber §21 Einzelabnahme = €400-600 TÜV + nicht STEALTH |
 
-**Nachforschung**: Polestar Optimization für V50 2.4i (B5244S) wird nicht offiziell angeboten. Nur für T5 (B5254T3, 254PS → ~300PS). Alternative Chiptuner (BSR, Rica) bieten Optimierung an, aber diese brauchen §21 Einzelabnahme = €400-600 TÜV-Kosten + nicht STEALTH.
-
-#### 7. Kat-Back Auspuff 🟡 EINTRAGUNGSPFLICHTIG — ABER ROUTINE MIT ABE
+#### 7. Kat-Back Auspuff 🟡 EINTRAGUNGSPFLICHTIG — ROUTINE MIT ABE
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | ❌ Muss Teilegutachten/ABE haben! |
 | **ABE/Teilegutachten** | ✅ Ferrita F-V50-01 hat ABE für V50 |
 | | ✅ Eisenmann hat Gutachten für V50 |
 | | ✅ Heico Sportiv hat ABE für V50 |
 | | ❌ China/AliExpress Auspuff = KEIN Gutachten = ILLEGAL! |
 | **§ StVZO** | §19.3 |
-| **Eintragung** | ✅ JA — Routine mit Ferrita ABE |
-| **Kosten** | €80-200 (TÜV + Abgasmessung bei Einzelabnahme) |
-| | €50-80 (Routine-Eintragung mit ABE) |
-| **FAZIT** | ✅ Ferrita = bestes Preis/Leistung MIT ABE. ~€450-520 + €80-120 TÜV |
+| **Eintragung** | ✅ JA — Routine mit ABE |
+| **Kosten** | €50-80 (Routine-Eintragung mit ABE) |
+| **FAZIT** | ✅ Ferrita = bestes Preis/Leistung MIT ABE. ~€450-520 + €50-80 TÜV |
 
-**Ferrita ABE Details**: Ferrita Abgas Technology (Schweden) stellt ein Teilegutachten/ABE für den Volvo V50 P1 2.4i aus. Das Gutachten muss beim TÜV vorgelegt werden. Die Eintragung ist Routine. Download: ferrita.se oder auf Anfrage.
+**Ferrita ABE**: Download auf ferrita.se oder auf Anfrage.
 
 #### 8. LED H7 Scheinwerferbirnen 🟡 EINTRAGUNGSPFLICHTIG
 
@@ -345,67 +368,72 @@
 | **E-Nummer** | ✅ Osram Night Breaker LED H7 = E-Nummer auf der Birne |
 | | ✅ Philips Ultinon H7 = E-Nummer |
 | **§ StVZO** | §19.3 / §22a StVZO |
-| **Eintragung** | ⚠️ **JA** — E-Nummer auf der Birne reicht NICHT aus! |
-| | Licht-Änderung am Fahrzeug braucht Eintragung |
-| | Aber: E-Nummer macht die Eintragung EINFACH |
+| **Eintragung** | ⚠️ **JA** — E-Nummer auf der Birne reicht NICHT aus! Fahrzeug war für Halogen zugelassen |
 | **Kosten** | €30-80 (TÜV + Schein-Eintragung) |
-| **WICHTIG** | Osram NIGHT BREAKER LED H7 hat **ECE-Zulassung** — aber das Fahrzeug war für Halogen zugelassen! |
-| **Alternative** | Halogen + Osram Night Breaker LASER H7 = heller, komplett eintragungsfrei! |
+| **STEALTH Alternative** | ⚠️ **Osram Night Breaker LASER H7** = Halogen, ~€28-35, **völlig eintragungsfrei**, bis zu 130% heller! |
 
-**💡 STEALTH-TIPP**: Osram Night Breaker LASER H7 (Halogen) = ~€25-35, **völlig eintragungsfrei**, fast so hell wie LED! Besser als LED mit TÜV-Aufwand!
+**💡 STEALTH-TIPP**: Osram Night Breaker LASER H7 (Halogen) = ~€28-35, **völlig eintragungsfrei**, fast so hell wie LED! Besser als LED mit TÜV-Aufwand!
 
 #### 9. LED Rücklichter 🟡 EINTRAGUNGSPFLICHTIG — NUR MIT EG-GUTACHTEN!
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | ⚠️ Aftermarket = Teilegutachten nötig (ECE R48/R65) |
 | **ABE/Teilegutachten** | ⚠️ NUR kaufen MIT EG-Gutachten! |
 | | ❌ Ohne Gutachten = illegal = AUB-Gefahr! |
-| **§ StVZO** | §19.3 |
+| **§ StVZO** | §19.3 (ECE R48/R65) |
 | **Eintragung** | ✅ JA — mit EG-Gutachten = Routine |
 | **Kosten** | €60-120 (TÜV + Eintragung) |
-| **Kauf-Tipp** | NUR von Händlern die EG-Gutachten liefern! eBay-Klärung vor Kauf! |
-| **OEM Alternative** | Volvo OEM LED-Rücklichter = eintragungsfrei (aber teuer, ~€300-500/paar) |
+| **OEM Alternative** | Volvo OEM Facelift-Rücklichter = eintragungsfrei (aber teuer, ~€200-500/paar) |
+| **STELLTH-Tipp** | OEM Facelift-Rücklichter gebraucht = STEALTH-konform + eintragungsfrei! |
 
 #### 10. Schwarzer Grill ✅ MEIST EINTRAGUNGSFREI
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | N/A (kosmetisch) |
 | **§ StVZO** | §21 nur bei Kontur-Änderung |
 | **Eintragung** | ❌ Meist nicht nötig! |
 | **Bedingungen** | Keine Kontur-Änderung, keine Beleuchtung verdeckt, kein Kennzeichen verdeckt |
 | **Kosten** | €0-50 (meist €0) |
-| **Tipp** | Volvo OEM 30782612 = kein Problem. Aftermarket = dezent halten |
+| **⚠️ Facelift** | Pre-FL vs FL: obere+untere Einfassung tauschen! Passform prüfen! |
 
 #### 11. Heico Sportiv Frontlippe 🟡 EINTRAGUNGSPFLICHTIG
 
 | Eigenschaft | Detail |
 |-------------|--------|
-| **E-Nummer** | ❌ Keine |
 | **ABE/Teilegutachten** | ✅ Heico hat TÜV-Gutachten für V50 |
 | **§ StVZO** | §19.3 (Kontur-Änderung) |
 | **Eintragung** | ✅ JA — mit Heico Gutachten = Routine |
 | **Kosten** | €50-120 (TÜV + Eintragung) |
-| **FAZIT** | 🟡 Legal, aber €180-280 Teil + €50-120 TÜV = €230-400 total |
+| **FAZIT** | 🟡 Legal, aber €200-280 Teil + €50-120 TÜV = €250-400 total |
+
+#### 12. Facelift-Scheinwerfer 🟡 EINTRAGUNGSPFLICHTIG
+
+| Eigenschaft | Detail |
+|-------------|--------|
+| **§ StVZO** | §19.3 (Baumuster-Nummer ändern) |
+| **Eintragung** | ✅ JA — Baumuster ins Fahrzeug eintragen |
+| **Kosten** | €50-100 |
+| **WICHTIG** | H7-Scheinwerfer (NICHT Xenon!) für 2.4i! TN 30796020-23 VERIFIZIEREN! |
+| **Pre-FL vs FL** | Passform ok, aber SPO-Nummer ändert sich → Eintragung nötig |
 
 ---
 
-### 🏆 TÜV-Eintragungs-Kosten Zusammenfassung (aktualisiert)
+### 🏆 TÜV-Eintragungs-Kosten Zusammenfassung (Mai 2026)
 
 | Änderung | Eintragungsart | Kosten | Priorität |
 |----------|---------------|--------|-----------|
 | Eibach Pro-Kit + KONI (Paket) | Teilegutachten | €80-150 | 🔴 Hoch |
 | SS-Bremsleitungen (Goodridge ABE) | ABE | €50-150 | 🟡 Mittel |
 | Kat-Back Auspuff (Ferrita ABE) | ABE/Teilegutachten | €50-120 | 🟡 Mittel |
+| Facelift-Scheinwerfer | Baumuster | €50-100 | 🟡 Mittel |
 | LED H7 Birnen | E-Nummer-Eintragung | €30-80 | 🟢 Niedrig |
 | LED Rücklichter (EG-Gutachten) | Teilegutachten | €60-120 | 🟢 Niedrig |
-| Heico Frontlippe (gutachten) | Teilegutachten | €50-120 | 🟢 Niedrig |
+| Heico Frontlippe (Gutachten) | Teilegutachten | €50-120 | 🟢 Niedrig |
 | Grill schwarz | Meist frei | €0-50 | ⚪ Optional |
-| **Gesamt TÜV (alle auf 1x)** | **1 Termin** | **€150-250** | |
-| **Gesamt TÜV (einzeln)** | ** Mehrere Termine** | **€300-750** | |
+| **Gesamt TÜV (alle auf 1x)** | **1 Termin** | **€150-300** | |
+| **Gesamt TÜV (einzeln)** | **Mehrere Termine** | **€370-890** | |
 
-> 💡 **TIPP**: Alle Änderungen auf EINMAL beim TÜV eintragen = 1x Grundgebühr (~€50-80) + Einzelpositionen. Spart €100-200!
+> 💡 **TIPP**: Alle Änderungen auf EINMAL beim TÜV eintragen = 1x Grundgebühr (~€50-80) + Einzelpositionen. Spart €200-400!
 
 ---
 
@@ -413,69 +441,107 @@
 
 #### ✅ EINTRAGUNGSFREI (keine TÜV-Kosten):
 1. ✅ Panel-Luftfilter (Mann C 25 107) = eintragungsfrei
-2. ✅ Sport-Schaltknauf = eintragungsfrei
-3. ✅ Sport-Pedale (clip-on) = eintragungsfrei
-4. ✅ Polierung/Lackschutz = eintragungsfrei
-5. ✅ Lederpflege = eintragungsfrei
-6. ✅ Bremsbeläge ECE R90 (TRW/Textar/ATE) = eintragungsfrei
-7. ✅ Bremsscheiben OEM-Maße = eintragungsfrei
-8. ✅ Zündkerzen/Ölfilter = eintragungsfrei
-9. ✅ Grill schwarz (OEM/Volvo) = meist eintragungsfrei
+2. ✅ K&N Panel-Filter 33-2221 (OEM-Form) = eintragungsfrei
+3. ✅ Sport-Schaltknauf = eintragungsfrei
+4. ✅ Sport-Pedale (clip-on) = eintragungsfrei
+5. ✅ Polierung/Lackschutz/Keramik = eintragungsfrei
+6. ✅ Lederpflege = eintragungsfrei
+7. ✅ Bremsbeläge ECE R90 (TRW/Textar/ATE/Brembo) = eintragungsfrei
+8. ✅ Bremsscheiben OEM-Maße = eintragungsfrei
+9. ✅ Zündkerzen/Ölfilter/Innenraumfilter = eintragungsfrei
+10. ✅ **Osram Night Breaker LASER H7 = eintragungsfrei!** ← STEALTH-TIPP!
+11. ✅ Grill schwarz (OEM/Volvo) = meist eintragungsfrei
+12. ✅ Spiegelkappen schwarz = eintragungsfrei
+13. ✅ Diffusor folieren = eintragungsfrei
+14. ✅ Fusmatten = eintragungsfrei
 
 #### 🟡 EINTRAGUNGSPFLICHTIG (Routine mit Gutachten):
-10. 🟡 Eibach Pro-Kit -30mm → Teilegutachten vorhanden, Routine
-11. 🟡 KONI Special RED → Teilegutachten vorhanden, Routine
-12. 🟡 SS-Bremsleitungen Goodridge → ABE vorhanden, Routine
-13. 🟡 Kat-Back Auspuff Ferrita → ABE vorhanden, Routine
-14. 🟡 LED H7 Birnen → E-Nummer vorhanden, Routine
-15. 🟡 LED Rücklichter → EG-Gutachten nötig, Routine
+15. 🟡 Eibach Pro-Kit -30mm → Teilegutachten vorhanden, Routine
+16. 🟡 KONI Special RED → Teilegutachten vorhanden, Routine
+17. 🟡 SS-Bremsleitungen Goodridge → ABE vorhanden, Routine
+18. 🟡 Kat-Back Auspuff Ferrita → ABE vorhanden, Routine
+19. 🟡 LED H7 Birnen → E-Nummer vorhanden, Routine (→ besser: LASER = frei!)
+20. 🟡 LED Rücklichter → EG-Gutachten nötig, Routine (→ besser: OEM Facelift = frei!)
+21. 🟡 Facelift-Scheinwerfer → Baumuster-Nummer, Routine
 
 #### ❌ SKIP FÜR STEALTH:
-16. ❌ IPD Intake → Kein Gutachten, §21 möglich, nicht STEALTH
-17. ❌ Polestar Chiptuning → Nicht für B5244S bestätigt, 140→230PS nicht unauffällig
-18. ❌ Polyurethan-Buchsen → Einzelabnahme nötig, minimaler Gewinn
+22. ❌ IPD Intake → Kein Gutachten, §21 möglich, nicht STEALTH
+23. ❌ Polestar Chiptuning → Nicht für B5244S bestätigt
+24. ❌ Polyurethan-Buchsen → Einzelabnahme nötig, minimaler Gewinn
+25. ❌ EBC Yellowstuff → ECE R90 nicht für V50 bestätigt
+26. ❌ Tieferlegung über -30mm → Auffällig + TÜV-Probleme
+27. ❌ China-Auspuff ohne ABE → ILLEGAL
 
 ---
 
 ## 🎯 FAZIT & EMPFEHLUNG
 
-### Budget-Tabelle: 3 Szenarien
+### Budget-Tabelle: 3 Szenarien (Mai 2026)
 
 | | Szenario A: Minimum | Szenario B: STEALTH-Balance | Szenario C: Vollausstattung |
 |---|---|---|---|
 | **Bremsen komplett** | €300 (TRW alles) | €350 (TRW+Goodridge) | €400 (ATE+Goodridge) |
-| **Zahnriemen-Kit** | €125 (Contitech) | €140 (Gates) | €160 (Gates Bundle) |
-| **Service-Teile** | €80 | €90 | €110 |
-| **Fahrwerk** | €490 (Vogtland+KONI) | €625 (Eibach+KONI) | €880 (Eibach+KONI Active) |
-| **Optik/Politur** | €200 (DIY) | €300 (DIY+Grill) | €470 (alles) |
-| **Auspuff** | — (ohne) | €520 (Ferrita) | €950 (Eisenmann) |
+| **Zahnriemen-Kit** | €55 (Dayco KTB481) | €98 (Gates) | €128 (Gates Premium) |
+| **Service-Teile** | €80 | €95 | €120 |
+| **Fahrwerk** | €490 (Vogtland+KONI) | €500 (Eibach+KONI AMZ) | €880 (Eibach+KONI Active) |
+| **Optik/Politur** | €180 (DIY) | €250 (DIY+Grill+LASER H7) | €470 (alles) |
+| **Auspuff** | — (ohne) | €520 (Ferrita+TÜV) | €950 (Eisenmann+TÜV) |
 | **Interior** | €50 | €130 | €200 |
 | **TÜV** | €150 | €200 | €350 |
-| **TOTAL** | **€1.395** | **€2.355** | **€3.520** |
+| **TOTAL** | **€1.305** | **€2.143** | **€3.498** |
 
-### Empfohlen: Szenario B — STEALTH-Balance (~€2.355)
+### Empfohlen: Szenario B — STEALTH-Balance (~€2.143)
 
 1. ✅ Bremsen komplett: TRW Beläge+Scheiben + Goodridge SS-Leitungen = **~€350**
-2. ✅ Zahnriemen-Kit Gates + Keilriemen = **~€160**
-3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = **~€625**
-4. ✅ Polierung+Lackschutz DIY = **~€50**
-5. ✅ Luftfilter Mann C 25 107 = **~€10**
-6. ✅ Grill schwarz Aftermarket = **~€45**
-7. ✅ Schaltknauf Aftermarket = **~€30**
-8. ✅ Ferrita Auspuff (mit ABE) = **~€520**
-9. ✅ Service-Teile (Zündkerzen, Öl, Filter) = **~€90**
-10. ✅ TÜV-Eintragungen (1x Termin) = **~€200**
+2. ✅ Zahnriemen-Kit Gates K015615XS = **~€98**
+3. ✅ Eibach Pro-Kit -30mm + KONI Special RED = **~€500** (AMZ!)
+4. ✅ Polierung+Keramik DIY = **~€50**
+5. ✅ Osram Night Breaker LASER H7 = **~€30** (EINTRAGUNGSFREI!)
+6. ✅ Luftfilter Mann C 25 107 = **~€10**
+7. ✅ Grill schwarz Aftermarket = **~€45**
+8. ✅ Schaltknauf Aftermarket = **~€30**
+9. ✅ Ferrita Auspuff (mit ABE) = **~€520** (inkl. €80 TÜV)
+10. ✅ Service-Teile (Zündkerzen, Öl, ATF, Filter) = **~€95**
+11. ✅ TÜV-Eintragungen (1x Sammel-Termin) = **~€200**
 
-**Gesamt: ~€2.080 + TÜV €200 = ~€2.280 → DEUTLICH UNTER BUDGET!**
+**Gesamt: ~€1.928 + TÜV €200 = ~€2.128 → DEUTLICH UNTER BUDGET!**
 
-### 💰 Budget übrig: €1.220-2.720 für:
-- LED H7 Birnen + Eintragung (~€100)
-- LED Rücklichter + Eintragung (~€200)
+### 💰 Budget übrig: €1.372-2.872 für:
+- Facelift-Scheinwerfer + Eintragung (~€150-300)
+- Facelift-Grill OEM (~€80-110)
+- LED Rücklichter + Eintragung (~€200) oder OEM Facelift-Rücklichter (~€100-200 geb.)
 - Heico Frontlippe + Eintragung (~€350)
+- Rost-Reparatur Material (~€50-150)
 - Sportpedale (~€40)
 - Lederpflege (~€30)
-- Reserve für Unvorhergesehenes
+- PCV Breather Box (~€45)
+- Keramikversiegelung (~€30)
+- DIM Pixel Repair (~€25)
+- Reserve für Unvorhergesehenes (~€300-500)
 
 ---
 
-*Letztes Update: 2026-05-27 | Quellen: Autodoc.de, Skandix.de, Amazon.de, eBay.de, FC-Moto.de, Volvo-Teile.de*
+### 🔥 TOP-PREIS-FUNDS (Mai 2026)
+
+| Teil | Üblicher Preis | AMZ-Preis | Ersparnis | HINWEIS |
+|------|---------------|-----------|-----------|---------|
+| Eibach Pro-Kit V50 | €250-280 | **€150-158** | **€90-120!** | ⚠️ Verkäufer prüfen! Eibach.de ≈ €280 |
+| Gates ZR Kit K015615XS | €125-155 | **€98** | **€27-55** | ✅ Gut |
+| TRW Beläge GDB1359 | €28-35 | **€22** | **€6-13** | ✅ Gut |
+| Dayco ZR Kit KTB481 | €85-95 | **€55-85** | **€10-30** | ✅ Budget-Option |
+| Osram LASER H7 | €35-45 | **€28-35** | **€7-17** | ✅ + TÜV-frei! |
+| Mann Luftfilter C 25 107 | €12-15 | **€9-14** | **€1-3** | ✅ Kleine Ersparnis |
+
+---
+
+### 🚨 WICHTIGE WARNUNGEN
+
+1. **Eibach AMZ €150**: Deutlich unter Listenpreis (€280). Verkäufer-Vertrauenswürdigkeit prüfen! Originalverpackung + Teilegutachten verlangen! Bei Zweifel → Skandix/KONI-Shop für €250-280.
+2. **KONI AMZ Preise**: €350-420 für 4er-Set. Sicherstellen dass es ein SET (2v+2h) ist, nicht Einzelstücke!
+3. **Ferrita Auspuff**: Nicht auf Amazon gelistet. Nur über ferrita.se oder Skandix bestellbar.
+4. **SS-Bremsleitungen**: Goodridge ABE verifizieren = VSV-004 für V50. TRW/HEL = ABE-Vorhandensein prüfen vor Kauf!
+5. **LED H7 vs LASER H7**: LASER = Halogen = eintragungsfrei = STEALTH. LED = braucht TÜV-Eintragung. Performance-Unterschied minimal!
+
+---
+
+*Letztes Update: 2026-05-28 | Quellen: Amazon.de (Live-Scraping), Autodoc.de (Referenz), Skandix.de (Referenz), eBay.de (Referenz), Ferrita.se | DB: 24 Teile aktualisiert*
