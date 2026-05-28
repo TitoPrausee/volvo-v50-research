@@ -90,7 +90,31 @@ Aus der EUR500 Reserve sollten folgende Ersatzteile vorgehalten werden:
 
 ---
 
-## Budget-Optimierung ABGESCHLOSSEN ✅
+### Styling+Sound Spezialist Update (2026-05-28)
+
+**AUSPUFF-MARKTRECHERCHE:**
+- Leo Vince M15051 NX650 mit ABE bestätigt auf eBay.de: Carbon €389,95 | Edelstahl ~€310-380
+- Delkevic NX650: 8+ Varianten auf eBay.de (€133-400), BSAU = nur UK-legal, nicht direkt StVZO
+- KEIN Scorpion, Remus, Akrapovic, Two Brothers für NX650 (Markt zu klein)
+- Yoshimura RS-2: gelegentlich gebraucht, keine neuen EU-Stücke
+- **EMPFEHLUNG:** Leo Vince SBK + ABE = beste Kombination aus Sound + Legalität + Optik
+
+**SOUND-PSYCHOLOGIE:**
+- RFVC 644cc "Thump-Thump" = tief+voll ist Ziel, NICHT hoch+scharf
+- SS Header (Collector-Delete) = direkterer Sound, -2kg
+- Leo Vince mit DB-Killer = ~93 dB, kernig und markant
+- Leo Vince ohne DB-Killer = ~100+ dB, illegal auf Straße
+- Delkevic Slip-ons ohne dB-Killer = illegal in DE/AT/CH
+
+**PREIS-VERIFIZIERUNG:**
+- Koso RX-22: €99,90 (FC-Moto verifiziert)
+- UNI NU-4050: €19,90 (Amazon.de verifiziert)
+- Leo Vince M15051 Carbon: €389,95 (eBay.de verifiziert)
+- Delkevic SS Header: €180-250 (Delkevic EU Direct)
+
+---
+
+### Budget-Optimierung ABGESCHLOSSEN ✅
 Siehe [BUDGET_OPTIMIZATION.md](./BUDGET_OPTIMIZATION.md)
 
 ### Ergebnisse:

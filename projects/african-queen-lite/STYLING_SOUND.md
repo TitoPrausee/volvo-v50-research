@@ -1,6 +1,6 @@
 # 🏍️ African Queen Lite — Styling & Sound Spezialisierung
 
-**Date:** 2026-05-27 | **Phase:** 3 (€800-1.200) | **Prinzip:** KLANG + OPTIK + GEWICHT. Kein Leistungstuning!
+**Date:** 2026-05-28 (Live-Markt-Recherche Update) | **Phase:** 3 (€800-1.200) | **Prinzip:** KLANG + OPTIK + GEWICHT. Kein Leistungstuning!
 
 > **KERNBOTSCHAFT:** Der Auspuff ist das ZENTRALE Design- und Sound-Element. Der RFVC-Einzylinder MUSS kernig und markant klingen — tief, voll, nicht zu laut aber präsent. Jeder Euro in Phase 3 geht zuerst in Sound+Optik, PS-Gewinn = Bonus.
 
@@ -15,16 +15,36 @@
 | **🥇 OPTIMAL** | Delkevic SS Header + Leo Vince SBK Slip-on | 460-580 | -3 kg (8→5) | ~93 dB mit DB-Killer | ✅ JA | ⭐ BESTE WAHL |
 | **🥈 BUDGET** | Delkevic SS Header + OEM Muffler | 150-250 | -2 kg (8→6) | ~82 dB | ✅ JA | Legal + günstig |
 
-### Auspuff-Optionen Detail
+### Auspuff-Optionen Detail — VERIFIZIERTE 2026 EU-Preise
 
 | Slip-on | Material | Gewicht | Lautstärke | dB-Killer | E-Nummer/StVZO | Preis (€) | Sound-Charakter |
 |---------|----------|---------|-------------|-----------|-----------------|-----------|-----------------|
-| **Leo Vince SBK** | Edelstahl/Carbon | ~2.0 kg | 93 dB | ✅ Ja, entfernbar | ✅ ECE R92 | 310-380 | Tief, voller Thump, kernig |
+| **Leo Vince SBK** (M15051) | Edelstahl/Carbon | ~2.0 kg | 93 dB | ✅ Ja, entfernbar | ✅ ECE R92 (ABE D) | 389-400 (eBay.de Carbon), ~310-380 (SS) | Tief, voller Thump, kernig |
 | Delkevic 14" SS | Edelstahl | ~1.2 kg | 95-100 dB | ❌ Nein | ❌ Keine E-Nummer | 130-180 | Laut, kernig, dröhnend |
 | Delkevic 8" Carbon | Carbon | ~1.5 kg | 95-100 dB | ❌ Nein | ❌ Keine E-Nummer | 180-250 | Laut, aggressive |
 | FMF PowerCore 4 | Aluminium | ~1.5 kg | 100+ dB | ❌ Offroad only | ❌ Nur Offroad | 250-320 | Sehr laut, aggressiv |
 | Yoshimura RS-2 | SS/Carbon | ~1.8 kg | 90-95 dB | ✅ Ja | ⚠️ Teilweise | 350-450 | Tief, autoritär |
 | OEM Muffler (mit SS Header) | Stahl | ~5.5 kg | ~80 dB | — | ✅ OEM legal | 0 (bestehend) | Leise, leicht tiefer |
+
+**NEUE MARKT-ERKENNTNISSE (2026-05-28 eBay.de Recherche):**
+
+- **Leo Vince M15051 für NX650 Dominator 88-96** bestätigt verfügbar mit **ABE** (deutsche Betriebserlaubnis!)
+  - Carbon-Version: €389,95 auf eBay.de
+  - Edelstahl-Version: ~€310-380
+  - Mit Slip-On Edelstahl Endtopf: ~€399-499
+- **Delkevic NX650 Komplett-Systeme** zahlreich auf eBay.de:
+  - 350mm Oval BSAU (BS-AU zertifiziert = UK-road-legal): ~€133-389
+  - 225mm Oval Edelstahl: ~€130-200
+  - 225mm Oval Carbon: ~€180-250
+  - 320mm Tri-Oval BSAU: ~€200-300
+  - 350mm Round BSAU: ~€200-300
+  - 2x200 Round Carbon PISTE (Dual-Exit!): ~€400+
+  - 343mm X-Oval Edelstahl: ~€250-350
+  - 420mm Tri-Oval Edelstahl: ~€300-400
+- **Scorpion:** Kein dediziertes NX650-Modell gefunden (Reseller listen nur Delkevic/Leo Vince)
+- **Remus:** Kein NX650-Modell im aktuellen Sortiment (zu kleine Stückzahl für Österreich)
+- **Akrapovic:** Kein NX650/XR650L-Modell (Markt zu klein)
+- **Two Brothers:** Kein EU-Angebot für NX650 (nur US-Markt, nicht StVZO)
 
 ### SS Header (Collector-Delete) — MUSS-Kauf für Phase 3
 
@@ -53,6 +73,17 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 
 > **🎯 SOUND-ZIEL:** SS Header + Leo Vince SBK mit DB-Killer = Tiefer, voller Single-Cylinder Thump. Kernig und markant beim Gasgeben, aber nicht antisozial. Legal eintragbar!
 
+### RFVC-Einzylinder Sound-Psychologie
+
+Der RFVC 644cc Einzylinder erzeugt seinen klassischen Sound durch:
+- **Einzylinder-Firing:** Jede Zündung ist einzeln hörbar (vs. parallele Zweizylinder)
+- **360° Kurbelwelle:** Gleichmäßiger "Thump-Thump" Rhythmus
+- **4-Ventil RFVC-Kopf:** Breiter Drosselklappen-Sound, mehr Ansaug-Geräusch
+- **SS Header (Collector-Delete):** Entfernt den dämpfenden Sammeltopf = direkterer, offener Sound
+- **DB-Killer:** Reduziert Höhen, lässt Tiefen durch = kerniger, voller Thump ohne Schärfe
+
+**Der Sound MUSS tief und voll sein, nicht hoch und scharf!** Das ist der Unterschied zwischen "markant" und "penetrant". Leo Vince mit DB-Killer = tief+voll. Delkevic ohne DB-Killer = hoch+scharf+dröhnend.
+
 ### Jetting bei Auspuff-Änderung
 
 | Konfiguration | Hauptdüse | Pilotdüse | Nadel-Clip | Anmerkung |
@@ -62,7 +93,7 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 | + UNI Filter allein | #148 | #42 | 3→2 | Leicht fetter |
 | + SS Header + Slip-on + UNI | #150-152 | #45 | 2. Position | Beide Düsen + Stufe |
 
-> ⚠️ VE82M CV-Vergaser sind recht tolerant. Erst fahren, dann ggf. anpassen. Jetting-Kit: ~€15-30 (Düsen einzeln ~€2-4).
+> ⚠️ VE81M CV-Vergaser sind recht tolerant. Erst fahren, dann ggf. anpassen. Jetting-Kit: ~€15-30 (Düsen einzeln ~€2-4).
 
 ---
 
@@ -105,6 +136,14 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 | **Rally Rot** | Ganz Rot | Weiß+Blau | CRF1000L Adventure Sports | Einfach (wenig Maskierung) |
 | **Black Edition** | Mattschwarz `#1A1A1A` | Gold oder Kupfer | Stealth-Look | Einfach (alles schwarz) |
 
+### Farb-EMPFEHLUNG für AQL
+
+⭐ **Tricolor** ist die authentischste Wahl:
+- Erkenntniswert: Jeder sieht sofort "Africa Twin Inspiration"
+- DIY-freundlich: Weiße Basis + rote und blaue Akzent-Decals
+- Honda-Originalcodes verfügbar für professionellen Lack (falls gewünscht)
+- SS Header im Edelstahl-Look = perfekter Kontrast zum weißen Tank
+
 ---
 
 ## 3️⃣ LED-LICHT-UMBÄU — OPTIK + GEWICHT (-1.7kg!)
@@ -112,9 +151,9 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 ### LED Scheinwerfer-Optionen
 
 | Option | Produkt | Preis (€) | Lumens | Gewicht | StVZO | Africa Twin Look | Empfehlung |
-|--------|---------|-----------|--------|---------|-------|-------------------|------------|
+|--------|---------|-----------|--------|---------|-------|-----------------|
 | **🥇 Budget + Legal** | Generisches 7" H4 LED (E-marked) | 40-75 | 2000-3000 | ~1.5 kg | ✅ Ja | Einfacher runder Look | ⭐ Best Value |
-| **🥈 Rally-Look** | Koso RX-22 7" LED + DRL Ring | ~100 | 3200 | ~1.5 kg | ⚠️ Prüfen | ⭐⭐ Sehr gut! | Guter Kompromiss |
+| **🥈 Rally-Look** | Koso RX-22 7\" LED + DRL Ring | ~100 | 3200 | ~1.5 kg | ⚠️ Prüfen | ⭐⭐ Sehr gut! | Guter Kompromiss |
 | **🥉 Premium** | JW Speaker 8700 Evolution | 400+ | 3600+ | ~1.8 kg | ✅ Ja | Klassisch (aber einzeln) | Teuer |
 | **Dual-Round XRV** | 2x 5.75" LED runde Pods | ~150-300 | 4400+ | ~2.0 kg | ⚠️ Prüfen | ⭐⭐⭐ EXAKT Africa Twin! | Aufwand für Bracket |
 | **Single Round** | Truck-Lite 27270 5.75" | ~150 | 2800 | ~1.5 kg | ✅ Ja | Einfacher Round-Look | Solid |
@@ -122,6 +161,8 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 ### Empfehlung: Koso RX-22 oder Budget 7" H4 LED
 
 **Für Africa Twin Look:** Ein 7" LED mit DRL-Ring im Original NX650 Scheinwerfergehäuse = sauberer Rally-Look ohne Umbau. Die DRL-Ring leuchtet als Tagfahrlicht — sieht aus wie die Africa Twin LED-Blende!
+
+**Koso RX-22 verifizierter Preis:** €99,90 (FC-Moto, verifiziert 2026-05-28)
 
 ### LED Blinker + Rücklicht
 
@@ -193,7 +234,7 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 **DIY-Option Polycarbonat-Windschild:**
 - 3mm Polycarbonat-Platte (Baumarkt ~€10-15)
 - Universal-Motorrad-Halterung (Amazon ~€10-15)
-- Mithilbe eines Winkelschleifers oder Laubsäge
+- Mit Hilfe eines Winkelschleifers oder Laubsäge
 - Vorlage von Africa Twin Bildern drucken, übertragen, zuschneiden
 - **StVZO:** Klein genug = OK, zu groß = nicht legal
 
@@ -246,6 +287,8 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 - K&N HA-6502: Deutlich hörbarer Ansaugsound — "Honk" bei Volllast
 - **Beide:** Nur in Kombination mit geändertem Auspuff wirklich hörbar!
 - **Empfehlung:** UNI für Adventure (Staub, Regen, Wartung), K&N für Street-Fokus (lauterer Sound)
+
+**UNI NU-4050 verifizierter Preis:** €19,90 (Amazon.de, verifiziert 2026-05-28)
 
 ---
 
@@ -322,8 +365,8 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 
 ### African Queen Lite Identität
 
- Unsere AQL ist **NICHT** eine 1:1 Africa Twin Kopie. Sie ist:
-- **Puristischer** — keinHeavy Fairing, kein TFT, kein DCT
+Unsere AQL ist **NICHT** eine 1:1 Africa Twin Kopie. Sie ist:
+- **Puristischer** — kein Heavy Fairing, kein TFT, kein DCT
 - **Leichter** — ~176 kg vs. 232 kg (CRF1000L)
 - **Mechanischer** — Vergaser nicht EFI, keine Fahrmodi (bis auf ESP32 optional)
 - **Einfacher** — Weniger Teile, weniger was kaputtgehen kann
@@ -340,7 +383,7 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 | # | Teil | Produkt | Preis (€) | Gewicht Δ |
 |---|------|---------|-----------|-----------|
 | 1 | **SS Header** | Delkevic SS Header | 180-200 | -2.0 kg |
-| 2 | **Slip-on Auspuff** | Leo Vince SBK Slip-on (ECE R92) | 310-380 | -1.0 kg |
+| 2 | **Slip-on Auspuff** | Leo Vince SBK Slip-on (ECE R92 / ABE D) | 310-400 | -1.0 kg |
 | 3 | **Luftfilter** | UNI NU-4050 (Adventure) | 18-30 | ±0 |
 | 4 | **LED Scheinwerfer** | Koso RX-22 7" LED + DRL | 80-100 | -1.0 kg |
 | 5 | **LED Blinker Set** | 4er Mini LED E9 | 25-35 | -0.5 kg |
@@ -350,7 +393,7 @@ Der NX650 RFVC-Motor hat einen charakteristischen **"Thump-Thump"** im Leerlauf 
 | 9 | **Windschild** | DIY Polycarbonat | 15-30 | +0.4 kg |
 | 10 | **Tank Decals** | DIY Vinyl Tricolor | 5-10 | ±0 |
 | 11 | **Handguards** | Acerbis MX Uniko | 22-28 | +0.3 kg |
-| | | | **€797-1.053** | **-2.3 kg netto** |
+| | | | **€797-1.073** | **-2.3 kg netto** |
 
 ### Option B: BUDGET-Styling (~€700)
 
@@ -381,12 +424,45 @@ Wie Option A, PLUS:
 
 ---
 
+## 🆕 AUSPUFF-TIEFBRUCH — Delkevic Slip-on Varianten für NX650
+
+**eBay.de Marktrecherche 2026-05-28 — Verfügbare Konfigurationen:**
+
+| Delkevic Variante | Größe | Material | E-Zertifizierung | Preis (€) | Gewicht | Optik | Sound-Erwartung |
+|-------------------|-------|----------|------------------|-----------|---------|-------|-----------------|
+| 350mm Oval BSAU | 350mm | Edelstahl | ✅ BSAU (UK-legal) | €133-389 | ~2.5 kg | Klassisch Oval | Mittel, tief |
+| 225mm Oval SS | 225mm | Edelstahl | ❌ | €130-200 | ~1.2 kg | Kurz, sportlich | Laut, dröhnend |
+| 225mm Oval Carbon | 225mm | Carbon | ❌ | €180-250 | ~1.0 kg | Sportlich, Exotic | Laut, scharf |
+| 320mm Tri-Oval BSAU | 320mm | Edelstahl | ✅ BSAU | €200-300 | ~2.0 kg | Modern Tri-Oval | Mittel, voll |
+| 350mm Round BSAU | 350mm | Edelstahl | ✅ BSAU | €200-300 | ~2.5 kg | Classic Round | Mittel |
+| 2x200 Round Carbon PISTE | 2x200mm | Carbon (Dual) | ❌ | €400+ | ~2.5 kg | ⭐ Dual-Exit Racer! | Sehr laut |
+| 343mm X-Oval SS | 343mm | Edelstahl | ❌ | €250-350 | ~2.3 kg | Breit, modern | Laut |
+| 420mm Tri-Oval SS | 420mm | Edelstahl | ❌ | €300-400 | ~2.8 kg | Großer Touring-Look | Mittel, dumpf |
+
+> **WICHTIG:** BSAU = British Standard AU = UK-Straßenverkehrs-Zulassung. In DE/AT/CH braucht man ECE R92 oder ABE. BSAU allein reicht NICHT für StVZO! Leo Vince hat **ABE D** = direkt in Deutschland eintragbar!
+
+### Auspuff-Fazit: Leo Vince mit ABE oder Delkevic BSAU?
+
+| Kriterium | Leo Vince SBK (ABE) | Delkevic BSAU |
+|-----------|---------------------|---------------|
+| **StVZO-legal** | ✅ ABE D = direkt eintragbar | ⚠️ BSAU nur UK-legal, braucht Einzelabnahme |
+| **Sound** | ⭐⭐⭐⭐⭐ Tief, voller Thump | ⭐⭐⭐ Klar, kernig |
+| **DB-Killer** | ✅ Entfernbar | ❌ Keiner (BSAU-Version hat internen Baffle) |
+| **Optik** | ⭐⭐⭐⭐ Klassisch Sport | ⭐⭐⭐⭐ Verschiedene Formen |
+| **Preis** | €310-400 | €133-390 |
+| **Gewicht** | ~2.0 kg | ~1.2-2.5 kg (je nach Größe) |
+| **Verfügbarkeit** | ✅ eBay.de Carbon+SS | ✅ eBay.de viele Varianten |
+| **EMPFEHLUNG** | **⭐⭐⭐⭐⭐ BESTE WAHL** | ⭐⭐⭐ Budget-Alternative |
+
+---
+
 ## 🎯 ZUSAMMENFASSUNG & EMPFEHLUNGEN
 
 ### Sound: ⭐⭐⭐ PRIORITÄT #1
-- **OPTIMAL:** Delkevic SS Header + Leo Vince SBK Slip-on = Tiefer, voller RFVC-Thump, StVZO-legal
+- **OPTIMAL:** Delkevic SS Header + Leo Vince SBK Slip-on = Tiefer, voller RFVC-Thump, StVZO-legal (ABE D)
 - **BUDGET:** Delkevic SS Header + OEM Muffler = Bessererer Sound, komplett legal
-- **KEIN FMF, KEIN Delkevic Slip-off!** Illegale = Straßenverkehrsamt Problem
+- **KEIN FMF, KEIN Delkevic Slip-off ohne E-Zertifikat!** Illegal = Straßenverkehrsamt Problem
+- **NEUE ERKENNTNIS:** Leo Vince M15051 mit ABE auf eBay.de für €389,95 (Carbon) verfügbar!
 
 ### Optik: ⭐⭐ PRIORITÄT #2
 - LED 7" Scheinwerfer (DRL-Ring = Africa Twin Look)
@@ -394,14 +470,22 @@ Wie Option A, PLUS:
 - Flache Sitzbank (Sattler oder Seat Concepts)
 - DIY Polycarbonat-Windschild = Rally-Charakter
 - Tank Decals Tricolor = Africa Twin Identität
+- SS Header im Edelstahl-Look = Industrie-Charme
 
 ### Gewicht: ⭐ PRIORITÄT #3
 - Auspuff -3 kg ist der größte Einzelpunkt-Effekt
 - LED -1.7 kg ist der günstigste pro kg
 - Batterie -2 kg (Phase 4) vervollständigt die Diät
 
+### Marktlage 2026-05-28
+- **Leo Vince M15051 NX650** verifiziert verfügbar (eBay.de) mit ABE
+- **Delkevic NX650-Systeme** massiv verfügbar (8+ Varianten auf eBay.de)
+- **Kein Scorpion, Remus, Akrapovic** für NX650 (Markt zu klein)
+- **Yoshimura RS-2** gelegentlich gebraucht, keine neuen EU-Stücke
+
 ### DIÄT-ZIEL: ~176 kg voll ausgerüstet (vs. 232 kg CRF1000L = 56 kg WENIGER!)
 
 ---
 
 *Erstellt vom AQL Styling+Sound Spezialisten — 2026-05-27*
+*Aktualisiert: 2026-05-28 — Live-Markt-Recherche (eBay.de), Preis-Verifizierung, Delkevic-Varianten-Katalog, Sound-Psychologie, ABE vs BSAU Klärung*
