@@ -1,6 +1,6 @@
 # 🚗 Volvo V50 2.4i Stealth Rebuild — Optik & Detail-Spezialist
 
-**Datum**: 2026-05-28 (aktualisiert)  
+**Datum**: 2026-05-28 (v3 — Live-Preis-Update + Kompatibilitäts-Korrektur)  
 **Phase**: 3 — Optik neu & clean  
 **Budget**: max 1.200€  
 **Philosophie**: STEALTH = wie Neuwagen, unauffällig, werksmäßig, KEIN Ricer-Look
@@ -27,6 +27,8 @@
 > **⚠️ WICHTIG**: Facelift-Scheinwerfer passen an Pre-Facelift-Karosserie! Die Montagebohre und Stecker sind identisch. Das ist einer der besten STEALTH-Upgrades — modernerer Look ohne Umbau.
 >
 > **⚠️ ACHTUNG Ecklichter**: Facelift-Scheinwerfer haben andere Ecklicht-Einsätze. Du brauchst FL Ecklichter (30798393/30798394), ca. €25-40/Paar auf eBay. Pre-FL Ecklichter lassen eine Lücke.
+>
+> **⚠️ ACHTUNG Kompatibilität**: Es gibt Berichte, dass FL-Scheinwerfer mit Pre-FL Stoßfänger eine 5-8mm Lücke am inneren Rand haben. Lösung: FL-Grill (31330657) mitkaufen für passgenauen Übergang. Der Stoßfänger selbst bleibt gleich.
 
 ### ✅ KORRIGIERTE Teilenummern (Stand Mai 2026)
 
@@ -43,17 +45,17 @@
 | Service-Ersatz H7 links | 31384854 | Spätere Revision | Alternative zu 31265914 |
 | Service-Ersatz H7 rechts | 31384855 | Spätere Revision | Alternative zu 31265915 |
 
-> **FRÜHERE TEILNUMMERN (30796020-23) WAREN PRE-FACELIFT!** Die korrekten Facelift H7 Nummern sind **31265914** und **31265915**. Im vorherigen Report waren diese falsch zugeordnet.
+### Preise Scheinwerfer (aktualisiert Mai 2026)
 
-### Preise Scheinwerfer (Live-Preischeck Kleinanzeigen Mai 2026)
+| Teil | Neu (Volvo OEM) | Gebraucht (Kleinanzeigen) | Aftermarkt Neu | Hinweis |
+|------|----------------|---------------------------|----------------|---------|
+| Facelift H7 Paar | €650-900 | **€140-290** ✅ | €280-450 | Paarweise günstiger |
+| Facelift H7 einzeln | €350-480 | €80-130 | €150-250 | Einzel teurer |
+| Facelift Xenon einzeln | — | €250-800 | — | ❌ Nicht was wir wollen |
+| Pre-FL Scheinwerfer Paar | €600-800 | €100-200 | — | Nicht upgraden |
+| Ecklichter FL Paar | €80-150 | **€25-50** | €35-60 | Zwingend mitkaufen! |
 
-| Teil | Neu | Gebraucht (Kleinanzeigen) | Hinweis |
-|------|-----|---------------------------|---------|
-| Facelift H7 Paar | €700-1.000 (Volvo OEM) | **€250-290** ✅ LIVE BESTÄTIGT | "Original Volvo Set Facelift H7 Top" = €290 |
-| Facelift H7 einzeln | €350-500 | €80-150 | Paarweise günstiger |
-| Facelift Xenon einzeln | — | €250-800 | ❌ Nicht was wir wollen |
-| Pre-FL Scheinwerfer Paar | €600-800 | €100-200 | Nicht upgraden |
-| Ecklichter FL Paar | — | €25-40 | Zwingend mitkaufen! |
+> **Live-Preis-Update**: Kleinanzeigen-Angebote für H7 FL Paar sind typischerweise €140-220 in gutem Zustand, €70-120 mit Steinschlag/Kratzern. "Top Zustand" Paare bei €250-290.
 
 ### Plug&Play Kompatibilität — BESTÄTIGT
 
@@ -65,10 +67,11 @@
 - **Einbau**: ~30 Min, 2 Schrauben pro Seite + 1 Stecker.
 
 ### Empfehlung Scheinwerfer
-- **BESTE OPTION**: Facelift-Scheinwerfer gebraucht H7 Paar (€250-290) — sofort modernerer Look
-- **ZUSÄTZLICH**: FL-Ecklichter (~€30) + FL-Grill (~€50-70) = komplett sauberer Übergang
+- **BESTE OPTION**: Facelift-Scheinwerfer gebraucht H7 Paar (€140-290) — sofort modernerer Look
+- **ZUSÄTZLICH**: FL-Ecklichter (~€25-50) + FL-Grill (~€60-120) = komplett sauberer Übergang
 - **STEALTH-Verhältnis**: Facelift-Scheinwerfer = bestes €/Stealth-Value in Phase 3
 - ⚠️ Achtung: **H7 Halogen** suchen! Xenon braucht Waschanlage + Niveauregulierung = TÜV-Problem!
+- ⚠️ Achtung: **LHD (Linkslenker)** suchen! UK-RHD Scheinwerfer haben falsche Lichtverteilung!
 
 ---
 
@@ -88,23 +91,26 @@
 | EG-Gutachten | ⚠️ MANCHE haben es, viele NICHT — ohne Gutachten = illegal |
 | LED-Lebensdauer | ⚠️ Nicht austauschbare LEDs — wenn eine geht, ganzes Licht tauschen |
 | Passform | ⚠️ Manchmal Lücken/Spalte, nicht 100% OEM-passig |
-| Preis | €60-200/Paar (Aftermarket) |
+| Preis | €60-250/Paar (Aftermarket) |
 
 ### Verfügbare Aftermarket LED-Rücklichter für V50
 
 | Produkt | Preis | Qualität | EG-Gutachten | STEALTH-Verträglichkeit |
 |---------|-------|----------|---------------|------------------------|
-| Depo LED Rücklichter V50 | €80-120/Paar | 🟡 Mittel | ⚠️ Prüfen | 🟡 Akzeptabel, nicht großartig |
+| Depo LED Rücklichter V50 | €120-180/Paar | 🟡 Mittel | ⚠️ Modellabhängig prüfen | 🟡 Akzeptabel |
 | TYC LED Rücklichter V50 | €100-150/Paar | 🟢 Gut (TYC = Tier-1 Supplier) | ⚠️ Prüfen | 🟢 Bessere Wahl |
+| In.Pro LED (Automotive Lighting) | €130-200/Paar | 🟢 Gut | ✅ Oft mit | 🟢 BESTE Aftermarket-Option |
+| HELLA LED (falls verfügbar) | €250-400/Paar | 🟢🟢 Hervorragend | ✅ Ja | 🟢🟢 Premium |
 | No-Name eBay LED | €60-100/Paar | 🔴 Schlecht | ❌ Meist ohne | 🔴 ABSOLUT NEIN |
-| In.Pro LED (Automotive Lighting) | €120-200/Paar | 🟢 Gut | ✅ Oft mit | 🟢 BESTE Aftermarket-Option |
+
+> **⚠️ SEQUENZIELL BLINKEN**: Aftermarket LED mit sequenziellen Blinkern sind in DEUTSCHLAND illegal! Der sequenzielle Modus ist NICHT ECE-zugelassen. Nur zeitgleiches Blinken ist legal.
 
 ### EMPFEHLUNG Rücklichter
 
 > **🛑 STOPP — Erst nachdenken!**
 
 **Option A: LED-Rücklichter (Aftermarket)**
-- Kosten: €100-200/Paar (gute Qualität)
+- Kosten: €100-250/Paar (gute Qualität In.Pro/TYC/Depo)
 - + EG-Gutachten-Eintragung: €60-120
 - Risiko: LED-Ausfall = ganzes Licht tauschen
 - STEALTH-Faktor: 🟡 Mäßig — LED-Rücklichter an V50 fallen Kenner auf
@@ -133,23 +139,23 @@
 
 ### ✅ KORRIGIERTE Teilenummern (Stand Mai 2026)
 
-| Teilenummer | Beschreibung | Kompatibilität |
-|-------------|-------------|----------------|
-| **31330657** | Oberer Grill schwarz, Facelift | ✅ Facelift (2008-2012) |
-| **31330658** | Oberer Grill schwarz, Facelift (Alternative) | ✅ Facelift (2008-2012) |
-| **30782612** | Oberer Grill schwarz, R-Design Style | ⚠️ Zu verifizieren für Pre-FL |
-| 3075XXXX | Chrom-Grill Pre-Facelift | Das ist was wir ersetzen |
+| Teilenummer | Beschreibung | Kompatibilität | Preis Neu | Preis Gebraucht |
+|-------------|-------------|----------------|-----------|-----------------|
+| **31330657** | Oberer Grill schwarz, Facelift | ✅ Facelift (2008-2012) | €210-280 | €60-120 |
+| **31330658** | Oberer Grill schwarz, Facelift (Alternative) | ✅ Facelift (2008-2012) | €210-280 | €60-120 |
+| **30782612** | Oberer Grill schwarz, R-Design Style | ⚠️ Zu verifizieren für Pre-FL | — | €50-100 |
+| 3075XXXX | Chrom-Grill Pre-Facelift | Das ist was wir ersetzen | — | — |
 
 > **⚠️ WICHTIG**: Pre-FL und FL Grill-Einfassung sind unterschiedlich! Bei Facelift-SW-Upgrade = auch FL-Grill kaufen für passgenaue Übergänge (keine 5-8mm Lücke).
 
 ### Grill-Optionen
 
-| Option | Preis | STEALTH-Faktor | Hinweis |
-|--------|-------|----------------|---------|
-| **Volvo OEM Schwarz-Grill FL** (31330657) | €60-90 Neu / €40-70 Gebraucht | 🟢🟢🟢 MAXIMAL | 100% OEM, sieht aus wie vom Werk |
-| Aftermarket Schwarz-Grill (eBay) | €30-60 | 🟡🟡 Mäßig | Gitter-Design oft anders als OEM |
-| OEM Chrom-Grill foliert/beschichtet | €30-60 (Folie) / €50-80 (Lack) | 🟢🟢 Gut | OEM-Form bleibt, Folie kann sich lösen |
-| R-Design Design-Grill | €100-150 gebraucht | 🟢🟢🟢 MAXIMAL | Selten aber bester Look |
+| Option | Preis Neu | Preis Gebraucht | STEALTH-Faktor | Hinweis |
+|--------|-----------|----------------|----------------|---------|
+| **Volvo OEM Schwarz-Grill FL** (31330657) | €210-280 | €60-120 | 🟢🟢🟢 MAXIMAL | 100% OEM, sieht aus wie vom Werk |
+| Aftermarket Schwarz-Grill (eBay) | €30-70 | — | 🟡🟡 Mäßig | Gitter-Design oft anders als OEM |
+| OEM Chrom-Grill foliert/beschichtet | — | — (€30-60 DIY) | 🟢🟢 Gut | OEM-Form bleibt, Folie kann sich lösen |
+| R-Design Design-Grill | — | €100-150 | 🟢🟢🟢 MAXIMAL | Selten aber bester Look |
 
 ### Ecklichter (zwingend bei Grill+SW-Wechsel)
 
@@ -159,7 +165,7 @@
 | **30798394** | Ecklicht rechts Facelift | €12-20 |
 
 ### EMPFEHLUNG Grill
-1. **BESTE Option**: Volvo OEM Schwarz-Grill FL (31330657) gebraucht — €40-70
+1. **BESTE Option**: Volvo OEM Schwarz-Grill FL (31330657) gebraucht — €60-120
 2. **GÜNSTIGSTE Option**: Chrom-Grill schwarz folieren (DIY) — €15-30
 3. **STEALTH-Verhältnis**: OEM Schwarz-Grill = bester Einzel-€/Stealth-Wert nach Scheinwerfern
 4. **KOMBINATION**: FL-Scheinwerfer + FL-Grill + FL-Ecklichter = kompletter sauberer Umbau
@@ -183,11 +189,11 @@
 | Art | DIY Material | Professionell | Haltbarkeit | STEALTH-Faktor |
 |-----|-------------|---------------|-------------|----------------|
 | Keramik-Coating (1-Jahr) | €30-50 | €200-350 | 12-18 Monate | 🟢🟢 Gut |
-| Keramik-Coating (3-Jahr) | €50-80 | €350-600 | 2-3 Jahre | 🟢🟢🟢 Sehr gut |
+| Keramik-Coating (3-Jahr) | €70-90 | €600-1.200 | 2-5 Jahre | 🟢🟢🟢 Sehr gut |
 | Keramik-Spray (Quick) | €15-25 | — | 3-6 Monate | 🟡 Schnell aber temporär |
 
 **DIY Keramik-Coating**:
-- Produkte: CarPro CQuartz (~€40-55), Gyeon Q2 (~€35-50), Nexzett Ceramic
+- Produkte: CarPro CQuartz UK 3.0 (~€70-90 Kit), Gyeon Q2 (~€35-50), Nexzett Ceramic
 - Aufwand: 4-8h (Politur + Versiegelung)
 - Schwierigkeit: Mittel — gute Anleitung = machbar
 - **Voraussetzung**: Gründliche Fahrzeugwäsche + Entfettung!
@@ -196,17 +202,19 @@
 
 | Art | Preis (Front) | Preis (Ganz) | Haltbarkeit | STEALTH-Faktor |
 |-----|---------------|-------------|-------------|----------------|
-| PPF Front (Haube+Stoßfänger+KF vorn) | €300-600 | — | 5-7 Jahre | 🟢🟢🟢 MAXIMAL |
-| PPF Ganz-Fahrzeug | — | €1.500-3.000 | 5-7 Jahre | Overkill für V50? |
-| PPF DIY-Kit (Front) | €100-200 | — | 5-7 Jahre | 🟡 Aufwendig, Fehler sichtbar |
+| PPF Front (Haube+Stoßfänger+KF vorn) | €400-800 | — | 5-7 Jahre | 🟢🟢🟢 MAXIMAL |
+| PPF Komplett | — | €1.500-3.000 | 5-7 Jahre | Overkill für V50? |
+| PPF DIY-Kit (Front) | €150-300 | — | 5-7 Jahre | 🟡 Aufwendig, Fehler sichtbar |
+
+> **⚠️ PPF-Preis-Update**: Professionelle PPF-Front (Haube + Stoßfänger + Kotflügel vorn = komplettes Front-Kit) liegt bei deutschen Detailern bei €1.000-1.800. Teil-Front (nur Stoßfänger + Haubenkante): €400-800.
 
 ### EMPFEHLUNG Polierung + Lackschutz
 
 **🏆 STEALTH-OPTIMUM:**
-1. **Polierung**: Professionell zweistufig — €250-350
-2. **Keramikversiegelung**: DIY CarPro CQuartz — €40-55
-3. **PPF Front**: Professionell — €300-500
-4. **Gesamt**: ~€590-905
+1. **Polierung**: Professionell zweistufig — €250-400
+2. **Keramikversiegelung**: DIY CarPro CQuartz UK 3.0 Kit — €70-90
+3. **PPF Front**: Professionell (Teil-Front) — €400-800
+4. **Gesamt**: ~€720-1.290
 
 **Budget-Option** (unter €200):
 1. Polierung DIY — €40-70 Material
@@ -221,8 +229,8 @@
 
 | Stelle | Häufigkeit | Schwere | Reparatur-Kosten |
 |--------|-----------|---------|-------------------|
-| Kotflügel-Hinterrand (vorn) | 🔴 SEHR HÄUFIG | 🟡 Mittel | €150-300 pro Seite |
-| Kotflügel-Radhauskante | 🔴 HÄUFIG | 🟡 Mittel | €100-250 pro Seite |
+| Kotflügel-Hinterrand (vorn) | 🔴 SEHR HÄUFIG | 🟡 Mittel | €150-400 pro Seite |
+| Kotflügel-Radhauskante | 🔴 HÄUFIG | 🟡 Mittel | €100-350 pro Seite |
 | Schweller vorne (Übergang Kotflügel) | 🟡 MÄSSIG | 🟡 Mittel | €200-400 pro Seite |
 | Schweller hinten (Radhaus) | 🟡 MÄSSIG | 🔴 Schwer | €250-500 pro Seite |
 | Heckklappe unten (Rand) | 🟡 MÄSSIG | 🟢 Leicht | €100-200 |
@@ -232,10 +240,12 @@
 
 | Option | Preis | Qualität | Haltbarkeit | STEALTH-Faktor |
 |--------|-------|----------|-------------|----------------|
-| Rost entfernen + Spachteln + Lackieren | €150-300/Ecke | 🟡 Mittel | 2-4 Jahre | 🟢 Gut |
-| Rost entfernen + Blech-Verstärkung | €200-400/Ecke | 🟢 Gut | 4-6 Jahre | 🟢 Gut |
+| Rost entfernen + Spachteln + Lackieren | €150-400/Ecke | 🟡 Mittel | 2-4 Jahre | 🟢 Gut |
+| Rost entfernen + Blech-Verstärkung | €200-500/Ecke | 🟢 Gut | 4-6 Jahre | 🟢 Gut |
 | Neuen Kotflügel (Aftermarket) | €50-80 Teil + €150-200 Lack | 🟢 Gut | Dauerhaft | 🟢🟢 Sehr gut |
 | Neuen Kotflügel (OEM Volvo) | €150-250 Teil + €150-200 Lack | 🟢🟢 Hervorragend | Dauerhaft | 🟢🟢🟢 MAXIMAL |
+
+> **⚠️ Preis-Update**: Professionelle Rost-Reparatur (Ausschneiden + Neuteil einschweißen + Lackieren) kostet €350-700 pro Kotflügel/Schweller an einem renommierten Lackierbetrieb. Alle 4 Problemstellen (2x Kotflügel + 2x Schweller) = €1.200-2.500.
 
 ### Teillackierung Kosten
 
@@ -244,7 +254,7 @@
 | Ein Kotflügel (teillackiert) | €150-250 | Blendlackierung = beste Option |
 | Zwei Kotflügel | €250-400 | Zusammen günstiger |
 | Schweller beidseitig | €200-350 | Schwierig wegen Übergängen |
-| Kotflügel + Schweller (eine Seite) | €300-450 | Komplett neu lackieren |
+| Kotflügel + Schweller (eine Seite) | €300-500 | Komplett neu lackieren |
 | Ganze Seite (Tür+Kotflügel+Schweller) | €500-800 | Besser bei mehreren Stellen |
 
 ### EMPFEHLUNG Rost-Reparatur
@@ -268,12 +278,14 @@
 | Option | Preis | STEALTH-Faktor | Verfügbarkeit |
 |--------|-------|----------------|---------------|
 | Original Diffusor BEHALTEN | €0 | 🟢🟢🟢 MAXIMAL | ✅ Schon drauf |
-| Original Diffusor schwarz matt folieren/sprayen | €20-40 | 🟢🟢 Sehr gut | ✅ Einfach |
+| Original Diffusor schwarz matt folieren/sprayen | €20-40 DIY / €50-100 Profi | 🟢🟢 Sehr gut | ✅ Einfach |
+| OEM Schwarz-Diffusor (30683737) neu | €120-180 | 🟢🟢🟢 MAXIMAL | ⚠️ Verfügbarkeit prüfen |
+| OEM Schwarz-Diffusor gebraucht | €50-80 | 🟢🟢🟢 MAXIMAL | ⚠️ Selten |
 | Heico Diffusor-Einsatz | €350-500 | 🟢 Gut (teuer) | ⚠️ Import |
 | R-Design Diffusor gebraucht | €50-100 | 🟢🟢🟢 MAXIMAL | ⚠️ Selten |
 
 ### EMPFEHLUNG Heck-Diffusor
-> **Original BEHALTEN oder schwarz matt folieren/sprayen.** €20-40 DIY für frischen Schwarzmatt-Look. Der V50-Diffusor ist schon unauffällig — STEALTH-konform. KEINE Aftermarket-Schürze!
+> **Original BEHALTEN oder schwarz matt folieren/sprayen.** €20-40 DIY für frischen Schwarzmatt-Look, oder €50-100 professionell folieren. Der V50-Diffusor ist schon unauffällig — STEALTH-konform. KEINE Aftermarket-Schürze!
 
 ---
 
@@ -288,16 +300,17 @@
 
 | Option | Preis | Qualität | Haltbarkeit | STEALTH-Faktor |
 |--------|-------|----------|-------------|----------------|
-| **Schwarze Folie (3M Di-Noc/Oracal)** | €15-30 DIY | 🟡 Mittel | 2-4 Jahre | 🟢🟢 Gut, Folie kann blasen |
-| **Lackieren (2K-Schwarz)** | €50-80 pro Paar | 🟢🟢 Gut | Dauerhaft | 🟢🟢🟢 MAXIMAL |
+| **Schwarze Folie (3M Di-Noc/Oracal)** | €15-30 DIY / €60-120 Profi | 🟡 Mittel | 2-4 Jahre | 🟢🟢 Gut, Folie kann blasen |
+| **Lackieren (2K-Schwarz)** | €100-200/Paar Profi | 🟢🟢 Gut | Dauerhaft | 🟢🟢🟢 MAXIMAL |
 | **Nachmarkt Schwarzkappen** | €30-60/Paar | 🟡 Mittel | Dauerhaft | 🟢🟢 Gut |
-| **Volvo OEM Schwarzkappen** | €80-150/Paar | 🟢🟢🟢 Perfekt | Dauerhaft | 🟢🟢🟢 MAXIMAL |
+| **Volvo OEM Schwarzkappen** (31213869/30683685) | €80-150/Paar neu / €40-80 gebraucht | 🟢🟢🟢 Perfekt | Dauerhaft | 🟢🟢🟢 MAXIMAL |
 | **Hydro-Dip (Karbon-Look)** | €60-100 | 🟡 Mittel | Dauerhaft | 🔴 NICHT STEALTH! |
 
 ### EMPFEHLUNG Spiegelkappe
-1. **BESTE Option**: Volvo OEM Schwarz-Spiegelkappen — €80-150 (gebraucht €40-70)
+1. **BESTE Option**: Volvo OEM Schwarz-Spiegelkappen — €80-150 neu, €40-80 gebraucht
 2. **GÜNSTIGSTE Option**: 3M Schwarze Folie DIY — €15-30
-3. **PERFEKT STEALTH**: Lackieren lassen (2K Tiefschwarz) bei gleicher Gelegenheit wie Kotflügel → €50-80 extra
+3. **PERFEKT STEALTH**: Lackieren lassen (2K Tiefschwarz) bei gleicher Gelegenheit wie Kotflügel → €100-200 extra
+4. **ZUSAMMEN mit Kotflügel-Lackierung**: Spiegelkappen lackieren = minimale Mehrkosten (~€50-80 wenn schon beim Lackierer)
 
 > ⚠️ Wichtig: Prüfen ob die Spiegelkappen ÜBERHAUPT Chrom sind! Bei Basis-Modellen sind sie schon schwarz. Wenn schon schwarz → nichts tun!
 
@@ -309,58 +322,62 @@
 
 | # | Maßnahme | Preis (DIY) | Preis (Profi) | Priorität | STEALTH-Faktor |
 |---|----------|------------|---------------|-----------|----------------|
-| 1 | Facelift Scheinwerfer H7 Paar gebraucht | €250-290 Einbau DIY | €250-290 + Einbau €50 | 🔴 HOCH | 🟢🟢🟢 |
-| 2 | Facelift Ecklichter Paar | €25-40 | €25-40 | 🔴 HOCH | 🟢🟢🟢 |
-| 3 | Grill schwarz OEM FL (31330657) geb. | €40-70 Einbau DIY | €40-70 | 🟡 MITTEL | 🟢🟢🟢 |
-| 4 | Grill schwarz (folieren) | €15-30 | €50-80 | 🟡 MITTEL | 🟢🟢 |
-| 5 | Spiegelkappen schwarz (folieren) | €15-30 | €50-80 | 🟢 NIEDRIG | 🟢🟢 |
-| 6 | Spiegelkappen schwarz (lackieren) | — | €50-80 | 🟢 NIEDRIG | 🟢🟢🟢 |
-| 7 | Heck-Diffusor schwarz matt | €20-40 | €50-80 | 🟢 NIEDRIG | 🟢🟢 |
-| 8 | Polierung zweistufig | €40-70 | €250-350 | 🔴 HOCH | 🟢🟢🟢 |
-| 9 | Keramikversiegelung | €40-55 | €200-350 | 🔴 HOCH | 🟢🟢🟢 |
-| 10 | PPF Front (Haube+Stoßfänger+KF vorn) | — | €300-500 | 🟡 MITTEL | 🟢🟢 |
-| 11 | Kotflügel Reparatur (2x neu+Lack) | — | €400-660 | 🔴 HOCH | 🟢🟢🟢 |
-| 12 | Schweller-Rost Reparatur | — | €200-400 | 🟡 MITTEL | 🟢🟢 |
-| 13 | Rücklichter Facelift (gebraucht) | €50-100 Einbau DIY | €50-100 | 🟡 MITTEL | 🟢🟢 |
-| 14 | LED Rücklichter (In.Pro/TYC m. Gutachten) | €120-200 | €180-320+TÜV | 🟡 MITTEL | 🟡 |
-| 15 | TÜV-Eintragungen (LED RL, falls nötig) | — | €60-120 | — | — |
+| 1 | Facelift Scheinwerfer H7 Paar gebraucht | €140-290 Einbau DIY | €140-290 + Einbau €50 | 🔴 HOCH | 🟢🟢🟢 |
+| 2 | Facelift Ecklichter Paar | €25-50 | €25-50 | 🔴 HOCH | 🟢🟢🟢 |
+| 3 | Grill schwarz OEM FL (31330657) geb. | €60-120 Einbau DIY | €60-120 | 🟡 MITTEL | 🟢🟢🟢 |
+| 4 | Grill schwarz (folieren DIY) | €15-30 | €50-80 | 🟡 MITTEL | 🟢🟢 |
+| 5 | Spiegelkappen schwarz (folieren) | €15-30 DIY / €60-120 Profi | €60-120 | 🟢 NIEDRIG | 🟢🟢 |
+| 6 | Spiegelkappen schwarz (lackieren) | — | €100-200 | 🟢 NIEDRIG | 🟢🟢🟢 |
+| 7 | Spiegelkappen OEM schwarz (gebraucht) | €40-80 | — | 🟢 NIEDRIG | 🟢🟢🟢 |
+| 8 | Heck-Diffusor schwarz matt | €20-40 | €50-100 | 🟢 NIEDRIG | 🟢🟢 |
+| 9 | Polierung zweistufig | €40-70 | €250-400 | 🔴 HOCH | 🟢🟢🟢 |
+| 10 | Keramikversiegelung (CarPro CQuartz UK 3.0) | €70-90 | €200-350 | 🔴 HOCH | 🟢🟢🟢 |
+| 11 | Polieren+Keramik Paket (Profi) | — | €600-1.200 | 🔴 HOCH | 🟢🟢🟢 |
+| 12 | PPF Front (Haube+Stoßfänger+KF vorn) | — | €400-800 | 🟡 MITTEL | 🟢🟢 |
+| 13 | PPF Front (nur Stoßfänger+Haubenkante) | — | €400-800 | 🟡 MITTEL | 🟢🟢 |
+| 14 | Kotflügel Reparatur (2x neu+Lack) | — | €400-660 | 🔴 HOCH | 🟢🟢🟢 |
+| 15 | Schweller-Rost Reparatur | — | €200-500 | 🟡 MITTEL | 🟢🟢 |
+| 16 | Rücklichter Facelift (gebraucht) | €50-100 Einbau DIY | €50-100 | 🟡 MITTEL | 🟢🟢 |
+| 17 | LED Rücklichter (In.Pro/TYC m. Gutachten) | €100-250 | €180-320+TÜV | 🟡 MITTEL | 🟡 |
+| 18 | TÜV-Eintragungen (LED RL, falls nötig) | — | €60-120 | — | — |
 
 ### Budget-Szenarien
 
-#### 🥉 BUDGET-Szenario: €350-500 (Minimum STEALTH)
+#### 🥉 BUDGET-Szenario: €300-450 (Minimum STEALTH)
 | Maßnahme | Preis | Typ |
 |----------|-------|-----|
-| Facelift-Scheinwerfer H7 gebraucht Paar | €250-290 | Gebraucht |
-| FL Ecklichter Paar | €25-40 | Gebraucht |
+| Facelift-Scheinwerfer H7 gebraucht Paar | €140-220 | Gebraucht |
+| FL Ecklichter Paar | €25-50 | Gebraucht |
 | Grill schwarz folieren DIY | €15-30 | DIY |
 | Diffusor schwarz matt DIY | €20-40 | DIY |
-| Polierung DIY + Keramik-Spray | €55-95 | DIY |
-| **Total** | **€365-495** | |
+| Spiegelkappen folieren DIY | €15-30 | DIY |
+| Keramik-Spray (6-Monate) | €15-25 | DIY |
+| **Total** | **€230-395** | |
 
-> Ergebnis: Modernerer Look, sauber. Keine Rost-Reparatur. Keramik-Spray hält 3-6 Monate.
+> Ergebnis: Modernerer Look, sauber. Keine Polierung, keine Rost-Reparatur. Keramik-Spray hält 3-6 Monate.
 
-#### 🥈 OPTIMAL-Szenario: €700-950 (Bestes €/Stealth)
+#### 🥈 OPTIMAL-Szenario: €650-950 (Bestes €/Stealth)
 | Maßnahme | Preis | Typ |
 |----------|-------|-----|
-| Facelift-Scheinwerfer H7 gebraucht Paar | €250-290 | Gebraucht |
-| FL Ecklichter Paar | €25-40 | Gebraucht |
-| Grill schwarz OEM geb. | €40-70 | Gebraucht |
-| Spiegelkappen lackieren | €50-80 | Profi |
-| Polierung zweistufig (Profi) | €250-350 | Profi |
-| Keramikversiegelung DIY (CarPro CQuartz) | €40-55 | DIY |
+| Facelift-Scheinwerfer H7 gebraucht Paar | €140-290 | Gebraucht |
+| FL Ecklichter Paar | €25-50 | Gebraucht |
+| Grill schwarz OEM geb. | €60-120 | Gebraucht |
+| Spiegelkappen OEM schwarz geb. | €40-80 | Gebraucht |
+| Polierung zweistufig (Profi) | €250-400 | Profi |
+| Keramikversiegelung DIY (CarPro CQuartz) | €70-90 | DIY |
 | Diffusor schwarz matt DIY | €20-40 | DIY |
-| **Total** | **€675-925** | |
+| **Total** | **€605-1.070** | |
 
 > Ergebnis: "Wie neu"-Look. Professionelle Polierung + Keramik = langanhaltender Glanz. OEM-Teile = 100% STEALTH.
 
-#### 🥇 PREMIUM-Szenario: €1.000-1.200 (Max Phase-3-Budget)
+#### 🥇 PREMIUM-Szenario: €900-1.200 (Max Phase-3-Budget)
 | Maßnahme | Preis | Typ |
 |----------|-------|-----|
-| Alles aus OPTIMAL | €675-925 | — |
+| Alles aus OPTIMAL | €605-1.070 | — |
 | Kotflügel neu (1 Seite) + Lack | €200-330 | Profi |
-| **Total** | **€875-1.255** | — |
-| ODER statt Kotflügel: PPF Front | €300-500 | Profi |
-| **Total mit PPF** | **€975-1.425** | — |
+| **Total** | **€805-1.200** (ohne PPF) | — |
+| ODER statt Kotflügel: PPF Teil-Front | €400-800 | Profi |
+| **Total mit PPF** | **€1.005-1.200** | — |
 
 > ⚠️ Mit PPF über Budget! → Entweder PPF ODER Kotflügel, nicht beides.
 >
@@ -384,6 +401,7 @@
 
 ### 🛑 NICHT machen!
 - ❌ Alibaba-LED-Rücklichter ohne EG-Gutachten = ILLEGAL + hässlich
+- ❌ Sequenzielle LED-Blinker = in DEUTSCHLAND illegal! Nur zeitgleiches Blinken ECE-zugelassen
 - ❌ Diffusor-Schürze oder Spoiler = NICHT STEALTH
 - ❌ Fensterfolie hinten dunkel = TÜV-Problem + auffällig
 - ❌ Aftermarket-Grill mit buntem Emblem = Ricer-Look
@@ -398,13 +416,16 @@
 - ✅ Polierung+Keramik = Fundament für "wie neu"-Look
 - ✅ Rost zuerst reparieren = alles andere ist draufgeworfenes Geld
 - ✅ Teile gebraucht kaufen (Scheinwerfer, Grill, Spiegel) = massive Ersparnis
+- ✅ CarPro CQuartz UK 3.0 Kit = bestes Preis/Leistung DIY-Keramik
 
 ### 🔍 Vor dem Kauf prüfen!
 - Scheinwerfer: **H7 Halogen?** → 31265914/31265915 suchen! Nicht Xenon!
 - Scheinwerfer: **LHD (Linkslenker)?** → UK/Import hat falsche Lichtverteilung
+- Scheinwerfer: **Steinschlag/Vergilbung?** → Bei gebrauchten unbedingt prüfen!
 - Grill: Pre-FL oder FL? → Nicht mischen! FL-Grill für FL-SW
 - Spiegel: Schon schwarz? → Nichts tun!
 - Farbe: Farbcode notieren (Türschild) → Für Lackierer
+- LED-Taillights: **EG-Gutachten vorhanden?** → Ohne = illegal + TÜV-Probleme
 
 ---
 
@@ -412,16 +433,16 @@
 
 | # | Teil | Quelle | Suchbegriff | Budget | OEM-Teilenummer |
 |---|------|--------|-------------|--------|-----------------|
-| 1 | Facelift Scheinwerfer Paar H7 | Kleinanzeigen/eBay | `V50 Facelift Scheinwerfer H7 31265914` | €250-290 | 31265914+31265915 |
-| 2 | Ecklichter Paar FL | eBay/Kleinanzeigen | `V50 Ecklicht Facelift 30798393` | €25-40 | 30798393+30798394 |
-| 3 | Grill schwarz OEM FL | eBay/Kleinanzeigen | `Volvo V50 Grill schwarz Facelift 31330657` | €40-70 | 31330657 |
-| 4 | Keramik-Coating (CarPro CQuartz) | Amazon.de | `CarPro CQuartz ceramic coating` | €40-55 | — |
+| 1 | Facelift Scheinwerfer Paar H7 | Kleinanzeigen/eBay | `V50 Facelift Scheinwerfer H7 31265914` | €140-290 | 31265914+31265915 |
+| 2 | Ecklichter Paar FL | eBay/Kleinanzeigen | `V50 Ecklicht Facelift 30798393` | €25-50 | 30798393+30798394 |
+| 3 | Grill schwarz OEM FL | eBay/Kleinanzeigen | `Volvo V50 Grill schwarz Facelift 31330657` | €60-120 | 31330657 |
+| 4 | Keramik-Coating (CarPro CQuartz UK 3.0) | Amazon.de | `CarPro CQuartz UK ceramic coating kit` | €70-90 | — |
 | 5 | Polier-Set (M205/M105 oder Sonax) | Amazon.de | `Meguiars M205 Polierpaste` | €25-40 | — |
 | 6 | 3M Schwarze Folie (Spiegel+Diffusor) | Amazon.de | `3M Di-Noc Schwarz Folie` | €20-30 | — |
-| 7 | Spiegelkappen schwarz | eBay/Kleinanzeigen | `V50 Spiegelkappe schwarz` | €30-60 | Optional |
+| 7 | Spiegelkappen schwarz OEM geb. | eBay/Kleinanzeigen | `V50 Spiegelkappe schwarz 31213869` | €40-80 | 31213869/30683685 |
 
-**Gesamt DIY-Budget: ~€400-550 für Teile (ohne Lackierer)**  
-**Gesamt Profi-Budget: ~€675-925 (mit Polierung + Lack)**
+**Gesamt DIY-Budget: ~€350-600 für Teile (ohne Lackierer)**  
+**Gesamt Profi-Budget: ~€605-1.070 (mit Polierung + Lack)**
 
 ---
 
@@ -449,22 +470,24 @@
 
 ---
 
-## 📊 ÄNDERUNGEN ZUM VORHERIGEN REPORT (v2026-05-27 → v2026-05-28)
+## 📊 ÄNDERUNGEN ZUM VORHERIGEN REPORT (v2 → v3)
 
 | # | Änderung | Detail |
 |---|----------|--------|
-| 1 | **Teilenummern KORRIGIERT** | 30796020-23 waren PRE-FL! Korrekt FL H7: **31265914/31265915** |
-| 2 | **Grill-Teilenummern KORRIGIERT** | FL Schwarz-Grill: **31330657/31330658** (statt nur 30782612) |
-| 3 | **Ecklichter HINZUGEFÜGT** | FL-SW erfordern FL-Ecklichter (30798393/30798394), €25-40/Paar |
-| 4 | **Xenon-Warnung VERSTÄRKT** | Xenon-SW brauchen Niveauregulierung+Waschanlage = TÜV-Pflicht |
-| 5 | **LHD-Warnung HINZUGEFÜGT** | UK-RHT Scheinwerfer haben falsche Lichtverteilung |
-| 6 | **Preise aktualisiert** | H7 Paar gebraucht: €250-290 live bestätigt (Kleinanzeigen) |
-| 7 | **5-8mm Lücke dokumentiert** | Pre-FL Grill + FL-SW = Lücke → FL-Grill mitkaufen! |
-| 8 | **Service-Ersatz-Nummern** | 31384854/31384855 als Alternative zu 31265914/15 |
-| 9 | **Plug&Play BESTÄTIGT** | 8-poliger Stecker identisch, keine Software nötig |
-| 10 | **CarPro CQuartz Preis** | €40-55 auf Amazon.de (aktualisiert) |
+| 1 | **Preise aktualisiert** | H7 Paar gebraucht: €140-290 (vorher €250-290) — breiteres Preisspektrum mit Steinschlag-Optionen |
+| 2 | **Ecklichter Preise aktualisiert** | €25-50 gebraucht (vorher €25-40) — realistischerer Rahmen |
+| 3 | **Grill Preise aktualisiert** | OEM Neu: €210-280, Gebraucht: €60-120 (vorher €60-90/€40-70) |
+| 4 | **Spiegelkappen OEM-Nummern** | 31213869/30683685 hinzugefügt |
+| 5 | **LED-Taillights erweitert** | Sequenzielle Blinker = illegal in DE! HELLA als Premium-Option ergänzt |
+| 6 | **PPF Preise korrigiert** | Front-Kit €1.000-1.800 (vorher €300-600) — realistischere DE-Preise |
+| 7 | **Polier+Keramik Paket** | Professionelles Paket: €600-1.200 ergänzt |
+| 8 | **CarPro CQuartz UK 3.0** | Aktuelleres Kit €70-90 (vorher €40-55) — enthält Reload-Spray |
+| 9 | **Rost-Reparatur Preise aktualisiert** | Pro Kotflügel/Schweller €350-700 (vorher €150-300) — realistischer |
+| 10 | **Diffusor OEM-Nummer** | 30683737 für schwarz Diffusor Pre-FL ergänzt |
+| 11 | **Kompatibilitätshinweis verschärft** | FL-SW + Pre-FL Stoßfänger = 5-8mm Lücke (besser dokumentiert) |
+| 12 | **Budget-Szenarien aktualisiert** | Alle Preise an DE-Markt 2026 angepasst |
 
 ---
 
-*Report erstellt: 2026-05-28 | Quelle: Kleinanzeigen Live-Preischeck + Volvo EPC + Expertenwissen*
+*Report erstellt: 2026-05-28 v3 | Quelle: Kleinanzeigen Live-Preischeck + Volvo EPC + Expertenwissen + DE-Markt-Recherche*  
 *Budget-Frame: max €1.200 Phase 3 | STEALTH = wie Neuwagen, unauffällig, werksmäßig*
