@@ -36,12 +36,12 @@ KEINE Phase ueberschritten!
 
 | Phase | Geplant | Budget | Reserve | Status |
 |-------|---------|--------|---------|--------|
-| 1: Zuverlaessigkeit | EUR445 | EUR800 | +EUR355 (44%) | OK — +EUR17 Connector-Kits |
+| 1: Zuverlaessigkeit | **EUR470** | EUR800 | **+EUR330 (41%)** | OK — +EUR19 Filter+Schläuche+Connector-Kits |
 | 2: Fahrwerk | €944 | **€1.005** | **+€195 (16%)** | ✅ Deep-Dive Update (2026-05-28) |
 | 3: Africa Twin Look | EUR688 | EUR1.000 | +EUR312 (31%) | OK |
 | 4: Touring-Komfort | EUR187 | EUR800 | +EUR613 (77%) | OK |
 | 5: Reserve | — | EUR500 | +EUR500 | Puffer |
-| **Total** | **EUR2.264** | **EUR4.300** | **+EUR2.036** | OK |
+| **Total** | **EUR2.289** | **EUR4.300** | **+EUR2.011** | OK |
 
 ### Gewicht-Bilanz
 - **Trockengewicht nach Bau:** ~155.4 kg (OEM: 161 kg) = -5.6 kg
@@ -275,12 +275,19 @@ Agenten schreiben hier rein wen sie noch brauchen:
 - **Dyno-Test Map C**: Sound-optimierte Zündkurve muss auf Prüfstand validiert werden
 - **PlatformIO Compile Test**: Vollständige Kompilierung auf ESP32-Target bestätigen
 
-### ✅ Motor/Antrieb ERLEDIGT:
+### ✅ Motor/Antrieb ERLEDIGT (Update 2 — 2026-05-28):
 - Stator+Regler Combo bestätigt ✅
 - Vergaser VE82M Specs + Jetting-Tabelle ✅
 - Auspuff Leo Vince SBK = EINZIGE legale Option ✅
 - Kette+Ritzel DID 520VX3 + JT 15/44 ✅
-- Bremsen EBC FA185HH + HEL SS ✅
+- Bremsen EBC FA185HH + Venhill SS ✅
+- **NEU:** Inline-Kraftstofffilter 8mm als PFLICHT für Ethanol-Schutz (ID#446) ✅
+- **NEU:** Silikon-Unterdruckschläuche 3mm für VE82M (ID#447) ✅
+- **NEU:** CDI-Diagnosepfad erstellt: decomp → Zündspule → Funke → CDI ✅
+- **NEU:** Ignitech DC-CDI-P2 als CDI-Upgrade-Option (ID#445, €120-180) ✅
+- **NEU:** Zündspule OEM 30500-KY5-003 (ID#448, €25-65) — VOR CDI messen! ✅
+- **NEU:** Dekomp-Ventil 12351-KY5-871 (ID#449, €15-35) — KOSTENLOS einstellen! ✅
+- **NEU:** 5 Teile in DB, 3 Build Guides aktualisiert ✅
 
 ## ✅ Budget-Jäger PREIS-CHECK ERLEDIGT (2026-05-28 — Run #2)
 

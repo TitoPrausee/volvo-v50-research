@@ -17,7 +17,7 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 | Phase | Fokus | Budget | Priorität |
 |-------|-------|--------|----------|
-| 1 | Motorlauf & Sicherheit (MUSS) | €500-800 | 🔴 Kritisch |
+| 1 | Motorlauf & Sicherheit (MUSS) | €470-800 | 🔴 Kritisch |
 | 2 | Fahrwerk Sport+Gelände | €800-1.200 | 🔴 Kritisch |
 | 3 | Africa Twin Look + Sound | €800-1.000 | 🟡 Wichtig |
 | 4 | Touring-Komfort | €300-600 | 🟢 Nice-to-have |
@@ -28,27 +28,27 @@ Siehe Cron-Jobs: `aql-*` Präfix
 
 | Phase | Geplant (€) | Budget (€) | Reserve (€) | Status |
 |-------|------------|-----------|------------|--------|
-| 1: Zuverlässigkeit | 445 | 800 | +355 (44%) | ✅ Stark |
+| 1: Zuverlässigkeit | 470 | 800 | +330 (41%) | ✅ Stark |
 | 2: Fahrwerk | 944 | 1.200 | +256 (21%) | ✅ OK |
 | 3: Africa Twin Look | 688 | 1.000 | +312 (31%) | ✅ Gut |
 | 4: Touring-Komfort | 187 | 800 | +613 (77%) | ✅ Sehr gut |
 | 5: Reserve | — | 500 | +500 | 🔵 Puffer |
-| **Total** | **2.264** | **4.300** | **+2.036** | ✅ |
+| **Total** | **2.289** | **4.300** | **+2.011** | ✅ |
 
-> **Ergebnis:** Option A (Optimal) kostet €2.264 + €500 Reserve = €2.764. Unter dem €5.000 Hard Cap mit **€2.236 Reserve** (45%).
+> **Ergebnis:** Option A (Optimal) kostet €2.289 + €500 Reserve = €2.789. Unter dem €5.000 Hard Cap mit **€2.211 Reserve** (44%).
 > 
-> ⚠️ Phase 1 um €19 gestiegen: Regler-Verbinder-Kit + Stator-Connector (€17) hinzugefügt — BEKANNTES NX650-Sicherheitsproblem!
+> ⚠️ Phase 1 um €38 gestiegen: Regler-Verbinder-Kit + Stator-Connector (€17) + Inline-Kraftstofffilter (€7) + Silikonschläuche (€7) + Diagnose-Reserve hinzugefügt — BEKANNTE NX650-Probleme!
 
 ### Budget-Guard: KEINE Phase überschritten ✅
-- Phase 1: €445 / €800 → **€355 Reserve** (44%) — +€17 Regler-Verbinder+Stator-Connector
+- Phase 1: €470 / €800 → **€330 Reserve** (41%) — +€38 Filter+Schläuche+Connectors
 - Phase 2: €944 / €1.200 → **€256 Reserve** (21%) — Mitas E-07+ Dakar teurer
 - Phase 3: €688 / €1.000 → **€312 Reserve** (31%)
 - Phase 4: €187 / €800 → **€613 Reserve** (77%)
 
 ### DB-Verifizierung (2026-05-28 — Preis-Jäger Run #2)
-- **143 NX650-fitment Teile** in DB (inkl. alle Alternativen + neue Bundle/Kits)
+- **148 NX650-fitment Teile** in DB (inkl. alle Alternativen + Bundle/Kits + 5 neue Motor-Zuverlässigkeit)
 - **DB SUM(price_avg) alle NX650:** €12.657 (nicht AQL-Budget — enthält Alternativen!)
-- **28 Teile in Option A Build-Plan:** €2.264
+- **33 Teile in Option A Build-Plan:** €2.289 (inkl. Diagnose-Reserve)
 - **54 NX650 Known Issues:** 5 critical (Stator, Regler, +Verbinder), 4 high (Verkabelung, CDI)
 - **Neu hinzugefügte NX650-Teile (IDs 303-346):** 44 Teile — Dichtungen, OEM-Ersatzteile, Motorinternas, Bundle-Deals, Connector-Kits
 - **7 Preise aktualisiert:** Stator €95, Regler €55, EBC FA185HH €20, Koso RX-22 €99.90, Mitas E-07+ Dakar €89.90/€109
